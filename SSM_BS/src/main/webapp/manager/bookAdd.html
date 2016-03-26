@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+	<!--<![endif]-->
+	<!-- BEGIN HEAD -->
+
+	<head>
+		<meta charset="utf-8" />
+		<title>IBooK-商家服务平台</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta content="" name="description">
+		<meta content="bin--开发" name="author">
+		<!-- BEGIN PACE PLUGIN FILES -->
+		<script src="../../assets/global/plugins/pace/pace.min.js" type="text/javascript"></script>
+		<link href="../../assets/global/plugins/pace/themes/pace-theme-flash.css" rel="stylesheet" type="text/css" />
+		<!-- END PACE PLUGIN FILES -->
+		<!-- BEGIN GLOBAL MANDATORY STYLES -->
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
+		<link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+		<link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<!-- END GLOBAL MANDATORY STYLES -->
+		<!-- BEGIN PAGE LEVEL PLUGINS -->
+		<link href="../../assets/global/plugins/vendors/css/style.css" rel="stylesheet" type="text/css">
+		<!-- END PAGE LEVEL PLUGINS -->
+		<!-- BEGIN THEME STYLES -->
+		<link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+		<link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+		<link href="../../assets/admin/layout2/css/layout.css" rel="stylesheet" type="text/css" />
+		<link id="style_color" href="../../assets/admin/layout2/css/themes/grey.css" rel="stylesheet" type="text/css" />
+		<link href="../../assets/admin/layout2/css/custom.css" rel="stylesheet" type="text/css" />
+		<!-- END THEME STYLES -->
+
+		<link rel="shortcut icon" href="book1.jpg" />
+	</head>
+	<!-- END HEAD -->
+	<!-- BEGIN BODY -->
+
+	<body class="page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed ">
+		<!-- BEGIN HEADER -->
+		<div class="page-header navbar navbar-fixed-top">
+			<!-- BEGIN HEADER INNER -->
+			<div class="page-header-inner">
+				<!-- BEGIN LOGO -->
+				<div class="page-logo">
+					<a href="index.html">
+						<img src="../../assets/admin/layout2/img/logo.png" alt="logo" class="logo-default" />
+					</a>
+					<div class="menu-toggler sidebar-toggler"></div>
+				</div>
+				<!-- END LOGO -->
+				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+				<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"></a>
+				<!-- END RESPONSIVE MENU TOGGLER -->
+				<!-- BEGIN PAGE ACTIONS -->
+				<div class="page-actions page-actions-cn"></div>
+				<!-- END PAGE ACTIONS -->
+				<!-- BEGIN PAGE TOP -->
+				<div class="page-top">
+					<!-- BEGIN TOP NAVIGATION MENU -->
+					<div class="top-menu">
+						<ul class="nav navbar-nav pull-right">
+
+							<!-- BEGIN NOTIFICATION DROPDOWN -->
+							<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+								<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+									<i class="icon-bell"></i>
+									<span class="badge badge-danger"> 3 </span>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="external">
+										<h3>你有<span class="bold">12</span>条未处理订单</h3>
+									</li>
+									<li>
+										<ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+											<li>
+												<a href="javascript:;">
+													<span class="time">just now</span>
+													<span class="details">
+										<span class="label label-sm label-icon label-success">
+										<i class="fa fa-plus"></i>
+										</span> New user registered. </span>
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													<span class="time">3 mins</span>
+													<span class="details">
+										<span class="label label-sm label-icon label-danger">
+										<i class="fa fa-bolt"></i>
+										</span> Server #12 overloaded. </span>
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													<span class="time">10 mins</span>
+													<span class="details">
+										<span class="label label-sm label-icon label-warning">
+										<i class="fa fa-bell-o"></i>
+										</span> Server #2 not responding. </span>
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													<span class="time">14 hrs</span>
+													<span class="details">
+										<span class="label label-sm label-icon label-info">
+										<i class="fa fa-bullhorn"></i>
+										</span> Application error. </span>
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													<span class="time">2 days</span>
+													<span class="details">
+										<span class="label label-sm label-icon label-danger">
+										<i class="fa fa-bolt"></i>
+										</span> Database overloaded 68%. </span>
+												</a>
+											</li>
+
+											<a href="javascript:;">
+												<span class="time">9 days</span>
+												<span class="details">
+										<span class="label label-sm label-icon label-danger">
+										<i class="fa fa-bolt"></i>
+										</span> Storage server failed. </span>
+											</a>
+									</li>
+									</ul>
+							</li>
+							</ul>
+							</li>
+							<!-- END NOTIFICATION DROPDOWN -->
+							<!-- BEGIN USER LOGIN DROPDOWN -->
+							<li class="dropdown dropdown-user">
+								<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+									<img alt="" class="img-circle" src="../../assets/admin/layout2/img/avatar.png" />
+									<span class="username username-hide-on-mobile">Nick </span>
+									<i class="fa fa-angle-down"></i>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-default">
+									<li>
+										<a href="userinfo.html">
+											<i class="icon-user"></i> 个人信息</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="pwdsettings.html">
+											<i class="icon-lock"></i> 密码修改</a>
+									</li>
+									<li>
+										<a href="login.html">
+											<i class="icon-key"></i> 退出</a>
+									</li>
+								</ul>
+							</li>
+							<!-- END USER LOGIN DROPDOWN -->
+						</ul>
+					</div>
+					<!-- END TOP NAVIGATION MENU -->
+				</div>
+				<!-- END PAGE TOP -->
+			</div>
+			<!-- END HEADER INNER -->
+		</div>
+		<!-- END HEADER -->
+		<div class="clearfix"></div>
+		<!-- BEGIN CONTAINER -->
+		<div class="page-container">
+			<!-- BEGIN SIDEBAR -->
+			<div class="page-sidebar-wrapper">
+				<div class="page-sidebar navbar-collapse collapse">
+					<!-- BEGIN SIDEBAR MENU -->
+					<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+						<li class="start active ">
+							<a href="index.html">
+								<i class="icon-home"></i>
+								<span class="title">IBooK首页</span>
+								<span class="selected"></span>
+							</a>
+						</li>
+						<li>
+							<a href="order.html">
+								<i class="fa fa-list-ul"></i>
+								<span class="title">订单管理</span>
+								<span class="arrow"></span>
+							</a>
+
+						</li>
+						<li>
+							<a href="book.html">
+								<i class="fa fa-book"></i>
+								<span class="title">图书管理</span>
+								<span class="arrow "></span>
+							</a>
+						</li>
+						<li>
+							<a href="sales.html">
+								<i class="fa fa-line-chart"></i>
+								<span class="title">销量统计</span>
+								<span class="arrow "></span>
+							</a>
+						</li>
+						<li>
+							<a href="recommendation.html">
+								<i class="fa fa-credit-card"></i>
+								<span class="title">智能推荐管理</span>
+								<span class="arrow "></span>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<i class="fa fa-shirtsinbulk"></i>
+								<span class="title">公告管理</span>
+								<span class="arrow "></span>
+							</a>
+							<ul class="sub-menu">
+								<li>
+									<a href="notice_add.html">
+										<i class="fa fa-user"></i> 发布公告
+									</a>
+								</li>
+								<li>
+									<a href="notice_activity.html">
+										<i class="fa fa-users"></i> 公告管理
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<i class="fa fa-jsfiddle"></i>
+								<span class="title">系统管理</span>
+								<span class="arrow "></span>
+							</a>
+							<ul class="sub-menu">
+								<li>
+									<a href="manager.html">
+										<i class="fa fa-stumbleupon-circle"></i> 账号管理
+										<i class="fa fa"></i>
+									</a>
+								</li>
+								<li>
+									<a href="ibook.html">
+										<i class="fa fa-gift"></i> IBooK信息
+									</a>
+								</li>
+								<li>
+									<a href="password_edit.html">
+										<i class="icon-lock"></i> 密码修改
+									</a>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+					<!-- END SIDEBAR MENU -->
+				</div>
+			</div>
+			<!-- END SIDEBAR -->
+			<!-- BEGIN CONTENT -->
+			<div class="page-content-wrapper">
+<div class="page-content" style="min-height:801px">	
+	<!-- BEGIN PAGE HEADER-->
+	<h3 class="page-title">现金券管理<!-- 现 金 券 管 理--></h3>
+	<div class="page-bar">
+		<ul class="page-breadcrumb">
+			<li>
+				<i class="fa fa-home"></i>
+				<a href="/msc/main/index.do">
+					MSC首页<!-- M S C 首 页</a>
+					<i class="fa fa-angle-right"></i>
+				</li>
+				<li>
+					<a href="javascript:void(0);">酷券服务<!-- 酷 券 服 务--></a>
+					<i class="fa fa-angle-right"></i>
+				</li>
+				<li>
+					<a href="javascript:void(0);" onclick="turnTo('/coupon/cashcoupon')">现金券管理<!-- 现 金 券 管 理--></a>   
+					<i class="fa fa-angle-right"></i>         			
+				</li>
+				<li class="active">
+					<a href="javascript:void(0);">现金券定义<!-- 现 金 券 定 义--></a>  		
+				</li>
+
+			</ul>
+	</div>
+	<!-- END PAGE HEADER-->
+	<!-- BEGIN PAGE CONTENT-->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="portlet light">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-stumbleupon-circle font-green-sharp"></i>
+						<span class="caption-subject font-green-sharp bold">现金券定义<!-- 现 金 券 定 义--></span>										
+					</div>	
+					<div class="actions btn-set">
+						<a class="btn btn-default btn-circle" href="javascript:void(0);" onclick="turnTo('/coupon/cashcoupon')"><i class="fa fa-angle-left"></i> 返回<!-- 返 回--></a>										
+					</div>									
+				</div>
+				<div class="portlet-body">
+					<div class="table-responsive">
+						<form class="form-horizontal form-row-seperated form-inline" action="#" method="post" id="createCouponForm" novalidate="novalidate">
+							<!-- <input type="hidden" name="genType" value=""/> -->
+							<table class="table table-bordered table_sxcondition ">
+								<tbody><tr>
+									<th style="min-width: 120px">创建方式<!-- 创 建 方 式-->：</th>
+									<td class="lineheight34">
+										<select id="genType" name="genType" class="form-control input-large-plus" required="required"> 
+											<option value="0" selected="selected">系统生成<!-- 系 统 生 成--></option> 
+											<option value="1">第三方导入<!--第三 方 导 入--></option> 
+											<option value="2">供应商<!-- 供 应 商--></option> 
+										</select>
+									</td>
+								</tr>
+								<tr style="display:none;">
+									<th>供应商<!-- 供 应 商-->：<label style="color:red;">&nbsp;*&nbsp;</label></th>
+									<td class="lineheight34">
+										<select id="supplierId" name="supplierId" class="form-control input-large-plus" required="required"></select>
+									</td>
+								</tr>
+								<tr style="display:none;">
+								<th>商品<!-- 商 品-->：<label style="color:red;">&nbsp;*&nbsp;</label></th>
+									<td class="lineheight34">
+										<select id="goodsId" name="goodsId" class="form-control input-large-plus" required="required"></select>
+									</td>
+								</tr>
+								<tr>
+									<th width="25%">正标题<!-- 正 标 题-->：<label style="color:red;">&nbsp;*&nbsp;</label></th>
+									<td width="75%" class="lineheight34">
+										<input id="subjectTitle" name="subjectTitle" type="text" class="form-control input-large-plus" value="" autofocus="">
+										<span class="tpl-fr">名称不能为空且长度不超过20个汉字或40个英文字母</span>
+										<script type="text/javascript">
+											$("#subjectTitle").bind("keyup change", function(e){
+											var k = window.event ? e.keyCode : e.which;
+											if (k == 35 || k == 36 || k == 37 || k == 39) return;
+										
+											var thisVal = $(this).val();
+											thisVal = escapeChars(thisVal);
+											var len = getByteLen(thisVal);
+											if(len > 40){
+												$(this).val(getByteVal(thisVal, 40));
+												len = 40;
+											}else{
+												$(this).val(thisVal);
+											}
+										});
+										</script>
+									</td>
+								</tr>
+								<tr>
+									<th>酷券名称<!-- 酷 券 名 称-->：<label style="color:red;">&nbsp;*&nbsp;</label></th>
+									<td class="lineheight34">   
+										<input id="couponname_edit" name="name" type="text" class="form-control input-large-plus" value="">
+										<span class="tpl-fr">名称不能为空且长度不超过20个汉字或40个英文字母</span>
+										<script type="text/javascript">
+											$("#couponname_edit").bind("keyup change", function(e){
+												var k = window.event ? e.keyCode : e.which;
+												if (k == 35 || k == 36 || k == 37 || k == 39) return;
+											
+												var thisVal = $(this).val();
+												thisVal = escapeChars(thisVal);
+												var len = getByteLen(thisVal);
+												if(len > 40){
+													$(this).val( getByteVal(thisVal, 40));
+													len = 40;
+												}else{
+													$(this).val(thisVal);
+												}
+											});
+										</script>
+									</td>
+								</tr>
+								<tr>
+									<th rowspan="2" class="table-title border-bottom">券图片1<!-- 券 图 片 1-->：<label style="color:red;">&nbsp;*&nbsp;</label><br><!-- <span style="color:red; font-size:12px;">显示在商城中</span> --></th>
+									<td> 
+										<div class="input-group margin-top10 box">
+											<input id="uploadFile_1" name="uploadFile_1" placeholder="选择文件" disabled="disabled" class="form-control input-large-plus">
+											<button class="fileUpload btn btn-primary" type="button" onclick="clickUpload('mallimagefile')">
+												<span>浏览<!-- 浏 览--></span>
+												<input type="file" id="mallimagefile" name="dataFile" value="上传图片" class="set-up-button upload" style="display:none; width:200px;" onchange="onUploadImgChange(this,200,'mall_img')" data-url="/msc/ajax/UploadPic/uploadResourceFTP.do?source=couponimages" multiple="">
+											</button>
+											<label id="pic_label1" style="color:red"></label>
+											<input type="hidden" id="mallimage" name="mallimage" value="">
+										</div> 
+									</td>
+								</tr>
+								<tr>      
+									<td class="border-bottom">
+										<div>
+										<table><tbody><tr>
+											<td style="padding:0; width: 50%;">
+												<img id="mall_img" class="shlogo pull-left margin-right10" src="" style="width: 160px;  height: 120px;">
+												<span name="previewInfo"></span> 
+											</td>
+											<td>
+												<p>图片建议尺寸：320像素x240像素<!-- 图 片 建 议 尺 寸 ： 3 2 0 像 素 x 2 4 0 像 素--></p>
+												<p>仅支持.jpg .jpeg .bmp .png格式<!-- 仅 支 持 . j p g   . j p e g   . b m p   . p n g 格 式--></p>
+												<p>长方形照片<!-- 长 方 形 照 片-->，大小不超过200K<!-- 大 小 不 超 过 2 0 0 K--></p>
+											</td>
+										</tr></tbody></table>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th rowspan="2" class="table-title border-bottom">券图片2<!-- 券 图 片 2-->：<label style="color:red;">&nbsp;*&nbsp;</label></th>
+									<td>
+										<div class="input-group margin-top10 box">
+											<input id="uploadFile_2" name="uploadFile_2" placeholder="选择文件" disabled="disabled" class="form-control input-large-plus">
+											<button class="fileUpload btn btn-primary" type="button" onclick="clickUpload('smallimagefile')">
+												<span>浏览<!-- 浏 览--></span>
+												<input type="file" id="smallimagefile" name="dataFile" value="上传图片" class="set-up-button upload" style="display:none;  width:200px;" onchange="onUploadImgChange(this,50,'small_img')" data-url="/msc/ajax/UploadPic/uploadResourceFTP.do?source=couponimages" multiple="">
+												<label class="error" style="color:red"></label>
+												<input type="hidden" id="smallimage" name="smallimage" value="">
+											</button>
+											<label id="pic_label2" style="color:red"></label>
+										</div> 
+									</td>
+								</tr>
+								<tr> 
+									<td class="border-bottom">
+										<table><tbody><tr>
+											<td style="padding:0;  width: 50%;">
+												<img id="small_img" src="" class="shlogo pull-left margin-right10" style="width: 110px;  height: 80px;">
+												<span name="previewInfo"></span> 
+											</td>
+											<td>
+												<p>图片建议尺寸：110像素x80像素<!-- 图 片 建 议 尺 寸 ： 1 1 0 像 素 x 8 0 像 素--></p>
+												<p>仅支持.jpg .jpeg .bmp .png格式<!-- 仅 支 持 . j p g   . j p e g   . b m p   . p n g 格 式--></p>
+												<p>长方形照片<!-- 长 方 形 照 片-->，大小不超过50K<!-- 大 小 不 超 过 5 0 K--></p>
+											</td>
+										</tr></tbody></table>
+									</td>
+								</tr>
+								<tr>
+									<th>券颜色<!-- 券 颜 色-->：</th>
+									<td class="lineheight34">
+										<table id="color-tbl">
+											
+												<tbody><tr>
+												
+												<td> 
+													<div class="outlet" style="cursor:pointer;  border:0px solid #000000;  padding:0px 0px; display: inline-flex; margin: 0px 5px;" onclick="chooseColor(this, '#BE0622,#BE0622');">
+												
+													<div id="#BE0622" style="background-color:#BE0622; width:10px; height:20px; margin-left:0px; "></div>
+												
+												
+											
+												
+												
+													<div id="#FF4D67" style="background-color:#FF4D67; width:10px; height:20px; margin-left:0px; width:20px;"></div>
+												
+													</div>
+												</td>
+												
+												
+											
+												
+												
+												<td> 
+													<div class="outlet" style="cursor:pointer;    padding:0px 0px; display: inline-flex; margin: 0px 5px;" onclick="chooseColor(this, '#62A716,#62A716');">
+												
+													<div id="#62A716" style="background-color:#62A716; width:10px; height:20px; margin-left:0px; "></div>
+												
+												
+											
+												
+												
+													<div id="#8DC153" style="background-color:#8DC153; width:10px; height:20px; margin-left:0px; width:20px;"></div>
+												
+													</div>
+												</td>
+												
+												
+											
+												
+												
+												<td> 
+													<div class="outlet" style="cursor:pointer;    padding:0px 0px; display: inline-flex; margin: 0px 5px;" onclick="chooseColor(this, '#EB8F00,#EB8F00');">
+												
+													<div id="#EB8F00" style="background-color:#EB8F00; width:10px; height:20px; margin-left:0px; "></div>
+												
+												
+											
+												
+												
+													<div id="#FFAC2C" style="background-color:#FFAC2C; width:10px; height:20px; margin-left:0px; width:20px;"></div>
+												
+													</div>
+												</td>
+												
+												
+											
+												
+												
+												<td> 
+													<div class="outlet" style="cursor:pointer;    padding:0px 0px; display: inline-flex; margin: 0px 5px;" onclick="chooseColor(this, '#1C7EA3,#1C7EA3');">
+												
+													<div id="#1C7EA3" style="background-color:#1C7EA3; width:10px; height:20px; margin-left:0px; "></div>
+												
+												
+											
+												
+												
+													<div id="#3BAEDA" style="background-color:#3BAEDA; width:10px; height:20px; margin-left:0px; width:20px;"></div>
+												
+													</div>
+												</td>
+												
+												
+											
+												
+												
+												<td> 
+													<div class="outlet" style="cursor:pointer;    padding:0px 0px; display: inline-flex; margin: 0px 5px;" onclick="chooseColor(this, '#654AA7,#654AA7');">
+												
+													<div id="#654AA7" style="background-color:#654AA7; width:10px; height:20px; margin-left:0px; "></div>
+												
+												
+											
+												
+												
+													<div id="#967AE0" style="background-color:#967AE0; width:10px; height:20px; margin-left:0px; width:20px;"></div>
+												
+													</div>
+												</td>
+												
+												
+											
+												
+												
+												<td> 
+													<div class="outlet" style="cursor:pointer;    padding:0px 0px; display: inline-flex; margin: 0px 5px;" onclick="chooseColor(this, '#11479F,#11479F');">
+												
+													<div id="#11479F" style="background-color:#11479F; width:10px; height:20px; margin-left:0px; "></div>
+												
+												
+											
+												
+												
+													<div id="#3E79DD" style="background-color:#3E79DD; width:10px; height:20px; margin-left:0px; width:20px;"></div>
+												
+													</div>
+												</td>
+												
+												
+											
+												
+												
+												<td> 
+													<div class="outlet" style="cursor:pointer;    padding:0px 0px; display: inline-flex; margin: 0px 5px;" onclick="chooseColor(this, '#B24183,#B24183');">
+												
+													<div id="#B24183" style="background-color:#B24183; width:10px; height:20px; margin-left:0px; "></div>
+												
+												
+											
+												
+												
+													<div id="#D671AD" style="background-color:#D671AD; width:10px; height:20px; margin-left:0px; width:20px;"></div>
+												
+													</div>
+												</td>
+												
+												
+											
+												
+												
+												<td> 
+													<div class="outlet" style="cursor:pointer;    padding:0px 0px; display: inline-flex; margin: 0px 5px;" onclick="chooseColor(this, '#158A6D,#158A6D');">
+												
+													<div id="#158A6D" style="background-color:#158A6D; width:10px; height:20px; margin-left:0px; "></div>
+												
+												
+											
+												
+												
+													<div id="#36BD9C" style="background-color:#36BD9C; width:10px; height:20px; margin-left:0px; width:20px;"></div>
+												
+													</div>
+												</td>
+												
+												
+											
+												
+												
+												<td> 
+													<div class="outlet" style="cursor:pointer;    padding:0px 0px; display: inline-flex; margin: 0px 5px;" onclick="chooseColor(this, '#C26611,#C26611');">
+												
+													<div id="#C26611" style="background-color:#C26611; width:10px; height:20px; margin-left:0px; "></div>
+												
+												
+											
+												
+												
+													<div id="#FB861F" style="background-color:#FB861F; width:10px; height:20px; margin-left:0px; width:20px;"></div>
+												
+													</div>
+												</td>
+												
+												
+											
+												
+												
+												<td> 
+													<div class="outlet" style="cursor:pointer;    padding:0px 0px; display: inline-flex; margin: 0px 5px;" onclick="chooseColor(this, '#E24731,#E24731');">
+												
+													<div id="#E24731" style="background-color:#E24731; width:10px; height:20px; margin-left:0px; "></div>
+												
+												
+											
+												
+												
+													<div id="#FD6D52" style="background-color:#FD6D52; width:10px; height:20px; margin-left:0px; width:20px;"></div>
+												
+													</div>
+												</td>
+												
+												</tr>
+											
+										</tbody></table>
+										<script type="text/javascript">
+											function chooseColor(_this) {
+												var val = '';					              			 
+												var divs = $(_this).find("div").each(function(){
+													if (val == '') {
+														val = $(this).attr("id");
+													}else{
+														val += "," +  $(this).attr("id");
+													}
+												});
+											
+												$('#color_edit').val(val); 
+												$('#color-tbl tr td div.outlet div').css({'height':'20px'}); 
+											    //$(_this).css({'border':'3px solid '+borderColor});
+											    $(_this).find("div").css({'height':'25px'});
+											}
+								        </script>
+								    	<input type="hidden" id="color_edit" name="color" value="#BE0622,#FF4D67">
+								    </td>
+								</tr>
+								<tr>
+								 	<th>面值<!-- 面 值-->：<label style="color:red;">&nbsp;*&nbsp;</label></th>
+									<td class="lineheight34">
+										<input id="amounts_edit" name="amounts" type="text" class="form-control input-large" style="width:20%;" value="" onkeypress="return IsNum(event)" onpaste="return false" onkeyup="$(this).val($(this).val().replace(/[^\w\.\/]/ig,''))" maxlength="6">
+										<span class="tpl-fr">元<!-- 元--></span>
+									</td>
+								</tr>
+								<tr>
+									<th>售价<!-- 售 价-->：<label style="color:red;">&nbsp;*&nbsp;</label></th>
+									<td class="lineheight34">
+										<input id="sellingPrice_edit" name="sellingPrice" type="text" class="form-control input-large" style="width:20%;" value="" onkeypress="return IsNumber(event)" onpaste="return false" onkeyup="$(this).val($(this).val().replace(/[^\w\.\/]/ig,''))" maxlength="6">
+										<span class="tpl-fr">元<!-- 元-->&nbsp;&nbsp; (精确到小数点后2位<!-- 精 确 到 小 数 点 后 2 位-->)</span>
+										<label id="sellingPrice_lable" class="error" style="color:red"></label>		
+									</td>
+								</tr>
+								<tr>
+									<th>酷券有效期<!-- 酷 券 有 效 期-->：<label style="color:red;">&nbsp;*&nbsp;</label></th>
+									<td class="lineheight34">  
+										<div class="radio-list" data-error-container="">
+											<div class="form-inline">
+												<label class="radio-inline"><span><div class="radio"><span class="checked"><input type="radio" name="periodtype" value="0" checked="checked"></span></div>固定日期<!-- 固 定 日 期--></span></label>
+												<input type="text" class="form-control input-large" style="width:20%; background-color:inherit;" id="usestartdate_edit" name="usestartdate" value="" readonly="">&nbsp;至<!-- 至-->&nbsp;
+												<input type="text" class="form-control input-large" style="width:20%; background-color:inherit;" id="useenddate_edit" name="useenddate" value="" readonly="">	
+												<label id="usedate_lable" class="error" style="color:red"></label>	
+											</div>
+											<div class="form-inline margin-top10">
+												<label class="radio-inline"><div class="radio"><span><input type="radio" name="periodtype" value="1"></span></div> 领取后<!-- 领 取 后-->，</label>
+												<input type="text" class="form-control input-large" style="width:20%;" id="initdays_edit" name="initdays" value="" onkeypress="return IsNum(event)" onpaste="return false" maxlength="3" disabled="">&nbsp;天生效, &nbsp;						
+												<input type="text" class="form-control input-large" style="width:20%;" id="validdays_edit" name="validdays" value="" onkeypress="return IsNum(event)" onpaste="return false" maxlength="3" disabled="">天有效
+												<label id="validdays_lable" class="error" style=""></label>
+											</div>
+										</div> 
+										<script type="text/javascript">
+										$(function() {
+											$("input[type='radio']").change(function() {
+												if (this.value == '0') {
+													$("#initdays_edit").attr("disabled","disabled").css("background-color",'#eee');
+													$("#validdays_edit").attr("disabled","disabled").css("background-color",'#eee');
+										
+													$("#usestartdate_edit").removeAttr("disabled").css("background-color",'inherit');
+													$("#useenddate_edit").removeAttr("disabled").css("background-color",'inherit');
+												}else{
+													$("#usestartdate_edit").attr("disabled","disabled").css("background-color",'#eee');
+													$("#useenddate_edit").attr("disabled","disabled").css("background-color",'#eee');
+										
+													$("#initdays_edit").removeAttr("disabled").css("background-color",'inherit');
+													$("#validdays_edit").removeAttr("disabled").css("background-color",'inherit');
+												}
+											});
+										});
+										</script>
+									</td>
+								</tr>
+								<tr>
+									<th>使用须知<!-- 使 用 须 知-->：<label style="color:red;">&nbsp;*&nbsp;</label></th>
+									<td class="lineheight34">
+										<textarea rows="10" cols="8" id="descp_edit" name="descp" class="form-control form-control250 required validate-alphanum" style="max-width:600px; width:98%; height:120px;" value=""></textarea>
+										<!-- <textarea rows="10" cols="8" id="descp_edit" name="descp"  class=""  value=""></textarea> -->
+										<p style="margin-top:1%">描述不超过1000个字<!-- 描 述 不 超 过 1 0 0 0 个 字--></p>
+										<script type="text/javascript">
+											$("#descp_edit").bind("keyup change", function(e){
+												var k = window.event ? e.keyCode : e.which;
+												if (k == 35 || k == 36 || k == 37 || k == 39) return;
+												
+												var thisVal = $(this).val();
+												thisVal = escapeChars(thisVal);
+												var len = getByteLen(thisVal);
+												if(len > 2000){
+													$(this).val(getByteVal(thisVal, 2000));
+													len = 2000;
+												}else{
+													$(this).val(thisVal);
+												}
+											});
+										</script>
+									</td>
+								</tr>
+								<tr>
+									<th>备注说明<!-- 备 注 说 明-->：</th>
+									<td class="border-bottom">
+									<!-- 	<input id="comments_edit" name="comments" class="form-control input-xlarge"  value=""> -->
+										<input type="text" id="comments_edit" name="comments" class="form-control form-control250 validate-alphanum" style="max-width:600px; width:98%;" value="">
+										<p style="margin-top:1%">描述不超过35个字(此处为购买页信息提示，如：购买后将以短信通知   <!-- 此处为购买信息 提 示，如：购买后将以短信通知-->)</p>
+										<script type="text/javascript">
+											$("#comments_edit").bind("keyup change", function(e){
+												var k = window.event ? e.keyCode : e.which;
+												if (k == 35 || k == 36 || k == 37 || k == 39) return;
+												
+												var thisVal = $(this).val();
+												thisVal = escapeChars(thisVal);
+												var len = getByteLen(thisVal);
+												if(len > 70){
+													$(this).val(getByteVal(thisVal, 70));
+													len = 70;
+												}else{
+													$(this).val(thisVal);
+												}
+											});
+										</script>
+									</td>
+								</tr>
+								<tr>
+									<th>客服电话<!-- 客 服 电 话-->：<label style="color:red;">&nbsp;*&nbsp;</label></th>
+									<td class="lineheight34">
+										<input id="telephone_edit" name="telephone" type="text" class="form-control input-large-plus" value="" onkeyup="" onkeypress="return mobileChar(event);" maxlength="20"> 
+										<script type="text/javascript">
+											$("#telephone_edit").bind("keyup change", function(e){
+												var k = window.event ? e.keyCode : e.which;
+												if (k == 35 || k == 36 || k == 37 || k == 39 || k == 46 || k == 8) return;
+												
+												var thisVal = $(this).val();
+												var reg = /[\u4E00-\u9FA5\uf900-\ufa2d]/ig;
+												thisVal = thisVal.replace(reg,'');
+												$(this).val(thisVal);
+											});
+										</script>
+										<span class="tpl-fr">建议加上区号，如：021-518288303,不超过20字</span><!--建议加上区号，如：021-518288303,  不超过20字-->
+										<label id="phone_lable" class="error" style=""></label>
+									</td>
+								</tr>
+								<tr>
+									<th>适用门店<!-- 适 用 门 店-->：<label style="color:red;">&nbsp;*&nbsp;</label></th>
+									<td class="lineheight34">
+										<table style="width: 100%;">
+											
+												<tbody><tr>
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150902100040"></span></div>测试：增加门店 (门店)</span>
+												</td>
+												
+											
+												
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150902100044"></span></div>添加数据测试分页4 (4)</span>
+												</td>
+												</tr>
+											
+												<tr>
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150922100140"></span></div>大连老虎滩海洋公园 (大连)</span>
+												</td>
+												
+											
+												
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150924100160"></span></div>2 (2)</span>
+												</td>
+												</tr>
+											
+												<tr>
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150910100100"></span></div>北京天伦王朝酒店 (北京)</span>
+												</td>
+												
+											
+												
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150910100101"></span></div>上海扬子江万丽大酒店 (上海)</span>
+												</td>
+												</tr>
+											
+												<tr>
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20160107100220"></span></div>12 (12)</span>
+												</td>
+												
+											
+												
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150902100041"></span></div>添加数据测试分页1 (1)</span>
+												</td>
+												</tr>
+											
+												<tr>
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150902100042"></span></div>添加数据测试分页2 (2)</span>
+												</td>
+												
+											
+												
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150902100043"></span></div>添加数据测试分页3 (3)</span>
+												</td>
+												</tr>
+											
+												<tr>
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150902100045"></span></div>添加数据测试分页5 (5)</span>
+												</td>
+												
+											
+												
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150824100000"></span></div>万事 (上海)</span>
+												</td>
+												</tr>
+											
+												<tr>
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150824100001"></span></div>万事达五星级酒店 (北京)</span>
+												</td>
+												
+											
+												
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150824100002"></span></div>万事达五星级酒店 (深圳)</span>
+												</td>
+												</tr>
+											
+												<tr>
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150825100004"></span></div>1111111 (1111111)</span>
+												</td>
+												
+											
+												
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150907100060"></span></div>+ccc (ccc)</span>
+												</td>
+												</tr>
+											
+												<tr>
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150929100200"></span></div>test (test)</span>
+												</td>
+												
+											
+												
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150825100003"></span></div>1122 (1122)</span>
+												</td>
+												</tr>
+											
+												<tr>
+												<td style="width:50%; height:20px;">
+													<span><div class="checker"><span><input type="checkbox" name="stores" value="20150828100020"></span></div>%1 (da )</span>
+												</td>
+												</tr>
+											
+										</tbody></table>
+										<label id="store_lable" class="error" style="color:red"></label>
+									</td>
+								</tr>
+								<tr>
+									<th>商家相册<!-- 商 家 相 册-->:</th>
+									<td class="album_td">	
+										<div class="input-group margin-top10 box">                                        
+											<button class="fileUpload btn btn-primary" type="button" onclick="clickUpload('album0')">
+												<span>浏览<!-- 浏 览--></span>
+												<input type="file" name="dataFile" id="album0" value="上传图片" class="set-up-button upload albums" style="display:none; width:200px;" data-url="/msc/ajax/UploadPic/uploadResourceFTP.do?source=couponimages" onchange="return onUploadImgChange(this, 200, 'shlogo');" multiple="">					              		 
+											</button>  
+											<label style="color:red"></label>
+											<input type="hidden" name="albums" value="">                                     
+										</div>											
+										<div class="clearfix margin-top10">
+											<img src="" class="shlogo pull-left margin-right10" id="shlogo" style="width: 110px;  height: 80px;">
+											<p class="pull-left shlogonotice" style="line-height:22px;">图片建议尺寸：320像素x240像素<!-- 图 片 建 议 尺 寸 ： 3 2 0 像 素 x 2 4 0 像 素--> <br> 仅支持.jpg .jpeg .bmp .png格式<!-- 仅 支 持 . j p g   . j p e g   . b m p   . p n g 格 式--><br>长方形照片<!-- 长 方 形 照 片-->，大小不超过200K<!-- 大 小 不 超 过 2 0 0 K-->B</p>
+										</div>
+									</td>
+								</tr>
+								<tr class="album_div" id="mer_album" style="display: none;">
+									<th></th>
+									<td>
+										<div class="input-group margin-top10 box">                                       
+											<button class="fileUpload btn btn-primary" type="button">
+												<span>浏览<!-- 浏 览--></span>
+												<input type="file" name="dataFile" value="上传图片" class="set-up-button upload albums" style="display:none; width:200px;" data-url="/msc/ajax/UploadPic/uploadResourceFTP.do?source=couponimages" multiple="">	 			              		 
+											</button>  
+											<label style="color:red"></label>
+											<input type="hidden" name="albums" value=""> 
+											<div class="pull-right">
+												<button class="btn default btn-sm" type="button" onclick="deleteRole(this)"><i class="fa fa-trash-o"></i> 删除<!-- 删 除--></button>
+											</div>										
+											<div class="clearfix margin-top10">
+												<img src="" class="shlogo pull-left margin-right10" style="width: 110px;  height: 80px;">
+												<p class="pull-left shlogonotice" style="line-height:22px;">图片建议尺寸：320像素x240像素<!-- 图 片 建 议 尺 寸 ： 3 2 0 像 素 x 2 4 0 像 素--> <br> 仅支持.jpg .jpeg .bmp .png格式<!-- 仅 支 持 . j p g   . j p e g   . b m p   . p n g 格 式--><br>长方形照片<!-- 长 方 形 照 片-->，大小不超过200K<!-- 大 小 不 超 过 2 0 0 K-->B</p>
+											</div>
+										</div>	
+									</td> 
+								</tr>
+								<tr class="album_div" style="">
+									<th></th>
+									<td>
+										<div class="input-group margin-top10 box">                                       
+											<button class="fileUpload btn btn-primary" type="button" onclick="clickUpload('cloneid1');">
+												<span>浏览<!-- 浏 览--></span>
+												<input type="file" name="dataFile" value="上传图片" class="set-up-button upload albums" style="display:none; width:200px;" data-url="/msc/ajax/UploadPic/uploadResourceFTP.do?source=couponimages" multiple="" onchange="onUploadImgChange(this, 200, 'clonelogo1')" id="cloneid1">	 			              		 
+											</button>  
+											<label style="color:red"></label>
+											<input type="hidden" name="albums" value=""> 
+											<div class="pull-right">
+												<button class="btn default btn-sm" type="button" onclick="deleteRole(this)"><i class="fa fa-trash-o"></i> 删除<!-- 删 除--></button>
+											</div>										
+											<div class="clearfix margin-top10">
+												<img src="" class="shlogo pull-left margin-right10" style="width: 110px;  height: 80px;" id="clonelogo1">
+												<p class="pull-left shlogonotice" style="line-height:22px;">图片建议尺寸：320像素x240像素<!-- 图 片 建 议 尺 寸 ： 3 2 0 像 素 x 2 4 0 像 素--> <br> 仅支持.jpg .jpeg .bmp .png格式<!-- 仅 支 持 . j p g   . j p e g   . b m p   . p n g 格 式--><br>长方形照片<!-- 长 方 形 照 片-->，大小不超过200K<!-- 大 小 不 超 过 2 0 0 K-->B</p>
+											</div>
+										</div>	
+									</td> 
+								</tr><tr id="addbutton">
+									<th></th>
+									<td class="lineheight34">
+										<button type="button" onclick="addAlbums()" class="btn btn-primary btn-sm" id="addalbums_btn"><i class="fa fa-plus"></i>添加图片<!-- 添 加 图 片--></button>
+										<span class="info notice"><i class="fa fa-info-circle"></i> 最多可上传10张图<!-- 最 多 可 上 传 1 0  张 图--></span> 
+									</td>
+								</tr>
+								<tr>
+									<th></th>
+									<td>
+										<button type="button" class="btn default" onclick="turnTo('/coupon/cashcoupon')"><i class="fa fa-angle-left"></i>  后 退</button>
+										<button type="submit" id="submitBtn" class="btn btn-primary"><i class="fa fa-save"></i>  保存</button>
+									</td>
+								</tr>
+							</tbody></table>
+						</form>
+					</div>		
+				</div>						
+			</div>
+		</div>
+	</div>
+	<!-- END PAGE CONTENT-->
+</div>
+			</div>
+			<!-- END CONTAINER -->
+			<!-- BEGIN FOOTER -->
+			<div class="page-footer">Copyright <sup>&copy;</sup> BS_2016 |上海电力学院 | 软件工程 2012221| Bin 20123094</div>
+			<!-- END FOOTER -->
+			<!-- BEGIN SCROLL-TO -->
+			<div class="scroll-to-top">
+				<i class="icon-arrow-up"></i>
+			</div>
+			<!-- END SCROLL-TO -->
+			<!-- BEGIN CORE PLUGINS -->
+			<!--[if lt IE 9]>
+<script src="../../assets/global/plugins/respond.min.js"></script>
+<script src="../../assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+			<script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+			<script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+			<script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+			<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+			<script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+			<script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+			<script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+			<!-- END CORE PLUGINS -->
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+			<script src="../../assets/global/plugins/vendors/echart/echarts.js" type='text/javascript'></script>
+			<script src="../../assets/admin/pages/scripts/chart-helper.js" type='text/javascript'></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+			<!-- BEGIN PAGE LEVEL SCRIPTS -->
+			<script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+			<script src="../../assets/admin/layout2/scripts/layout.js" type="text/javascript"></script>
+			<script src="../../assets/admin/pages/scripts/lanswitch.js" type="text/javascript"></script>
+			<script src="../../assets/admin/pages/scripts/index.js" type="text/javascript"></script>
+			<!-- END PAGE LEVEL SCRIPTS -->
+			<!-- BEGIN JAVASCRIPTS -->
+			<script>
+				$(function() {
+					$("[data-toggle='tooltip']").tooltip();
+				});
+			</script>
+			<!-- END JAVASCRIPTS -->
+	</body>
+	<!-- END BODY -->
+
+</html>
