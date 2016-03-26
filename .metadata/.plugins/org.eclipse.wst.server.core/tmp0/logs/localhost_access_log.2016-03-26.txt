@@ -59,3 +59,4 @@
 0:0:0:0:0:0:0:1 - - [26/Mar/2016:12:21:02 +0800] "GET /SSM_BS/scripts/bootstrap-colorpicker/js/bootstrap-colorpicker.js HTTP/1.1" 404 949
 0:0:0:0:0:0:0:1 - - [26/Mar/2016:12:21:02 +0800] "GET /assets/admin/layout2/img/logo.png HTTP/1.1" 404 1017
 0:0:0:0:0:0:0:1 - - [26/Mar/2016:12:21:02 +0800] "GET /assets/admin/layout2/img/avatar.png HTTP/1.1" 404 1021
+127.0.0.1 - - [26/Mar/2016:12:43:00 +0800] "GET / HTTP/1.1" 404 951

@@ -7,4 +7,6 @@
 	<list key="CommitDialog.committerValues">
 		<item value="liqiangbin &lt;1374477098@qq.com&gt;"/>
 	</list>
+	<section name="GitCommitMessageComponent">
+	</section>
 </section>

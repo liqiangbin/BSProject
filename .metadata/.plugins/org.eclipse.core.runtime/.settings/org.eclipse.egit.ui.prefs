@@ -1,3 +1,5 @@
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>\u6BD5\u8BBE\u521D\u6B65\u6846\u67B6\u642D\u5EFA\u5B8C\u6210</message>\r\n<message>\u521D\u6B65\u6784\u5EFA\u6BD5\u8BBE\u6846\u67B6\uFF0C\u540E\u53F0\u7BA1\u7406\u4E3B\u9875</message>\r\n</messages>
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>\u6CA1\u4EC0\u4E48\u6539\u52A8</message>\r\n<message>\u6BD5\u8BBE\u521D\u6B65\u6846\u67B6\u642D\u5EFA\u5B8C\u6210</message>\r\n<message>\u521D\u6B65\u6784\u5EFA\u6BD5\u8BBE\u6846\u67B6\uFF0C\u540E\u53F0\u7BA1\u7406\u4E3B\u9875</message>\r\n</messages>
 eclipse.preferences.version=1
 merge_mode=0
+resourcehistory_graph_split=500,500
+resourcehistory_rev_split=700,300
