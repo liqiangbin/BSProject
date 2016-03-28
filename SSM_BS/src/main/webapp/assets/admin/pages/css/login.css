@@ -66,8 +66,8 @@ html,body{width:100%;height:100%;overflow:auto;}
   border: 1px solid #e5e5e5;
   text-indent:25px;
 }
-.login .content #merchant{background:url(../../layout2/img/ico-merchant.png) no-repeat 5px center;}
-.login .content #username{background:url(../../layout2/img/ico-username.png) no-repeat 5px center;}
+.login .content #orgId{background:url(../../layout2/img/ico-merchant.png) no-repeat 5px center;}
+.login .content #j_username_tmp{background:url(../../layout2/img/ico-username.png) no-repeat 5px center;}
 .login .content #password{background:url(../../layout2/img/ico-password.png) no-repeat 5px center;}
 
 .login .content .form-control:focus, .login .content .form-control:active {

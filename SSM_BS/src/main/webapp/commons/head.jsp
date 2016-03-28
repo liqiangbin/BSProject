@@ -182,11 +182,9 @@
 	src='<c:url value="/scripts/jquery-validate/additional-methods.min.js"></c:url>'></script>
 <script type="text/javascript"
 	src='<c:url value="/scripts/map.js"></c:url>'></script>
-<script type="text/javascript"
-	src='<c:url value="/koolmis/js/koolmis.js"></c:url>'></script>
 
 <!-- END PAGE LEVEL SCRIPTS -->
-<!-- color picker and css for pagetpl&coupon customize -->
+ <!-- color picker and css for pagetpl&coupon customize -->
 <link rel="stylesheet" type="text/css"
 	href='<c:url value="/scripts/bootstrap-colorpicker/css/colorpicker.css"/>' />
 <script type="text/javascript"
@@ -194,14 +192,13 @@
 <link href='<c:url value="/assets/admin/pages/css/profile.css"/>'
 	rel="stylesheet" type="text/css" />
 
-<!-- color picker -->
+<!-- color picker --> 
 
 
 <script>
 	jQuery(document).ready(function() {
 		Metronic.init(); // init metronic core components
 		Layout.init(); // init current layout	
-		Koolmis.init('${pageContext.request.contextPath}');
 	});
 </script>
 

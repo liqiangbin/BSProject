@@ -656,14 +656,31 @@ var Index = function () {
 			var dataArray = [],
 				data = [],
 				xAxis = [],
-				legend = ['交易日趋势图'];
+				legend = ['交易日趋势图'],
+                type=sourceData[0].type;
 			for (var i = 0; i < sourceData.length; i++) {
 				data.push(sourceData[i].value);
 				xAxis.push(sourceData[i].name);
 			}
 			dataArray.push(data);
-			CHART_HELPER.drawLineChart($('#margins')[0], dataArray, legend, xAxis);
+			CHART_HELPER.drawLineChart($('#margins')[0], dataArray, legend, xAxis,type);
 		},
+            initDrawPlatform: function () {                          
+            var sourceData = source.platformMargin;
+            var dataArray = [],
+                data = [],
+                xAxis = [],
+                legend = ['趋势图'],
+                type=sourceData[0].type;
+            for (var i = 0; i < sourceData.length; i++) {
+                data.push(sourceData[i].value);
+                xAxis.push(sourceData[i].name);
+               /* console.log(sourceData[i].name);*/
+            }
+
+            dataArray.push(data);
+            CHART_HELPER.drawLine($('#margins')[0], dataArray, legend, xAxis,type);
+        },
 		
 		initDrawPieCharts: function () {			
 			CHART_HELPER.drawPieChart($('#project-guarantee-type')[0], source.projectGuaranteeType);

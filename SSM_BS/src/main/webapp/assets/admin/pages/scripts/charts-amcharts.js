@@ -1,5 +1,5 @@
 var ChartsAmcharts = function() {
-
+ 
     var initChartSample1 = function() {
         var chart = AmCharts.makeChart("chart_1", {
             "type": "serial",
@@ -487,20 +487,23 @@ var ChartsAmcharts = function() {
     }
 
     var initChartSample5 = function() {
+       
         var chart = AmCharts.makeChart("chart_5", {
             "theme": "light",
             "type": "serial",
             "startDuration": 2,
-            "fontFamily":'Open Sans',            
-            "color":'#888',								            
+            "fontFamily":'Microsoft Yahei',
+            "color":'#0F0F0F',								            
 			"dataProvider":source.dataProvider,			
             "valueAxes": [{
                 "position": "left",
                 "axisAlpha": 0,
                 "gridAlpha": 0
             }],			
-            "graphs": [{
-                "balloonText": "[[category]]交易额: <b>[[value]]</b>元",
+            "graphs": [{            
+           
+                "balloonText": "[[category]]  "+$("#show_trade").val()+": <b>[[value]]</b>"+$("#unit").val(),
+           
                 "colorField": "color",
                 "fillAlphas": 0.85,
                 "lineAlpha": 0.1,
@@ -519,7 +522,8 @@ var ChartsAmcharts = function() {
             "categoryAxis": {
                 "gridPosition": "start",
                 "axisAlpha": 0,
-                "gridAlpha": 0
+                "gridAlpha": 0,
+                 "labelRotation": -30
 
             },
             "exportConfig": {
@@ -3139,14 +3143,85 @@ var ChartsAmcharts = function() {
         });
     }
 
+     var initChartSample13 = function() {
+       
+        var chart = AmCharts.makeChart("chart_13", {
+            "theme": "light",
+            "type": "serial",
+            "startDuration": 2,
+            "fontFamily":'Microsoft Yahei',
+            "color":'#0F0F0F',                                          
+            "dataProvider":source.dataProvider,         
+            "valueAxes": [{
+                "position": "left",
+                "axisAlpha": 0,
+                "gridAlpha": 0
+            }],         
+            "graphs": [{            
+           
+                "balloonText": "[[category]] 交易笔数: <b>[[value]]</b>笔",
+           
+                "colorField": "color",
+                "fillAlphas": 0.85,
+                "lineAlpha": 0.1,
+                "type": "column",
+                "topRadius": 1,
+                "valueField": "sum"
+            }],
+            "depth3D": 40,
+            "angle": 30,
+            "chartCursor": {
+                "categoryBalloonEnabled": false,
+                "cursorAlpha": 0,
+                "zoomable": false
+            },
+            "categoryField": "payment",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "axisAlpha": 0,
+                "gridAlpha": 0,
+                 "labelRotation": -30
+
+            },
+            "exportConfig": {
+                "menuTop": "20px",
+                "menuRight": "20px",
+                "menuItems": [{
+                    "icon": '/lib/3/images/export.png',
+                    "format": 'png'
+                }]
+            }
+        }, 0);
+
+        jQuery('.chart_13_chart_input').off().on('input change', function() {
+            var property = jQuery(this).data('property');
+            var target = chart;
+            chart.startDuration = 0;
+
+            if (property == 'topRadius') {
+                target = chart.graphs[0];
+            }
+
+            target[property] = this.value;
+            chart.validateNow();
+        });
+
+        $('#chart_13').closest('.portlet').find('.fullscreen').click(function() {
+            chart.invalidateSize();
+        });
+    }
+     
+    
+     
     return {
         //main function to initiate the module
         init: function() {
+         
           //initChartSample1();
           //initChartSample2();
           // initChartSample3();
           //initChartSample4();
-            initChartSample5();
+//            initChartSample5();
           //initChartSample6();
           //initChartSample7();
           //initChartSample8();
@@ -3154,7 +3229,26 @@ var ChartsAmcharts = function() {
           //initChartSample10();
           // initChartSample11();
           //initChartSample12();
-        }
+           initChartSample13();
+        },
+    
+      init2: function() {
+        
+        //initChartSample1();
+        //initChartSample2();
+        // initChartSample3();
+        //initChartSample4();
+          initChartSample5();
+        //initChartSample6();
+        //initChartSample7();
+        //initChartSample8();
+        //initChartSample9();
+        //initChartSample10();
+        // initChartSample11();
+        //initChartSample12();
+      }
     };
+    
+
 
 }();

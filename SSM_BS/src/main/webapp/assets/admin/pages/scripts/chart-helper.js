@@ -1,15 +1,17 @@
+
+
 var CHART_HELPER = function() {
     require.config({
         paths: {
-            'echarts': '../../assets/global/plugins/vendors/echart',
-            'echarts/theme/jmb': '../../assets/global/plugins/vendors/echart/themes/jmb',
-            'echarts/chart/line': '../../assets/global/plugins/vendors/echart/charts/line',
-            'echarts/chart/pie': '../../assets/global/plugins/vendors/echart/charts/pie',
-            'echarts/chart/bar': '../../assets/global/plugins/vendors/echart/charts/bar'
+            'echarts': appName+'/assets/global/plugins/vendors/echart',
+            'echarts/theme/jmb': appName+'/assets/global/plugins/vendors/echart/themes/jmb',
+            'echarts/chart/line': appName+'/assets/global/plugins/vendors/echart/charts/line',
+            'echarts/chart/pie': appName+'/assets/global/plugins/vendors/echart/charts/pie',
+            'echarts/chart/bar': appName+'/assets/global/plugins/vendors/echart/charts/bar'
         }
     });
     return {
-        drawLineChart: function(el, data, legend, xAxis) {
+        drawLineChart: function(el, data, legend, xAxis,type) {
             var series = [],
                 isShowLegend = false;
             if (legend.length > 1) {
@@ -33,7 +35,11 @@ var CHART_HELPER = function() {
                 tooltip: {
                     trigger: 'axis',
                     formatter: function(params) {
-                        return (params[0].name)+'时交易额：' + (params[0].value).toFixed(2) + '元';
+                        if(type=="day"){
+                        return (params[0].name)+$("#show_hour").val()+$("#show_trade").val()+'：' + (params[0].value).toFixed(2) +" "+ $("#unit").val();}
+                        else{
+                            return (params[0].name)+$("#show_day").val()+$("#show_trade").val()+'：' + (params[0].value).toFixed(2) +" "+ $("#unit").val(); 
+                        }
                     }
                 },
                 legend: {
@@ -50,7 +56,31 @@ var CHART_HELPER = function() {
                     type: 'value',
                     axisLabel: {
                         formatter: function(value) {
-                            return (value) + '元';
+                        	var echarts_localStr = $('#localeStr').val();
+                        	if( echarts_localStr != "en"){
+                            if(value<10000){
+                                return (value) + " "+$("#unit").val();
+                            }
+                             if(value>=100000000){
+                         return (value/100000000) +" "+ '亿'+$("#unit").val();
+                            }
+                            else{
+                                return (value/10000) +" "+ '万'+$("#unit").val();
+                            }
+                        	}
+                        	else{
+                        		 if(value<1000000){
+                                     return (value) ;
+                                 }
+                                  if(value>=1000000000){
+                              return (value/1000000000) + " "+'B';
+                                 }
+                                 else{
+                                     return (value/1000000) +" "+ 'M';
+                                 }
+                        		
+                        	}
+                            
                         }
                     }
                 }],
@@ -62,6 +92,66 @@ var CHART_HELPER = function() {
                     chart.setOption(option);
                 });
         },
+        //------------------
+        drawLine: function(el, data, legend, xAxis,type) {
+            var series = [],
+                isShowLegend = false;
+            if (legend.length > 1) {
+                isShowLegend = true;
+            }
+            for (var i = 0; i < data.length; i++) {
+                series.push({
+                    name: legend[i],
+                    type: 'line',
+                    itemStyle: {
+                        normal: {
+                            areaStyle: {
+                                type: 'default'
+                            }
+                        }
+                    },
+                    data: data[0][i]
+                });
+            }
+            var option = {
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: function(params) {
+                        if(type=="day"){
+                        return (params[0].name)+'时交易额：' + (params[0].value).toFixed(2) + '人';}
+                        else{
+                            return (params[0].name)+'数量：' + (params[0].value); 
+                        }
+                    }
+                },
+                legend: {
+                    show: isShowLegend,
+                    data: legend
+                },
+                calculable: true,
+                xAxis: [{
+                    type: 'category',
+                    boundaryGap: false,
+                    data: xAxis[0]
+
+                }],
+                yAxis: [{
+                    type: 'value',
+                    axisLabel: {
+                        formatter: function(value) {
+                            return (value) +'';
+                        }
+                    }
+                }],
+                series: series
+            };
+            require(
+                ['echarts', 'echarts/theme/jmb', 'echarts/chart/line'], function(ec, theme) {
+                    var chart = ec.init(el, theme);
+                    chart.setOption(option);
+                });
+        },
+        //---------------
         drawBarChart: function(el, data, legend, xAxis) {
             var series = [],
                 isShowLegend = false;
@@ -91,8 +181,23 @@ var CHART_HELPER = function() {
                         type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
                     },
                     formatter: function(params) {
-                        return params[0].name + '<br/>交易额：' + (params[0].value / 10000).toFixed(2) + '万';
-                    }
+                        var temp_value=params[0].value;  
+                        var echarts_localStr = $('#localeStr').val();
+                    	if( echarts_localStr == "en"){
+                        	if (temp_value<1000000) 
+                                return params[0].name + '<br/>'+$("#show_trade").val()+'：' + temp_value +$("#unit").val();
+                              else if (temp_value>=1000000 && temp_value <1000000000) 
+                                return params[0].name + '<br/>'+$("#show_trade").val()+'：'+ (params[0].value / 1000000).toFixed(2) + 'M';                       
+                              else return params[0].name + '<br/>'+$("#show_trade").val()+'：'+ (params[0].value / 1000000000).toFixed(2) + 'B';
+                        }
+                        else{
+                        if (temp_value<10000) 
+                          return params[0].name + '<br/>'+$("#show_trade").val()+'：' + temp_value +$("#unit").val();
+                        else if (temp_value>=10000 && temp_value <100000000) 
+                          return params[0].name + '<br/>'+$("#show_trade").val()+'：'+ (params[0].value / 10000).toFixed(2) + '万';                       
+                        else return params[0].name + '<br/>'+$("#show_trade").val()+'：'+ (params[0].value / 100000000).toFixed(2) + '亿';
+                        }
+                    } 
                 },
                 legend: {
                     orient: 'horizontal',
@@ -110,7 +215,31 @@ var CHART_HELPER = function() {
                     type: 'value',
                     axisLabel: {
                         formatter: function(value) {
-                            return parseFloat(value / 100000000).toFixed(2) + "亿"
+                        	var echarts_localStr = $('#localeStr').val();
+                        	if( echarts_localStr != "en"){
+                            if(value<10000){
+                                return (value) + " "+$("#unit").val();
+                            }
+                             if(value>=100000000){
+                         return (value/100000000) +" "+ '亿'+$("#unit").val();
+                            }
+                            else{
+                                return (value/10000) +" "+ '万'+$("#unit").val();
+                            }
+                        	}
+                        	else{
+                        		 if(value<1000000){
+                                     return (value) ;
+                                 }
+                                  if(value>=1000000000){
+                              return (value/1000000000) + " "+'B';
+                                 }
+                                 else{
+                                     return (value/1000000) +" "+ 'M';
+                                 }
+                        		
+                        	}
+                          
                         }
                     }
                 }],
@@ -125,23 +254,8 @@ var CHART_HELPER = function() {
         drawPieChart: function(el, data) {
             var dataArray = [],
                 other = 0;
-            if(data.length > 6){
-                for (var i = 0; i < data.length; i++) {
-                    if (i < 5) {
-                        dataArray.push(data[i]);
-                    } else {
-                        other += parseFloat(data[i].value);
-                        if (i === data.length - 1) {
-                            dataArray.push({
-                                'name': '其他',
-                                'value': other
-                            });
-                        }
-                    }
-                }
-            }else{
-                dataArray = data;
-            }
+  
+        dataArray = data;
             var legend = [];
             for (var i = 0; i < dataArray.length; i++) {
                 legend.push(dataArray[i]);

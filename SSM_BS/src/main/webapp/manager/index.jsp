@@ -12,60 +12,8 @@
 	<!-- BEGIN TOP -->
 	<%@ include file="/commons/top.jsp"%>
 	<div class="page-container">
-		<!-- BEGIN SIDEBAR -->
-		<div class="page-sidebar-wrapper">
-			<div class="page-sidebar navbar-collapse collapse">
-				<!-- BEGIN SIDEBAR MENU -->
-				<ul class="page-sidebar-menu page-sidebar-menu-hover-submenu "
-					data-keep-expanded="false" data-auto-scroll="true"
-					data-slide-speed="200">
-					<li class="start active "><a href="index.html"> <i
-							class="icon-home"></i> <span class="title">IBooK首页</span> <span
-							class="selected"></span>
-					</a></li>
-					<li><a href="order.html"> <i class="fa fa-list-ul"></i> <span
-							class="title">订单管理</span> <span class="arrow"></span>
-					</a></li>
-					<li><a href="book.html"> <i class="fa fa-book"></i> <span
-							class="title">图书管理</span> <span class="arrow "></span>
-					</a></li>
-					<li><a href="sales.html"> <i class="fa fa-line-chart"></i>
-							<span class="title">销量统计</span> <span class="arrow "></span>
-					</a></li>
-					<li><a href="recommendation.html"> <i
-							class="fa fa-credit-card"></i> <span class="title">智能推荐管理</span>
-							<span class="arrow "></span>
-					</a></li>
-					<li><a href="javascript:;"> <i class="fa fa-shirtsinbulk"></i>
-							<span class="title">公告管理</span> <span class="arrow "></span>
-					</a>
-						<ul class="sub-menu">
-							<li><a href="notice_add.html"> <i class="fa fa-user"></i>
-									发布公告
-							</a></li>
-							<li><a href="notice_activity.html"> <i
-									class="fa fa-users"></i> 公告管理
-							</a></li>
-						</ul></li>
-					<li><a href="javascript:;"> <i class="fa fa-jsfiddle"></i>
-							<span class="title">系统管理</span> <span class="arrow "></span>
-					</a>
-						<ul class="sub-menu">
-							<li><a href="manager.html"> <i
-									class="fa fa-stumbleupon-circle"></i> 账号管理 <i class="fa fa"></i>
-							</a></li>
-							<li><a href="ibook.html"> <i class="fa fa-gift"></i>
-									IBooK信息
-							</a></li>
-							<li><a href="password_edit.html"> <i class="icon-lock"></i>
-									密码修改
-							</a></li>
-						</ul></li>
-
-				</ul>
-				<!-- END SIDEBAR MENU -->
-			</div>
-		</div>
+	<!-- BEGIN SIDEBAR -->
+		<%@ include file="/commons/left.jsp"%>
 		<!-- END SIDEBAR -->
 		<!-- 下面是正文部分 -->
 		<!-- BEGIN CONTENT -->
@@ -442,7 +390,88 @@
 		<!-- 正文部分结束 -->
 	</div>
 	<%@ include file="/commons/foot.jsp"%>
+		<script>
+			var source = {
+				"platformMargin": [{
+					"name": "00",
+					"value": 0.00
+				}, {
+					"name": "01",
+					"value": 0.00
+				}, {
+					"name": "02",
+					"value": 0.00
+				}, {
+					"name": "03",
+					"value": 0.00
+				}, {
+					"name": "04",
+					"value": 0.00
+				}, {
+					"name": "05",
+					"value": 0.00
+				}, {
+					"name": "06",
+					"value": 10.00
+				}, {
+					"name": "07",
+					"value": 0.00
+				}, {
+					"name": "08",
+					"value": 0.00
+				}, {
+					"name": "09",
+					"value": 0.00
+				}, {
+					"name": "10",
+					"value": 7.89
+				}, {
+					"name": "11",
+					"value": 4.50
+				}, {
+					"name": "12",
+					"value": 1.56
+				}, {
+					"name": "13",
+					"value": 0.00
+				}, {
+					"name": "14",
+					"value": 0.00
+				}, {
+					"name": "15",
+					"value": 0.00
+				}, {
+					"name": "16",
+					"value": 0.00
+				}, {
+					"name": "17",
+					"value": 0.00
+				}, {
+					"name": "18",
+					"value": 0.00
+				}, {
+					"name": "19",
+					"value": 0.00
+				}, {
+					"name": "20",
+					"value": 0.00
+				}, {
+					"name": "21",
+					"value": 0.00
+				}, {
+					"name": "22",
+					"value": 0.00
+				}, {
+					"name": "33",
+					"value": 0.00
+				}]
+			};
+			jQuery(document).ready(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout						
+				Index.initDrawPlatformMarginChart();
+			});
+		</script>
 </body>
 
-</body>
 </html>
