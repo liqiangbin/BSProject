@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.cn.hnust.dao.NoticeMapper"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.NoticeService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Notice"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+</qualifiedTypeNameHistroy>

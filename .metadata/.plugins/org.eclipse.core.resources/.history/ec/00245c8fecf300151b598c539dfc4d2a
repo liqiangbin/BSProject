@@ -1,0 +1,13 @@
+package com.cn.hnust.service.impl;
+
+import com.cn.hnust.pojo.Notice;
+import com.cn.hnust.service.NoticeService;
+
+public class NoticeServiceImpl implements NoticeService {
+
+	public void insert(Notice notice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

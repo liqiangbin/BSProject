@@ -8,7 +8,7 @@
 				<!-- BEGIN LOGO -->
 				<div class="page-logo">
 					<a href="index.html">
-						<img src="../../assets/admin/layout2/img/logo.png" alt="logo" class="logo-default" />
+					<img src='<c:url value="/assets/admin/layout2/img/logo.png"></c:url>' alt="logo" class="logo-default" />
 					</a>
 					<div class="menu-toggler sidebar-toggler"></div>
 				</div>
@@ -99,7 +99,7 @@
 							<!-- BEGIN USER LOGIN DROPDOWN -->
 							<li class="dropdown dropdown-user">
 								<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-									<img alt="" class="img-circle" src="../../assets/admin/layout2/img/avatar.png" />
+									<img alt="" class="img-circle" src='<c:url value="/assets/admin/layout2/img/avatar.png"></c:url>' />
 									<span class="username username-hide-on-mobile">Nick </span>
 									<i class="fa fa-angle-down"></i>
 								</a>

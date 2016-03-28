@@ -7,6 +7,13 @@
 	<list key="CommitDialog.committerValues">
 		<item value="liqiangbin &lt;1374477098@qq.com&gt;"/>
 	</list>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item value="666" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="464" key="DIALOG_HEIGHT"/>
+		<item value="358" key="DIALOG_X_ORIGIN"/>
+		<item value="63" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="GitCommitMessageComponent">
 	</section>
 </section>

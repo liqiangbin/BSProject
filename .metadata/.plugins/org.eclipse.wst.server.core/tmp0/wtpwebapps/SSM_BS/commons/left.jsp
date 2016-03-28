@@ -54,7 +54,7 @@ pageEncoding="UTF-8"%>
 							</a>
 							<ul class="sub-menu">
 								<li>
-									<a href="notice_add.html">
+									<a href='<c:url value="/manager/noticeAdd.jsp"></c:url>'>
 										<i class="fa fa-user"></i> 发布公告
 									</a>
 								</li>
