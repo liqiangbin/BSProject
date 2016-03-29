@@ -1,5 +1,8 @@
 package com.cn.hnust.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -15,6 +18,13 @@ public class ManagerServiceImpl implements ManagerService {
 
 	public Manager getManagerById(int id) {
 		return this.managerDao.selectByPrimaryKey(id);
+	}
+	public Manager selectByLogin(String loginName,String password) {
+		return this.managerDao.selectByLogin(loginName, password);
+	}
+	
+	public List<Manager> getManager(Map whereCondition) {
+		 return managerDao.getManager(whereCondition);
 	}
 
 	

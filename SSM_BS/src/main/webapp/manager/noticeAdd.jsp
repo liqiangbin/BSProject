@@ -63,8 +63,8 @@
 													<td class="lineheight34"><select id="type"
 														name="type" class="form-control input-large-plus"
 														required="required">
-															<option value="1" selected="selected">管理者公告</option>
-															<option value="2">优惠活动公告</option>
+															<option value="0" selected="selected">管理者公告</option>
+															<option value="1">优惠活动公告</option>
 													</select></td>
 												</tr>
 												<tr>
@@ -86,7 +86,7 @@
 													<th width="25%">发布者签名：<label style="color: red;">&nbsp;&nbsp;</label></th>
 													<td width="75%" class="lineheight34"><label
 														id="authorNameShow" style="color: grey;">我是发布者</label>
-														<input type="hidden" id="authorName" value="我是发布者"/>
+														<input type="hidden" id="authorname" name="authorname" value="我是发布者"/>
 													</td>
 												</tr>
 												<tr>

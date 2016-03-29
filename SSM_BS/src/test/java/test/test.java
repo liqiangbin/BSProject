@@ -42,7 +42,7 @@ public class test {
     	User user=new User();
     	user.setId(3);
     	user.setAge(12);
-    	user.setUserName("username");
+    	user.setUserName("ssss");
     	user.setPassword("111111");
        // System.out.println("second");
         // System.out.println("***********8"+user.getUserName());  

@@ -1,6 +1,9 @@
 package com.cn.hnust.controller;
 
-import java.sql.Date;
+import java.util.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -18,12 +21,12 @@ public class NoticeController {
 	@Resource 
     private NoticeService noticeService; 
 	@RequestMapping("/insertNotice")  
-    public String toIndex(HttpServletRequest request,Model model,Notice notice){  
-        //model.addAttribute("user", user); 
-		String s=request.getParameter("title");
-		System.out.println(s);
-		System.out.println("notice£º"+notice.getType()+"-"+notice.getTitle()+notice.getContent());
+    public String toIndex(HttpServletRequest request,Model model,Notice notice) throws ParseException{  
+		Date date=new Date();
+		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date time=dateFormat.parse(dateFormat.format(date));
+		notice.setDate(time);
 		noticeService.insert(notice);
-        return "show";  
+        return "show"; 
     }  
 }

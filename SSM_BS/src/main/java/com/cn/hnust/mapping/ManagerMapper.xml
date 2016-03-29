@@ -9,6 +9,29 @@
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="role" property="role" jdbcType="INTEGER" />
   </resultMap>
+  	<!-- 动态查询条件 -->
+   <!--  <sql id="dynamicWhere" >
+	    <dynamic prepend="WHERE" parameterType="java.lang.Integer">
+	       <isNotEmpty prepend="AND" property="Id">
+	             Id = #Id#
+	       </isNotEmpty>
+	       <isNotEmpty prepend="AND" property="loginName">
+	             loginName = #loginName#
+	       </isNotEmpty>
+	       <isNotEmpty prepend="AND" property="password">
+	             password= #password#
+	       </isNotEmpty>
+	       	<isNotEmpty prepend="AND" property="name">
+	             name= #name#
+	       </isNotEmpty>
+	       	<isNotEmpty prepend="AND" property="status">
+	             status= #status#
+	       </isNotEmpty>
+	       <isNotEmpty prepend="AND" property="role">
+	             role= #role#
+	       </isNotEmpty>
+		</dynamic> 
+	</sql> -->
   <sql id="Base_Column_List" >
     Id, loginName, password, name, status, role
   </sql>
@@ -17,6 +40,12 @@
     <include refid="Base_Column_List" />
     from manager
     where Id = #{id,jdbcType=INTEGER}
+  </select>
+   <select id="selectByLogin" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from manager
+    where loginName =#{0}and password=#{1}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from manager
@@ -101,4 +130,10 @@
       role = #{role,jdbcType=INTEGER}
     where Id = #{id,jdbcType=INTEGER}
   </update>
+<!--     <select id="getManager" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from manager
+   <include refid="dynamicWhere"/> 
+  </select> -->
 </mapper>

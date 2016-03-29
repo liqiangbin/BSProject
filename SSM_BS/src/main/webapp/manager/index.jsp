@@ -20,10 +20,11 @@
 		<div class="page-content-wrapper">
 			<div class="page-content">
 				<!-- BEGIN PAGE HEADER-->
-				<h3 class="page-title">MSC首页</h3>
+				<h3 class="page-title">IBooK首页</h3>
+				<%-- <input type="text" value="${managers.Id}"> --%>
 				<div class="page-bar">
 					<ul class="page-breadcrumb">
-						<li><i class="fa fa-home"></i> <a href="index.html">MSC首页</a>
+						<li><i class="fa fa-home"></i> <a href="index.html">IBooK首页</a>
 						</li>
 					</ul>
 				</div>
@@ -134,7 +135,7 @@
 										<a class="hs-service hs-service-blue" href="transquery.html">
 											<div class="hs-service-body clearfix">
 												<img
-													src="../../assets/admin/layout2/img/service-blueico.jpg"
+													src='<c:url value="/assets/admin/layout2/img/service-blueico.jpg"></c:url>'
 													class="img-circle">
 												<h4>交易查询</h4>
 												<p>为您提供收款服务的交易查询功能</p>
@@ -146,7 +147,7 @@
 											href="transstatistic-skfw.html">
 											<div class="hs-service-body clearfix">
 												<img
-													src="../../assets/admin/layout2/img/service-cyanico.jpg"
+													src='<c:url value="/assets/admin/layout2/img/service-cyanico.jpg"></c:url>'
 													class="img-circle">
 												<h4>交易统计</h4>
 												<p>为您提供首款服务的交易统计功能</p>
@@ -158,7 +159,7 @@
 											href="transreconciliation.html">
 											<div class="hs-service-body clearfix">
 												<img
-													src="../../assets/admin/layout2/img/service-yellowico.jpg"
+													src='<c:url value="/assets/admin/layout2/img/service-yellowico.jpg"></c:url>'
 													class="img-circle">
 												<h4>交易对账</h4>
 												<p>为您提供首款服务的交易对账功能</p>
@@ -169,7 +170,7 @@
 										<a class="hs-service hs-service-green" href="usermng.html">
 											<div class="hs-service-body clearfix">
 												<img
-													src="../../assets/admin/layout2/img/service-greenico.jpg"
+													src='<c:url value="/assets/admin/layout2/img/service-greenico.jpg"></c:url>'
 													class="img-circle">
 												<h4>用户管理</h4>
 												<p>为您提供角色分配的功能</p>
@@ -179,7 +180,7 @@
 									<div class="col-md-4 col-sm-6 col-xs-12">
 										<a class="hs-service hs-service-red" href="authoritymng.html">
 											<div class="hs-service-body clearfix">
-												<img src="../../assets/admin/layout2/img/service-redico.jpg"
+												<img src='<c:url value="/assets/admin/layout2/img/service-redico.jpg"></c:url>'
 													class="img-circle">
 												<h4>权限管理</h4>
 												<p>为角色提供权限分配功能</p>
@@ -191,7 +192,7 @@
 											href="pwdsettings.html">
 											<div class="hs-service-body clearfix">
 												<img
-													src="../../assets/admin/layout2/img/service-purpleico.jpg"
+													src='<c:url value="/assets/admin/layout2/img/service-purpleico.jpg"></c:url>'
 													class="img-circle">
 												<h4>密码修改</h4>
 												<p>为您提供密码修改功能</p>
