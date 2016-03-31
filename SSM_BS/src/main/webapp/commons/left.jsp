@@ -84,7 +84,7 @@ pageEncoding="UTF-8"%>
 									</a>
 								</li>
 								<li>
-									<a href="password_edit.html">
+									<a href='<c:url value="/manager/passwordEdit.jsp"></c:url>'>
 										<i class="icon-lock"></i> 密码修改
 									</a>
 								</li>

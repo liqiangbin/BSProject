@@ -26,6 +26,9 @@ public class ManagerServiceImpl implements ManagerService {
 	public List<Manager> getManager(Map whereCondition) {
 		 return managerDao.getManager(whereCondition);
 	}
+	public int updateByPrimaryKeySelective(Manager record){
+		return managerDao.updateByPrimaryKeySelective(record);
+	}
 
 	
 }

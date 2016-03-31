@@ -10,28 +10,6 @@
     <result column="role" property="role" jdbcType="INTEGER" />
   </resultMap>
   	<!-- 动态查询条件 -->
-   <!--  <sql id="dynamicWhere" >
-	    <dynamic prepend="WHERE" parameterType="java.lang.Integer">
-	       <isNotEmpty prepend="AND" property="Id">
-	             Id = #Id#
-	       </isNotEmpty>
-	       <isNotEmpty prepend="AND" property="loginName">
-	             loginName = #loginName#
-	       </isNotEmpty>
-	       <isNotEmpty prepend="AND" property="password">
-	             password= #password#
-	       </isNotEmpty>
-	       	<isNotEmpty prepend="AND" property="name">
-	             name= #name#
-	       </isNotEmpty>
-	       	<isNotEmpty prepend="AND" property="status">
-	             status= #status#
-	       </isNotEmpty>
-	       <isNotEmpty prepend="AND" property="role">
-	             role= #role#
-	       </isNotEmpty>
-		</dynamic> 
-	</sql> -->
   <sql id="Base_Column_List" >
     Id, loginName, password, name, status, role
   </sql>
@@ -130,10 +108,28 @@
       role = #{role,jdbcType=INTEGER}
     where Id = #{id,jdbcType=INTEGER}
   </update>
-<!--     <select id="getManager" resultMap="BaseResultMap" parameterType="java.util.Map" >
+  <select id="getManager" resultMap="BaseResultMap" parameterType="java.util.Map" >
     select 
     <include refid="Base_Column_List" />
     from manager
-   <include refid="dynamicWhere"/> 
-  </select> -->
+       WHERE 1=1
+      <if test="Id != null" >
+       AND Id = #{Id}
+      </if>
+           <if test="loginName != null" >
+       AND loginName = #{loginName}
+      </if>
+           <if test="password != null" >
+      AND  password = #{password}
+      </if>
+           <if test="name!= null" >
+       AND name = #{name}
+      </if>
+           <if test="status != null" >
+      AND  status = #{status}
+      </if>
+          <if test="role != null" >
+      AND  role = #{role}
+      </if>
+  </select> 
 </mapper>

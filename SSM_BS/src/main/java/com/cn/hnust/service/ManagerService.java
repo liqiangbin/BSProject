@@ -7,6 +7,8 @@ import com.cn.hnust.pojo.Manager;
   
 public interface ManagerService {  
     public Manager getManagerById(int id); 
-   // public List<Manager> getManager(Map whereCondition);
+    //public List<Manager> getManager(Map whereCondition);
+    public List<Manager> getManager(Map whereCondition);
 	public Manager selectByLogin(String loginName,String password);
+	public int updateByPrimaryKeySelective(Manager record);
 }  
