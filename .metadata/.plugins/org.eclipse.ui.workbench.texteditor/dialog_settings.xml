@@ -2,26 +2,31 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="alert" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="date"/>
-			<item value="data"/>
-			<item value="colorpi"/>
-			<item value="Koolmis"/>
-			<item value="start-timeout"/>
+			<item value="alert"/>
+			<item value="showAlertModel"/>
+			<item value="cash"/>
+			<item value="zh"/>
+			<item value="alert_"/>
+			<item value="url"/>
+			<item value="&lt;c:url"/>
+			<item value="&lt;c:"/>
 		</list>
 		<list key="replacehistory">
+			<item value="IBooK"/>
+			<item value="&apos;&lt;c:url value=&quot;/"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="273" key="DIALOG_WIDTH"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 		<item value="400" key="DIALOG_HEIGHT"/>
-		<item value="994" key="DIALOG_X_ORIGIN"/>
-		<item value="181" key="DIALOG_Y_ORIGIN"/>
+		<item value="921" key="DIALOG_X_ORIGIN"/>
+		<item value="120" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

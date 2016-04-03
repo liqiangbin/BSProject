@@ -4,4 +4,13 @@
 <fullyQualifiedTypeName name="com.cn.hnust.service.NoticeService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Notice"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Manager"/>
+<fullyQualifiedTypeName name="javax.jms.Session"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.SessionAttributes"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

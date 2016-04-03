@@ -8,8 +8,7 @@
 <html lang="en">
 <!--<![endif]-->
 <head>
-<title><s:text name="page.login.koolyun"></s:text> - <s:text
-		name="page.login.msc"></s:text></title>
+<title>IBooK 商家服务平台</title>
 <link rel="shortcut icon"
 	href='<c:url value="/scripts/images/favicon.ico"></c:url>' />
 
@@ -61,7 +60,7 @@
 	href='<c:url value="/assets/admin/layout2/css/custom.css"></c:url>'
 	rel="stylesheet" type="text/css" />
 <!-- END THEME STYLES -->
-<link rel="shortcut icon" href="favicon.ico" />
+<link rel="shortcut icon" href='<c:url value="/scripts/images/book1.jpg"></c:url>' />
 <!-- <script language="javaScript">
 	window.location = "<c:url value="/main/index.do"/>" ;
 </script> -->

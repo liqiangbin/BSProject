@@ -1,0 +1,34 @@
+package com.cn.hnust.controller;
+
+import java.util.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cn.hnust.pojo.Notice;
+import com.cn.hnust.service.NoticeService;
+
+@Controller  
+@RequestMapping("/notice")  
+public class NoticeController {
+	@Resource 
+    private NoticeService noticeService; 
+	@RequestMapping("/insertNotice")  
+    public String toIndex(HttpServletRequest request,Model model,Notice notice) throws ParseException{  
+        //model.addAttribute("user", user); 
+		Date date=new Date();
+		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String s=dateFormat.format(date);
+		Date time=dateFormat.parse(s);
+		notice.setDate(time);
+		noticeService.insert(notice);
+        return "show";  
+    }  
+}

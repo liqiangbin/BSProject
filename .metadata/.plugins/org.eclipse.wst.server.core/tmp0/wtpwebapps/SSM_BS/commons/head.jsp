@@ -18,6 +18,7 @@
 <link
 	href='<c:url value="/assets/global/plugins/pace/themes/pace-theme-flash.css"></c:url>'
 	rel="stylesheet" type="text/css" />
+	<link rel="shortcut icon" href='<c:url value="/scripts/images/book1.jpg"></c:url>' />
 <!-- END PACE PLUGIN FILES -->
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
@@ -193,7 +194,7 @@
 	rel="stylesheet" type="text/css" />
 
 <!-- color picker --> 
-
+<%@ include file="/commons/alert_modal.jsp"  %> 
 
 <script>
 	jQuery(document).ready(function() {

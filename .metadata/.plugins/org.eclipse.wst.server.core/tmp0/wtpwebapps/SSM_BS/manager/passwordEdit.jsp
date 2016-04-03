@@ -54,7 +54,7 @@
                                 <table class="table table-bordered table_sxcondition">																				
                                     <tr>										
                                         <th width="25%">登录名：</th>
-                                        <td width="75%" class="lineheight34">00</td>
+                                        <td width="75%" class="lineheight34">${managerLoginname}</td>
                                         <input type="hidden" id="id" name="id" value="1">																																			
                                     </tr>										
                                     <tr>										
@@ -129,22 +129,8 @@
 						focusInvalid : true,
 					});
  jQuery.validator.addMethod("oldPassword", function(value, element) {
-	 /* $.ajax({
-			 type:"POST",
-			 url:'<c:url value="/manager/getOldPassword"/>',
-			 data:$('#resetPasswordForm').serialize(),
-			 dataType:"json",
-			 cache:false, 
-			 error:function(request){
-				 console.log(request);
-				 return true;
-			 },
-			 success:function(data){
-				 console.log(date);
-				 return true;
-			 }
-		 });*/
-		  if($("#oldPassword").val()=="222222"){
+	 var pass=${managerPassword};
+		  if($("#oldPassword").val()==pass){
 			return true;
 		 }
 		 return false; 

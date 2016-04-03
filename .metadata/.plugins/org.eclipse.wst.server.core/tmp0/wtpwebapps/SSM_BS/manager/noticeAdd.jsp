@@ -45,14 +45,14 @@
 								<div class="actions btn-set">
 									<a class="btn btn-default btn-circle"
 										href="javascript:void(0);"
-										onclick="turnTo('/coupon/cashcoupon')"><i
+										onclick="javascript:history(-1);"><i
 										class="fa fa-angle-left"></i> 返回<!-- 返 回--></a>
 								</div>
 							</div>
 							<div class="portlet-body">
 								<div class="table-responsive">
 									<form class="form-horizontal form-row-seperated form-inline"
-										action="<%=request.getContextPath() %>/notice/insertNotice" method="post" id="createCouponForm"
+										action="<%=request.getContextPath() %>/notice/insertNotice" method="post" id="createNotice"
 										enctype="multipart/form-data">
 										<!-- <input type="hidden" name="genType" value=""/> -->
 										<table class="table table-bordered table_sxcondition ">
@@ -63,8 +63,8 @@
 													<td class="lineheight34"><select id="type"
 														name="type" class="form-control input-large-plus"
 														required="required">
-															<option value="1" selected="selected">管理者公告</option>
-															<option value="2">优惠活动公告</option>
+															<option value="0" selected="selected">管理者公告</option>
+															<option value="1">优惠活动公告</option>
 													</select></td>
 												</tr>
 												<tr>
@@ -85,8 +85,8 @@
 												<tr>
 													<th width="25%">发布者签名：<label style="color: red;">&nbsp;&nbsp;</label></th>
 													<td width="75%" class="lineheight34"><label
-														id="authorNameShow" style="color: grey;">我是发布者</label>
-														<input type="hidden" id="authorName" value="我是发布者"/>
+														id="authorNameShow" style="color: grey;">${managerName}</label>
+														<input type="hidden" id="authorname" name="authorname" value="${managerName}"/>
 													</td>
 												</tr>
 												<tr>
@@ -117,7 +117,31 @@
 		<!-- 正文部分结束 -->
 	</div>
 	<%@ include file="/commons/foot.jsp"%>
+<script type="text/javascript">
+	$("#createNotice")
+			.validate(
+					{
+						errorClass : "notice",
+						rules : {
+							title : {
+								required : true
+							},
+							content : {
+								required : true,
+							}
+						},
+						messages : {
+							title : {
+								required : "标题不能为空"
+							},
 
+							content : {
+								required : "内容不能为空",
+							}
+						},
+						focusInvalid : true,
+					});
+</script>
 </body>
 
 </html>
