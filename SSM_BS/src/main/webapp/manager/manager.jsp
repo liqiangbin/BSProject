@@ -41,7 +41,7 @@
 					<!-- BEGIN PAGE CONTENT-->
 					<div class="row">
 						<div class="col-md-12">
-							<form class="form-horizontal form-row-seperated" action="#">
+							<div class="form-horizontal form-row-seperated" >
 								<div class="portlet light">
 									<div class="portlet-title">
 										<div class="caption">
@@ -49,7 +49,7 @@
 											<span class="caption-subject font-green-sharp bold">用户管理</span>
 										</div>
 										<div class="actions">
-											<a href="managerAdd.html" class="btn btn-circle btn-primary">
+											<a href='<c:url value="/manager/managerAdd.jsp"></c:url>' class="btn btn-circle btn-primary">
 												<i class="fa fa-plus"></i>
 												<span class="hidden-480">新增用户</span>
 											</a>
@@ -57,51 +57,54 @@
 									</div>
 									<div class="portlet-body">
 										<div class="table-responsive">
+										<form method="post" action='<c:url value="/manager/getManagerByPage" ></c:url>'>
 											<table class="table table-bordered table_sxcondition">
 												<tr>
 													<th width="13.33%">登录名：</th>
 													<td width="20%">
-														<input type="text" class="form-control input-large" name="" id="" autofocus>
+														<input type="text" class="form-control input-large" value="${managerParams.loginname}" name="loginname" id="loginname" autofocus>
 													</td>
 													<th width="13.33%">用户姓名：</th>
 													<td width="20%">
-														<input type="text" class="form-control input-large" name="" id="">
+														<input type="text" class="form-control input-large" value="${managerParams.name}" name="name" id="name">
 													</td>
 													<th width="13.33%">状态：</th>
 													<td width="20%">
-														<select class="bs-select form-control input-large" data-placeholder="全部">
-                                                <option value="全部">全部</option>
-                                                <option value="停用">停用</option>
-                                                <option value="正常">正常</option>
+														<select class="bs-select form-control input-large" value="${managerParams.status}" name="status" id="status">
+                                                <option value="">全部</option>
+                                                <option value="1" <c:if test="${managerParams.status=='1'}">selected</c:if>>停用</option>
+                                                <option value="0" <c:if test="${managerParams.status=='0'}">selected</c:if>>正常</option>
                                             </select>
 													</td>
 												</tr>
 												<tr>
-													<td colspan="6" style="text-align:center;"><button type="submit" class="btn default"><i class="fa fa-reply"></i> 重置</button> <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> 查询</button></td>
+													<td colspan="6" style="text-align:center;"><button type="reset" class="btn default"><i class="fa fa-reply"></i> 重置</button> 
+													<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> 查询</button></td>
 												</tr>
 											</table>
+											</form>
 										</div>
 										<div class="table-container">
 											<table class="table table-striped table-bordered table-hover" id="datatable_products">
 												<thead>
 													<tr role="row" class="heading">
-														<th width="15%">登录名</th>
-														<th width="15%">用户姓名</th>
-														<th width="15%">后台角色</th>
-														<th width="15">最后登录时间</th>
-														<th width="15%">登录次数</th>
-														<th width="15">状态</th>
+														<th width="20%">登录名</th>
+														<th width="20%">用户姓名</th>
+														<th width="20%">后台角色</th>
+														<th width="20">状态</th>
 														<th width="20%">操作</th>
 													</tr>
 												</thead>
 												<tbody>
+												 <c:forEach var="manager" items="${managerList}" > 
 													<tr role="row" class="filter">
-														<td>duyj</td>
-														<td>杜玉军</td>
-														<td>主管</td>
-														<td>2015-01-22</td>
-														<td>50 次</td>
-														<td>正常 </td>
+														<td>${manager.loginname}</td>
+														<td>${manager.name}</td>
+														<td>${manager.role}</td>
+														<td>
+										<c:if test="${manager.status=='0'}"><label style="color:green;">正常 </label></c:if>
+                                          <c:if test="${manager.status=='1'}"><label style="color:red;">停用</label></c:if>
+														</td>
 														<td>
 															<a class="btn btn-circle btn-icon-only btn-default tooltips" href="mangerEdit.html" data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="编辑" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
 																<span class="glyphicon glyphicon-pencil"></span>
@@ -112,12 +115,14 @@
 															
 														</td>
 													</tr>
+													</c:forEach>
+													<%@ include file="/commons/page.jsp"  %> 
 												</tbody>
 											</table>
 										</div>
 									</div>
 								</div>
-							</form>
+							</div>
 						</div>
 					</div>
 					<!-- END PAGE CONTENT-->
