@@ -11,4 +11,6 @@ public interface ManagerService {
     public List<Manager> getManager(Map whereCondition);
 	public Manager selectByLogin(String loginName,String password);
 	public int updateByPrimaryKeySelective(Manager record);
+	public int getCounts(Manager manager);
+	 public List<Manager> getManagerByPage(Map condition);
 }  

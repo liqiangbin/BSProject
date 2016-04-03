@@ -12,12 +12,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.cn.hnust.pojo.Manager;
 import com.cn.hnust.service.ManagerService;
 
 @Controller  
-
 @RequestMapping("/login")  
 public class LoginController {
 	@Resource  
@@ -34,8 +34,12 @@ public class LoginController {
         	 model.addAttribute("error", error);
         	return "login"; 
         }
-        session.setAttribute("manager", managers);
-        session.setAttribute("age", "12");
+		//添加登录者session信息
+		 session.setAttribute("managerId", managers.get(0).getId());
+		 session.setAttribute("managerLoginname", managers.get(0).getLoginname());
+		 session.setAttribute("managerPassword", managers.get(0).getPassword());
+		 session.setAttribute("managerName", managers.get(0).getName());
+		 session.setAttribute("managerRole", managers.get(0).getRole());
         return "manager/index"; 
     }  
 

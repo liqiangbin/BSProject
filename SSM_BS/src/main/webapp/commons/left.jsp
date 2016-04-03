@@ -73,7 +73,7 @@ pageEncoding="UTF-8"%>
 							</a>
 							<ul class="sub-menu">
 								<li>
-									<a href="manager.html">
+									<a href='<c:url value="/manager/getManagerByPage"></c:url>'>
 										<i class="fa fa-stumbleupon-circle"></i> 账号管理
 										<i class="fa fa"></i>
 									</a>

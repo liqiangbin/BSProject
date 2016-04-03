@@ -8,6 +8,7 @@
   <h2>下面是我的第一个测试数据</h2> 
     ${user.userName}  
     ${user.id} 
-    ${user.password} 
+    ${user.password}
+    ${mm} 
   </body>  
 </html>  

@@ -21,4 +21,6 @@ public interface ManagerDao {
     int updateByPrimaryKey(Manager record);
     
     List<Manager> getManager(Map whereCondition);
+    int getCounts(Manager manager);
+    List<Manager>  getManagerByPage(Map condition);
 }

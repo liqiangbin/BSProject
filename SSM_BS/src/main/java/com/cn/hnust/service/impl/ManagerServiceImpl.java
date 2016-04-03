@@ -29,6 +29,12 @@ public class ManagerServiceImpl implements ManagerService {
 	public int updateByPrimaryKeySelective(Manager record){
 		return managerDao.updateByPrimaryKeySelective(record);
 	}
+	public int getCounts(Manager manager) {
+		return managerDao.getCounts(manager);
+	}
+	public List<Manager> getManagerByPage(Map condition) {
+		return managerDao.getManagerByPage(condition);
+	}
 
 	
 }
