@@ -100,7 +100,10 @@
 													<tr role="row" class="filter">
 														<td>${manager.loginname}</td>
 														<td>${manager.name}</td>
-														<td>${manager.role}</td>
+														<td>
+														<c:if test="${manager.role=='0'}"><label style="color:orange;">管理员</label></c:if>
+														<c:if test="${manager.role=='1'}"><label style="color:grey;">操作员</label></c:if>
+														</td>
 														<td>
 										<c:if test="${manager.status=='0'}"><label style="color:green;">正常 </label></c:if>
                                           <c:if test="${manager.status=='1'}"><label style="color:red;">停用</label></c:if>
@@ -109,7 +112,7 @@
 															<a class="btn btn-circle btn-icon-only btn-default tooltips" href='<c:url value="/manager/showManager?id=${manager.id}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="编辑" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
 																<span class="glyphicon glyphicon-pencil"></span>
 															</a>
-															<a class="btn btn-circle btn-icon-only btn-default tooltips" href="javascript:alert('delete?');" data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="删除该用户">
+															<a class="btn btn-circle btn-icon-only btn-default tooltips" href='javascript:void(0);' onclick="javascript:showAlertModel('警告信息', '确认删除？','<c:url value="/manager/deleteById?id=${manager.id}"></c:url>');" data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="删除该用户">
 																<i class="icon-trash"></i>
 															</a>
 															
@@ -130,9 +133,17 @@
 			</div>
 			<!-- END CONTENT -->
 		<!-- 正文部分结束 -->
+		<input type="hidden" id="deleted" value="${deleted}"/>
 	</div>
 	<%@ include file="/commons/foot.jsp"%>
-
+<script type="text/javascript">
+ 
+var  deleted=$("#deleted").val();
+if(deleted!=""){
+	showAlertModel("提示信息","删除成功！",null);
+	$("#deleted").val("");
+}
+</script>
 </body>
 
 </html>

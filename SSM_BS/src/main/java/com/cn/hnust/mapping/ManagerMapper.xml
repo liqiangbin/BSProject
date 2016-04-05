@@ -164,6 +164,8 @@
 	 <include refid="Base_Column_List" /> 
 		from manager WHERE 1=1
 		<include refid="managerParams" />
+		order by Id DESC 
 		limit #{startPos},#{pageSize} 
+		
 	</select> 
 </mapper>

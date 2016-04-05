@@ -30,6 +30,7 @@ public class ManagerController {
 	private int managerId;
 	private final String JSON_JSP = "commons/jsondata";
 
+
 	public int getManagerId() {
 		return managerId;
 	}
@@ -94,7 +95,7 @@ public class ManagerController {
 	@RequestMapping("/getOldPassword")
 	public String getOldPassword(HttpServletRequest request, Model model,
 			Manager manager) {
-		System.out.println(manager.getId() + "+" + oldPassword);
+		//System.out.println(manager.getId() + "+" + oldPassword);
 		Map<String, Object> condition = new HashMap<String, Object>();
 		condition.put("Id", manager.getId());
 		List<Manager> managers = managerService.getManager(condition);
@@ -105,7 +106,7 @@ public class ManagerController {
 			data.put("hasOldPassword", "false");
 		}
 		responseJson = data.toString();
-		System.out.println("json:" + responseJson);
+		//System.out.println("json:" + responseJson);
 		return "manager/passwordEdit";
 	}
 /**
@@ -153,6 +154,13 @@ public class ManagerController {
 		model.addAttribute("managerParams", manager);
 		session.setAttribute("managerParams", manager);
 		model.addAttribute("url", "/manager/getManagerByPage");
+		//下面判断是否从删除页面跳转过来
+		String deleted=(String) session.getAttribute("deleted");
+		//System.out.println("删除状态："+deleted);
+		if(deleted!=null){
+			model.addAttribute("deleted", deleted);
+			session.removeAttribute("deleted");
+		}
 		return "manager/manager";
 	}
 	/**
@@ -165,7 +173,6 @@ public class ManagerController {
 	@RequestMapping("/addManager")
 	public String addManager(HttpServletRequest request, Model model,Manager manager) {
 		int success=managerService.insertManager(manager);
-		System.out.println("success:"+success);
 		if(success!=1){
 			model.addAttribute("manager",manager);
 			model.addAttribute("success","保存失败，请重试！");
@@ -185,7 +192,7 @@ public class ManagerController {
 	public String managerEdit(HttpServletRequest request, Model model,
 			Manager manager) {
 		int xx = this.managerService.updateByPrimaryKeySelective(manager);
-		System.out.println(xx);
+		//System.out.println(xx);
 		if (xx != 0) {
 			model.addAttribute("manager", manager);
 			model.addAttribute("managerEditInfo", "管理员信息修改成功!");
@@ -194,6 +201,18 @@ public class ManagerController {
 			model.addAttribute("managerEditInfo", "管理员信息修改失败！");
 		}
 		return "manager/managerEdit";
+	}
+	@RequestMapping("/deleteById")
+	public String deleteById(HttpServletRequest request, Model model,
+			Manager manager,HttpSession session) {
+		int managerId = Integer.parseInt(request.getParameter("id"));
+		int xx=managerService.deleteByPrimaryKey(managerId);
+		if (xx != 0) {
+		    session.setAttribute("deleted", "success");
+			//System.out.println(xx);
+		} 
+		
+		return "redirect:/manager/getManagerByPage";
 	}
 	
 

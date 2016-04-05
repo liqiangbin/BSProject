@@ -12,7 +12,7 @@ function showAlertModel(title,content, confirmAction){
 		$("#alert-modal-comfirm").on("click", function(e){
 			console.log(confirmAction);
 			e.preventDefault();
-			$.ajax({  
+			/* $.ajax({  
 				type: "POST",  
 				url:confirmAction,  
 				data:$('#createUserForm').serialize(),  
@@ -24,7 +24,8 @@ function showAlertModel(title,content, confirmAction){
 					 $("#pageContent").html(data);
 
 				}  
-			});
+			}); */
+			window.location.href= confirmAction;
 		});
 
 		$("#alert-model-cancel").show();
