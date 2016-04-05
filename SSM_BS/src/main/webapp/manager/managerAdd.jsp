@@ -40,7 +40,7 @@
 					<div class="col-md-12">
 						<form class="form-horizontal form-row-seperated"
 							id="managerAddForm"
-							action=<c:url value="/manager/managerAdd"></c:url> method="post">
+							action=<c:url value="/manager/addManager"></c:url> method="post">
 							<div class="portlet light">
 								<div class="portlet-title">
 									<div class="caption">
@@ -60,14 +60,14 @@
 												<th width="25%">登录名：</th>
 												<td width="75%"><input type="text"
 													class="form-control input-large" id="loginname"
-													name="loginname" value="" autofocus></td>
+													name="loginname" value="${manager.loginname}" autofocus></td>
 											</tr>
 											<tr>
 												<th width="25%">密码：</th>
 												<td width="75%"><div class="form-inline">
 														<input class="form-control input-large"
 															style="width: 180px;" type="password"
-															name="password" id="password" value="${fillMerInfo.mccCd }" />
+															name="password" id="password" value="${manager.password}" />
 													<button class="btn btn-info btn-sm" data-toggle="modal"
 															id="setPassword"  type="button">
 															<i class="fa fa-hand-o-left">设为默认 </i>
@@ -77,19 +77,19 @@
 											<tr>
 												<th width="25%">再次输入密码：</th>
 												<td width="75%"><input type="password" id="repassword"
-													name="repassword" class="form-control input-large" value="">
+													name="repassword" class="form-control input-large" value="${manager.password}">
 												</td>
 											</tr>
 											<tr>
 												<th width="25%">用户姓名：</th>
 												<td width="75%"><input type="text" id="name"
-													name="name" class="form-control input-large" value=""></td>
+													name="name" class="form-control input-large" value="${manager.name}"></td>
 											</tr>
 											<tr>
 												<th width="25%">状态：</th>
 												<td width="75%"><select
 													class="bs-select form-control input-large" id="status"
-													name="status" data-placeholder="正常">
+													name="status" data-placeholder="正常" value="${manager.status}">
 														<option value="0">正常</option>
 														<option value="1">停用</option>
 												</select></td>
@@ -98,8 +98,8 @@
 												<th width="25%">后台角色：</th>
 												<td width="75%"><select
 													class="bs-select form-control input-large" id="role"
-													name="role" data-placeholder="主管">
-														<option value="0">管理员</option>
+													name="role" data-placeholder="主管" value="${manager.role}">
+														<option value="0" selected>管理员</option>
 														<option value="1">操作员</option>
 												</select></td>
 											</tr>
@@ -112,7 +112,9 @@
 													</button>
 													<button type="submit" class="btn btn-primary">
 														<i class="fa fa fa-check"></i> 提交
-													</button></td>
+													</button>
+													<label style="color:red;">${success}</label>
+													</td>
 											</tr>
 										</table>
 									</div>

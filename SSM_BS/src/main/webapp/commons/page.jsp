@@ -78,8 +78,9 @@
 				if(event.keyCode == 13){
 				    $("#sub").click();
 				    return false;
+				}else{
+					
 				}
-				return false;
 			});
 		});
 		</script>

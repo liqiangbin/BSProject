@@ -53,15 +53,26 @@ public class ManagerController {
 	public void setResponseJson(String responseJson) {
 		this.responseJson = responseJson;
 	}
-
+/**
+ * 根据id查询manager
+ * @param request
+ * @param model
+ * @return  编辑页面
+ */
 	@RequestMapping("/showManager")
 	public String toIndex(HttpServletRequest request, Model model) {
 		int managerId = Integer.parseInt(request.getParameter("id"));
 		Manager manager = this.managerService.getManagerById(managerId);
 		model.addAttribute("manager", manager);
-		return "showManager";
+		return "manager/managerEdit";
 	}
-
+/**
+ * 修改密码
+ * @param request
+ * @param model
+ * @param manager
+ * @return
+ */
 	@RequestMapping("/passwordEdit")
 	public String passwordEdit(HttpServletRequest request, Model model,
 			Manager manager) {
@@ -73,7 +84,13 @@ public class ManagerController {
 		}
 		return "manager/passwordEdit";
 	}
-
+/**
+ * 获取旧密码
+ * @param request
+ * @param model
+ * @param manager
+ * @return
+ */
 	@RequestMapping("/getOldPassword")
 	public String getOldPassword(HttpServletRequest request, Model model,
 			Manager manager) {
@@ -91,7 +108,14 @@ public class ManagerController {
 		System.out.println("json:" + responseJson);
 		return "manager/passwordEdit";
 	}
-
+/**
+ * 根据分页信息查询manager
+ * @param request
+ * @param model
+ * @param manager
+ * @param session
+ * @return
+ */
 	@RequestMapping("/getManagerByPage")
 	public String getManagerByPage(HttpServletRequest request, Model model,
 			Manager manager, HttpSession session) {
@@ -108,9 +132,7 @@ public class ManagerController {
 		} else {
 			counts = managerService.getCounts(manager);
 		}
-		/**
-		 * 添加查询条件
-		 */
+		 // 添加查询条件
 		Map<String, Object> condition = new HashMap<String, Object>();
 		condition.put("id", manager.getId());
 		condition.put("loginname", manager.getLoginname());
@@ -132,6 +154,46 @@ public class ManagerController {
 		session.setAttribute("managerParams", manager);
 		model.addAttribute("url", "/manager/getManagerByPage");
 		return "manager/manager";
+	}
+	/**
+	 * 添加manager
+	 * @param request
+	 * @param model
+	 * @param manager
+	 * @return
+	 */
+	@RequestMapping("/addManager")
+	public String addManager(HttpServletRequest request, Model model,Manager manager) {
+		int success=managerService.insertManager(manager);
+		System.out.println("success:"+success);
+		if(success!=1){
+			model.addAttribute("manager",manager);
+			model.addAttribute("success","保存失败，请重试！");
+			return "manager/managerAdd";
+		}else{
+		return "redirect:/manager/getManagerByPage";
+		}
+	}
+	/**
+	 * 编辑管理员信息
+	 * @param request
+	 * @param model
+	 * @param manager
+	 * @return 编辑页面
+	 */
+	@RequestMapping("/managerEdit")
+	public String managerEdit(HttpServletRequest request, Model model,
+			Manager manager) {
+		int xx = this.managerService.updateByPrimaryKeySelective(manager);
+		System.out.println(xx);
+		if (xx != 0) {
+			model.addAttribute("manager", manager);
+			model.addAttribute("managerEditInfo", "管理员信息修改成功!");
+		} else {
+			model.addAttribute("manager", manager);
+			model.addAttribute("managerEditInfo", "管理员信息修改失败！");
+		}
+		return "manager/managerEdit";
 	}
 	
 

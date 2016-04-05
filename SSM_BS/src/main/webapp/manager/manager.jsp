@@ -106,7 +106,7 @@
                                           <c:if test="${manager.status=='1'}"><label style="color:red;">停用</label></c:if>
 														</td>
 														<td>
-															<a class="btn btn-circle btn-icon-only btn-default tooltips" href="mangerEdit.html" data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="编辑" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
+															<a class="btn btn-circle btn-icon-only btn-default tooltips" href='<c:url value="/manager/showManager?id=${manager.id}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="编辑" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
 																<span class="glyphicon glyphicon-pencil"></span>
 															</a>
 															<a class="btn btn-circle btn-icon-only btn-default tooltips" href="javascript:alert('delete?');" data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="删除该用户">
