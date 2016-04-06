@@ -109,13 +109,28 @@
                                           <c:if test="${manager.status=='1'}"><label style="color:red;">停用</label></c:if>
 														</td>
 														<td>
+														<!-- 如果是管理员 -->
+														 <c:if test="${managerRole==0}">
 															<a class="btn btn-circle btn-icon-only btn-default tooltips" href='<c:url value="/manager/showManager?id=${manager.id}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="编辑" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
 																<span class="glyphicon glyphicon-pencil"></span>
 															</a>
+															 <c:if test="${manager.id!=managerId}">
 															<a class="btn btn-circle btn-icon-only btn-default tooltips" href='javascript:void(0);' onclick="javascript:showAlertModel('警告信息', '确认删除？','<c:url value="/manager/deleteById?id=${manager.id}"></c:url>');" data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="删除该用户">
 																<i class="icon-trash"></i>
 															</a>
-															
+															</c:if>
+														  </c:if>
+														  <!--  如果是操作员 -->
+														  <c:if test="${managerRole!=0}">
+															 <c:if test="${manager.id==managerId}">
+															 	<a class="btn btn-circle btn-icon-only btn-default tooltips" href='<c:url value="/manager/showManager?id=${manager.id}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="编辑" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
+																<span class="glyphicon glyphicon-pencil"></span>
+															</a>
+															</c:if>
+															 <c:if test="${manager.id!=managerId}">
+															<label style="color:gray;">无权限</label>
+															</c:if>
+														  </c:if>
 														</td>
 													</tr>
 													</c:forEach>

@@ -59,7 +59,7 @@ pageEncoding="UTF-8"%>
 									</a>
 								</li>
 								<li>
-									<a href="notice_activity.html">
+									<a href='<c:url value="/notice/getNoticeByPage"></c:url>'>
 										<i class="fa fa-users"></i> 公告管理
 									</a>
 								</li>

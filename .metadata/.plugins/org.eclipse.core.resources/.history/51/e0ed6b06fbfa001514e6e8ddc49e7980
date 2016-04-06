@@ -1,0 +1,19 @@
+package controller;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
+public class test {
+
+	public static void main(String[] args) {
+		
+		TimeZone.setDefault(TimeZone.getTimeZone("CST"));try{   String d = "Wed Jan 15 00:00:00 CST 2014";   SimpleDateFormat formatter = new SimpleDateFormat("E MMM dd hh:mm:ss z yyyy");   Date date = formatter.parse(d);   System.out.println(date);
+		 
+		   SimpleDateFormat format = new SimpleDate(Format("yyyy-MM-dd HH:mm:ss");   String dd =format.format(date );   Date ddd;   ddd = format.parse(dd);   System.out.println("dd>>>>  "+dd);   System.out.println("ddd>>>  "+format.format(ddd));
+		 
+		} catch(Exception ex) {ex.printStackTrace();}
+
+	}
+
+}

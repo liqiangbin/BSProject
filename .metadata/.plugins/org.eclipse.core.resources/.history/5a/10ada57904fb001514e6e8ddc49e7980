@@ -1,0 +1,99 @@
+package com.cn.hnust.controller;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import com.cn.hnust.pojo.Notice;
+import com.cn.hnust.pojo.Page;
+import com.cn.hnust.service.NoticeService;
+
+@Controller  
+@RequestMapping("/notice")  
+public class NoticeController {
+	@Resource 
+    private NoticeService noticeService; 
+	@RequestMapping("/insertNotice")  
+    public String toIndex(HttpServletRequest request,Model model,Notice notice) throws ParseException{  
+		Date date=new Date();
+		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date time=dateFormat.parse(dateFormat.format(date));
+		notice.setDate(time);
+		noticeService.insert(notice);
+        return "show"; 
+    }  
+	@RequestMapping("/getNoticeByPage")
+	public String getManagerByPage(HttpServletRequest request, Model model,
+			Notice notice, HttpSession session) {
+		List<Notice> noticeList = new ArrayList<Notice>();
+		int counts;// 分页记录总数
+		String pageNow = request.getParameter("pageNow");
+		String countString=request.getParameter("allcount");
+		Page page = null;
+		// 判断分页参数
+		Notice noticeParams = (Notice) session.getAttribute("noticeParams");
+		if (countString != null) {
+			counts = Integer.parseInt(countString);
+			notice=noticeParams;
+		} else {
+			counts = noticeService.getCounts(notice);
+			System.out.println("counts:"+counts);
+		}
+		 // 添加查询条件
+		Map<String, Object> condition = new HashMap<String, Object>();
+		condition.put("Id", notice.getId());
+		condition.put("date", notice.getDate());
+		condition.put("title", notice.getTitle());
+		condition.put("content", notice.getContent());
+		condition.put("authorname", notice.getAuthorname());
+		condition.put("type",notice.getType());
+		if (pageNow != null && pageNow != "") {
+			page = new Page(counts, Integer.parseInt(pageNow));
+		} else {
+			page = new Page(counts, 1);
+		}
+		condition.put("startPos", page.getStartPos());
+		condition.put("pageSize", page.getPageSize());
+		System.out.println("startPos:"+ page.getStartPos());
+		System.out.println("pageSize:"+page.getPageSize());
+		noticeList = this.noticeService.getNoticeByPage(condition);
+		//将数据库获取的时间戳转换成普通时间格式
+		Date dateStr=noticeList.get(0).getDate();
+		SimpleDateFormat outFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		for(int i=0;i<noticeList.size();i++){
+			String s = outFormat.format(noticeList.get(i).getDate());
+			System.out.println(s);
+			 Date date=new Date(s);
+			noticeList.get(i).setDate(date);
+			System.out.println("改变没--》"+noticeList.get(i).getDate());
+		}
+		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("page", page);
+		model.addAttribute("noticeParams", notice);
+		
+		
+		session.setAttribute("noticeParams", notice);
+		model.addAttribute("url", "/notice/getNoticeByPage");
+		//下面判断是否从删除页面跳转过来
+		String deleted=(String) session.getAttribute("nocticedeleted");
+		//System.out.println("删除状态："+deleted);
+		if(deleted!=null){
+			model.addAttribute("nocticedeleted", deleted);
+			session.removeAttribute("nocticedeleted");
+		}
+		return "manager/notice";
+	}
+}

@@ -202,6 +202,14 @@ public class ManagerController {
 		}
 		return "manager/managerEdit";
 	}
+	/**
+	 * 
+	 * @param request
+	 * @param model
+	 * @param manager
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("/deleteById")
 	public String deleteById(HttpServletRequest request, Model model,
 			Manager manager,HttpSession session) {
@@ -211,7 +219,6 @@ public class ManagerController {
 		    session.setAttribute("deleted", "success");
 			//System.out.println(xx);
 		} 
-		
 		return "redirect:/manager/getManagerByPage";
 	}
 	
