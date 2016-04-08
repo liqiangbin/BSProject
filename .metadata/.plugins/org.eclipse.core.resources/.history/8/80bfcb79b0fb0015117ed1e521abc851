@@ -1,0 +1,17 @@
+package com.cn.hnust.dao;
+
+import com.cn.hnust.pojo.Subtype;
+
+public interface SubtypeMapper {
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Subtype record);
+
+    int insertSelective(Subtype record);
+
+    Subtype selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(Subtype record);
+
+    int updateByPrimaryKey(Subtype record);
+}

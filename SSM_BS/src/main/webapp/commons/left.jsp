@@ -31,6 +31,18 @@ pageEncoding="UTF-8"%>
 								<span class="title">图书管理</span>
 								<span class="arrow "></span>
 							</a>
+								<ul class="sub-menu">
+								<li>
+									<a href='<c:url value="/subType/SellectByParams"></c:url>'>
+										<i class="fa fa-user"></i> 图书分类管理
+									</a>
+								</li>
+								<li>
+									<a href='<c:url value="/notice/getNoticeByPage"></c:url>'>
+										<i class="fa fa-users"></i> 图书列表
+									</a>
+								</li>
+							</ul>
 						</li>
 						<li>
 							<a href="sales.html">

@@ -1,0 +1,41 @@
+package com.cn.hnust.controller;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cn.hnust.pojo.Subtype;
+import com.cn.hnust.pojo.Type;
+import com.cn.hnust.service.SubTypeService;
+import com.cn.hnust.service.TypeService;
+
+@Controller  
+@RequestMapping("/subType")  
+public class SubTypeController {
+	@Resource 
+    private SubTypeService subTypeService; 
+	@Resource 
+    private TypeService typeService; 
+	@RequestMapping("/SellectByParams")  
+    public String toIndex(HttpServletRequest request,Model model,Subtype subtype,Type type){ 
+        List<Subtype> subList=this.subTypeService.getAllSelect(subtype);
+        List<Type> typeList=this.typeService.getByParams(type);
+        List<Subtype> subAll=this.subTypeService.selectAll();
+        List<Type> typeAll=this.typeService.selectAll();
+        model.addAttribute("subAll",subAll);
+		model.addAttribute("typeAll",typeAll);
+		model.addAttribute("subList",subList);
+		model.addAttribute("typeList",typeList);
+		System.out.println("TypeList:"+typeList.size()+typeList.get(0).getTypedescn());
+		System.out.println("subList:"+subList.size());
+        return "manager/type"; 
+    }  
+
+}

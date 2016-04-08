@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hnust.dao.SubtypeDao" >
+  <resultMap id="BaseResultMap" type="com.cn.hnust.pojo.Subtype" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="typeNumber" property="typenumber" jdbcType="INTEGER" />
+    <result column="subTypeDescn" property="subtypedescn" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, typeNumber, subTypeDescn
+  </sql>
+   <sql id="noticeParams" >
+		<if test="id != null">
+			AND Id = #{id}
+		</if>
+		<if test="typeNumber != null and date !=''">
+			AND typeNumber = #{typenumber}
+		</if>
+		<if test="subTypeDescn != null and subTypeDescn !=''">
+			AND subTypeDescn=#{subTypeDescn}
+		</if>
+	</sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from subtype
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from subtype
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.hnust.pojo.Subtype" >
+    insert into subtype (Id, typeNumber, subTypeDescn
+      )
+    values (#{id,jdbcType=INTEGER}, #{typenumber,jdbcType=INTEGER}, #{subtypedescn,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.hnust.pojo.Subtype" >
+    insert into subtype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="typenumber != null" >
+        typeNumber,
+      </if>
+      <if test="subtypedescn != null" >
+        subTypeDescn,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typenumber != null" >
+        #{typenumber,jdbcType=INTEGER},
+      </if>
+      <if test="subtypedescn != null" >
+        #{subtypedescn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.hnust.pojo.Subtype" >
+    update subtype
+    <set >
+      <if test="typenumber != null" >
+        typeNumber = #{typenumber,jdbcType=INTEGER},
+      </if>
+      <if test="subtypedescn != null" >
+        subTypeDescn = #{subtypedescn,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.hnust.pojo.Subtype" >
+    update subtype
+    set typeNumber = #{typenumber,jdbcType=INTEGER},
+      subTypeDescn = #{subtypedescn,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getAllSelect" resultType="BaseResultMap" parameterType="java.util.Map">
+		SELECT <include refid="Base_Column_List" /> FROM subtype
+		WHERE 1=1 
+		<include refid="subTypeParams" />
+		
+	</select>
+</mapper>
