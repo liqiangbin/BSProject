@@ -13,5 +13,6 @@ public interface SubTypeService {
 	 public List<Subtype> getTypeByPage(Map condition);
 	 public  int deleteById(int id);
 	 public List<Subtype> selectAll();
+	 public  int update(Subtype type); 
 
 }

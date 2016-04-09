@@ -12,6 +12,6 @@ public interface TypeService {
 	 public  int deleteByTypeNumber(int deleteByTypeNumber);
 	 public List<Type> getByParams(Type type);
 	 public List<Type> selectAll();
-	 
+	 public int update(Type type);
 
 }

@@ -19,5 +19,6 @@
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Type"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.TypeService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Subtype"/>
 </qualifiedTypeNameHistroy>

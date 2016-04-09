@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="delete" key="selection"/>
+		<item value="forEa" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="forea"/>
+			<item value="for"/>
+			<item value="deletedsub"/>
+			<item value="deleteSubtype"/>
 			<item value="delete"/>
 			<item value="de"/>
 			<item value="subtype"/>
 			<item value="typeChange"/>
-			<item value="selectAll"/>
-			<item value="删除"/>
-			<item value="typedescn"/>
-			<item value="getByParams"/>
 		</list>
 		<list key="replacehistory">
 			<item value="IBooK"/>

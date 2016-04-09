@@ -45,4 +45,9 @@ private TypeDao typeDao;
 		return typeDao.selectAll();
 	}
 
+	public int update(Type type) {
+		// TODO Auto-generated method stub
+		return typeDao.updateByPrimaryKeySelective(type);
+	}
+
 }

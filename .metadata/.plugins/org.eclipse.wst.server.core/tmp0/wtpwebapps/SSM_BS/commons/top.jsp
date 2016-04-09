@@ -105,16 +105,16 @@
 								</a>
 								<ul class="dropdown-menu dropdown-menu-default">
 									<li>
-										<a href="userinfo.html">
+										<a href='<c:url value="/manager/getManagerByPage"></c:url>'>
 											<i class="icon-user"></i> 个人信息</a>
 									</li>
 									<li class="divider"></li>
 									<li>
-										<a href="pwdsettings.html">
+										<a href='<c:url value="/manager/passwordEdit.jsp"></c:url>'>
 											<i class="icon-lock"></i> 密码修改</a>
 									</li>
 									<li>
-										<a href="login.html">
+										<a href='<c:url value="/login.jsp"></c:url>'>
 											<i class="icon-key"></i> 退出</a>
 									</li>
 								</ul>

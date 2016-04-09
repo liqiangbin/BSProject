@@ -64,7 +64,7 @@ public class SubTypeController {
 					model.addAttribute("typeDeleted", deleted1);
 					session.removeAttribute("typeDeleted");
 				}
-        return "manager/type"; 
+        return "bookType/type"; 
     } 
 	/**
 	 * 
@@ -94,6 +94,108 @@ public class SubTypeController {
 		if (xx != 0) {
 		    session.setAttribute("subTypeDeleted", "success");
 		} 
+		return "redirect:/subType/SellectByParams";
+	}
+	/**
+	 * 
+	 * @param request
+	 * @param model
+	 * @param type
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/insertType")
+	public String insertType(HttpServletRequest request, Model model,
+			Type type,HttpSession session) {
+		typeService.insert(type);
+		return "redirect:/subType/SellectByParams";
+	}
+	/**
+	 * 
+	 * @param request
+	 * @param model
+	 * @param type
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/insertSubtype")
+	public String insertSubtype(HttpServletRequest request, Model model,
+			Subtype type,HttpSession session) {
+		subTypeService.insert(type);
+		return "redirect:/subType/SellectByParams";
+	}
+	/**
+	 * 
+	 * @param request
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/addSubtype")
+	public String addSubtype(HttpServletRequest request, Model model,
+			HttpSession session) {
+		List<Type> typeList=typeService.selectAll();
+		model.addAttribute("typeList", typeList);
+		return "bookType/subtypeAdd";
+	}
+	/**
+	 * 返回细类页面
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/editSubtype")
+	public String editSubtype(HttpServletRequest request, Model model) {
+		List<Type> typeList=typeService.selectAll();
+		model.addAttribute("typeList", typeList);
+		int id = Integer.parseInt(request.getParameter("id"));
+		Subtype sub=new Subtype();
+		sub.setId(id);
+		Subtype subtype=subTypeService.getAllSelect(sub).get(0);
+		model.addAttribute("subtype", subtype);
+		return "bookType/subtypeEdit";
+	}
+	/**
+	 * 返回大类页面
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/editType")
+	public String editType(HttpServletRequest request, Model model) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		Type typ=new Type();
+		typ.setId(id);
+		Type type=typeService.getByParams(typ).get(0);
+		model.addAttribute("type", type);
+		return "bookType/typeEdit";
+	}
+	/**
+	 * 编辑大类
+	 * @param request
+	 * @param model
+	 * @param type
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/updateType")
+	public String updateType(HttpServletRequest request, Model model,
+			Type type,HttpSession session) {
+		int xx=typeService.update(type);
+		return "redirect:/subType/SellectByParams";
+	}
+	/**
+	 * 编辑细类
+	 * @param request
+	 * @param model
+	 * @param type
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/updateSubtype")
+	public String updateSubtype(HttpServletRequest request, Model model,
+			Subtype type,HttpSession session) {
+		int xx=subTypeService.update(type);
 		return "redirect:/subType/SellectByParams";
 	}
 
