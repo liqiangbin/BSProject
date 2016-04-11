@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="452" key="DIALOG_X_ORIGIN"/>
+		<item value="234" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="forEa" key="selection"/>
+		<item value="orderDetialParams" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="forea"/>
-			<item value="for"/>
-			<item value="deletedsub"/>
-			<item value="deleteSubtype"/>
-			<item value="delete"/>
-			<item value="de"/>
-			<item value="subtype"/>
-			<item value="typeChange"/>
+			<item value="orderDetialParams"/>
+			<item value="getOrderDetialNoPage"/>
+			<item value="order_detial"/>
+			<item value="orderParams"/>
+			<item value="&quot;= &quot;&quot;"/>
+			<item value="=="/>
+			<item value="form_datetime"/>
+			<item value="form"/>
 		</list>
 		<list key="replacehistory">
 			<item value="IBooK"/>
@@ -26,7 +30,7 @@
 		<item value="273" key="DIALOG_WIDTH"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 		<item value="371" key="DIALOG_HEIGHT"/>
-		<item value="850" key="DIALOG_X_ORIGIN"/>
-		<item value="233" key="DIALOG_Y_ORIGIN"/>
+		<item value="871" key="DIALOG_X_ORIGIN"/>
+		<item value="175" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

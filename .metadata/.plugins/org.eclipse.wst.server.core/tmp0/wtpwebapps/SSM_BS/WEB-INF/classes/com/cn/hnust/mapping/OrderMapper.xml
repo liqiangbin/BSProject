@@ -5,9 +5,11 @@
     <id column="Id" property="id" jdbcType="INTEGER" />
     <result column="customerId" property="customerid" jdbcType="INTEGER" />
     <result column="orderId" property="orderid" jdbcType="VARCHAR" />
-    <result column="date" property="date" jdbcType="TIMESTAMP" />
+    <result column="orderDate" property="orderdate" jdbcType="VARCHAR" />
     <result column="receiveName" property="receivename" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="totalmoney" property="totalmoney" jdbcType="DOUBLE" />
     <result column="transfee" property="transfee" jdbcType="DOUBLE" />
@@ -16,35 +18,59 @@
     <result column="comments" property="comments" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    Id, customerId, orderId, date, receiveName, phone, status, totalmoney, transfee
+    Id, customerId, orderId, orderDate, receiveName, phone, qq, address, status, totalmoney, 
+    transfee
   </sql>
   <sql id="Blob_Column_List" >
     comments
+  </sql>
+  <sql id="orderParams" >
+    <if test="id != null">
+      AND Id = #{id}
+    </if>
+    <if test="customerid != null and customerid !=''">
+      AND customerId = #{customerid}
+    </if>
+    <if test="orderid != null and orderid !=''">
+      AND orderId = #{orderid}
+    </if>
+    <if test="orderdate != null and orderdate !=''">
+      AND orderDate like CONCAT(CONCAT('%',#{orderdate}),'%')
+    </if>
+
+    <if test="phone != null">
+      AND phone = #{phone}
+    </if>
+    <if test="status != null">
+      AND status = #{status}
+    </if>
   </sql>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    from order
+    from allorder
     where Id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from order
+    delete from allorder
     where Id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.cn.hnust.pojo.Order" >
-    insert into order (Id, customerId, orderId, 
-      date, receiveName, phone, 
-      status, totalmoney, transfee, 
-      comments)
+    insert into allorder (Id, customerId, orderId, 
+      orderDate, receiveName, phone, 
+      qq, address, status, 
+      totalmoney, transfee, comments
+      )
     values (#{id,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, 
-      #{date,jdbcType=TIMESTAMP}, #{receivename,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{status,jdbcType=INTEGER}, #{totalmoney,jdbcType=DOUBLE}, #{transfee,jdbcType=DOUBLE}, 
-      #{comments,jdbcType=LONGVARCHAR})
+      #{orderdate,jdbcType=VARCHAR}, #{receivename,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{totalmoney,jdbcType=DOUBLE}, #{transfee,jdbcType=DOUBLE}, #{comments,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.cn.hnust.pojo.Order" >
-    insert into order
+    insert into allorder
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         Id,
@@ -55,14 +81,20 @@
       <if test="orderid != null" >
         orderId,
       </if>
-      <if test="date != null" >
-        date,
+      <if test="orderdate != null" >
+        orderDate,
       </if>
       <if test="receivename != null" >
         receiveName,
       </if>
       <if test="phone != null" >
         phone,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="address != null" >
+        address,
       </if>
       <if test="status != null" >
         status,
@@ -87,14 +119,20 @@
       <if test="orderid != null" >
         #{orderid,jdbcType=VARCHAR},
       </if>
-      <if test="date != null" >
-        #{date,jdbcType=TIMESTAMP},
+      <if test="orderdate != null" >
+        #{orderdate,jdbcType=VARCHAR},
       </if>
       <if test="receivename != null" >
         #{receivename,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         #{status,jdbcType=INTEGER},
@@ -111,7 +149,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.cn.hnust.pojo.Order" >
-    update order
+    update allorder
     <set >
       <if test="customerid != null" >
         customerId = #{customerid,jdbcType=INTEGER},
@@ -119,14 +157,20 @@
       <if test="orderid != null" >
         orderId = #{orderid,jdbcType=VARCHAR},
       </if>
-      <if test="date != null" >
-        date = #{date,jdbcType=TIMESTAMP},
+      <if test="orderdate != null" >
+        orderDate = #{orderdate,jdbcType=VARCHAR},
       </if>
       <if test="receivename != null" >
         receiveName = #{receivename,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
@@ -144,12 +188,14 @@
     where Id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cn.hnust.pojo.Order" >
-    update order
+    update allorder
     set customerId = #{customerid,jdbcType=INTEGER},
       orderId = #{orderid,jdbcType=VARCHAR},
-      date = #{date,jdbcType=TIMESTAMP},
+      orderDate = #{orderdate,jdbcType=VARCHAR},
       receiveName = #{receivename,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
       totalmoney = #{totalmoney,jdbcType=DOUBLE},
       transfee = #{transfee,jdbcType=DOUBLE},
@@ -157,15 +203,42 @@
     where Id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cn.hnust.pojo.Order" >
-    update order
+    update allorder
     set customerId = #{customerid,jdbcType=INTEGER},
       orderId = #{orderid,jdbcType=VARCHAR},
-      date = #{date,jdbcType=TIMESTAMP},
+      orderDate = #{orderdate,jdbcType=VARCHAR},
       receiveName = #{receivename,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
       totalmoney = #{totalmoney,jdbcType=DOUBLE},
       transfee = #{transfee,jdbcType=DOUBLE}
     where Id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="getCounts" resultType="int" parameterType="java.util.Map">
+    SELECT COUNT(*) FROM allorder
+    WHERE 1=1
+    <include refid="orderParams" />
+  </select>
+   <select id="getOrderByPage" resultMap="BaseResultMap"> 
+   select 
+   <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from allorder WHERE 1=1
+    <include refid="orderParams" />
+    order by Id DESC 
+    limit #{startPos},#{pageSize} 
+  </select> 
+   <select id="getOrderNoPage" resultMap="BaseResultMap"> 
+   select 
+   <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from allorder WHERE 1=1
+    <include refid="orderParams" />
+    order by Id DESC 
+  </select> 
+  
 </mapper>

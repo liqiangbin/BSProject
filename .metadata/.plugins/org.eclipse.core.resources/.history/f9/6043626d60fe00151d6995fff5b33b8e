@@ -1,0 +1,28 @@
+package com.cn.hnust.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+import com.cn.hnust.pojo.Order;
+import com.cn.hnust.service.OrderService;
+@Service("managerService")
+public class OrderServiceImpl implements OrderService{
+
+	public Order getOrderById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getCounts(Order order) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public List<Order> getOrderByPage(Map condition) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

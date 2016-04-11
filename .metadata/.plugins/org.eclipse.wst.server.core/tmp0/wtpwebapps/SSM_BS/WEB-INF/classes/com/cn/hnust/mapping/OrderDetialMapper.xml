@@ -6,10 +6,16 @@
     <result column="orderId" property="orderid" jdbcType="VARCHAR" />
     <result column="bookId" property="bookid" jdbcType="INTEGER" />
     <result column="bookName" property="bookname" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
     <result column="quantity" property="quantity" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    Id, orderId, bookId, bookName, quantity
+    Id, orderId, bookId, bookName,price,quantity
+  </sql>
+   <sql id="orderDetialParams" >
+    <if test="orderid != null and orderid !=''">
+      AND orderId = #{orderid}
+    </if>
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -90,4 +96,11 @@
       quantity = #{quantity,jdbcType=INTEGER}
     where Id = #{id,jdbcType=INTEGER}
   </update>
+   <select id="getOrderDetialNoPage" resultMap="BaseResultMap"> 
+   select 
+   <include refid="Base_Column_List" />
+    from order_detial WHERE 1=1
+    <include refid="orderDetialParams" />
+    order by Id DESC 
+  </select> 
 </mapper>

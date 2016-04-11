@@ -1,7 +1,5 @@
 package com.cn.hnust.pojo;
 
-import java.util.Date;
-
 public class Order {
     private Integer id;
 
@@ -9,11 +7,15 @@ public class Order {
 
     private String orderid;
 
-    private Date date;
+    private String orderdate;
 
     private String receivename;
 
     private String phone;
+
+    private String qq;
+
+    private String address;
 
     private Integer status;
 
@@ -47,12 +49,12 @@ public class Order {
         this.orderid = orderid == null ? null : orderid.trim();
     }
 
-    public Date getDate() {
-        return date;
+    public String getOrderdate() {
+        return orderdate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setOrderdate(String orderdate) {
+        this.orderdate = orderdate == null ? null : orderdate.trim();
     }
 
     public String getReceivename() {
@@ -69,6 +71,22 @@ public class Order {
 
     public void setPhone(String phone) {
         this.phone = phone == null ? null : phone.trim();
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq == null ? null : qq.trim();
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
     }
 
     public Integer getStatus() {

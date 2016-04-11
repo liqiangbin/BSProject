@@ -1,5 +1,9 @@
 package com.cn.hnust.dao;
 
+import java.util.List;
+import java.util.Map;
+
+import com.cn.hnust.pojo.Manager;
 import com.cn.hnust.pojo.Order;
 
 public interface OrderDao {
@@ -16,4 +20,7 @@ public interface OrderDao {
     int updateByPrimaryKeyWithBLOBs(Order record);
 
     int updateByPrimaryKey(Order record);
+    int getCounts(Order order);
+    List <Order>  getOrderByPage(Map condition);
+    List <Order>  getOrderNoPage(Map condition);
 }

@@ -8,10 +8,20 @@ public class OrderDetial {
     private Integer bookid;
 
     private String bookname;
+    
+    private Double price;
 
     private Integer quantity;
 
-    public Integer getId() {
+    public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Integer getId() {
         return id;
     }
 

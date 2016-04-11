@@ -18,7 +18,7 @@ pageEncoding="UTF-8"%>
 							</a>
 						</li>
 						<li>
-							<a href="order.html">
+							<a href='<c:url value="/order/getOrderByPage"></c:url>'>
 								<i class="fa fa-list-ul"></i>
 								<span class="title">订单管理</span>
 								<span class="arrow"></span>

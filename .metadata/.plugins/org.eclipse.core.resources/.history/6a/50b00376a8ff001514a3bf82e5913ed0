@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hnust.dao.OrderDetialDao" >
+  <resultMap id="BaseResultMap" type="com.cn.hnust.pojo.OrderDetial" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="orderId" property="orderid" jdbcType="VARCHAR" />
+    <result column="bookId" property="bookid" jdbcType="INTEGER" />
+    <result column="bookName" property="bookname" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+    <result column="quantity" property="quantity" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, orderId, bookId, bookName,price, quantity
+  </sql>
+   <sql id="orderDetialParams" >
+    <if test="orderid != null and orderid !=''">
+      AND orderId = #{orderid}
+    </if>
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from order_detial
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from order_detial
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.hnust.pojo.OrderDetial" >
+    insert into order_detial (Id, orderId, bookId, 
+      bookName, quantity)
+    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, #{bookid,jdbcType=INTEGER}, 
+      #{bookname,jdbcType=VARCHAR}, #{quantity,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.hnust.pojo.OrderDetial" >
+    insert into order_detial
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="orderid != null" >
+        orderId,
+      </if>
+      <if test="bookid != null" >
+        bookId,
+      </if>
+      <if test="bookname != null" >
+        bookName,
+      </if>
+      <if test="quantity != null" >
+        quantity,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null" >
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="bookid != null" >
+        #{bookid,jdbcType=INTEGER},
+      </if>
+      <if test="bookname != null" >
+        #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null" >
+        #{quantity,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.hnust.pojo.OrderDetial" >
+    update order_detial
+    <set >
+      <if test="orderid != null" >
+        orderId = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="bookid != null" >
+        bookId = #{bookid,jdbcType=INTEGER},
+      </if>
+      <if test="bookname != null" >
+        bookName = #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null" >
+        quantity = #{quantity,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.hnust.pojo.OrderDetial" >
+    update order_detial
+    set orderId = #{orderid,jdbcType=VARCHAR},
+      bookId = #{bookid,jdbcType=INTEGER},
+      bookName = #{bookname,jdbcType=VARCHAR},
+      quantity = #{quantity,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+   <select id="getOrderDetialNoPage" resultMap="BaseResultMap"> 
+   select 
+   <include refid="Base_Column_List" />
+    from order_detial WHERE 1=1
+    <include refid="orderDetialParams" />
+    order by Id DESC 
+  </select> 
+</mapper>
