@@ -9,4 +9,5 @@ public interface OrderService {
 	public int getCounts(Order order);
 	public List<Order> getOrderByPage(Map condition);
 	public List<Order> getOrderNoPage(Map condition);
+	public  int updateByPrimaryKeySelective(Order record);
 }

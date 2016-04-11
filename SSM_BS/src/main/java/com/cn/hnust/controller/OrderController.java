@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cn.hnust.pojo.Order;
@@ -87,7 +88,6 @@ public class OrderController {
 	public String orderDetial(HttpServletRequest request, Model model,
 			HttpSession session) {
 		String  orderid = request.getParameter("orderid");
-		System.out.println("orderid:"+orderid);
 		List<Order> orderList=new ArrayList<Order>();
 		List<OrderDetial> orderDetialList=new ArrayList<OrderDetial>();
 		Map<String, Object> condition = new HashMap<String, Object>();
@@ -103,5 +103,17 @@ public class OrderController {
 		model.addAttribute("orderDetialList", orderDetialList);
 		return "order/orderDetial";
 	}
+	@RequestMapping("/orderUpdate")
+	public String orderUpdate(HttpServletRequest request, Model model,
+			Order order) {
+		int  id = Integer.parseInt(request.getParameter("id"));
+		int   status =Integer.parseInt(request.getParameter("status"));
+		order.setId(id);
+		order.setStatus(status);
+		int xx=orderService.updateByPrimaryKeySelective(order);
+		System.out.println(xx);
+		return "redirect:/order/getOrderByPage";
+	}
+	
 
 }

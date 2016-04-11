@@ -27,8 +27,13 @@ public class OrderServiceImpl implements OrderService{
 
 	public List<Order> getOrderNoPage(Map condition) {
 		// TODO Auto-generated method stub
-		System.out.println("impl:"+condition.get("orderid"));
+		//System.out.println("impl:"+condition.get("orderid"));
 		return this.orderDao.getOrderNoPage(condition);
+	}
+
+	public int updateByPrimaryKeySelective(Order record) {
+		// TODO Auto-generated method stub
+		return this.orderDao.updateByPrimaryKeySelective(record);
 	}
 
 }

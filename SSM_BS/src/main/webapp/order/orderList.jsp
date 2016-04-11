@@ -180,19 +180,19 @@
 															</a>
 															<!--联系买家  -->
 																<c:if test="${order.qq!=null }">
-															<a class="btn btn-circle btn-icon-only btn-default tooltips" href='<c:url value="/manager/showManager?id=${manager.id}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="联系买家" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
+															<a class="btn btn-circle btn-icon-only btn-default tooltips" href='#' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="联系买家" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
 																<span class="fa fa-phone"></span>
 															</a>
 															</c:if>
 															<!-- 发货 -->
 															<c:if test="${order.status==4 }">
-															<a class="btn btn-circle btn-icon-only btn-default tooltips" href='<c:url value="/manager/showManager?id=${manager.id}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="发货" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
+															<a class="btn btn-circle btn-icon-only btn-default tooltips" href='<c:url value="/order/orderUpdate?id=${order.id}&status=5"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="发货" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
 																<span class="fa fa-send"></span>
 															</a>
 															</c:if>
 															<!-- 退款 -->
 															<c:if test="${order.status==2 }">
-															<a class="btn btn-circle btn-icon-only btn-default tooltips" href='<c:url value="/manager/showManager?id=${manager.id}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="同意退款" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
+															<a class="btn btn-circle btn-icon-only btn-default tooltips" href='<c:url value="/order/orderUpdate?id=${order.id}&status=3"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="同意退款" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
 																<span class="fa fa-money"></span>
 															</a>
 															</c:if>
