@@ -1,0 +1,182 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<%@ include file="/commons/head.jsp"%>
+</head>
+<body>
+	<!-- BEGIN BODY -->
+<div
+	class="page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed ">
+	<!-- BEGIN TOP -->
+	<%@ include file="/commons/top.jsp"%>
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<%@ include file="/commons/left.jsp"%>
+		<!-- END SIDEBAR -->
+		<!-- 下面是正文部分 -->
+		<!-- BEGIN CONTENT -->
+		<div class="page-content-wrapper">
+			<div class="page-content" style="min-height: 801px">
+				<!-- BEGIN PAGE HEADER-->
+				<h3 class="page-title">
+					图书管理
+					<!-- 现 金 券 管 理-->
+				</h3>
+				<div class="page-bar">
+					<ul class="page-breadcrumb">
+						<li><i class="fa fa-home"></i> <a href="#">
+								IBooK首页<
+						</a> <i class="fa fa-angle-right"></i></li>
+						<li><a href="javascript:void(0);">图书管理</a> <i
+							class="fa fa-angle-right"></i></li>
+						<li class="active"><a href="javascript:void(0);">图书详情 </a>
+						</li>
+
+					</ul>
+				</div>
+				<!-- END PAGE HEADER-->
+
+				<!-- BEGIN PAGE CONTENT-->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="portlet light">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-stumbleupon-circle font-green-sharp"></i> <span
+										class="caption-subject font-green-sharp bold">图书详情 <!-- 现 金 券 详 情--></span>
+								</div>
+								<div class="actions btn-set">
+									<a class="btn btn-default btn-circle"
+										href="javascript:void(0);" onclick="javascript:history.go(-1)"><i
+										class="fa fa-angle-left"></i> 返回<!-- 返 回--></a>
+								</div>
+							</div>
+							<div class="portlet-body">
+								<div class="table-responsive">
+									<table class="table table-bordered table_sxcondition">
+										<tbody>
+
+											<tr>
+												<th width="25%">图书名称：
+												</th>
+												<td width="75%" class="lineheight34">游娃娃</td>
+											</tr>
+
+
+											<tr>
+												<th width="25%">商品<!-- 商 品-->：
+												</th>
+												<td width="75%" class="lineheight34">游娃娃单品测试门票</td>
+											</tr>
+
+											<tr>
+												<th width="25%">正标题<!-- 正 标 题-->：
+												</th>
+												<td width="75%" class="lineheight34">游娃娃单票测试门票</td>
+											</tr>
+											<tr>
+												<th width="25%">酷券名称<!-- 酷 券 名 称-->：
+												</th>
+												<td width="75%" class="lineheight34">游娃娃单票测试门票</td>
+											</tr>
+											<tr>
+												<th width="25%">券图片1<!-- 券 图 片 1-->：
+												</th>
+												<td width="75%" class="lineheight34"><img id="mall_img"
+													src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884137130.jpg"
+													style="border: 1px solid #eee; width: 320px; height: 240px;">
+
+												</td>
+											</tr>
+											<tr>
+												<th width="25%">券图片2<!-- 券 图 片 2-->：
+												</th>
+												<td width="75%" class="lineheight34"><img id="mall_img"
+													src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
+													style="border: 1px solid #eee; width: 110px; height: 80px;">
+
+												</td>
+											</tr>
+											<tr>
+												<th width="25%">面值<!-- 面 值-->：
+												</th>
+												<td width="75%" class="lineheight34">180元<!-- 元--></td>
+											</tr>
+											<tr>
+												<th width="25%">售价<!-- 售 价-->：
+												</th>
+												<td width="75%" class="lineheight34">0.01元<!-- 元--></td>
+											</tr>
+											<tr>
+												<th width="25%">酷券有效期<!-- 酷 券 有 效 期-->：
+												</th>
+												<td width="75%" class="lineheight34">
+
+
+													2016-01-27~2016-02-29</td>
+											</tr>
+											<tr>
+												<th width="25%">使用须知<!-- 使 用 须 知-->：
+												</th>
+												<td width="75%" class="lineheight34">111</td>
+											</tr>
+											<tr>
+												<th width="25%">客服电话<!-- 客 服 电 话-->：
+												</th>
+												<td width="75%" class="lineheight34">021-68588826</td>
+											</tr>
+											<tr>
+												<th width="25%">适用门店<!-- 适 用 门 店-->：
+												</th>
+												<td width="75%" class="lineheight34">
+													<table style="width: 100%;">
+
+														<tbody>
+															<tr>
+																<td>大连老虎滩海洋公园(大连)</td>
+
+
+															</tr>
+														</tbody>
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<th width="25%">商家相册<!-- 商 家 相 册-->：
+												</th>
+												<td>
+													<table style="width: 100%;">
+
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<th></th>
+												<td>
+													<button type="button" class="btn default"
+														onclick="javascript:history.go(-1)">
+														<i class="fa fa-angle-left"></i> 返回
+														<!-- 返 回-->
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END PAGE CONTENT-->
+			</div>
+		</div>
+		<!-- END PAGE CONTENT-->
+		<!-- 正文部分结束 -->
+	</div>
+	<%@ include file="/commons/foot.jsp"%>
+</div>
+</body>
+
+</html>

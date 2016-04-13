@@ -6,20 +6,20 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="orderDetialParams" key="selection"/>
+		<item value="deleted" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="orderDetialParams"/>
-			<item value="getOrderDetialNoPage"/>
-			<item value="order_detial"/>
-			<item value="orderParams"/>
-			<item value="&quot;= &quot;&quot;"/>
-			<item value="=="/>
-			<item value="form_datetime"/>
+			<item value="deleted"/>
+			<item value="getBookByPage"/>
+			<item value="map:"/>
+			<item value="like"/>
+			<item value="/form"/>
 			<item value="form"/>
+			<item value="captchaImg"/>
+			<item value="refreshCaptcha"/>
 		</list>
 		<list key="replacehistory">
 			<item value="IBooK"/>

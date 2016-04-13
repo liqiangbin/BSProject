@@ -25,7 +25,7 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 	public List<Notice> getNoticeByPage(Map condition) {
 		// TODO Auto-generated method stub
-		System.out.println("map:"+condition.get("title"));
+		//System.out.println("map:"+condition.get("title"));
 		return noticeDao.getNoticeByPage(condition);
 	}
 	public int deleteById(int id) {

@@ -22,10 +22,10 @@
 			AND date = #{date}
 		</if>
 		<if test="title != null and title !=''">
-			AND title=#{title}
+			AND title like '%${title}%'
 		</if>
 		<if test="content!= null and content !=''">
-			AND content =#{content}
+			AND content like '%${content}%'
 		</if>
 		<if test="authorname!= null and authorname!=''">
 			AND authorName = #{authorname}

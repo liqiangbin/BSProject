@@ -141,7 +141,7 @@
 					maxlength="4">
 				<!-- 验证码 -->
 				<img
-					src='/msc/commons/jcaptcha.jpg;jsessionid=A63DD1E0844F9E862F20FCA3EECE1B12'
+					src='<c:url value="/commons/jcaptcha.jpg"/>'
 					class="yzm-pic pull-left" id="captchaImg"> <a
 					href="javascript:void(0);" class="yzm-change pull-left"
 					onclick="refreshCaptcha()">换一张</a>
@@ -239,12 +239,12 @@
 
 		}
 
-		function refreshCaptcha() {
+	/* 	function refreshCaptcha() {
 			$('#captchaImg').hide().attr(
 					'src',
 					'<c:url value="/commons/jcaptcha.jpg"/>?'
 							+ Math.floor(Math.random() * 100)).fadeIn();
-		}
+		} */
 
 		jQuery(document)
 				.ready(
@@ -378,6 +378,9 @@
 		if (explorer.indexOf("Chrome") >= 0) {
 			$("#feel").hide();
 		}
+		function refreshCaptcha() {
+			$('#captchaImg').hide().attr('src','<c:url value="/commons/jcaptcha.jpg"/>?' + Math.floor(Math.random()*100)).fadeIn();
+		}	
 	</script>
 	<!-- END JAVASCRIPTS -->
 </body>

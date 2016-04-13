@@ -4,6 +4,8 @@ import com.cn.hnust.pojo.ReadFree;
 
 public interface ReadFreeDao {
     int deleteByPrimaryKey(Integer id);
+    
+    int deleteByBookId(Integer bookid);
 
     int insert(ReadFree record);
 

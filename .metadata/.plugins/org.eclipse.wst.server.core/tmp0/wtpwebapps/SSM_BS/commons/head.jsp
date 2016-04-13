@@ -70,8 +70,9 @@
 <link
 	href='<c:url value="/assets/global/plugins/jquery-multi-select/css/multi-select.css"></c:url>'
 	rel="stylesheet" type="text/css" />
-
-
+  <%-- <link rel="stylesheet" href='<c:url value="/amazeUI/assets/css/amazeui.min.css"></c:url>'/>
+  <link rel="stylesheet" href='<c:url value="/amazeUI/assets/css/app.css"></c:url>'/>
+ --%>
 
 <!--[if lt IE 9]>
 <script src='<c:url value="/assets/global/plugins/respond.min.js"></c:url>'></script>
@@ -192,8 +193,9 @@
 	src='<c:url value="/scripts/bootstrap-colorpicker/js/bootstrap-colorpicker.js"/>'></script>
 <link href='<c:url value="/assets/admin/pages/css/profile.css"/>'
 	rel="stylesheet" type="text/css" />
-
-<!-- color picker --> 
+<%-- <script src='<c:url value="/amazeUI/assets/js/jquery.min.js"></c:url>'></script>
+<script src='<c:url value="/amazeUI/assets/js/amazeui.min.js"></c:url>'></script>
+ --%><!-- color picker --> 
 <%@ include file="/commons/alert_modal.jsp"  %> 
 
 <script>

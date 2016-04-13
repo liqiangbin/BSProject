@@ -20,6 +20,10 @@
     delete from read_free
     where Id = #{id,jdbcType=INTEGER}
   </delete>
+    <delete id="deleteByBookId" parameterType="java.lang.Integer" >
+    delete from read_free
+    where book_id = #{bookid,jdbcType=INTEGER}
+  </delete>
   <insert id="insert" parameterType="com.cn.hnust.pojo.ReadFree" >
     insert into read_free (Id, book_id, number, 
       src)

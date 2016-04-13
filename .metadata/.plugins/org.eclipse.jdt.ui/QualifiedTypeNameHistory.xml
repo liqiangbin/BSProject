@@ -12,16 +12,23 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"/>
 <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
-<fullyQualifiedTypeName name="org.apache.commons.codec.binary.StringUtils"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Type"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="com.cn.hnust.service.TypeService"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Subtype"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.OrderService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Order"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.OrderDetial"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Book"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.TypeService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.SubTypeService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Type"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Subtype"/>
+<fullyQualifiedTypeName name="org.apache.commons.codec.binary.StringUtils"/>
+<fullyQualifiedTypeName name="com.cn.hnust.dao.ReadFreeDao"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.ReadFreeService"/>
 </qualifiedTypeNameHistroy>

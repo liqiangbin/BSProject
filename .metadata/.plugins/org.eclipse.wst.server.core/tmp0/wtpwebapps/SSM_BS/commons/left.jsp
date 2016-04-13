@@ -38,7 +38,7 @@ pageEncoding="UTF-8"%>
 									</a>
 								</li>
 								<li>
-									<a href='<c:url value="/notice/getNoticeByPage"></c:url>'>
+									<a href='<c:url value="/book/getBookByPage"></c:url>'>
 										<i class="fa fa-users"></i> 图书列表
 									</a>
 								</li>

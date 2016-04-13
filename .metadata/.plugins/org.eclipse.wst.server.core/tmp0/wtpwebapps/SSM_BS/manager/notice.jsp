@@ -39,7 +39,7 @@
 					<!-- BEGIN PAGE CONTENT-->
 					<div class="row">
 						<div class="col-md-12">
-							<div class="form-horizontal form-row-seperated" action="#">
+							<div class="form-horizontal form-row-seperated" >
 								<div class="portlet light">
 									<div class="portlet-title">
 										<div class="caption">
@@ -55,11 +55,11 @@
 									</div>
 									<div class="portlet-body">
 										<div class="table-responsive">
-										<form action='<c:url value="/notice/getNoticeByPage" ></c:url>' meithod="post">
+										<form action='<c:url value="/notice/getNoticeByPage" ></c:url>' method="post">
 											<table class="table table-bordered table_sxcondition">
 												<tbody>
 													<tr>
-														<th width="13.33%">公告关键字（模糊）:</th>
+														<th width="15%">公告关键字（模糊）:</th>
 														<td width="20%">
 															<input type="text"  class="form-control input-large" name="title" id="title" value="${notice.title}">
 														</td>

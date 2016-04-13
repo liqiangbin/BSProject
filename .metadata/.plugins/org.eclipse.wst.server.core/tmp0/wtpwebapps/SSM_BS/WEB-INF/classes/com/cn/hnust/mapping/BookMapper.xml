@@ -26,6 +26,27 @@
   <sql id="Blob_Column_List" >
     introduce
   </sql>
+   <sql id="bookParams" >
+    <if test="id != null">
+      AND Id = #{id} 
+    </if>
+    <if test="name != null and name !=''">
+      AND name like '%${name}%'
+    </if>
+    <if test="author != null and author !=''">
+      AND author like '%${author}%'
+    </if>
+    <if test="publish != null and publish !=''">
+      AND publish like '%${publish}%'
+    </if>
+
+    <if test="type != null">
+      AND type = #{type}
+    </if>
+    <if test="subtype != null">
+      AND subType = #{subtype}
+    </if>
+  </sql>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -219,4 +240,19 @@
       img2 = #{img2,jdbcType=VARCHAR}
     where Id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="getCounts" resultType="int" parameterType="java.util.Map">
+    SELECT COUNT(*) FROM book
+    WHERE 1=1
+    <include refid="bookParams" />
+  </select>
+   <select id="getBookByPage" resultMap="BaseResultMap"> 
+   select 
+   <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from book WHERE 1=1
+    <include refid="bookParams" />
+    order by Id DESC 
+    limit #{startPos},#{pageSize} 
+  </select> 
 </mapper>

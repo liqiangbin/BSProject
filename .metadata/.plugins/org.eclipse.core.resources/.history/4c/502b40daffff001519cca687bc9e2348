@@ -1,0 +1,69 @@
+package com.cn.hnust.controller;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cn.hnust.pojo.Book;
+import com.cn.hnust.pojo.Order;
+import com.cn.hnust.pojo.OrderDetial;
+import com.cn.hnust.pojo.Page;
+import com.cn.hnust.service.BookService;
+
+@Controller
+@RequestMapping("/book")
+public class BookController {
+	@Resource
+	private BookService bookService;
+	@RequestMapping("/getBookByPage")
+	public String getBookByPage(HttpServletRequest request, Model model,
+			Book book, HttpSession session) {
+		List<Book> bookList = new ArrayList<Book>();
+		int counts;// 分页记录总数
+		String pageNow = request.getParameter("pageNow");
+		String countString=request.getParameter("allcount");
+		Page page = null;
+		// 判断分页参数
+		Book bookParams = (Book) session.getAttribute("bookParams");
+		if (countString != null) {
+			counts = Integer.parseInt(countString);
+			book=bookParams;
+		} else {
+			counts = bookService.getCounts(book);
+			
+		}
+		 // 添加查询条件id name author publish type subtype
+		Map<String, Object> condition = new HashMap<String, Object>();
+		condition.put("id", book.getId());
+		condition.put("name", book.getName());
+		condition.put("publish", book.getPublish());
+		condition.put("type", book.getType());
+		condition.put("subtype", book.getSubtype());
+		if (pageNow != null && pageNow != "") {
+			page = new Page(counts, Integer.parseInt(pageNow));
+		} else {
+			page = new Page(counts, 1);
+		}
+		condition.put("startPos", page.getStartPos());
+		condition.put("pageSize", page.getPageSize());
+		bookList = this.bookService.getBookByPage(condition);
+		model.addAttribute("bookList", bookList);
+		model.addAttribute("page", page);
+		model.addAttribute("bookParams", book);
+		session.setAttribute("bookParams", book);
+		model.addAttribute("url", "/book/getBookByPage");
+		return "book/list";
+	}
+	
+	
+
+}
