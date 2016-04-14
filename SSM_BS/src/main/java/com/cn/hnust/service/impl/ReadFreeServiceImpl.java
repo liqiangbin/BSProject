@@ -11,6 +11,7 @@ import com.cn.hnust.dao.BookDao;
 import com.cn.hnust.dao.ReadFreeDao;
 import com.cn.hnust.pojo.Book;
 import com.cn.hnust.pojo.Order;
+import com.cn.hnust.pojo.ReadFree;
 import com.cn.hnust.service.BookService;
 import com.cn.hnust.service.ReadFreeService;
 @Service("readFreeService")
@@ -21,6 +22,11 @@ public class ReadFreeServiceImpl implements ReadFreeService{
 	public int deleteByBookId(int bookId) {
 		// TODO Auto-generated method stub
 		return readFreeDao.deleteByBookId(bookId);
+	}
+
+	public List<ReadFree> selectByBookId(int bookId) {
+		// TODO Auto-generated method stub
+		return readFreeDao.selectByBookId(bookId);
 	}
 
 	

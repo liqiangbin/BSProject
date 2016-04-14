@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cn.hnust.pojo.Book;
 import com.cn.hnust.pojo.Page;
+import com.cn.hnust.pojo.ReadFree;
 import com.cn.hnust.pojo.Subtype;
 import com.cn.hnust.pojo.Type;
 import com.cn.hnust.service.BookService;
@@ -107,7 +108,7 @@ public class BookController {
 		//System.out.println(typeList.size() + "type");
 		model.addAttribute("typeList", typeList);
 		List<Subtype> subList = subTypeService.getAllSelect(sub1);
-		System.out.println(subList.size() + "tsubListype");
+		//System.out.println(subList.size() + "tsubListype");
 		model.addAttribute("subList", subList);
 		return "book/list";
 	}
@@ -150,6 +151,46 @@ public class BookController {
 			session.setAttribute("bookUpdate", "failed");
 		}
 		return "redirect:/book/getBookByPage";
+	}
+	/**
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/bookDetial")
+	public String bookDetial(HttpServletRequest request, Model model) {
+		int Id = Integer.parseInt(request.getParameter("id"));
+		Book book=bookService.selectById(Id);
+		//System.out.println("book"+book.getName());
+	    List<ReadFree> readFreeList=readFreeService.selectByBookId(Id);
+	    model.addAttribute("readFreeList", readFreeList);
+	   // System.out.println("readFreeList:"+readFreeList.size());
+	 // 获取图书类型信息
+	 		Type type1 = new Type();
+	 		Subtype sub1 = new Subtype();
+	 		List<Type> typeList = typeService.getByParams(type1);
+	 		//System.out.println(typeList.size() + "type");
+	 		model.addAttribute("typeList", typeList);
+	 		List<Subtype> subList = subTypeService.getAllSelect(sub1);
+	 		//System.out.println(subList.size() + "tsubListype");
+	 		model.addAttribute("subList", subList);
+	 		model.addAttribute("book", book);
+		return "book/detial";
+	}
+	
+	@RequestMapping("/bookAdd")
+	public String bookAdd(HttpServletRequest request, Model model) {
+	 // 获取图书类型信息
+	 		Type type1 = new Type();
+	 		Subtype sub1 = new Subtype();
+	 		List<Type> typeList = typeService.getByParams(type1);
+	 		//System.out.println(typeList.size() + "type");
+	 		model.addAttribute("typeList", typeList);
+	 		List<Subtype> subList = subTypeService.getAllSelect(sub1);
+	 		//System.out.println(subList.size() + "tsubListype");
+	 		model.addAttribute("subList", subList);
+		return "book/bookAdd";
 	}
 
 

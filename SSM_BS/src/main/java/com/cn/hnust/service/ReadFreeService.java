@@ -1,11 +1,12 @@
 package com.cn.hnust.service;
 
 import java.util.List;
-import java.util.Map;
-import com.cn.hnust.pojo.Book;
+
+import com.cn.hnust.pojo.ReadFree;
 
 public interface ReadFreeService {
 
 	public int deleteByBookId(int bookId);
+	public List<ReadFree> selectByBookId(int bookId);
 	
 }

@@ -161,7 +161,7 @@
 																</c:if>
 																	</c:forEach></td>
 																<td>${book.saled }</td>
-																<td>${book.stock }&nbsp; <a
+																<td <c:if test="${book.stock<=10}"> style="color:red"</c:if>>${book.stock }&nbsp; <a
 																	class="btn-arrow-link tooltips"
 																	href="javascript:void(0);" data-toggle="modal"
 																	data-placement="bottom" data-html="true"
@@ -172,7 +172,7 @@
 																</td>
 																<td><a
 																	class="btn btn-circle btn-icon-only btn-default tooltips"
-																	href='<c:url value="/book/detial.jsp"></c:url>'
+																	href='<c:url value="/book/bookDetial?id=${book.id }"></c:url>'
 																	data-toggle="tooltip" data-placement="bottom"
 																	data-html="true" data-original-title="图书详情"> <i
 																		class="fa fa-info"></i>

@@ -9,5 +9,6 @@ public interface BookService {
 	public List<Book> getBookByPage(Map condition);
 	public int deleteById(int id);
 	public int updateByPrimaryKeySelective(Book record);
+	public Book selectById(int id);
 	
 }
