@@ -188,10 +188,16 @@ public class BookController {
 	 		//System.out.println(typeList.size() + "type");
 	 		model.addAttribute("typeList", typeList);
 	 		List<Subtype> subList = subTypeService.getAllSelect(sub1);
-	 		//System.out.println(subList.size() + "tsubListype");
 	 		model.addAttribute("subList", subList);
-		return "book/bookAdd";
+		return "/book/add";
 	}
-
+	@RequestMapping("/bookSave")
+	public String bookSave(HttpServletRequest request, Model model,Book book,String[] readFree) {
+		System.out.println("size()"+readFree.length);
+		System.out.println("size()"+readFree[0]);
+		
+	System.out.println(book.getName()+"|"+book.getIntroduce()+"|"+book.getMainimg()+"|"+book.getImg1()+"|"+book.getImg2()+"|"+"|");
+		return "redirect:/book/getBookByPage";
+	}
 
 }

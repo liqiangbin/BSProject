@@ -41,7 +41,7 @@
 											class="caption-subject font-green-sharp bold">查询列表</span>
 									</div>
 									<div class="actions form-inline">
-										<a href="bookAdd.html"
+										<a href='<c:url value="/book/bookAdd"></c:url>'
 											class="btn btn-circle btn-primary margin-left5"
 											onclick="javascript:;"> <i class="fa fa-plus"></i> <span
 											class="hidden-480">新书上架</span>
@@ -259,19 +259,13 @@
 	<input type="hidden" id="update" value="${bookUpdate}" />
 	<script type="text/javascript">
 		function typeChange() {
-			var typenumber = $("#typenumber").val();
-			$("#id").empty();
-			$("#id").append("<option value=''>显示所有</option>");
+			var typenumber = $("#type").val();
+			$("#subtype").empty();
+			$("#subtype").append("<option value=''>显示所有</option>");
 			<c:forEach var="subtype" items="${subList}" >
-			var typenumber1 = $
-			{
-				subtype.typenumber
-			}
-			;
+			var typenumber1 = ${subtype.typenumber};
 			if (typenumber1 == typenumber) {
-				$("#id")
-						.append(
-								'<option value="'+${subtype.id}+'" >${subtype.subtypedescn}</option>');
+				$("#subtype").append('<option value="'+${subtype.id}+'" >${subtype.subtypedescn}</option>');
 			}
 			</c:forEach>
 		}

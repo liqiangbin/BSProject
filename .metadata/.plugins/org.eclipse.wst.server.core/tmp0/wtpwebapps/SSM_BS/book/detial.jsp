@@ -59,120 +59,107 @@
 
 												<tr>
 													<th width="25%">图书名称：</th>
-													<td width="75%" class="lineheight34">游娃娃</td>
+													<td width="75%" class="lineheight34" style="font-size: 20px;font-stretch: narrower;">《${book.name }》</td>
 												</tr>
 
 
 												<tr>
 													<th width="25%">作者：</th>
-													<td width="75%" class="lineheight34">游娃娃单品测试门票</td>
+													<td width="75%" class="lineheight34">${book.author }</td>
 												</tr>
 
 												<tr>
 													<th width="25%">出版社：</th>
-													<td width="75%" class="lineheight34">游娃娃单票测试门票</td>
+													<td width="75%" class="lineheight34" style="color:blue;">${book.publish }</td>
 												</tr>
 												<tr>
-													<th width="25%">售价</th>
-													<td width="75%" class="lineheight34">0.01元<!-- 元--></td>
+													<th width="25%">售价：</th>
+													<td width="75%" class="lineheight34">${book.price }元<!-- 元--></td>
 												</tr>
 												<tr>
 													<th width="25%">折扣：</th>
-													<td width="75%" class="lineheight34">180元<!-- 元--></td>
+													<td width="75%" class="lineheight34"style="color:red;font-stretch: wider;">${book.discount }折</td>
 												</tr>
 												<tr>
 													<th width="25%">图书类别<!-- 客 服 电 话-->：
 													</th>
-													<td width="75%" class="lineheight34">021-68588826</td>
-												</tr>
-												<tr>
-													<th width="25%">图书类别<!-- 客 服 电 话-->：
-													</th>
-													<td width="75%" class="lineheight34">021-68588826</td>
+													<td width="75%" class="lineheight34"><c:forEach
+															var="type" items="${typeList}">
+															<c:if test="${book.type==type.typenumber }">
+																${type.typedescn }
+																</c:if>
+														</c:forEach> -> <c:forEach var="sub" items="${subList}">
+															<c:if test="${book.subtype==sub.id }">
+																	${sub.subtypedescn}
+																</c:if>
+														</c:forEach></td>
 												</tr>
 												<tr>
 													<th width="25%">库存 <!-- 客 服 电 话-->：
 													</th>
-													<td width="75%" class="lineheight34">12&nbsp;本</td>
+													<td width="75%" class="lineheight34">${book.stock }&nbsp;本</td>
 												</tr>
 												<tr>
 													<th width="25%">售出<!-- 客 服 电 话-->：
 													</th>
-													<td width="75%" class="lineheight34">12&nbsp;本</td>
+													<td width="75%" class="lineheight34">${book.saled }&nbsp;本</td>
+												</tr>
+
+												<tr>
+													<th width="25%">图书简介：</th>
+													<td width="75%" class="lineheight34" style="padding-right:200px;color:grey;">${book.introduce }
+													</td>
 												</tr>
 												<tr>
 													<th width="25%">封面图片：</th>
 													<td width="75%" class="lineheight34"><img
-														id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884137130.jpg"
+														id="mall_img" src="${book.mainimg }"
 														style="border: 6px solid pink; width: 300px; height: 200px;">
 
 													</td>
 												</tr>
 												<tr>
 													<th width="25%">介绍图片：</th>
-													<td width="75%" class="lineheight34">
-													<img id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
-														style="border: 5px solid #eee; width: 150px; height: 130px;">
-														<img id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
-														style="border: 5px solid #eee; width: 150px; height: 130px;">
-													</td>
+													<td width="75%" class="lineheight34"><c:if
+															test="${book.img1!=null}">
+															<img id="mall_img" src="${book.img1}"
+																style="border: 5px solid #eee; width: 150px; height: 130px;">
+														</c:if> <c:if test="${book.img2!=null}">
+															<img id="mall_img" src="${book.img2}"
+																style="border: 5px solid #eee; width: 150px; height: 130px;">
+														</c:if></td>
 												</tr>
-												
+
 												<tr>
-													<th width="25%">商家相册<!-- 商 家 相 册-->：
+													<th width="25%">试读相册<!-- 商 家 相 册-->：
 													</th>
 													<td></td>
 												</tr>
-													<tr>
-													<th></th>
-												<td  class="lineheight34">
-													<img id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
-														style="border: 5px solid #eee; width: 180px; height: 150px;">
-													&nbsp;&nbsp;&nbsp;<img id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
-														style="border: 5px solid #eee; width: 180px; height: 150px;">
-												&nbsp;&nbsp;&nbsp;&nbsp;<img id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
-														style="border: 5px solid #eee; width: 180px; height: 150px;">
-													</td>
-													</tr>
+
+
+												<c:forEach var="readFree" items="${readFreeList}"
+													varStatus="index">
+													<c:if test="${index.count%3==1 }">
 														<tr>
-													<th></th>
-												<td  class="lineheight34">
+														<th></th>
+															<td class="lineheight34">
+													</c:if>
 													<img id="mall_img"
 														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
 														style="border: 5px solid #eee; width: 180px; height: 150px;">
-													&nbsp;&nbsp;&nbsp;<img id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
-														style="border: 5px solid #eee; width: 180px; height: 150px;">
-												&nbsp;&nbsp;&nbsp;&nbsp;<img id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
-														style="border: 5px solid #eee; width: 180px; height: 150px;">
-													</td>
-													</tr>
-															<tr>
-													<th></th>
-												<td  class="lineheight34">
-													<img id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
-														style="border: 5px solid #eee; width: 180px; height: 150px;">
-													&nbsp;&nbsp;&nbsp;<img id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
-														style="border: 5px solid #eee; width: 180px; height: 150px;">
-												&nbsp;&nbsp;&nbsp;&nbsp;<img id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
-														style="border: 5px solid #eee; width: 180px; height: 150px;">
-													</td>
-													</tr>
+														&nbsp;&nbsp;&nbsp;&nbsp;
 													
+													<c:if test="${index.count%3==0 }">
+														</td>
+														</tr>
+													</c:if>
+												</c:forEach>
+										
+
 												<tr>
 													<th></th>
 													<td>
-														<button type="button" class="btn default"
+														&nbsp;&nbsp;<button type="button" class="btn default"
 															onclick="javascript:history.go(-1)">
 															<i class="fa fa-angle-left"></i> 返回
 															<!-- 返 回-->
@@ -183,6 +170,7 @@
 										</table>
 									</div>
 								</div>
+								下面可以放图书评价内容1
 							</div>
 						</div>
 					</div>
@@ -191,10 +179,12 @@
 			</div>
 			<!-- END PAGE CONTENT-->
 			<!-- 正文部分结束 -->
+
+
 		</div>
 		<%@ include file="/commons/foot.jsp"%>
 	</div>
-	
-	
+
+
 </body>
 </html>

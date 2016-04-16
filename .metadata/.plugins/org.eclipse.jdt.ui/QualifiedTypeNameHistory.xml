@@ -18,7 +18,6 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.OrderService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Order"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.OrderDetial"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
@@ -31,4 +30,5 @@
 <fullyQualifiedTypeName name="org.apache.commons.codec.binary.StringUtils"/>
 <fullyQualifiedTypeName name="com.cn.hnust.dao.ReadFreeDao"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.ReadFreeService"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
