@@ -195,7 +195,19 @@ public class BookController {
 	public String bookSave(HttpServletRequest request, Model model,Book book,String[] readFree) {
 		System.out.println("size()"+readFree.length);
 		System.out.println("size()"+readFree[0]);
-		
+			int xxx=bookService.insert(book);
+			System.out.println(xxx);
+		ReadFree  readfree=new ReadFree();
+		if(readFree.length>1&&xxx>0){
+			int yema=1;
+			for(int i=0;i<=readFree.length-2;i++){
+				readfree.setBookId(book.getId());
+				readfree.setNumber(yema);
+				readfree.setSrc(readFree[i]);
+				readFreeService.saveOrUpdate(readfree);
+				yema++;
+			}
+		}	
 	System.out.println(book.getName()+"|"+book.getIntroduce()+"|"+book.getMainimg()+"|"+book.getImg1()+"|"+book.getImg2()+"|"+"|");
 		return "redirect:/book/getBookByPage";
 	}

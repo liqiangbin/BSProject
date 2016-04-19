@@ -1,5 +1,6 @@
 package com.cn.hnust.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +28,15 @@ public class ReadFreeServiceImpl implements ReadFreeService{
 	public List<ReadFree> selectByBookId(int bookId) {
 		// TODO Auto-generated method stub
 		return readFreeDao.selectByBookId(bookId);
+	}
+
+	public int saveOrUpdate(ReadFree readFree) {
+		List<ReadFree> readFreeList=new ArrayList<ReadFree>();
+		if(readFreeList.size()>0){
+			return readFreeDao.updateByPrimaryKeySelective(readFree);
+		}else{
+			return readFreeDao.insert(readFree);
+		}
 	}
 
 	

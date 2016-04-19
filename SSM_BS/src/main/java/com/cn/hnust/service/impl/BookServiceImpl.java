@@ -41,6 +41,11 @@ public class BookServiceImpl implements BookService{
 		return bookDao.selectByPrimaryKey(id);
 	}
 
+	public int insert(Book book) {
+		// TODO Auto-generated method stub
+		return bookDao.insert(book);
+	}
+
 
 
 }

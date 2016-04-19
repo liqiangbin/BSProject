@@ -449,16 +449,21 @@ $("#addBookForm")
 					required : true
 				},
 				price : {
-					required : true
+					required : true,
+					number:true  
 				},
 				stock : {
-					required : true
+					required : true,
+					number:true  
 				},
 				introduce : {
 					required : true
 				},
 				mainimg : {
 					required : true
+				},
+				discount:{
+					number:true 
 				}
 			},
 			messages : {
@@ -472,16 +477,22 @@ $("#addBookForm")
 					required : "出版社不能为空"
 				},
 				price : {
-					required :"价格不能为空"
+					required :"价格不能为空",
+					number:"价格必须为数字" 
+					
 				},
 				stock : {
-					required : "库存不能为空"
+					required : "库存不能为空",
+					number:"库存必须为数字" 
 				},
 				introduce : {
 					required : "图书简介不能为空"
 				},
 				mainimg : {
 					required :"封面图片不能为空"
+				},
+				discount:{
+					number:"折扣必须为0~1之间的数字"
 				}
 			},
 			focusInvalid : true,

@@ -8,6 +8,7 @@ public interface BookService {
 	public int getCounts(Book book);
 	public List<Book> getBookByPage(Map condition);
 	public int deleteById(int id);
+	public int insert(Book book);
 	public int updateByPrimaryKeySelective(Book record);
 	public Book selectById(int id);
 	
