@@ -101,6 +101,18 @@ public class BookController {
 			}
 			session.removeAttribute("bookUpdate");
 		}
+		//判断添加和修改状态
+		String bookMessage=(String) session.getAttribute("bookMessage");
+		if(bookMessage!=null){
+			if(bookMessage.equals("saved")){
+				model.addAttribute("bookMessage", "保存成功");
+			}
+			if(bookMessage.equals("updated")){
+				model.addAttribute("bookMessage", "修改成功");
+			}else{
+				model.addAttribute("bookMessage", "失败，请重试！");
+			}
+		}
 		// 获取图书类型信息
 		Type type1 = new Type();
 		Subtype sub1 = new Subtype();
@@ -192,7 +204,7 @@ public class BookController {
 		return "/book/add";
 	}
 	@RequestMapping("/bookSave")
-	public String bookSave(HttpServletRequest request, Model model,Book book,String[] readFree) {
+	public String bookSave(HttpServletRequest request, Model model,Book book,String[] readFree,HttpSession session) {
 		System.out.println("size()"+readFree.length);
 		System.out.println("size()"+readFree[0]);
 			int xxx=bookService.insert(book);
@@ -208,6 +220,44 @@ public class BookController {
 				yema++;
 			}
 		}	
+		session.setAttribute("bookMessage", "saved");
+	System.out.println(book.getName()+"|"+book.getIntroduce()+"|"+book.getMainimg()+"|"+book.getImg1()+"|"+book.getImg2()+"|"+"|");
+		return "redirect:/book/getBookByPage";
+	}
+	
+	@RequestMapping("/bookEdit")
+	public String bookEdit(HttpServletRequest request, Model model) {
+	 // 获取图书类型信息
+	 		Type type1 = new Type();
+	 		Subtype sub1 = new Subtype();
+	 		int Id = Integer.parseInt(request.getParameter("id"));
+	 		Book book=bookService.selectById(Id);
+	 		model.addAttribute("book",book);
+	 		List<Type> typeList = typeService.getByParams(type1);
+	 		model.addAttribute("typeList", typeList);
+	 		List<Subtype> subList = subTypeService.getAllSelect(sub1);
+	 		model.addAttribute("subList", subList);
+		return "/book/edit";
+	}
+	@RequestMapping("/bookUpdate")
+	public String bookUpdate(HttpServletRequest request, Model model,Book book,String[] readFree, HttpSession session) {
+		//System.out.println("size()"+readFree.length);
+		//System.out.println("size()"+readFree[0]);
+		System.out.println("ID:"+book.getId());
+			int xxx=bookService.updateByPrimaryKeySelective(book);
+			System.out.println("xxx"+xxx);
+		ReadFree  readfree=new ReadFree();
+		if(readFree.length>1&&xxx>0){
+			int yema=1;
+			for(int i=0;i<=readFree.length-2;i++){
+				readfree.setBookId(book.getId());
+				readfree.setNumber(yema);
+				readfree.setSrc(readFree[i]);
+				readFreeService.saveOrUpdate(readfree);
+				yema++;
+			}
+		}
+		session.setAttribute("bookMessage", "updated");
 	System.out.println(book.getName()+"|"+book.getIntroduce()+"|"+book.getMainimg()+"|"+book.getImg1()+"|"+book.getImg2()+"|"+"|");
 		return "redirect:/book/getBookByPage";
 	}

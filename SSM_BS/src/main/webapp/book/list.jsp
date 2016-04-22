@@ -178,11 +178,10 @@
 																		class="fa fa-info"></i>
 																</a> <a
 																	class="btn btn-circle btn-icon-only btn-default tooltips"
-																	href="javascript:void(0);" data-toggle="tooltip"
+																	href='<c:url value="/book/bookEdit?id=${book.id}"></c:url>' data-toggle="tooltip"
 																	data-placement="bottom" data-html="true"
-																	data-original-title="编辑"
-																	onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
-																		<!-- <i class="icon-trash"></i> --> <span
+																	data-original-title="编辑">
+																		 <span
 																		class="glyphicon glyphicon-pencil"></span>
 																</a> <a
 																	class="btn btn-circle btn-icon-only btn-default tooltips"
@@ -257,6 +256,7 @@
 	<%@ include file="/commons/foot.jsp"%>
 	<input type="hidden" id="deleted" value="${bookDeleted}" />
 	<input type="hidden" id="update" value="${bookUpdate}" />
+	<input type="hidden" id="bookMessage" value="${bookMessage}" />
 	<script type="text/javascript">
 		function typeChange() {
 			var typenumber = $("#type").val();
@@ -280,6 +280,12 @@
 		if (deleted != "") {
 			showAlertModel("提示信息", deleted, null);
 			$("#deleted").val("");
+		}
+		//判断添加和修改功能
+			var bookMessage = $("#bookMessage").val();
+		if (deleted != "") {
+			showAlertModel("提示信息", bookMessage, null);
+			$("#bookMessage").val("");
 		}
 		//提交表单
 		function updateStockfun() {
