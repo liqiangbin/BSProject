@@ -1,5 +1,6 @@
 package com.cn.hnust.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cn.hnust.pojo.Book;
 import com.cn.hnust.pojo.Page;
@@ -79,7 +82,7 @@ public class BookController {
 		condition.put("startPos", page.getStartPos());
 		condition.put("pageSize", page.getPageSize());
 		bookList = this.bookService.getBookByPage(condition);
-		System.out.println("list.size():" + bookList.size());
+		//System.out.println("list.size():" + bookList.size());
 		model.addAttribute("bookList", bookList);
 		model.addAttribute("page", page);
 		model.addAttribute("bookParams", book);
@@ -87,10 +90,12 @@ public class BookController {
 		model.addAttribute("url", "/book/getBookByPage");
 		// 下面判断是否从删除页面跳转过来
 		String deleted = (String) session.getAttribute("bookDeleted");
-		if (deleted != null) {
+		//System.out.println(deleted);
+		if(deleted!=null){
 			model.addAttribute("bookDeleted", deleted);
 			session.removeAttribute("bookDeleted");
 		}
+		
 		//下面判断是否成功修改
 		String update = (String) session.getAttribute("bookUpdate");
 		if (update != null) {
@@ -117,10 +122,8 @@ public class BookController {
 		Type type1 = new Type();
 		Subtype sub1 = new Subtype();
 		List<Type> typeList = typeService.getByParams(type1);
-		//System.out.println(typeList.size() + "type");
 		model.addAttribute("typeList", typeList);
 		List<Subtype> subList = subTypeService.getAllSelect(sub1);
-		//System.out.println(subList.size() + "tsubListype");
 		model.addAttribute("subList", subList);
 		return "book/list";
 	}
@@ -141,6 +144,9 @@ public class BookController {
 		if (xx != 0 && yy != 0) {
 			session.setAttribute("bookDeleted", "success");
 		}
+		else{
+			session.setAttribute("bookDeleted", "success");
+		}
 		return "redirect:/book/getBookByPage";
 	}
 	/**
@@ -154,9 +160,7 @@ public class BookController {
 	@RequestMapping("/updateStock")
 	public String updateStock(HttpServletRequest request, Model model,
 			Book book, HttpSession session) {
-		//int Id = Integer.parseInt(request.getParameter("id"));
 		int xx = bookService.updateByPrimaryKeySelective(book);
-		//System.out.println("xx:"+xx+"stock:"+ book.getStock()+"ID:"+book.getId());
 		if (xx != 0) {
 			session.setAttribute("bookUpdate", "success");
 		}else{
@@ -174,7 +178,6 @@ public class BookController {
 	public String bookDetial(HttpServletRequest request, Model model) {
 		int Id = Integer.parseInt(request.getParameter("id"));
 		Book book=bookService.selectById(Id);
-		//System.out.println("book"+book.getName());
 	    List<ReadFree> readFreeList=readFreeService.selectByBookId(Id);
 	    model.addAttribute("readFreeList", readFreeList);
 	   // System.out.println("readFreeList:"+readFreeList.size());
@@ -203,26 +206,40 @@ public class BookController {
 	 		model.addAttribute("subList", subList);
 		return "/book/add";
 	}
+	/**
+	 * 
+	 * @param request
+	 * @param model
+	 * @param book
+	 * @param readFreeName
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("/bookSave")
-	public String bookSave(HttpServletRequest request, Model model,Book book,String[] readFree,HttpSession session) {
-		System.out.println("size()"+readFree.length);
-		System.out.println("size()"+readFree[0]);
+	public String bookSave(HttpServletRequest request, Model model,Book book,String[] readFreeName,HttpSession session) {
+		//System.out.println("size()"+readFree.length);
+		//System.out.println("ddddddd");
+		//System.out.println("size()"+readFree[0]);
+		System.out.println("img1:"+book.getImg1());
+		System.out.println();
 			int xxx=bookService.insert(book);
 			System.out.println(xxx);
 		ReadFree  readfree=new ReadFree();
-		if(readFree.length>1&&xxx>0){
+		if(readFreeName.length>1&&xxx>0){
 			int yema=1;
-			for(int i=0;i<=readFree.length-2;i++){
+			for(int i=0;i<=readFreeName.length-2;i++){
 				readfree.setBookId(book.getId());
 				readfree.setNumber(yema);
-				readfree.setSrc(readFree[i]);
+				readfree.setSrc(readFreeName[i]);
+				System.out.println("readfreeimgname:"+readFreeName[i]);
 				readFreeService.saveOrUpdate(readfree);
 				yema++;
 			}
 		}	
 		session.setAttribute("bookMessage", "saved");
-	System.out.println(book.getName()+"|"+book.getIntroduce()+"|"+book.getMainimg()+"|"+book.getImg1()+"|"+book.getImg2()+"|"+"|");
-		return "redirect:/book/getBookByPage";
+	//System.out.println(book.getName()+"|"+book.getIntroduce()+"|"+book.getMainimg()+"|"+book.getImg1()+"|"+book.getImg2()+"|"+"|");
+	
+	return "redirect:/book/getBookByPage";
 	}
 	
 	@RequestMapping("/bookEdit")

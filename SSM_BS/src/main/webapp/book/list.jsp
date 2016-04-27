@@ -272,8 +272,14 @@
 		//判断是否删除成功
 		var deleted = $("#deleted").val();
 		if (deleted != "") {
-			showAlertModel("提示信息", "删除成功！", null);
-			$("#deleted").val("");
+			if(deleted=="success"){
+				showAlertModel("提示信息", "删除成功！", null);
+				$("#deleted").val("");
+			}else{
+				showAlertModel("提示信息", "删除失败！", null);
+				$("#deleted").val("");
+			}
+			
 		}
 		//判断是否修改成功
 		var deleted = $("#update").val();
