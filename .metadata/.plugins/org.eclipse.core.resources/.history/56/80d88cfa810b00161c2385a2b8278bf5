@@ -1,0 +1,57 @@
+package com.cn.hnust.controller; 
+
+import java.io.File;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.alibaba.fastjson.JSONObject;
+
+@Controller  
+@RequestMapping(value="/upload")  
+public class UploadController {
+	private final String JSON_JSP = "/commons/jsondata";
+	private String responseJson;
+	public String getResponseJson() {
+		return responseJson;
+	}
+	public void setResponseJson(String responseJson) {
+		this.responseJson = responseJson;
+	}
+	 @RequestMapping(value="/uploadImg" ,method = RequestMethod.POST)  
+	    public String upload(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request, ModelMap model) {  
+		 JSONObject jsonResult = new JSONObject(); 
+		 String path = request.getSession().getServletContext().getRealPath("/upload");  
+	        System.out.println("path:"+path);
+	        System.out.println("file:"+file);
+	        String fileName = file.getOriginalFilename();  
+	        System.out.println("fileName:"+fileName);
+	        System.out.println(path); 
+	        File targetFile = new File(path, fileName);  
+	        if(!targetFile.exists()){  
+	            targetFile.mkdirs();  
+	        }  
+	        //保存  
+	        try {  
+	        	jsonResult.put("status", "success");
+	        	jsonResult.put("message", "上传成功！");
+	            file.transferTo(targetFile);
+	        } catch (Exception e) { 
+	        	jsonResult.put("message", "上传失败，请重试！");
+	            e.printStackTrace();  
+	        }  
+	       // model.addAttribute("fileUrl", request.getContextPath()+"/upload/"+fileName);  
+	       responseJson = jsonResult.toString();
+	       model.addAttribute("responseJson", responseJson);
+	        return JSON_JSP; 
+	    }  
+	 
+	 
+	 
+}

@@ -6,22 +6,23 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="封面" key="selection"/>
+		<item value="drawLineChart" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="封面"/>
-			<item value="deleteImg"/>
-			<item value="imgde"/>
-			<item value="首页"/>
-			<item value="fileClick"/>
-			<item value="clickUpload"/>
-			<item value="BaseResultMap"/>
-			<item value="choose"/>
+			<item value="drawLineChart"/>
+			<item value="initDrawPlatformMarginChart"/>
+			<item value="show_trade"/>
+			<item value="drawBarChart"/>
+			<item value="initDrawSummaryChart"/>
+			<item value="&quot;../../"/>
+			<item value="assets/global/plugins/vendors/echart/echarts.js"/>
+			<item value="echart/them"/>
 		</list>
 		<list key="replacehistory">
+			<item value="&apos;&lt;c:url value=&quot;"/>
 			<item value="IBooK"/>
 			<item value="&apos;&lt;c:url value=&quot;/"/>
 		</list>
@@ -30,7 +31,7 @@
 		<item value="273" key="DIALOG_WIDTH"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 		<item value="371" key="DIALOG_HEIGHT"/>
-		<item value="830" key="DIALOG_X_ORIGIN"/>
-		<item value="365" key="DIALOG_Y_ORIGIN"/>
+		<item value="994" key="DIALOG_X_ORIGIN"/>
+		<item value="284" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

@@ -9,9 +9,7 @@
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Manager"/>
 <fullyQualifiedTypeName name="javax.jms.Session"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.SessionAttributes"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"/>
-<fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
@@ -27,8 +25,16 @@
 <fullyQualifiedTypeName name="com.cn.hnust.service.SubTypeService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Type"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Subtype"/>
-<fullyQualifiedTypeName name="org.apache.commons.codec.binary.StringUtils"/>
 <fullyQualifiedTypeName name="com.cn.hnust.dao.ReadFreeDao"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.ReadFreeService"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
+<fullyQualifiedTypeName name="org.apache.commons.codec.binary.StringUtils"/>
+<fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.ReadFree"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="test1"/>
 </qualifiedTypeNameHistroy>

@@ -59,7 +59,7 @@
     delete from book
     where Id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.cn.hnust.pojo.Book" >
+  <insert id="insert" parameterType="com.cn.hnust.pojo.Book" useGeneratedKeys="true">
     insert into book (Id, name, author, 
       publish, price, discount, 
       stock, saled, type, 
@@ -70,6 +70,9 @@
       #{stock,jdbcType=INTEGER}, #{saled,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
       #{subtype,jdbcType=INTEGER}, #{mainimg,jdbcType=VARCHAR}, #{img1,jdbcType=VARCHAR}, 
       #{img2,jdbcType=VARCHAR}, #{introduce,jdbcType=LONGVARCHAR})
+         <selectKey resultType="INTEGER" order="AFTER" keyProperty="id">
+	SELECT LAST_INSERT_ID() AS id
+   </selectKey>
   </insert>
   <insert id="insertSelective" parameterType="com.cn.hnust.pojo.Book" >
     insert into book

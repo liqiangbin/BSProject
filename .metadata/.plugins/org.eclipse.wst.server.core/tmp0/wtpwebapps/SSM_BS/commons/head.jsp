@@ -127,7 +127,7 @@
 	src='<c:url value="/assets/global/plugins/vendors/echart/echarts.js"></c:url>'
 	type='text/javascript'></script>
 <script
-	src='<c:url value="/assets/admin/pages/scripts/chart-helper.js"></c:url>'
+	src='<c:url value="/assets/admin/pages/scripts/index.js"></c:url>'
 	type='text/javascript'></script>
 <script
 	src='<c:url value="/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></c:url>'
@@ -159,7 +159,7 @@
 	src='<c:url value="/assets/global/scripts/datatable.js"></c:url>'
 	type="text/javascript"></script>
 <script
-	src='<c:url value="/assets/admin/pages/scripts/index.js"></c:url>'
+	src='<c:url value="/assets/admin/pages/scripts/chart-helper.js"></c:url>'
 	type="text/javascript"></script>
 <script
 	src='<c:url value="/assets/global/plugins/amcharts/amcharts/amcharts.js"></c:url>'

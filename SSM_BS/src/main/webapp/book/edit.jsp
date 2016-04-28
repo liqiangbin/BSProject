@@ -156,15 +156,16 @@
 																	placeholder="选择文件" disabled="disabled"
 																	class="form-control" style="margin-top: -10px;">
 																<button class="fileUpload btn btn-primary" type="button"
-																	onclick="clickUpload('mainimg')"
+																	onclick="clickUpload('mainimgFile')"
 																	style="margin-left: -5px;">
-																	<span>浏览</span> <input type="file" id="mainimg"
-																		name="mainimg" value="上传图片"
+																	<span>浏览</span> 
+																	<input type="hidden" id="mainimg" name="mainimg" value="${book.mainimg}">
+																	<input type="file" id="mainimgFile" name="mainimgFile" value="上传图片"
 																		class="set-up-button upload"
 																		style="display: none; width: 200px;"
 																		onchange="onUploadImgChange(this,200,'mainImgShow')"
-																		data-url="/msc/ajax/UploadPic/uploadResourceFTP.do?source=couponimages"
-																		multiple="">
+																		data-url="<c:url value='/upload/uploadImg' />"
+																		multiple>
 																</button>
 																<label id="pic_label1" style="color: red"></label>
 																<!-- <input type="hidden" id="mallimage" name="mallimage" value=""> -->
@@ -180,7 +181,7 @@
 																		<tr>
 																			<td style="padding: 0; width: 50%;"><img
 																				id="mainImgShow"
-																				class="shlogo pull-left margin-right10" src=""
+																				class="shlogo pull-left margin-right10" src='<c:url value="/upload/${book.mainimg }"></c:url>'
 																				style="width: 200px; height: 160px;"> <span
 																				name="previewInfo"></span></td>
 																			<td>
@@ -194,182 +195,236 @@
 															</div>
 														</td>
 													</tr>
-
-
-													<tbody>
-												<tr>
-													<th width="25%">介绍图片：</th>
-													<td> 
-										    <div class="form-inline">
-											<input id="uploadFile_1" name="uploadFile_1"
+												<tbody>
+													<tr>
+														<th width="25%">介绍图片：</th>
+														<td>
+															<div class="form-inline">
+																<input id="uploadFile_1" name="uploadFile_1"
 																	placeholder="选择文件" disabled="disabled"
-																	class="form-control" style="margin-top:-10px;">
-											<button class="fileUpload btn btn-primary" type="button"
-																	onclick="clickUpload('img1')"
+																	class="form-control" style="margin-top: -10px;">
+																<button class="fileUpload btn btn-primary" type="button"
+																	onclick="clickUpload('img1File')"
 																	style="margin-left: -5px;">
-											<span>浏览</span>
-												<input type="file" id="img1" name="img1" value="上传图片"
-																		class="set-up-button upload"
-																		style="display:none; width:200px;"
+																	<span>浏览</span> 
+																	<input type="hidden" id="img1" name="img1" value="${book.img1}">
+																	<input type="file" id="img1File"
+																		name="img1File" value="上传图片" class="set-up-button upload"
+																		style="display: none; width: 200px;"
 																		onchange="onUploadImgChange(this,200,'img1Show')"
-																		data-url="/msc/ajax/UploadPic/uploadResourceFTP.do?source=couponimages"
-																		multiple="">
-											</button>
-											<label id="pic_label1" style="color:red"></label>
-											<!-- <input type="hidden" id="mallimage" name="mallimage" value=""> -->
-										</div>
-									</td>
-												</tr>
-												<tr>  
-												<th></th>    
-									<td class="border-bottom">
-										<div>
-										<table>
+																		data-url="<c:url value='/upload/uploadImg' />"
+																		multiple>
+																</button>
+																<label id="img1Info" style="color: red"></label>
+																<!-- <input type="hidden" id="mallimage" name="mallimage" value=""> -->
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<th></th>
+														<td class="border-bottom">
+															<div>
+																<table>
 																	<tbody>
 																		<tr>
-											<td style="padding:0; width: 50%;">
-												<img id="img1Show" class="shlogo pull-left margin-right10"
-																				src="" style="width: 160px;  height: 120px;">
-												<span name="previewInfo"></span> 
-											</td>
-											<td>
-												<p>图片建议尺寸：320像素x240像素</p>
-												<p>仅支持.jpg .jpeg .bmp .png格式</p>
-												<p>长方形照片，大小不超过200K</p>
-											</td>
-										</tr>
+																			<td style="padding: 0; width: 50%;"><img
+																				id="img1Show"
+																				class="shlogo pull-left margin-right10" src='<c:url value="/upload/${book.img1 }"></c:url>'
+																				style="width: 160px; height: 120px;"> <span
+																				name="previewInfo"></span></td>
+																			<td>
+																				<p>图片建议尺寸：320像素x240像素</p>
+																				<p>仅支持.jpg .jpeg .bmp .png格式</p>
+																				<p>长方形照片，大小不超过200K</p>
+																			</td>
+																		</tr>
 																	</tbody>
 																</table>
-										</div>
-									</td>
-								</tr>
-								
-								<!--这是复制介绍图片  -->
-												<tr id="inputcopy" style="display:none;">
-													<th width="25%"></th>
-													<td> 
-										    <div class="form-inline">
-											<input id="uploadFile_1" name="uploadFile_1"
+															</div>
+														</td>
+													</tr>
+
+													<!--这是复制介绍图片  -->
+													<tr id="inputcopy" style="display: none;">
+														<th width="25%"></th>
+														<td>
+															<div class="form-inline">
+																<input id="uploadFile_1" name="uploadFile_1"
 																	placeholder="选择文件" disabled="disabled"
-																	class="form-control" style="margin-top:-10px;">
-											<button class="fileUpload btn btn-primary" type="button"
-																	onclick="clickUpload('img2')"
+																	class="form-control" style="margin-top: -10px;">
+																<button class="fileUpload btn btn-primary" type="button"
+																	onclick="clickUpload('img2File')"
 																	style="margin-left: -5px;">
-											<span>浏览</span>
-												<input type="file" id="img2" name="img2" value="上传图片"
-																		class="set-up-button upload"
-																		style="display:none; width:200px;"
+																	<span>浏览</span>
+																	<input type="hidden" id="img2" name="img2" value="${book.img2 }">
+																	 <input type="file" id="img2File"
+																		name="img2File" value="上传图片" class="set-up-button upload"
+																		style="display: none; width: 200px;"
 																		onchange="onUploadImgChange(this,200,'img2Show')"
-																		data-url="/msc/ajax/UploadPic/uploadResourceFTP.do?source=couponimages"
-																		multiple="">
-											</button>
-											<label id="pic_label1" style="color:red"></label>
-											<div class="pull-right" style="margin-left:50px;">
-												<button class="btn default btn-sm" type="button"
+																		data-url="<c:url value='/upload/uploadImg' />"
+																		multiple>
+																</button>
+																<label id="img2Info" style="color: red"></label>
+																<div class="pull-right" style="margin-left: 50px;">
+																	<button class="btn default btn-sm" type="button"
 																		onclick="deleteImg()">
-																		<i class="fa fa-trash-o"></i>删除</button>
-											</div>	
-										</div>
-									</td>
-												</tr>
-												<tr id="imgcopy" style="display:none;">  
-												<th></th>    
-									<td class="border-bottom">
-										<div>
-										<table>
+																		<i class="fa fa-trash-o"></i>删除
+																	</button>
+																</div>
+															</div>
+														</td>
+													</tr>
+													<tr id="imgcopy" style="display: none;">
+														<th></th>
+														<td class="border-bottom">
+															<div>
+																<table>
 																	<tbody>
 																		<tr>
-											<td style="padding:0; width: 50%;">
-												<img id="img2Show" class="shlogo pull-left margin-right10"
-																				src="" style="width: 160px;  height: 120px;">
-												<span name="previewInfo"></span> 
-											</td>
-											<td>
-												<p>图片建议尺寸：320像素x240像素</p>
-												<p>仅支持.jpg .jpeg .bmp .png格式</p>
-												<p>长方形照片，大小不超过200K</p>
-											</td>
-										</tr>
+																			<td style="padding: 0; width: 50%;"><img
+																				id="img2Show"
+																				class="shlogo pull-left margin-right10" src='<c:url value="/upload/${book.img2}"></c:url>'
+																				style="width: 160px; height: 120px;"> <span
+																				name="previewInfo"></span></td>
+																			<td>
+																				<p>图片建议尺寸：320像素x240像素</p>
+																				<p>仅支持.jpg .jpeg .bmp .png格式</p>
+																				<p>长方形照片，大小不超过200K</p>
+																			</td>
+																		</tr>
 																	</tbody>
 																</table>
-										</div>
-									</td>
-								</tr>
-								<tr id="imgaddbutton">
-									<th></th>
-									<td class="lineheight34">
-										<button type="button" onclick="addImg()"
+															</div>
+														</td>
+													</tr>
+													<tr id="imgaddbutton">
+														<th></th>
+														<td class="lineheight34">
+															<button type="button" onclick="addImg()"
 																class="btn btn-primary btn-sm" id="addalbums_btn">
-																<i class="fa fa-plus"></i>添加图片</button>
-										<span class="info notice"><i class="fa fa-info-circle"></i> 最多可以上传2张图片</span> 
-									</td>
-								</tr>
-								</tbody>
-							<tbody>
-												<tr>
-													<th width="25%">试读相册<!-- 商 家 相 册-->：
-													</th>
-													<td><span class="info notice" style="color:orange;"><i
+																<i class="fa fa-plus"></i>添加图片
+															</button> <span class="info notice"><i
+																class="fa fa-info-circle"></i> 最多可以上传2张图片</span>
+														</td>
+													</tr>
+												</tbody>
+												<tbody>
+													<tr>
+														<th width="25%">试读相册<!-- 商 家 相 册-->：
+														</th>
+														<td><span class="info notice" style="color: orange;"><i
 																class="fa fa-info-circle"></i>试读图片默认页码默认从第一页开始，请按顺序上传！</span></td>
-												</tr>
-										
-									<tr id="readFreeAddButton">
-									<th></th>
-									<td class="lineheight34">
-										<button type="button" onclick="addReadFree()"
-																class="btn btn-primary btn-sm" id="addalbums_btn">
-																<i class="fa fa-plus"></i>添加图片</button>
-									<span class="info notice" style="color:green" id="notice"><i
-																class="fa fa-info-circle"></i> <label id="freeNumber">您还可以上传10张图片</label></span> 
-									</td>
-								</tr>
-								</tbody>
-								<!-- 下面是试读模板 -->
-												<tr class="album_div" id="readFreeModel"
-													style="display: none;">
-									<th></th>
-									<td>
-									<div class="form-inline">
-											<input id="uploadFile_1" name="uploadFile_1"
+													</tr>
+													<!--读取已经存在的试读图片  -->
+                                      <c:forEach var="readFree" items="${readFreeList}" varStatus="index">
+                                      <tr class="album_div" id="readFreeModel">
+                                      	<input type="hidden" id="readFreeId" name="readFreeId" value="${readFree.id }">
+                                         <input type="hidden" id="readFreeBookId"  name="readFreeBookId"  value="${readFree.bookId }">
+                                           <input type="hidden" id="readFreeNumber" name="readFreeNumber" value="${readFree.number }">
+													<th>页码${readFree.number}</th>
+													<td>
+														<div class="form-inline">
+															<input id="uploadFile_1" name="uploadFile_1"
 																placeholder="选择文件" disabled="disabled"
-																class="form-control" style="margin-top:-10px;">
-											<button class="fileUpload btn btn-primary" type="button"
-																onclick="clickUpload('img2')" style="margin-left: -5px;">
-											<span>浏览</span>
-												<input type="file" id="readFree" name="readFree"
-																	value="上传图片" class="set-up-button upload"
-																	style="display:none; width:200px;"
-																	onchange="onUploadImgChange1(this,200,'')"
-																	data-url="/msc/ajax/UploadPic/uploadResourceFTP.do?source=couponimages"
-																	multiple="">
-											</button>
-											<label id="pic_label1" style="color:red"></label>
-											<div class="pull-right" style="margin-left:50px;">
-												<button class="btn default btn-sm" type="button"
+																class="form-control" style="margin-top: -10px;">
+															<button class="fileUpload btn btn-primary" type="button"
+																onclick="clickUpload('cloneid${index.count}')" style="margin-left: -5px;">
+																<span>浏览</span> 
+																<input type="hidden" id="readFreeName" name="readFreeName" value="${readFree.src}">
+																<input type="file" id="cloneid${index.count}"
+																	name="readFree" value="上传图片"
+																	class="set-up-button upload readFree"
+																	style="display: none; width: 200px;"
+																	onchange="onUploadImgChange(this, 200, 'clonelogo${index.count}')"
+																	data-url="<c:url value='/upload/uploadImg' />" multiple>
+															</button>
+															<label id="labelId${index.count}" style="color: red"></label>
+															<div class="pull-right" style="margin-left: 50px;">
+																<button class="btn default btn-sm" type="button"
 																	onclick="deleteReadFree(this)">
-																	<i class="fa fa-trash-o"></i>删除</button>
-											</div>	
-											<div class="clearfix margin-top10">
-												<img src="" class="shlogo pull-left margin-right10"
-																	style="width: 160px;  height: 120px;">
-												<p class="pull-left shlogonotice" style="line-height:22px;">图 片建议尺寸：320像素x240像素<br> 仅支持 .jpg.jpeg.bmp.png格式<br>长 方 形 照 片，大小不超过200KB</p>
-											</div>
-										</div>
-									</td> 
-								</tr>
-								
-									<tr>		
-									<th></th>
-									<td>
-										<button type="button" class="btn default"
+																	<i class="fa fa-trash-o"></i>删除
+																</button>
+															</div>
+															<div class="clearfix margin-top10">
+																<img id="clonelogo${index.count}" src='<c:url value="/upload/${readFree.src}"></c:url>' class="shlogo pull-left margin-right10"
+																	style="width: 160px; height: 120px;">
+																<p class="pull-left shlogonotice"
+																	style="line-height: 22px;">
+																	图 片建议尺寸：320像素x240像素<br> 仅支持 .jpg.jpeg.bmp.png格式<br>长
+																	方 形 照 片，大小不超过200KB
+																</p>
+															</div>
+														</div>
+													</td>
+												</tr>
+													</c:forEach>
+													<tr id="readFreeAddButton">
+														<th></th>
+														<td class="lineheight34">
+															<button type="button" onclick="addReadFree()"
+																class="btn btn-primary btn-sm" id="addalbums_btn">
+																<i class="fa fa-plus"></i>添加图片
+															</button> <span class="info notice" style="color: green"
+															id="notice"><i class="fa fa-info-circle"></i> <label
+																id="freeNumber">您还可以上传10张图片</label></span>
+														</td>
+													</tr>
+												</tbody>
+												<!-- 下面是试读模板 -->
+												<tr class="album_div" id="readFreeModel1"
+													style="display: none;">
+													<th></th>
+													<td>
+														<div class="form-inline">
+															<input id="uploadFile_1" name="uploadFile_1"
+																placeholder="选择文件" disabled="disabled"
+																class="form-control" style="margin-top: -10px;">
+															<button class="fileUpload btn btn-primary" type="button"
+																onclick="clickUpload('readFreeFile')" style="margin-left: -5px;">
+																<span>浏览</span> 
+																<input type="hidden" id="readFreeName" name="readFreeName">
+																<input type="file" id="readFree"
+																	name="readFree" value="上传图片"
+																	class="set-up-button upload readFree"
+																	style="display: none; width: 200px;"
+																	onchange="onUploadImgChange1(this,200,'')"
+																	data-url="<c:url value='/upload/uploadImg' />" multiple>
+															</button>
+															<label id="pic_label1" style="color: red"></label>
+															<div class="pull-right" style="margin-left: 50px;">
+																<button class="btn default btn-sm" type="button"
+																	onclick="deleteReadFree(this)">
+																	<i class="fa fa-trash-o"></i>删除
+																</button>
+															</div>
+															<div class="clearfix margin-top10">
+																<img src="" class="shlogo pull-left margin-right10"
+																	style="width: 160px; height: 120px;">
+																<p class="pull-left shlogonotice"
+																	style="line-height: 22px;">
+																	图 片建议尺寸：320像素x240像素<br> 仅支持 .jpg.jpeg.bmp.png格式<br>长
+																	方 形 照 片，大小不超过200KB
+																</p>
+															</div>
+														</div>
+													</td>
+												</tr>
+
+												<tr>
+													<th></th>
+													<td>
+														<button type="button" class="btn default"
 															onclick="javascript:history.go(-1)">
-															<i class="fa fa-angle-left"></i>  返回</button>
-										<button type="submit" id="submitBtn" class="btn btn-primary">
-															<i class="fa fa-save"></i> 保存</button>
-									</td>
-								</tr>
-											</tbody>
-										</table>
+															<i class="fa fa-angle-left"></i> 返回
+														</button>
+														<button type="submit" id="submitBtn"
+															class="btn btn-primary">
+															<i class="fa fa-save"></i> 保存
+														</button>
+													</td>
+												</tr>
+												</tbody>
+											</table>
 										</form>
 									</div>
 								</div>
@@ -381,229 +436,365 @@
 			</div>
 			<!-- END PAGE CONTENT-->
 			<!-- 正文部分结束 -->
-	</div>
+		</div>
 	</div>
 	<%@ include file="/commons/foot.jsp"%>
-<script type="text/javascript">
-	function fileClick() {
-		console.log("dkdkd");
-		$("#mallimagefile").click();
-	}
-	function clickUpload(id) {
-		//console.log("click file upload");
-		document.getElementById(id).click();
+	<script type="text/javascript">
+		function fileClick() {
+			$("#mallimagefile").click();
+		}
+		function clickUpload(id) {
+			//console.log("click file upload");
+			document.getElementById(id).click();
 
-	}
-	//复制介绍图片
-	function addImg() {
-		$("#inputcopy").show();
-		$("#imgcopy").show();
-		$("#imgaddbutton").hide();
+		}
+		//判断第二张介绍图片是否存在
+		var img2="${book.img2}";
+		console.log(img2);
+		if(img2!=""&&img2!=null){
+			addImg();
+		}
+		//复制介绍图片
+		function addImg() {
+			$("#inputcopy").show();
+			$("#imgcopy").show();
+			$("#imgaddbutton").hide();
 
-	}
-	//复制试读图片
-	var cloneCount = 0;
-	function addReadFree() {
-		if (cloneCount < 10) {
-			cloneCount++;
-			var xxx = $("#readFreeModel").clone();
-			$("#readFreeAddButton").before(xxx);
-			xxx.show();
-			xxx.removeAttr("id");
-			xxx.find("input[type='file']").attr(
-					"onchange",
-					"onUploadImgChange(this, 200, 'clonelogo" + cloneCount
-							+ "')");
-			xxx.find("img").attr("id", "clonelogo" + cloneCount);
-			xxx.find("input[type='file']").attr("id", "cloneid" + cloneCount);
-			xxx.find("button.fileUpload").attr("onclick",
-					"clickUpload('cloneid" + cloneCount + "');");
-			//initImageUpload(); 
+		}
+		//复制试读图片
+		var cloneCount =parseInt(${fn:length(readFreeList)});
+		var nowCount=parseInt(10-cloneCount);
+		$("#freeNumber").html("您还可以上传" + nowCount + "张图片！");
+		function addReadFree() {
+			if (cloneCount < 10) {
+				cloneCount++;
+				var xxx = $("#readFreeModel1").clone();
+				$("#readFreeAddButton").before(xxx);
+				xxx.show();
+				xxx.removeAttr("id");
+				xxx.find("input[type='file']").attr("onchange","onUploadImgChange(this, 200, 'clonelogo" + cloneCount+ "')");
+				xxx.find("img").attr("id", "clonelogo" + cloneCount);
+				xxx.find("input[type='file']").attr("id",
+						"cloneid" + cloneCount);
+				xxx.find("label").attr("id", "clonelabel" + cloneCount);
+				xxx.find("button.fileUpload").attr("onclick",
+						"clickUpload('cloneid" + cloneCount + "');");
+				readfreeUpload("cloneid" + cloneCount,"clonelabel" + cloneCount);
+				var num =10-cloneCount;
+				$("#notice").attr("style", "color:green");
+				$("#freeNumber").html("您还可以上传" + num + "张图片！");
+			} else {
+				$("#notice").attr("style", "color:red;");
+				$("#freeNumber").html("您可以上传的图片已达上限！");
+				$("#readFreeAddButton").hide();
+			}
+		}
+		//删除介绍图片
+		function deleteImg() {
+			$("#inputcopy").hide();
+			$("#imgcopy").hide();
+			$("#imgaddbutton").show();
+			$("#img2").val("");
+			$("#img2File").val("");
+
+		}
+		function deleteReadFree(_this) {
+			cloneCount--;
 			var num = 10 - cloneCount;
+			$(_this).parents("tr").remove();
 			$("#notice").attr("style", "color:green");
 			$("#freeNumber").html("您还可以上传" + num + "张图片！");
-		} else {
-			$("#notice").attr("style", "color:red;");
-			$("#freeNumber").html("您可以上传的图片已达上限！");
-			$("#readFreeAddButton").hide();
+			$("#readFreeAddButton").show();
 		}
-	}
-	//删除介绍图片
-	function deleteImg() {
-		$("#inputcopy").hide();
-		$("#imgcopy").hide();
-		$("#imgaddbutton").show();
-
-	}
-	function deleteReadFree(_this) {
-		cloneCount--;
-		var num = 10 - cloneCount;
-		$(_this).parents("tr").remove();
-		$("#notice").attr("style", "color:green");
-		$("#freeNumber").html("您还可以上传" + num + "张图片！");
-		$("#readFreeAddButton").show();
-	}
-	/* function onUploadImgChange(_this,id){
-	 console.log($(_this).val()+"  "+id);
-	 $("#"+id).attr("src",$(_this).val());
-	 } */
-	function onUploadImgChange(sender, size, preview) {
-		if (!sender.value.match(/.jpg|.jpeg|.png|.bmp/i)) {
-			$(sender).parent().next().html('图 片 格 式 无 效 ！');//<!-- -->
-			sender.value = null;
-			return false;
-		}
-		var fileSize = sender.files[0].size;
-		if (fileSize > 1024 * size) {
-			$(sender).parent().next().html('文件过大！(建议小于 ' + size + 'k)');
-			sender.value = null;
-			return false;
-		}
-		var agent = window.navigator.userAgent;
-		if (agent.indexOf("Firefox") != -1 || agent.indexOf("Chrome") != -1
-				|| agent.indexOf("Mozilla") != -1) {
-			try {
-				if (preview == '') {
-					$(sender).parent("div").next("img").css({
-						"width" : "220px",
-						"height" : "160px"
-					}).attr("src", window.URL.createObjectURL(sender.files[0]));
-				} else {
-					$("#" + preview).attr("src",
-							window.URL.createObjectURL(sender.files[0]));
-				}
-			} catch (e) {
-				$(sender).parent().next().html('不是有效图片格式!');//
+		function onUploadImgChange(sender, size, preview) {
+			 console.log();
+			$(sender).parent().next().attr("style", "color:red;");
+			if (!sender.value.match(/.jpg|.jpeg|.png|.bmp/i)) {
+				$(sender).parent().next().html('图 片 格 式 无 效 ！');//<!-- -->
 				sender.value = null;
 				return false;
 			}
-		} else {
-			$("#" + preview).next().html('暂不支持预览!');
-		}
-
-		$(sender).parent().next().html('');
-		var arr = $(sender).val().split('\\');
-		$(sender).parent().prev().val(arr[arr.length - 1]);
-	}
-	//试读相册按钮点击事件$("#readFree").parent().parent().find("img");
-	function scanClick(_this) {
-		$(_this).next().click();
-	}
-	//试读相册显示上传图片之后显示
-	function onUploadImgChange1(sender, size, preview) {
-		if (!sender.value.match(/.jpg|.jpeg|.png|.bmp/i)) {
-			$(sender).parent().next().html('图 片 格 式 无 效 ！');//<!-- -->
-			sender.value = null;
-			return false;
-		}
-		var fileSize = sender.files[0].size;
-		if (fileSize > 1024 * size) {
-			$(sender).parent().next().html('文件过大！(建议小于 ' + size + 'k)');
-			sender.value = null;
-			return false;
-		}
-
-		var agent = window.navigator.userAgent;
-		if (agent.indexOf("Firefox") != -1 || agent.indexOf("Chrome") != -1
-				|| agent.indexOf("Mozilla") != -1) {
-			try {
-				if (preview == '') {
-					$(sender).parent().parent().find("img").css({
-						"width" : "220px",
-						"height" : "160px"
-					}).attr("src", window.URL.createObjectURL(sender.files[0]));
-				} else {
-					$("#" + preview).attr("src",
-							window.URL.createObjectURL(sender.files[0]));
-				}
-			} catch (e) {
-				$(sender).parent().next().html('不是有效图片格式!');//
+			var fileSize = sender.files[0].size;
+			if (fileSize > 1024 * size) {
+				$(sender).parent().next().html('文件过大！(建议小于 ' + size + 'k)');
 				sender.value = null;
 				return false;
 			}
-		} else {
-			$("#" + preview).next().html('暂不支持预览!');
-		}
-
-		$(sender).parent().next().html('');
-		var arr = $(sender).val().split('\\');
-		$(sender).parent().prev().val(arr[arr.length - 1]);
-	}
-	//表单验证
-
-	$("#addBookForm").validate({
-		errorClass : "notice",
-		rules : {
-			name : {
-				required : true
-			},
-			author : {
-				required : true,
-			},
-			publish : {
-				required : true
-			},
-			price : {
-				required : true,
-				number : true
-			},
-			stock : {
-				required : true,
-				number : true
-			},
-			introduce : {
-				required : true
-			},
-			mainimg : {
-				required : true
-			},
-			discount : {
-				number : true
+			var agent = window.navigator.userAgent;
+			if (agent.indexOf("Firefox") != -1 || agent.indexOf("Chrome") != -1
+					|| agent.indexOf("Mozilla") != -1) {
+				try {
+					if (preview == '') {
+						$(sender).parent("div").next("img").css({
+							"width" : "220px",
+							"height" : "160px"
+						}).attr("src",
+								window.URL.createObjectURL(sender.files[0]));
+					} else {
+						$("#" + preview).attr("src",
+								window.URL.createObjectURL(sender.files[0]));
+					}
+				} catch (e) {
+					$(sender).parent().next().html('不是有效图片格式!');//
+					sender.value = null;
+					return false;
+				}
+			} else {
+				$("#" + preview).next().html('暂不支持预览!');
 			}
-		},
-		messages : {
-			name : {
-				required : "书名不能为空"
+
+			$(sender).parent().next().html('');
+			var arr = $(sender).val().split('\\');
+			$(sender).parent().prev().val(arr[arr.length - 1]);
+			$(sender).prev().val(arr[arr.length - 1]);
+		}
+		//试读相册按钮点击事件$("#readFree").parent().parent().find("img");
+		function scanClick(_this) {
+			$(_this).next().click();
+		}
+		//试读相册显示上传图片之后显示
+		function onUploadImgChange1(sender, size, preview) {
+			$(sender).parent().next().attr("style", "color:red;");
+			if (!sender.value.match(/.jpg|.jpeg|.png|.bmp/i)) {
+				$(sender).parent().next().html('图 片 格 式 无 效 ！');//<!-- -->
+				sender.value = null;
+				return false;
+			}
+			var fileSize = sender.files[0].size;
+			if (fileSize > 1024 * size) {
+				$(sender).parent().next().html('文件过大！(建议小于 ' + size + 'k)');
+				sender.value = null;
+				return false;
+			}
+
+			var agent = window.navigator.userAgent;
+			if (agent.indexOf("Firefox") != -1 || agent.indexOf("Chrome") != -1
+					|| agent.indexOf("Mozilla") != -1) {
+				try {
+					if (preview == '') {
+						$(sender).parent().parent().find("img").css({
+							"width" : "220px",
+							"height" : "160px"
+						}).attr("src",
+								window.URL.createObjectURL(sender.files[0]));
+					} else {
+						$("#" + preview).attr("src",
+								window.URL.createObjectURL(sender.files[0]));
+					}
+				} catch (e) {
+					$(sender).parent().next().html('不是有效图片格式!');//
+					sender.value = null;
+					return false;
+				}
+			} else {
+				$("#" + preview).next().html('暂不支持预览!');
+			}
+
+			$(sender).parent().next().html('');
+			var arr = $(sender).val().split('\\');
+			$(sender).parent().prev().val(arr[arr.length - 1]);
+			$(sender).prev().val(arr[arr.length - 1]);
+		}
+		//封面图片上传文件上传
+		$("#mainimgFile").fileupload({
+			dataType : 'json',
+			add : function(e, data) {
+				data.submit();
 			},
-			author : {
-				required : "作者不能为空"
-			},
-			publish : {
-				required : "出版社不能为空"
-			},
-			price : {
-				required : "价格不能为空",
-				number : "价格必须为数字"
+			done : function(e, data) {//设置文件上传完毕事件的回调函数  
+				$("#pic_label1").html("上传中。。。");
+				setTimeout(function() {
+					if (data.result.status == "success") {
+						$("#pic_label1").attr("style", "color:green;");
+						$("#pic_label1").html(data.result.message);
+					} else {
+						$("#pic_label1").html(data.result.message);
+					}
+				}, 2000);
 
 			},
-			stock : {
-				required : "库存不能为空",
-				number : "库存必须为数字"
-			},
-			introduce : {
-				required : "图书简介不能为空"
-			},
-			mainimg : {
-				required : "封面图片不能为空"
-			},
-			discount : {
-				number : "折扣必须为0~1之间的数字"
+			fail : function(e, data) {
+				$("#pic_label1").html("请求失败，请重试！");
 			}
-		},
-		focusInvalid : true,
-	});
-	//级联图书分类
-	function typeChange() {
-		var typenumber = $("#type").val();
-		$("#subtype").empty();
-		<c:forEach var="subtype" items="${subList}" >
-		var typenumber1 = ${subtype.typenumber};
-		if (typenumber1 == typenumber) {
-			$("#subtype").append('<option value="'+${subtype.id}+'" >${subtype.subtypedescn}</option>');
+		});
+		//介绍图片1上传文件上传
+		$("#img1File").fileupload({
+			dataType : 'json',
+			add : function(e, data) {
+				data.submit();
+			},
+			done : function(e, data) {//设置文件上传完毕事件的回调函数  
+				$("#img1Info").html("上传中。。。");
+				setTimeout(function() {
+					if (data.result.status == "success") {
+						$("#img1Info").attr("style", "color:green;");
+						$("#img1Info").html(data.result.message);
+					} else {
+						$("#img1Info").html(data.result.message);
+					}
+				}, 2000);
+
+			},
+			fail : function(e, data) {
+				$("#img1Info").html("请求失败，请重试！");
+			}
+		});
+		//介绍图片2上传文件上传
+		$("#img2File").fileupload({
+			dataType : 'json',
+			add : function(e, data) {
+				data.submit();
+			},
+			done : function(e, data) {//设置文件上传完毕事件的回调函数  
+				$("#img2Info").html("上传中。。。");
+				setTimeout(function() {
+					if (data.result.status == "success") {
+						$("#img2Info").attr("style", "color:green;");
+						$("#img2Info").html(data.result.message);
+					} else {
+						$("#img2Info").html(data.result.message);
+					}
+				}, 2000);
+
+			},
+			fail : function(e, data) {
+				$("#img2Info").html("请求失败，请重试！");
+			}
+		});
+		//已经存在的试读文件上传cloneid${index.count}
+			var existCount =parseInt(${fn:length(readFreeList)});
+			
+			for(var i=1;i<=existCount;i++){
+				$("#cloneid"+i).fileupload({
+					dataType : 'json',
+					add : function(e, data) {
+						data.submit();
+					},
+					done : function(e, data) {//设置文件上传完毕事件的回调函数  
+						var labelId=$(this).parent().next().attr("id");
+						$("#"+labelId).html("上传中。。。");
+						setTimeout(function() {
+							if (data.result.status == "success") {
+								$("#"+labelId).attr("style", "color:green;");
+								$("#"+labelId).html(data.result.message);
+							} else {
+								$("#"+labelId).attr("style", "color:red;");
+								$("#"+labelId).html(data.result.message);
+							}
+						}, 2000);
+
+					},
+					fail : function(e, data) {
+						$("#"+labelId).html("请求失败，请重试！");
+					}
+				});
+			}
+		
+		//免费试读上传文件上传
+		function readfreeUpload(fileId,labelId) {
+			$("#"+fileId).fileupload({
+				dataType : 'json',
+				add : function(e, data) {
+					data.submit();
+				},
+				done : function(e, data) {//设置文件上传完毕事件的回调函数  
+					//console.log(this);
+					$("#"+labelId).html("上传中。。。");
+					setTimeout(function() {
+						if (data.result.status == "success") {
+							$("#"+labelId).attr("style", "color:green;");
+							$("#"+labelId).html(data.result.message);
+						} else {
+							$("#"+labelId).attr("style", "color:red;");
+							$("#"+labelId).html(data.result.message);
+						}
+					}, 2000);
+
+				},
+				fail : function(e, data) {
+					$("#"+labelId).html("请求失败，请重试！");
+				}
+			});
 		}
-		</c:forEach>
-	}
-</script>
+	
+		//表单验证
+
+		$("#addBookForm").validate({
+			errorClass : "notice",
+			rules : {
+				name : {
+					required : true
+				},
+				author : {
+					required : true,
+				},
+				publish : {
+					required : true
+				},
+				price : {
+					required : true,
+					number : true
+				},
+				stock : {
+					required : true,
+					number : true
+				},
+				introduce : {
+					required : true
+				},
+				mainimgFile : {
+					required : true
+				},
+				discount : {
+					number : true
+				}
+			},
+			messages : {
+				name : {
+					required : "书名不能为空"
+				},
+				author : {
+					required : "作者不能为空"
+				},
+				publish : {
+					required : "出版社不能为空"
+				},
+				price : {
+					required : "价格不能为空",
+					number : "价格必须为数字"
+
+				},
+				stock : {
+					required : "库存不能为空",
+					number : "库存必须为数字"
+				},
+				introduce : {
+					required : "图书简介不能为空"
+				},
+				mainimgFile : {
+					required : "封面图片不能为空"
+				},
+				discount : {
+					number : "折扣必须为0~1之间的数字"
+				}
+			},
+			focusInvalid : true,
+		});
+		//级联图书分类
+		function typeChange() {
+			//这里代码格式化之后的换行会导致出错，请注意
+			var typenumber = $("#type").val();
+			$("#subtype").empty();
+			<c:forEach var="subtype" items="${subList}" >
+			var typenumber1 = ${subtype.typenumber};
+			if (typenumber1 == typenumber) {
+				$("#subtype")
+						.append(
+								'<option value="'+${subtype.id}+'" >${subtype.subtypedescn}</option>');
+			}
+			</c:forEach>
+		}
+	</script>
 </body>
 
 </html>

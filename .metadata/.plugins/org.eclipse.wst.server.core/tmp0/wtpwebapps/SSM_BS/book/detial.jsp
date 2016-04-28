@@ -113,30 +113,27 @@
 												<tr>
 													<th width="25%">封面图片：</th>
 													<td width="75%" class="lineheight34"><img
-														id="mall_img" src="${book.mainimg }"
-														style="border: 6px solid pink; width: 300px; height: 200px;">
-
+														id="mall_img" src='<c:url value="/upload/${book.mainimg }"></c:url>'
+														style="border: 6px solid pink; width: 200px; height: 250px;">
 													</td>
 												</tr>
 												<tr>
 													<th width="25%">介绍图片：</th>
 													<td width="75%" class="lineheight34"><c:if
-															test="${book.img1!=null}">
-															<img id="mall_img" src="${book.img1}"
-																style="border: 5px solid #eee; width: 150px; height: 130px;">
-														</c:if> <c:if test="${book.img2!=null}">
-															<img id="mall_img" src="${book.img2}"
-																style="border: 5px solid #eee; width: 150px; height: 130px;">
+															test='${!empty book.img1}'>
+															<img id="mall_img" src='<c:url value="/upload/${book.img1 }"></c:url>'
+																style="border: 5px solid #eee; width: 150px; height: 150px;">
+														</c:if> <c:if test='${!empty book.img2}'>
+															<img id="mall_img" src='<c:url value="/upload/${book.img2}"></c:url>'
+																style="border: 5px solid #eee; width: 150px; height: 150px;">
 														</c:if></td>
 												</tr>
 
 												<tr>
 													<th width="25%">试读相册<!-- 商 家 相 册-->：
 													</th>
-													<td></td>
+													<td><c:if test="${empty readFreeList}"><label style="color:red;">暂无试读内容！</label></c:if></td>
 												</tr>
-
-
 												<c:forEach var="readFree" items="${readFreeList}"
 													varStatus="index">
 													<c:if test="${index.count%3==1 }">
@@ -145,10 +142,9 @@
 															<td class="lineheight34">
 													</c:if>
 													<img id="mall_img"
-														src="http://resource.koolyun.com/coupon/images//couponimages/9992900531100411453884140874.jpg"
-														style="border: 5px solid #eee; width: 180px; height: 150px;">
+														src='<c:url value="/upload/${readFree.src}"></c:url>'
+														style="border: 5px solid #eee; width: 170px; height: 180px;">
 														&nbsp;&nbsp;&nbsp;&nbsp;
-													
 													<c:if test="${index.count%3==0 }">
 														</td>
 														</tr>

@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class test1 {
+
+	public static void main(String[] args) {
+		
+		while(true){
+			List list = new ArrayList();
+			test1 t = new test1();
+			list = t.scannerNumber();
+			t.show(list);
+			System.out.println("");
+			System.out.println("");
+		}
+	}
+
+	public List scannerNumber() {
+		List list = new ArrayList();
+		System.out.println("请输入若干数字，输入 = 结束");
+		boolean flag = true;
+		int m;
+		while (flag) {
+			Scanner reader = new Scanner(System.in);
+			try {
+				m = reader.nextInt();
+				if (m > 0) {
+					list.add(m);
+				} else {
+					System.out.println("请输入大于0的数！");
+				}
+			} catch (Exception e) {
+				if (reader.next().equals("=")) {
+					flag = false;
+				} else {
+					System.out.println("请输入整数！");
+				}
+			}
+		}
+		return list;
+	}
+	public void show( List list){
+		int result = 0;
+		for (Object object : list) {
+			result = result + Integer.parseInt(object.toString());
+		}
+		for (Object object : list) {
+			float percent = (float) (Integer.parseInt(object.toString())
+					/ (float) result * 100);
+			double show = (double) (Math.round(percent * 100) / 100.0);
+			System.out.println(object + "     " + show + "%");
+		}
+		System.out.println(result + "     " + 100 + "%");
+	}
+
+}

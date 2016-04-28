@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.*;
+
+
+
+public class test {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<Integer>();
+        Map<Integer, Float> map = new HashMap<Integer, Float>();
+        System.out.println("输入数字 输入0结束:");
+        int s = 0;
+        float result = 0;
+         
+        while (true) {
+            boolean b = false;
+            Scanner scan = new Scanner(System.in);
+            try {
+                s = scan.nextInt();
+            } catch (Exception e) {
+                //e.printStackTrace();
+                b = true;
+            }
+             
+            if(!b && s == 0)
+                break;
+             
+            if(b || s < 0)
+                System.out.println("error");
+            else{
+                list.add(s);
+                result += s;
+            }
+        }
+         
+        list.add((int) result);
+        for (Integer i : list) {
+            if (map.containsKey(i)) {
+                map.put(i, map.get(i)+(i/result));
+            }else {
+                map.put(i, (i/result));
+            }
+        }
+        for (Integer key : map.keySet()) {
+            System.out.println(key + "     " + map.get(key)*100 + "%");
+        }
+    }
+}

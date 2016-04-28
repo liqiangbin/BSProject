@@ -31,13 +31,23 @@ public class ReadFreeServiceImpl implements ReadFreeService{
 	}
 
 	public int saveOrUpdate(ReadFree readFree) {
-		List<ReadFree> readFreeList=new ArrayList<ReadFree>();
-		if(readFreeList.size()>0){
-			return readFreeDao.updateByPrimaryKeySelective(readFree);
-		}else{
-			return readFreeDao.insert(readFree);
+		System.out.println("1221212121");
+		int xx=0;
+			ReadFree read=readFreeDao.selectByPrimaryKey(readFree.getId());
+		System.out.println("read «∑Ò”–÷µ--"+read);
+			if(read!=null){
+				System.out.println("update");
+				xx=readFreeDao.updateByPrimaryKeySelective(readFree);
+				
 		}
-	}
+			else{
+				System.out.println("insert");
+				xx=readFreeDao.insert(readFree);
+			}
+		
+		return xx;
+		}
+
 
 	
 

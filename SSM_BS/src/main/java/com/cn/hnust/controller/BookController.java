@@ -238,7 +238,6 @@ public class BookController {
 		}	
 		session.setAttribute("bookMessage", "saved");
 	//System.out.println(book.getName()+"|"+book.getIntroduce()+"|"+book.getMainimg()+"|"+book.getImg1()+"|"+book.getImg2()+"|"+"|");
-	
 	return "redirect:/book/getBookByPage";
 	}
 	
@@ -254,26 +253,45 @@ public class BookController {
 	 		model.addAttribute("typeList", typeList);
 	 		List<Subtype> subList = subTypeService.getAllSelect(sub1);
 	 		model.addAttribute("subList", subList);
+	 		List<ReadFree> readFreeList=readFreeService.selectByBookId(Id);
+	 	for (ReadFree readFree : readFreeList) {
+			System.out.println(readFree.getNumber());
+		}
+	 	    model.addAttribute("readFreeList", readFreeList);
 		return "/book/edit";
 	}
 	@RequestMapping("/bookUpdate")
-	public String bookUpdate(HttpServletRequest request, Model model,Book book,String[] readFree, HttpSession session) {
-		//System.out.println("size()"+readFree.length);
-		//System.out.println("size()"+readFree[0]);
-		System.out.println("ID:"+book.getId());
+	public String bookUpdate(HttpServletRequest request, Model model,Book book,String[] readFreeName,String[] readFreeBookId,String[] readFreeId,String[] readFreeNumber, HttpSession session) {
+		System.out.println("img1:"+book.getImg1());
+		System.out.println();
 			int xxx=bookService.updateByPrimaryKeySelective(book);
-			System.out.println("xxx"+xxx);
-		ReadFree  readfree=new ReadFree();
-		if(readFree.length>1&&xxx>0){
-			int yema=1;
-			for(int i=0;i<=readFree.length-2;i++){
+			System.out.println(xxx);
+		//List<ReadFree> readFreeList=readFreeService.selectByBookId(book.getId());
+		if(readFreeName.length>1&&xxx>0){
+			System.out.println(readFreeId.length);
+			for(int j=0;j<readFreeId.length;j++){
+				ReadFree  readfree=new ReadFree();
 				readfree.setBookId(book.getId());
-				readfree.setNumber(yema);
-				readfree.setSrc(readFree[i]);
+				readfree.setId(Integer.parseInt(readFreeId[j]));
+				readfree.setNumber((Integer.parseInt(readFreeNumber[j])));
+				readfree.setSrc(readFreeName[j]);
+				System.out.println(readfree.getId()+"|"+readfree.getBookId()+"|"+readfree.getNumber());
 				readFreeService.saveOrUpdate(readfree);
-				yema++;
 			}
-		}
+			System.out.println("readFreeIDlength:"+readFreeId.length);
+			System.out.println("readFreeNamelength:"+readFreeName.length);
+			if(readFreeName.length-readFreeId.length>=2){
+				for(int i=readFreeId.length-1;i<=readFreeName.length-2;i++){
+					ReadFree  readfree=new ReadFree();
+					readfree.setBookId(book.getId());
+					//readfree.setId(Integer.parseInt(readFreeId[i]));
+					//readfree.setNumber((Integer.parseInt(readFreeNumber[i])));
+					readfree.setSrc(readFreeName[i]);
+					System.out.println(readfree.getId()+"|"+readfree.getBookId()+"|"+readfree.getNumber());
+					readFreeService.saveOrUpdate(readfree);
+				}
+			}
+		}	
 		session.setAttribute("bookMessage", "updated");
 	System.out.println(book.getName()+"|"+book.getIntroduce()+"|"+book.getMainimg()+"|"+book.getImg1()+"|"+book.getImg2()+"|"+"|");
 		return "redirect:/book/getBookByPage";

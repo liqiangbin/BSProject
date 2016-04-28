@@ -11,7 +11,7 @@ var CHART_HELPER = function() {
         }
     });
     return {
-        drawLineChart: function(el, data, legend, xAxis,type) {
+        drawLineChart: function(el, data, legend, xAxis) {
             var series = [],
                 isShowLegend = false;
             if (legend.length > 1) {
@@ -35,11 +35,7 @@ var CHART_HELPER = function() {
                 tooltip: {
                     trigger: 'axis',
                     formatter: function(params) {
-                        if(type=="day"){
-                        return (params[0].name)+$("#show_hour").val()+$("#show_trade").val()+'：' + (params[0].value).toFixed(2) +" "+ $("#unit").val();}
-                        else{
-                            return (params[0].name)+$("#show_day").val()+$("#show_trade").val()+'：' + (params[0].value).toFixed(2) +" "+ $("#unit").val(); 
-                        }
+                            return (params[0].name)+'日交易额：' + (params[0].value).toFixed(2) +"  元"; 
                     }
                 },
                 legend: {
@@ -57,30 +53,16 @@ var CHART_HELPER = function() {
                     axisLabel: {
                         formatter: function(value) {
                         	var echarts_localStr = $('#localeStr').val();
-                        	if( echarts_localStr != "en"){
+                        	
                             if(value<10000){
-                                return (value) + " "+$("#unit").val();
+                                return (value) + "元";
                             }
                              if(value>=100000000){
-                         return (value/100000000) +" "+ '亿'+$("#unit").val();
+                         return (value/100000000) +" "+ '亿元';
                             }
                             else{
-                                return (value/10000) +" "+ '万'+$("#unit").val();
+                                return (value/10000) +" "+ '万元';
                             }
-                        	}
-                        	else{
-                        		 if(value<1000000){
-                                     return (value) ;
-                                 }
-                                  if(value>=1000000000){
-                              return (value/1000000000) + " "+'B';
-                                 }
-                                 else{
-                                     return (value/1000000) +" "+ 'M';
-                                 }
-                        		
-                        	}
-                            
                         }
                     }
                 }],
@@ -182,22 +164,13 @@ var CHART_HELPER = function() {
                     },
                     formatter: function(params) {
                         var temp_value=params[0].value;  
-                        var echarts_localStr = $('#localeStr').val();
-                    	if( echarts_localStr == "en"){
-                        	if (temp_value<1000000) 
-                                return params[0].name + '<br/>'+$("#show_trade").val()+'：' + temp_value +$("#unit").val();
-                              else if (temp_value>=1000000 && temp_value <1000000000) 
-                                return params[0].name + '<br/>'+$("#show_trade").val()+'：'+ (params[0].value / 1000000).toFixed(2) + 'M';                       
-                              else return params[0].name + '<br/>'+$("#show_trade").val()+'：'+ (params[0].value / 1000000000).toFixed(2) + 'B';
-                        }
-                        else{
                         if (temp_value<10000) 
-                          return params[0].name + '<br/>'+$("#show_trade").val()+'：' + temp_value +$("#unit").val();
+                          return params[0].name + '<br/>已售'+'：' + temp_value +"本";
                         else if (temp_value>=10000 && temp_value <100000000) 
-                          return params[0].name + '<br/>'+$("#show_trade").val()+'：'+ (params[0].value / 10000).toFixed(2) + '万';                       
-                        else return params[0].name + '<br/>'+$("#show_trade").val()+'：'+ (params[0].value / 100000000).toFixed(2) + '亿';
+                          return params[0].name + '<br/>已售'+'：'+ (params[0].value / 10000).toFixed(2) + '万本';                       
+                        else return params[0].name + '<br/>已售'+'：'+ (params[0].value / 100000000).toFixed(2) + '亿本';
                         }
-                    } 
+                    
                 },
                 legend: {
                     orient: 'horizontal',
@@ -218,13 +191,13 @@ var CHART_HELPER = function() {
                         	var echarts_localStr = $('#localeStr').val();
                         	if( echarts_localStr != "en"){
                             if(value<10000){
-                                return (value) + " "+$("#unit").val();
+                                return (value) + " "+'本';
                             }
                              if(value>=100000000){
-                         return (value/100000000) +" "+ '亿'+$("#unit").val();
+                         return (value/100000000) +" "+'亿本';
                             }
                             else{
-                                return (value/10000) +" "+ '万'+$("#unit").val();
+                                return (value/10000) +" "+ '万本';
                             }
                         	}
                         	else{

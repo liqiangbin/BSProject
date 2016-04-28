@@ -45,7 +45,7 @@ pageEncoding="UTF-8"%>
 							</ul>
 						</li>
 						<li>
-							<a href="sales.html">
+							<a href='<c:url value="/main/count.jsp"></c:url>'>
 								<i class="fa fa-line-chart"></i>
 								<span class="title">销量统计</span>
 								<span class="arrow "></span>
