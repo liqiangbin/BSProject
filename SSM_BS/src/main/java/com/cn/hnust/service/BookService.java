@@ -11,5 +11,6 @@ public interface BookService {
 	public int insert(Book book);
 	public int updateByPrimaryKeySelective(Book record);
 	public Book selectById(int id);
+	public List<Book> getBySaled();
 	
 }

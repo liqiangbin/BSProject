@@ -1,0 +1,138 @@
+package com.cn.hnust.controller;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cn.hnust.pojo.Book;
+import com.cn.hnust.pojo.MonthMoney;
+import com.cn.hnust.pojo.Order;
+import com.cn.hnust.pojo.Subtype;
+import com.cn.hnust.pojo.TopSubtype;
+import com.cn.hnust.service.BookService;
+import com.cn.hnust.service.OrderService;
+import com.cn.hnust.service.SubTypeService;
+import com.cn.hnust.service.TypeService;
+
+@Controller
+@RequestMapping("/main")
+public class mainController {
+	@Resource
+	private OrderService orderService;
+	@Resource
+	private BookService bookService;
+	@Resource
+	private TypeService typeService;
+	@Resource
+	private SubTypeService subTypeService;
+
+	@RequestMapping("/count")
+	public String Count(HttpServletRequest request, Model model,
+			String dateParam) throws ParseException {
+		System.out.println("dateParam" + dateParam);
+		// 如果date 为空查询当前月
+		if (dateParam == null || dateParam == "") {
+			Date date = new Date();
+			// DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			DateFormat format = new SimpleDateFormat("yyyy-MM");
+			dateParam = format.format(date);
+		}
+		// 查询当月交易
+		List<Order> list = new ArrayList<Order>();
+		List<MonthMoney> moneyList = new ArrayList<MonthMoney>();
+		list = orderService.findByMonth(dateParam + "%");
+		double allMoney = 0;
+		System.out.println(list.size());
+		for (int i = 1; i <= 31; i++) {
+			MonthMoney monthMoney = new MonthMoney();
+			double daycount = 0;
+			for (int m = 0; m < list.size(); m++) {
+				String day = list.get(m).getOrderdate().substring(8, 10);
+				if (i == Integer.parseInt(day)) {
+					daycount += list.get(m).getTotalmoney();
+				}
+			}
+			monthMoney.setDay(i);
+			monthMoney.setMoney(daycount);
+			moneyList.add(monthMoney);
+			allMoney += daycount;
+		}
+		model.addAttribute("moneyList", moneyList);
+		model.addAttribute("allOrder", list.size());
+		model.addAttribute("allMoney", allMoney);
+		// 查询图书销量排行
+		List<Book> bookList = new ArrayList<Book>();
+		List<Book> bookTopTen = new ArrayList<Book>();
+		bookList = bookService.getBySaled();
+		System.out.println("bookSize" + bookList.size());
+		int number;
+		if (bookList.size() > 15) {
+			number = 15;
+		} else {
+			number = bookList.size();
+		}
+		for (int i = 0; i < number; i++) {
+			bookTopTen.add(bookList.get(i));
+		}
+		model.addAttribute("bookTopTen", bookTopTen);
+		// 查询细类排行
+		int top10;
+		List<Subtype> subtypeList = subTypeService.selectAll();
+		System.out.println(subtypeList.size());
+		for (Subtype subtype : subtypeList) {
+			System.out.println(subtype.getSubtypedescn());
+		}
+		List<TopSubtype> top = new ArrayList<TopSubtype>();
+		for (Subtype subtype : subtypeList) {
+			TopSubtype topentity = new TopSubtype();
+			int total = 0;
+			for (int i = 0; i < bookList.size(); i++) {
+				if (bookList.get(i).getSubtype() == subtype.getId()) {
+					total += bookList.get(i).getSaled();
+				}
+			}
+			System.out.println(total);
+			topentity.setId(subtype.getId());
+			topentity.setSubName(subtype.getSubtypedescn());
+			topentity.setTotalNumber(total);
+			top.add(topentity);
+		}
+		// 对细类排序
+		for (int x = 0; x < top.size(); x++) {
+			for (int y = x + 1; y < top.size(); y++) {
+				if (top.get(x).getTotalNumber() < top.get(x).getTotalNumber()) {
+					int n = top.get(x).getTotalNumber();
+					top.get(x).setTotalNumber(top.get(y).getTotalNumber());
+					top.get(y).setTotalNumber(n);
+				}
+			}
+		}
+		for (TopSubtype topSubtype : top) {
+			System.out.println(topSubtype.getSubName() + "|"
+					+ topSubtype.getTotalNumber());
+		}
+		if (top.size() > 10) {
+			top10 = 10;
+		} else {
+			top10 = top.size();
+		}
+		//返回排行前10的细类统计
+		List<TopSubtype> top1 = new ArrayList<TopSubtype>();
+		for(int i=0;i<top10;i++){
+			top1.add(top.get(i));
+		}
+		// 查询大类统计
+		return "/main/count";
+	}
+
+}

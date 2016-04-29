@@ -36,4 +36,9 @@ public class OrderServiceImpl implements OrderService{
 		return this.orderDao.updateByPrimaryKeySelective(record);
 	}
 
+	public List<Order> findByMonth(String dateParam) {
+		// TODO Auto-generated method stub
+		return this.orderDao.findByMonth(dateParam);
+	}
+
 }

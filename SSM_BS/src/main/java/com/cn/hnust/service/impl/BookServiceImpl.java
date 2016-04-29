@@ -46,6 +46,11 @@ public class BookServiceImpl implements BookService{
 		return bookDao.insert(book);
 	}
 
+	public List<Book> getBySaled() {
+		// TODO Auto-generated method stub
+		return bookDao.getBookBySaled();
+	}
+
 
 
 }

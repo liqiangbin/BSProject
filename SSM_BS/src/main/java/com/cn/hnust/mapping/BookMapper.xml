@@ -258,4 +258,13 @@
     order by Id DESC 
     limit #{startPos},#{pageSize} 
   </select> 
+    <select id="getBookBySaled" resultMap="BaseResultMap"> 
+   select 
+   <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from book WHERE 1=1
+    <include refid="bookParams" />
+    order by saled DESC 
+  </select> 
 </mapper>

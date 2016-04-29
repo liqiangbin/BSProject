@@ -500,7 +500,7 @@ var ChartsAmcharts = function() {
                 "gridAlpha": 0
             }],			
             "graphs": [{
-                "balloonText": "[[category]]交易额: <b>[[value]]</b>元",
+                "balloonText": "[[category]]已销售: <b>[[value]]</b>本",
                 "colorField": "color",
                 "fillAlphas": 0.85,
                 "lineAlpha": 0.1,

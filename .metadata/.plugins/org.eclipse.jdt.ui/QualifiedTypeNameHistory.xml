@@ -14,20 +14,16 @@
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="com.cn.hnust.service.OrderService"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Order"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.OrderDetial"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Book"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.TypeService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.SubTypeService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Type"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Subtype"/>
 <fullyQualifiedTypeName name="com.cn.hnust.dao.ReadFreeDao"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.ReadFreeService"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
@@ -37,4 +33,9 @@
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="test1"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.OrderService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Order"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.MonthMoney"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Book"/>
 </qualifiedTypeNameHistroy>

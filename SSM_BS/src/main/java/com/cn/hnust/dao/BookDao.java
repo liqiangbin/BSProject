@@ -21,4 +21,5 @@ public interface BookDao {
     int updateByPrimaryKey(Book record);
     int getCounts(Book book);
     List <Book>  getBookByPage(Map condition);
+    List <Book>  getBookBySaled();
 }

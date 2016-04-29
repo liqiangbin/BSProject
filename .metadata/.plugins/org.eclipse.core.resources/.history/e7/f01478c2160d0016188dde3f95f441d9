@@ -1,0 +1,36 @@
+package com.cn.hnust.controller;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cn.hnust.service.ManagerService;
+
+@Controller  
+@RequestMapping("/main")  
+public class mainController {
+	@Resource  
+    private ManagerService managerService;
+	@RequestMapping("/count")  
+	 public String Count(HttpServletRequest request,Model model,String month) throws ParseException{ 
+		System.out.println("month"+month);
+		//如果date 为空查询当前月
+		Date date=new Date();
+		DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String time=format.format(date);
+		if(month==null||month==""){
+			
+		}
+	
+       return "/main/count"; 
+   }
+
+}

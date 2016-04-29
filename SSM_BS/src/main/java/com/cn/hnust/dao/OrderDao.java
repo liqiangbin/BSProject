@@ -23,4 +23,5 @@ public interface OrderDao {
     int getCounts(Order order);
     List <Order>  getOrderByPage(Map condition);
     List <Order>  getOrderNoPage(Map condition);
+    List <Order> findByMonth(String dateParam);
 }

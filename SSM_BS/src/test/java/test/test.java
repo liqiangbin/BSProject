@@ -1,19 +1,20 @@
 package test;
 
-import javax.annotation.Resource;  
-  
-import org.apache.log4j.Logger;  
-import org.junit.Before;  
-import org.junit.Test;  
-import org.junit.runner.RunWith;  
-import org.springframework.context.ApplicationContext;  
-import org.springframework.context.support.ClassPathXmlApplicationContext;  
-import org.springframework.test.context.ContextConfiguration;  
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;  
-  
-import com.alibaba.fastjson.JSON;  
-import com.cn.hnust.pojo.User;  
-import com.cn.hnust.service.IUserService;  
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.apache.log4j.Logger;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.alibaba.fastjson.JSON;
+import com.cn.hnust.pojo.Order;
+import com.cn.hnust.pojo.User;
+import com.cn.hnust.service.IUserService;
+import com.cn.hnust.service.OrderService;
   
 @RunWith(SpringJUnit4ClassRunner.class)     //��ʾ�̳���SpringJUnit4ClassRunner��  
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})  
@@ -22,7 +23,9 @@ public class test {
     private static Logger logger = Logger.getLogger(test.class);  
 //  private ApplicationContext ac = null;  
     @Resource  
-    private  IUserService userService = null; 
+    private  IUserService userService = null;
+    @Resource  
+    private OrderService orderService = null; 
 //  @Before  
 //  public void before() {  
 //      ac = new ClassPathXmlApplicationContext("applicationContext.xml");  
@@ -50,5 +53,18 @@ public class test {
 //        logger.info(JSON.toJSONString(user)); 
     	
     	userService.insert(user);
-    }  
+    } 
+   
+    /**
+     * 测试按月查询订单
+     */
+    
+    @Test
+    public void countTest(){
+    	List<Order> list=orderService.findByMonth("2016-04-28%");
+    	System.out.println("listsize()"+list.size());
+    	String s="2016-04-28";
+    	String m=s.substring(8, 10);
+    	System.out.println(m);
+    }
 }

@@ -221,7 +221,8 @@ public class BookController {
 		//System.out.println("ddddddd");
 		//System.out.println("size()"+readFree[0]);
 		System.out.println("img1:"+book.getImg1());
-		System.out.println();
+		//System.out.println();
+		book.setSaled(0);
 			int xxx=bookService.insert(book);
 			System.out.println(xxx);
 		ReadFree  readfree=new ReadFree();
