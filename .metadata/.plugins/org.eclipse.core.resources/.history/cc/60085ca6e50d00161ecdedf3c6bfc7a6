@@ -1,0 +1,17 @@
+package com.cn.hnust.dao;
+
+import com.cn.hnust.pojo.CustomerInteresting;
+
+public interface CustomerInteresting {
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(CustomerInterestDao record);
+
+    int insertSelective(CustomerInterestDao record);
+
+    CustomerInterestDao selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(CustomerInterestDao record);
+
+    int updateByPrimaryKey(CustomerInterestDao record);
+}
