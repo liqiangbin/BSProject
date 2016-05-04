@@ -22,4 +22,5 @@ public interface NoticeDao {
     int updateByPrimaryKey(Notice record);
     int getCounts(Notice manager);
     List<Notice>  getNoticeByPage(Map condition);
+    List<Notice>  SelectAll();
 }

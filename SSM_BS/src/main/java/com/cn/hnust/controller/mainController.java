@@ -18,12 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cn.hnust.pojo.Book;
 import com.cn.hnust.pojo.MonthMoney;
+import com.cn.hnust.pojo.Notice;
 import com.cn.hnust.pojo.Order;
 import com.cn.hnust.pojo.OrderDetial;
 import com.cn.hnust.pojo.Subtype;
 import com.cn.hnust.pojo.TopSubtype;
 import com.cn.hnust.pojo.Type;
 import com.cn.hnust.service.BookService;
+import com.cn.hnust.service.NoticeService;
 import com.cn.hnust.service.OrderDetialService;
 import com.cn.hnust.service.OrderService;
 import com.cn.hnust.service.SubTypeService;
@@ -42,7 +44,74 @@ public class mainController {
 	private SubTypeService subTypeService;
 	@Resource
 	private OrderDetialService orderDetialService;
+	@Resource
+	private NoticeService noticeService;
 
+	@RequestMapping("/index")
+	public String turnIndex(HttpServletRequest request, Model model) {
+		Date date = new Date();
+		DateFormat format = new SimpleDateFormat("yyyy-MM");
+		String dateParam = format.format(date);
+		// 查询当月交易
+		List<Order> list = new ArrayList<Order>();
+		List<MonthMoney> moneyList = new ArrayList<MonthMoney>();
+		list = orderService.findByMonth(dateParam + "%");
+		double allMoney = 0;
+		for (int i = 1; i <= 31; i++) {
+			MonthMoney monthMoney = new MonthMoney();
+			double daycount = 0;
+			for (int m = 0; m < list.size(); m++) {
+				String day = list.get(m).getOrderdate().substring(8, 10);
+				if (i == Integer.parseInt(day)) {
+					daycount += list.get(m).getTotalmoney();
+				}
+			}
+			monthMoney.setDay(i);
+			monthMoney.setMoney(daycount);
+			moneyList.add(monthMoney);
+			allMoney += daycount;
+		}
+		model.addAttribute("moneyList", moneyList);
+		model.addAttribute("allOrder", list.size());
+		model.addAttribute("allMoney", allMoney);
+		// 查询本月共销售图书量
+		int allBook = 0;
+		for (Order orderlist : list) {
+			List<OrderDetial> detialList = new ArrayList<OrderDetial>();
+			Map<String, Object> condition = new HashMap();
+			condition.put("orderid", orderlist.getOrderid());
+			detialList = orderDetialService.getOrderDetialNoPage(condition);
+			for (OrderDetial orderDetial : detialList) {
+				allBook += orderDetial.getQuantity();
+			}
+		}
+		model.addAttribute("allBook", allBook);
+		// 查询首页显示公告
+		int number = 3;
+		List<Notice> allNotice = noticeService.SellectAll();
+		List<Notice> managerNotice = new ArrayList();
+		List<Notice> activeNotice = new ArrayList();
+		for (Notice notice : allNotice) {
+			if (notice.getType() == 0) {
+				managerNotice.add(notice);
+			} else {
+				activeNotice.add(notice);
+			}
+		}
+		if (managerNotice.size() > number) {
+     for(int i=managerNotice.size();i>number;i=managerNotice.size()){
+    	 managerNotice.remove(3);
+     }
+		}
+		if (activeNotice.size() > number) {
+			for(int i=activeNotice.size();i>number;i=activeNotice.size()){
+				activeNotice.remove(3);
+		     }
+		}
+		model.addAttribute("managerNotice",managerNotice );
+		model.addAttribute("activeNotice",activeNotice );
+		return "/main/index";
+	}
 
 	@RequestMapping("/count")
 	public String Count(HttpServletRequest request, Model model,
@@ -76,18 +145,18 @@ public class mainController {
 		model.addAttribute("moneyList", moneyList);
 		model.addAttribute("allOrder", list.size());
 		model.addAttribute("allMoney", allMoney);
-		//查询本月共销售图书量
-		int allBook=0;
+		// 查询本月共销售图书量
+		int allBook = 0;
 		for (Order orderlist : list) {
-			List<OrderDetial> detialList=new ArrayList<OrderDetial>();
-			Map<String,Object> condition=new HashMap();
+			List<OrderDetial> detialList = new ArrayList<OrderDetial>();
+			Map<String, Object> condition = new HashMap();
 			condition.put("orderid", orderlist.getOrderid());
-			detialList=orderDetialService.getOrderDetialNoPage(condition);
-			for (OrderDetial orderDetial : detialList){
-				allBook+=orderDetial.getQuantity();
+			detialList = orderDetialService.getOrderDetialNoPage(condition);
+			for (OrderDetial orderDetial : detialList) {
+				allBook += orderDetial.getQuantity();
 			}
 		}
-		model.addAttribute("allBook",allBook);
+		model.addAttribute("allBook", allBook);
 		// 查询图书销量排行
 		List<Book> bookList = new ArrayList<Book>();
 		List<Book> bookTopTen = new ArrayList<Book>();
@@ -103,8 +172,6 @@ public class mainController {
 		}
 		model.addAttribute("bookTopTen", bookTopTen);
 
-		
-		
 		// 查询细类排行
 		int top10;
 		List<Subtype> subtypeList = subTypeService.selectAll();
@@ -122,9 +189,7 @@ public class mainController {
 			topentity.setTotalNumber(total);
 			top.add(topentity);
 		}
-		
-		
-		
+
 		// 对细类排序
 		int[] m = new int[top.size()];
 		for (int x = 0; x < top.size(); x++) {
@@ -154,9 +219,7 @@ public class mainController {
 		}
 		// 返回排行前10的细类统计
 		model.addAttribute("topList", top1);
-		
-		
-		
+
 		// 查询大类统计
 		List<Type> typeList = typeService.selectAll();
 		List<TopSubtype> typeCount = new ArrayList<TopSubtype>();
@@ -164,7 +227,7 @@ public class mainController {
 			TopSubtype topentity = new TopSubtype();
 			int total = 0;
 			for (int i = 0; i < bookList.size(); i++) {
-				if (bookList.get(i).getType()-type.getTypenumber()==0) {
+				if (bookList.get(i).getType() - type.getTypenumber() == 0) {
 					total += bookList.get(i).getSaled();
 				}
 			}
@@ -174,7 +237,7 @@ public class mainController {
 			typeCount.add(topentity);
 		}
 		model.addAttribute("typeCount", typeCount);
-		
+
 		return "/main/count";
 	}
 

@@ -40,7 +40,7 @@ public class LoginController {
 		 session.setAttribute("managerPassword", managers.get(0).getPassword());
 		 session.setAttribute("managerName", managers.get(0).getName());
 		 session.setAttribute("managerRole", managers.get(0).getRole());
-        return "manager/index"; 
+        return "redirect:/main/index"; 
     }  
 
 }

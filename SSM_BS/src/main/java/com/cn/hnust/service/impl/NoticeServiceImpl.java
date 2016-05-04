@@ -31,5 +31,9 @@ public class NoticeServiceImpl implements NoticeService {
 	public int deleteById(int id) {
 		return noticeDao.deleteByPrimaryKey(id);
 	}
+	public List<Notice> SellectAll() {
+		// TODO Auto-generated method stub
+		return noticeDao.SelectAll();
+	}
 
 }

@@ -153,4 +153,10 @@
 		order by Id DESC 
 		limit #{startPos},#{pageSize} 
 	</select>
+	<select id="SelectAll" resultMap="BaseResultMap"> 
+	 select 
+	 <include refid="Base_Column_List" /> 
+		from notice 
+		order by Id DESC
+	</select>
 </mapper>

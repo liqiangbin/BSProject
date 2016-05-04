@@ -10,4 +10,5 @@ public interface NoticeService {
 	 public int getCounts(Notice notice);
 	 public List<Notice> getNoticeByPage(Map condition);
 	 public  int deleteById(int id);
+	 public List<Notice> SellectAll();
 }
