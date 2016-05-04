@@ -1,5 +1,7 @@
 package com.cn.hnust.dao;
 
+import java.util.List;
+
 import com.cn.hnust.pojo.Suggest;
 
 public interface SuggestDao {
@@ -14,4 +16,6 @@ public interface SuggestDao {
     int updateByPrimaryKeySelective(Suggest record);
 
     int updateByPrimaryKey(Suggest record);
+    
+    List<Suggest> selectAll();
 }

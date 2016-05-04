@@ -52,7 +52,7 @@ pageEncoding="UTF-8"%>
 							</a>
 						</li>
 						<li>
-							<a href="recommendation.html">
+							<a href='<c:url value="/suggest/editSuggest"></c:url>'>
 								<i class="fa fa-credit-card"></i>
 								<span class="title">智能推荐管理</span>
 								<span class="arrow "></span>
@@ -91,7 +91,7 @@ pageEncoding="UTF-8"%>
 									</a>
 								</li>
 								<li>
-									<a href="ibook.html">
+									<a href="#">
 										<i class="fa fa-gift"></i> IBooK信息
 									</a>
 								</li>

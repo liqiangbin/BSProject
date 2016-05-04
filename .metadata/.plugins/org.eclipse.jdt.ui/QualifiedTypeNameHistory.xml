@@ -40,4 +40,7 @@
 <fullyQualifiedTypeName name="com.cn.hnust.service.OrderDetialService"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.InterestService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.SearchInfoService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.SuggestService"/>
 </qualifiedTypeNameHistroy>
