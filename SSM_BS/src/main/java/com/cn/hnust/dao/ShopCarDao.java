@@ -1,5 +1,7 @@
 package com.cn.hnust.dao;
 
+import java.util.List;
+
 import com.cn.hnust.pojo.ShopCar;
 
 public interface ShopCarDao {
@@ -10,7 +12,9 @@ public interface ShopCarDao {
     int insertSelective(ShopCar record);
 
     ShopCar selectByPrimaryKey(Integer id);
-
+    
+    List<ShopCar> selectByCusId(Integer id);
+    
     int updateByPrimaryKeySelective(ShopCar record);
 
     int updateByPrimaryKey(ShopCar record);

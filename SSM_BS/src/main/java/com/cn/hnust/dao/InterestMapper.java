@@ -14,4 +14,6 @@ public interface InterestMapper {
     int updateByPrimaryKeySelective(Interest record);
 
     int updateByPrimaryKey(Interest record);
+    
+    Interest selectBuCusId(Integer id);
 }

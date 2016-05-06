@@ -1,19 +1,32 @@
 package com.cn.hnust.service.impl;
 
-import java.util.List;
-import java.util.Map;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.cn.hnust.dao.IUserDao;
-import com.cn.hnust.dao.NoticeDao;
-import com.cn.hnust.pojo.Notice;
+import com.cn.hnust.dao.InterestMapper;
+import com.cn.hnust.pojo.Interest;
 import com.cn.hnust.service.InterestService;
-import com.cn.hnust.service.NoticeService;
 @Service("interestService")
 public class InterestServiceImpl implements InterestService {
+@Resource 
+private InterestMapper interestMapper ;
+	public int insert(Interest interest) {
+		// TODO Auto-generated method stub
+		return interestMapper.insert(interest);
+	}
+
+	public int update(Interest interest) {
+		// TODO Auto-generated method stub
+		return interestMapper.updateByPrimaryKeySelective(interest);
+	}
+
+	public Interest selectByCusId(int customerId) {
+		// TODO Auto-generated method stub
+		return interestMapper.selectBuCusId(customerId);
+	}
+
+
 
 
 }

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.cn.hnust.dao.NoticeMapper"/>
-<fullyQualifiedTypeName name="com.cn.hnust.service.NoticeService"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Notice"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.text.DateFormat"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
@@ -11,7 +9,6 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.SessionAttributes"/>
 <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
@@ -42,7 +39,12 @@
 <fullyQualifiedTypeName name="com.cn.hnust.service.SearchInfoService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.SuggestService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.dao.SuggestDao"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Suggest"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Notice"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.NoticeService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.impl.CustomerServiceImpl"/>
+<fullyQualifiedTypeName name="javax.annotation.Resource"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.CustomerService"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

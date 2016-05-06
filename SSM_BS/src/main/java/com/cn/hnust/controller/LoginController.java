@@ -12,9 +12,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.cn.hnust.pojo.Customer;
 import com.cn.hnust.pojo.Manager;
+import com.cn.hnust.service.CustomerService;
 import com.cn.hnust.service.ManagerService;
 
 @Controller  
@@ -22,6 +23,8 @@ import com.cn.hnust.service.ManagerService;
 public class LoginController {
 	@Resource  
     private ManagerService managerService;
+	@Resource 
+	private CustomerService customerService;
 	@RequestMapping("/turnIndex")  
 	 public String toIndex(HttpServletRequest request,Model model,Manager manager,HttpSession session) throws ParseException{  
 		int error=0;
@@ -42,5 +45,25 @@ public class LoginController {
 		 session.setAttribute("managerRole", managers.get(0).getRole());
         return "redirect:/main/index"; 
     }  
+	@RequestMapping("/customerLogin")  
+	 public String customerLogin(HttpServletRequest request,Model model,Customer customer,HttpSession session) {
+		
+		List<Customer> list =customerService.SelectAll();
+		int status=0;
+		for (Customer cus : list) {
+			if(customer.getLoginname().equals(cus.getLoginname())&&customer.getPassword().equals(cus.getPassword())){
+				status=1;
+				session.setAttribute("loginCustomer", cus);
+				break;
+			}
+		}
+         if(status==1){
+        	 return "";
+         }else{
+        	 model.addAttribute("loginMessage", "用户名或密码错误");
+        	 return "";
+         }
+		
+	}
 
 }

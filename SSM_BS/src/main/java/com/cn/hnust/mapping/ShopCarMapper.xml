@@ -19,6 +19,13 @@
     from shop_car
     where Id = #{id,jdbcType=INTEGER}
   </select>
+    <select id="selectByCusId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from shop_car
+    where customerid = #{id,jdbcType=INTEGER}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from shop_car
     where Id = #{id,jdbcType=INTEGER}

@@ -1,10 +1,9 @@
 package com.cn.hnust.service;
 
-import java.util.List;
-import java.util.Map;
-
-import com.cn.hnust.pojo.Notice;
+import com.cn.hnust.pojo.Interest;
 
 public interface InterestService {
-	
+	public int insert(Interest interest);
+	public int update(Interest interest);
+	public Interest selectByCusId(int customerId);
 }

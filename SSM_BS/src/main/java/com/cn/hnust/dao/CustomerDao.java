@@ -1,5 +1,7 @@
 package com.cn.hnust.dao;
 
+import java.util.List;
+
 import com.cn.hnust.pojo.Customer;
 
 public interface CustomerDao {
@@ -14,4 +16,6 @@ public interface CustomerDao {
     int updateByPrimaryKeySelective(Customer record);
 
     int updateByPrimaryKey(Customer record);
+    
+    List<Customer> sellectAll();
 }

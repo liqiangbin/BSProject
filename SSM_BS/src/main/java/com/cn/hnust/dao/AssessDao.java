@@ -1,5 +1,7 @@
 package com.cn.hnust.dao;
 
+import java.util.List;
+
 import com.cn.hnust.pojo.Assess;
 
 public interface AssessDao {
@@ -10,6 +12,8 @@ public interface AssessDao {
     int insertSelective(Assess record);
 
     Assess selectByPrimaryKey(Integer id);
+    
+    List<Assess> SelectByBookId(Integer id);
 
     int updateByPrimaryKeySelective(Assess record);
 

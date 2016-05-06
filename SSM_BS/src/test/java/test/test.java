@@ -10,11 +10,18 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.alibaba.fastjson.JSON;
+import com.cn.hnust.dao.CustomerDao;
+import com.cn.hnust.dao.ShopCarDao;
+import com.cn.hnust.pojo.Assess;
+import com.cn.hnust.pojo.Customer;
+import com.cn.hnust.pojo.Interest;
 import com.cn.hnust.pojo.Order;
-import com.cn.hnust.pojo.User;
+import com.cn.hnust.pojo.ShopCar;
+import com.cn.hnust.service.AssessService;
 import com.cn.hnust.service.IUserService;
+import com.cn.hnust.service.InterestService;
 import com.cn.hnust.service.OrderService;
+import com.cn.hnust.service.ShopCarService;
   
 @RunWith(SpringJUnit4ClassRunner.class)     //��ʾ�̳���SpringJUnit4ClassRunner��  
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})  
@@ -26,35 +33,17 @@ public class test {
     private  IUserService userService = null;
     @Resource  
     private OrderService orderService = null; 
-//  @Before  
-//  public void before() {  
-//      ac = new ClassPathXmlApplicationContext("applicationContext.xml");  
-//      userService = (IUserService) ac.getBean("userService");  
-//  } 
-    @Test  
-    public void test1() {  
-    	System.out.println("first");
-        User user = userService.getUserById(2);  
-        logger.info("ֵ用户名："+user.getUserName());  
-        logger.info(JSON.toJSONString(user));  
-    }  
-    @Test  
-    public void test2() {  
-    	System.out.println("first");
-       // User user = userService.getUserById(2);  
-    	User user=new User();
-    	user.setId(3);
-    	user.setAge(12);
-    	user.setUserName("ssss");
-    	user.setPassword("111111");
-       // System.out.println("second");
-        // System.out.println("***********8"+user.getUserName());  
-//         logger.info("ֵ��"+user.getUserName());  
-//        logger.info(JSON.toJSONString(user)); 
-    	
-    	userService.insert(user);
-    } 
-   
+    @Resource  
+    private CustomerDao customerDao;
+    @Resource  
+    private ShopCarDao shopCarDao;
+    @Resource  
+    private ShopCarService shopCarService;
+    @Resource  
+    private InterestService interestService;
+    @Resource  
+    private AssessService assessService;
+    
     /**
      * 测试按月查询订单
      */
@@ -66,5 +55,88 @@ public class test {
     	String s="2016-04-28";
     	String m=s.substring(8, 10);
     	System.out.println(m);
+    }
+    //测试顾客注册
+    @Test
+    public void CustomerRegeist(){
+    	Customer customer=new Customer();
+    	customer.setLoginname("overkill");
+    	customer.setPassword("111111");
+    	int s=customerDao.insert(customer);
+    			System.out.println("测试添加："+s);
+    	
+    }
+  //测试顾客修改个人信息
+    @Test
+    public void CustomerUpdate(){
+    	Customer customer=new Customer();
+    	customer.setId(1);
+    	customer.setLoginname("overkill44");
+    	customer.setPassword("111111");
+    	int s=customerDao.updateByPrimaryKeySelective(customer);
+    			System.out.println("测试添加："+s);
+    }
+    //测试添加购物车
+    @Test
+    public void shopCarInsert(){
+    	ShopCar shopCar=new ShopCar();
+    	shopCar.setBookid(2);
+    	shopCar.setCustomerid(1);
+    	shopCar.setPrice(23.3);
+    	shopCar.setQuantity(23);
+    	int s=shopCarDao.insert(shopCar);
+    			System.out.println("测试添加："+s);
+    }
+    //测试查看我的购物车
+    @Test
+    public void selectByCusId(){
+    	List<ShopCar> list=shopCarService.selectByCusId(1);
+    	for (ShopCar shopCar : list) {
+			System.out.println(shopCar.getQuantity());
+		}
+    }
+    //测试查删除购物车商品
+    @Test
+    public void deleteGoods(){
+    	int m=shopCarService.deleteById(3);
+    	System.out.println("删除结果："+m);
+    }
+    
+    //测试兴趣问卷
+    @Test
+    public void InsertInterest(){
+    	Interest  interest=new Interest();
+    	interest.setCustomerid(1);
+    	interest.setInterestedsubtypeid("1002&1003&1001");
+    	interestService.insert(interest);
+    }
+    //测试兴趣问卷
+    @Test
+    public void updateInterest(){
+    	Interest  interest=new Interest();
+    	interest.setId(2);
+    	interest.setCustomerid(1);
+    	interest.setInterestedsubtypeid("1002&1002");
+    	interestService.update(interest);
+    }
+    //测试评价
+    @Test
+    public void insertAssess(){
+    	Assess  assess=new Assess();
+    	assess.setBookid(2);
+    	assess.setComment("这书垃圾");
+    	assess.setRank(4);
+    	assessService.insert(assess);
+    }
+    @Test
+    public void sellectByBookId(){
+    	List<Assess>  assessList=assessService.SelectByBookId(2);
+    	System.out.println("结果："+assessList.size());
+    }
+    @Test
+    public void calRank(){
+    	List<Assess>  assessList=assessService.SelectByBookId(2);
+    	double rank=assessService.calRank(2);
+    	System.out.println("评分结果："+rank);
     }
 }

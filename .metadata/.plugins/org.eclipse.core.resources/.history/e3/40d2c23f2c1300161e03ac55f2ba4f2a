@@ -1,0 +1,32 @@
+package com.cn.hnust.service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.persistence.Access;
+
+import org.springframework.stereotype.Service;
+
+import com.cn.hnust.dao.AssessDao;
+import com.cn.hnust.pojo.Assess;
+import com.cn.hnust.service.AssessService;
+
+@Service("assessService")
+public class AssessServiceImpl implements AssessService {
+	@Resource
+	private AssessDao assessDao;
+
+	public int insert(Assess assess) {
+		// TODO Auto-generated method stub
+		return assessDao.insert(assess);
+	}
+
+	public List<Assess> SelectByBookId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+	
+}
