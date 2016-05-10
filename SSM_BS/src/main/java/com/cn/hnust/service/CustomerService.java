@@ -8,5 +8,5 @@ public interface CustomerService {
 	public  int insert(Customer customer);
     public  int updateById(Customer customer);
     public int checkUserName(String name);
-    public List<Customer> SelectAll();
+    public List<Customer> sellectAllCus();
 }  

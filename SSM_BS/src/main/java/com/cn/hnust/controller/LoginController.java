@@ -47,8 +47,8 @@ public class LoginController {
     }  
 	@RequestMapping("/customerLogin")  
 	 public String customerLogin(HttpServletRequest request,Model model,Customer customer,HttpSession session) {
-		
-		List<Customer> list =customerService.SelectAll();
+		System.out.println(customer.getLoginname());
+		List<Customer> list =customerService.sellectAllCus();
 		int status=0;
 		for (Customer cus : list) {
 			if(customer.getLoginname().equals(cus.getLoginname())&&customer.getPassword().equals(cus.getPassword())){
@@ -58,10 +58,10 @@ public class LoginController {
 			}
 		}
          if(status==1){
-        	 return "";
+        	 return "/customer/index"; 
          }else{
         	 model.addAttribute("loginMessage", "用户名或密码错误");
-        	 return "";
+        	 return "/customer/login"; 
          }
 		
 	}

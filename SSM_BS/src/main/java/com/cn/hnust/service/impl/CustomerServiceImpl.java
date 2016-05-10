@@ -28,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public int checkUserName(String name) {
 		int status=0;
 		List<Customer> list=new ArrayList<Customer>();
-		list=customerDao.sellectAll();
+		list=customerDao.sellectAllCus();
 		for (Customer customer : list) {
 			if(customer.getLoginname().equals(name)){
 				status=1;
@@ -37,9 +37,9 @@ public class CustomerServiceImpl implements CustomerService {
 		return status;
 	}
 
-	public List<Customer> SelectAll() {
+	public List<Customer> sellectAllCus() {
 		List<Customer> list=new ArrayList<Customer>();
-		list=customerDao.sellectAll();
+		list=customerDao.sellectAllCus();
 		return list;
 	}
 

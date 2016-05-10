@@ -95,8 +95,8 @@
 		<welcome-file>/login.jsp</welcome-file>
 	</welcome-file-list>
 	
-	<!-- Error Page定义-->
-		<error-page>
+	 <!-- Error Page定义-->
+		<!-- <error-page>
 		<error-code>500</error-code>
 		<location>/commons/error.jsp</location>
 	</error-page>
@@ -108,6 +108,6 @@
 	<error-page>
 		<error-code>403</error-code>
 		<location>/commons/403.jsp</location>
-	</error-page>
+	</error-page>  -->
 
 </web-app>  

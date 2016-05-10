@@ -15,7 +15,7 @@
     from customer
     where Id = #{id,jdbcType=INTEGER}
   </select>
-   <select id="selectAll" resultMap="BaseResultMap">
+   <select id="sellectAllCus" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from customer

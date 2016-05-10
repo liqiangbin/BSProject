@@ -46,5 +46,7 @@
 <fullyQualifiedTypeName name="com.cn.hnust.service.impl.CustomerServiceImpl"/>
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.CustomerService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.ShopCar"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Interest"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

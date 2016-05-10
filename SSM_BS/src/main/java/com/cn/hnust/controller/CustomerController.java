@@ -19,14 +19,14 @@ public class CustomerController {
       
     @RequestMapping("/regeist")  
     public String toIndex(HttpServletRequest request,Customer customer,Model model){  
-       
+       System.out.println("zhuce");
     	int s=customerService.insert(customer);
     	if(s==1){
     		model.addAttribute("regeistMessage", "×¢²á³É¹¦£¡ÇëµÇÂ¼");
     	}else{
     		model.addAttribute("regeistMessage", "×¢²áÊ§°Ü£¡ÇëÖØÊÔ");
     	}
-    	return "login";  
+    	return "customer/login";  
     }  
     @RequestMapping("/update")  
     public String update(HttpServletRequest request,Customer customer,Model model){  
@@ -35,7 +35,6 @@ public class CustomerController {
     	if(s==1){
     		model.addAttribute("updateMessage", "ÐÞ¸Ä³É¹¦");
     	}else{  
-    		
     		model.addAttribute("updateMessage", "ÐÞ¸ÄÊ§°Ü");
     	}
     	return "update";  

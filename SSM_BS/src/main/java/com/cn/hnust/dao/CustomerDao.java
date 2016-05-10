@@ -17,5 +17,5 @@ public interface CustomerDao {
 
     int updateByPrimaryKey(Customer record);
     
-    List<Customer> sellectAll();
+    List<Customer> sellectAllCus();
 }

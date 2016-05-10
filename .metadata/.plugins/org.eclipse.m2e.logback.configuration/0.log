@@ -22573,3 +22573,368 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.mybatis:m
 2016-05-06 10:10:14,530 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2016-05-06 10:10:14,546 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2016-05-06 10:10:14,546 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-06 10:12:14,227 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-06 10:12:14,227 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-06 10:12:14,243 [Worker-32] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-06 10:12:14,243 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-07 19:09:09,171 [Worker-6] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for SSM_BS
+2016-05-07 19:09:26,992 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:09:27,000 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-07 19:09:27,022 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:09:27,023 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-07 19:11:36,043 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:11:36,046 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-07 19:11:36,049 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:11:36,050 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-07 19:12:47,860 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:12:47,861 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-07 19:12:47,864 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:12:47,865 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-07 19:13:14,318 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:13:14,320 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-07 19:13:14,322 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:13:14,323 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-07 19:13:58,144 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:13:58,145 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-07 19:13:58,148 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:13:58,149 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-07 19:19:33,201 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:19:33,216 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-07 19:19:33,218 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-07 19:19:33,219 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-08 14:51:56,209 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 14:51:56,272 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-08 14:51:56,272 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 14:51:56,272 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-08 15:54:33,172 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 15:54:33,172 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-08 15:54:33,172 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 15:54:33,172 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-08 15:54:45,719 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 15:54:45,719 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-08 15:54:45,719 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 15:54:45,719 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-08 15:56:06,461 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 15:56:06,461 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-08 15:56:06,461 [Worker-13] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 15:56:06,477 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-08 15:57:53,697 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 15:57:53,713 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-08 15:57:53,713 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 15:57:53,713 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-08 15:59:02,885 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 15:59:02,885 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-08 15:59:02,885 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-08 15:59:02,885 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:02:53,668 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:02:53,746 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 09:02:53,762 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:02:53,762 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:39:26,966 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:39:26,971 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:39:26,974 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:39:26,974 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:40:10,676 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:40:10,677 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:40:10,679 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:40:10,679 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:41:47,086 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:41:47,087 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:41:47,091 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:41:47,092 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:42:06,905 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:42:06,907 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:42:06,909 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:42:06,909 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:42:31,667 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:42:31,668 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:42:31,670 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:42:31,670 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:43:06,336 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:06,337 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:43:06,349 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:06,350 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:43:12,715 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:12,716 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:43:12,720 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:12,720 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:43:21,397 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:21,398 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:43:21,403 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:21,404 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:43:25,717 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:25,719 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:43:25,723 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:25,724 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:43:33,090 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:33,090 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:43:33,092 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:33,093 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:43:37,829 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:37,830 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:43:37,832 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:37,833 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:43:45,285 [Worker-21] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:45,286 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:43:45,288 [Worker-21] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:45,288 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:43:48,623 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:48,624 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:43:48,626 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:43:48,627 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:44:22,807 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:44:22,808 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:44:22,810 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:44:22,811 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:44:59,465 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:44:59,466 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:44:59,469 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:44:59,470 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:45:15,408 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:45:15,410 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:45:15,415 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:45:15,417 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:45:50,148 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:45:50,150 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:45:50,152 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:45:50,153 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:46:48,508 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:46:48,509 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:46:48,511 [Worker-18] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:46:48,512 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:47:05,144 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:47:05,145 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:47:05,148 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:47:05,149 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:47:12,700 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:47:12,703 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:47:12,709 [Worker-17] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:47:12,710 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:47:25,581 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:47:25,582 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:47:25,584 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:47:25,585 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:50:17,572 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:50:17,574 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:50:17,576 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:50:17,577 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:50:25,766 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:50:25,767 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 09:50:25,769 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 09:50:25,770 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 09:50:33,996 [Worker-16] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for SSM_BS
+2016-05-09 10:26:37,420 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 10:26:37,467 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 10:26:37,482 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 10:26:37,482 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 10:34:06,227 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 10:34:06,289 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 10:34:06,352 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 10:34:06,352 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 11:53:45,292 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 11:53:45,298 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 11:53:45,305 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 11:53:45,330 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 11:54:00,566 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 11:54:00,569 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 11:54:00,572 [Worker-14] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 11:54:00,573 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 11:54:09,961 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 11:54:09,964 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 11:54:09,968 [Worker-15] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 11:54:09,969 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:02:14,923 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:02:14,962 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 12:02:14,986 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:02:14,987 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:12:16,876 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:12:16,882 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:12:16,884 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:12:16,885 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:15:15,531 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:15:15,535 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:15:15,545 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:15:15,548 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:15:41,471 [Worker-24] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:15:41,474 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:15:41,477 [Worker-24] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:15:41,479 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:15:43,643 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:15:43,645 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:15:43,652 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:15:43,654 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:17:17,874 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:17:17,875 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:17:17,878 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:17:17,879 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:17:30,179 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:17:30,181 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:17:30,185 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:17:30,186 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:18:09,996 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:18:09,997 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:18:10,001 [Worker-26] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:18:10,002 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:18:49,633 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:18:49,636 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:18:49,644 [Worker-25] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:18:49,646 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:19:29,591 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:19:29,594 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:19:29,598 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:19:29,599 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:20:27,858 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:20:27,860 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:20:27,867 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:20:27,869 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:29:54,060 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:29:54,102 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 12:29:54,167 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:29:54,169 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:31:47,519 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:31:47,527 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:31:47,534 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:31:47,535 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:32:32,450 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:32:32,455 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:32:32,465 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:32:32,468 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:32:44,412 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:32:44,414 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:32:44,417 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:32:44,418 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:32:53,872 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:32:53,875 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 12:32:53,879 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:32:53,881 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 12:40:28,545 [Worker-3] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for SSM_BS
+2016-05-09 12:47:56,579 [Worker-5] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.Maven:SSM_BS:0.0.1-SNAPSHOT @ E:\school\BSProject\SSM_BS\pom.xml.
+2016-05-09 12:48:02,303 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:48:02,322 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 12:48:02,372 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 12:48:02,374 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 13:45:33,545 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.Maven:SSM_BS:0.0.1-SNAPSHOT @ E:\school\BSProject\SSM_BS\pom.xml.
+2016-05-09 13:45:37,113 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 13:45:37,119 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 13:45:37,128 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 13:45:37,129 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 13:54:56,917 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 13:54:56,920 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 13:54:56,922 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 13:54:56,923 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 13:56:46,720 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 13:56:46,721 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 13:56:46,724 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 13:56:46,725 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 13:58:26,152 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 13:58:26,154 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 13:58:26,155 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 13:58:26,156 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 13:59:39,527 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 13:59:39,528 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 13:59:39,530 [Worker-23] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 13:59:39,530 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:00:24,567 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:00:24,568 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:00:24,569 [Worker-29] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:00:24,570 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:01:16,371 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:01:16,387 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 14:01:16,390 [Worker-10] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:01:16,391 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:02:54,419 [Worker-31] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:02:54,421 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 14:02:54,426 [Worker-31] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:02:54,427 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:04:24,857 [Worker-27] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:04:24,859 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 14:04:24,862 [Worker-27] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:04:24,863 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:06:11,935 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:06:11,936 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:06:11,938 [Worker-22] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:06:11,939 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:09:07,947 [Worker-36] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:09:07,948 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:09:07,952 [Worker-36] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:09:07,953 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:09:42,679 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:09:42,681 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:09:42,683 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:09:42,684 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:10:48,556 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:10:48,557 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:10:48,560 [Worker-35] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:10:48,561 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:11:43,816 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:11:43,817 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:11:43,820 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:11:43,821 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:11:56,704 [Worker-40] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:11:56,705 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:11:56,707 [Worker-40] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:11:56,708 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:12:02,729 [Worker-38] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:12:02,730 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:12:02,735 [Worker-38] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:12:02,736 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:12:07,041 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:12:07,042 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:12:07,044 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:12:07,045 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:12:11,751 [Worker-40] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:12:11,752 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:12:11,754 [Worker-40] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:12:11,755 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:13:53,372 [Worker-40] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:13:53,374 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:13:53,376 [Worker-40] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:13:53,377 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:14:29,514 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:14:29,515 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:14:29,518 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:14:29,519 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:15:47,026 [Worker-36] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:15:47,027 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:15:47,029 [Worker-36] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:15:47,030 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:16:21,362 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:16:21,363 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:16:21,365 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:16:21,366 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:16:29,651 [Worker-27] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:16:29,653 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:16:29,655 [Worker-27] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:16:29,656 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 14:17:18,726 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:17:18,726 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-05-09 14:17:18,728 [Worker-41] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 14:17:18,729 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 15:28:12,135 [Worker-47] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for SSM_BS
+2016-05-09 15:28:25,411 [Worker-50] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: org.Maven:SSM_BS:0.0.1-SNAPSHOT @ E:\school\BSProject\SSM_BS\pom.xml.
+2016-05-09 15:28:27,535 [Worker-50] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 15:28:27,540 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 15:28:27,552 [Worker-50] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 15:28:27,553 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 15:51:30,516 [Worker-61] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for SSM_BS
+2016-05-09 15:51:38,752 [Worker-67] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 15:51:38,754 [Worker-67] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 15:51:38,762 [Worker-67] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 15:51:38,762 [Worker-67] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-09 15:56:57,019 [Worker-62] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\school\BSProject\SSM_BS
+2016-05-09 15:56:57,020 [Worker-62] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -s C:\Users\admin\.m2\settings.xml install
+2016-05-09 15:57:12,538 [Worker-65] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\school\BSProject\SSM_BS
+2016-05-09 15:57:12,539 [Worker-65] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -s C:\Users\admin\.m2\settings.xml clean
+2016-05-09 15:57:21,289 [Worker-62] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\school\BSProject\SSM_BS
+2016-05-09 15:57:21,290 [Worker-62] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -s C:\Users\admin\.m2\settings.xml install
+2016-05-09 16:00:11,553 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 16:00:11,565 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-09 16:00:11,585 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-09 16:00:11,586 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-10 10:36:05,327 [Worker-0] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Cleaning filtered folder for SSM_BS
+2016-05-10 10:36:18,107 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-10 10:36:18,116 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 5 resources
+2016-05-10 10:36:18,136 [Worker-3] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2016-05-10 10:36:18,137 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\school\BSProject\SSM_BS\src\test\resources
+2016-05-10 10:49:47,184 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\school\BSProject\SSM_BS
+2016-05-10 10:49:47,184 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -s C:\Users\admin\.m2\settings.xml install
