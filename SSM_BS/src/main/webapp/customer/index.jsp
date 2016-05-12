@@ -56,48 +56,64 @@
 				<div class="banner-bottom-grid-left animated wow slideInLeft" data-wow-delay=".3s">
 					<div class="grid">
 						<figure class="effect-julia">
-							<img src="<%=request.getContextPath()%>/customer/images/paihanghead.jpg" alt=" " style="height: 418px;" class="img-responsive" />
+							<img src="<%=request.getContextPath()%>/customer/images/paihanghead.jpg" alt=" " style="width:400px;height: 462px;" class="img-responsive" />
 							<figcaption>
 								<h3>IBooK <span>Store</span><i> in online shopping</i></h3>
 								<div>
-									优惠活动一<p style="background-color: pink;">优惠活动1详情 优惠活动1详情优惠活动1详情</p><br>
-									优惠活动一<p style="background-color: pink;">优惠活动1详情 优惠活动1详情优</p><br>
-									优惠活动一<p style="background-color: pink;">优惠活动1详情 优惠活动1详情优惠活动1详情</p>
-									
+								 <c:forEach var="activity" items="${top3ActivityList}" varStatus="status" > 
+								 <c:if test="${status.count==1}">
+								 优惠活动一
+								 </c:if>
+								  <c:if test="${status.count==2}">
+								 优惠活动二
+								 </c:if>
+								  <c:if test="${status.count==3}">
+								 优惠活动三
+								 </c:if>
+									<p style="background-color: pink;">${activity.content}</p><br>
+									 </c:forEach>
 								</div>
 							</figcaption>			
 						</figure>
 					</div>
 				</div>
+				
 				<div class="banner-bottom-grid-left1 animated wow slideInUp" data-wow-delay=".3s">
-					<div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
+					<c:forEach var="book" items="${top3BbookList}" varStatus="status" > 
+					  <c:if test="${status.count!=3}">
+					 	<div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
 						<div class="banner-bottom-grid-left-grid1">
-							<img src="<%=request.getContextPath()%>/customer/images/1.jpg" alt=" " class="img-responsive" />
+							<img src='<c:url value="/upload/${book.mainimg}"></c:url>' alt=" " class="img-responsive" style="width:400px;height: 224px;" />
 						</div>
 						<div class="banner-bottom-grid-left1-pos">
-							<p style="color: orange;">销量第一</p>
-						</div>
+						<p style="color:white;font-size: 16px;font-family:微软雅黑;" >${book.name}</p><br>
+							<p style="color: orange;">
+							<c:if test="${status.count==1}">
+							销量第一
+								 </c:if>
+								  <c:if test="${status.count==2}">
+							销量第二
+								 </c:if>
+								 </p>
+						 </div>
 					</div>
-					<div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
-						<div class="banner-bottom-grid-left-grid1">
-							<img src="<%=request.getContextPath()%>/customer/images/2.jpg" alt=" " class="img-responsive" />
-						</div>
-						<div class="banner-bottom-grid-left1-position">
-							<div class="banner-bottom-grid-left1-pos1">
-								<p style="color: orange;">销量第二</p>
-							</div>
-						</div>
-					</div>
+					 </c:if>
+					 </c:forEach>
 				</div>
 				<div class="banner-bottom-grid-right animated wow slideInRight" data-wow-delay=".3s">
+				<c:forEach var="book" items="${top3BbookList}" varStatus="status" > 
+				   <c:if test="${status.count==3}">
 					<div class="banner-bottom-grid-left-grid grid-left-grid1">
 						<div class="banner-bottom-grid-left-grid1">
-							<img src="<%=request.getContextPath()%>/customer/images/3.jpg" alt=" " class="img-responsive" />
+							<img src='<c:url value="/upload/${book.mainimg}"></c:url>' style="width:400px;height: 462px;" alt="" class="img-responsive" />
 						</div>
 						<div class="grid-left-grid1-pos">
-							<p style="color: orange;">销量第一</p>
+						<p style="color:white;font-size: 16px;font-family:微软雅黑;" >${book.name}</p><br>
+							<p style="color: orange;">销量第三</p>
 						</div>
 					</div>
+					  </c:if>
+					</c:forEach>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

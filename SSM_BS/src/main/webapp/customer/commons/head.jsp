@@ -31,3 +31,6 @@
 <script
 	src='<c:url value="/assets/global/plugins/jquery.min.js"></c:url>'
 	type="text/javascript"></script>
+<script
+	src='<c:url value="/assets/global/plugins/bootstrap/js/bootstrap.min.js"></c:url>'
+	type="text/javascript"></script>

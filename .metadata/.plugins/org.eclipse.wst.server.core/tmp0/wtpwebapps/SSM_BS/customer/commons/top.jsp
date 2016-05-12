@@ -7,14 +7,14 @@
 			<div class="header-grid">
 				<div class="header-grid-left animated wow slideInLeft" data-wow-delay=".3s">
 					<ul>
-						<li><i class="glyphicon glyphicon-user" aria-hidden="true"></i>+1234 567 892</li>
-						<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="login.html">登录</a></li>
-						<li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="register.html">注册</a></li>
+						<li id="showName"><i class="glyphicon glyphicon-user" aria-hidden="true" ></i>${sessionScope.loginCustomer.loginname}</li>
+						<li id="showLogin"><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href='<c:url value="/customer/login.jsp"></c:url>'>登录</a></li>
+						<li id="showRegeist"><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href='<c:url value="/customer/regeist.jsp"></c:url>'>注册</a></li>
 					</ul>
 				</div>
 				<div class="header-grid-right animated wow slideInRight" data-wow-delay=".3s">
 					<ul class="social-icons">
-						<li><a href="#"><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i>退出</a></li>
+						<li id="showExit"><a href='<c:url value="/login/customerLogout"></c:url>'><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i>退出</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -39,41 +39,61 @@
 							<li class="active"><a href="index.html" class="act">首页</a></li>	
 							<!-- Mega Menu -->
 							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">著作 <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.workList}" > 
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
+											</ul>
+										</div>
+										</c:forEach>
+										<div class="clearfix"></div>
+									</div>
+								</ul>
+							</li>
+							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">科技 <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.scienceList}" > 
 										<div class="col-sm-4">
 											<ul class="multi-column-dropdown">
-												<h6>Men's Wear</h6>
-												<li><a href="products.html">Clothing</a></li>
-												<li><a href="products.html">Wallets</a></li>
-												<li><a href="products.html">Shoes</a></li>
-												<li><a href="products.html">Watches</a></li>
-												<li><a href="products.html">Accessories</a></li>
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
 											</ul>
 										</div>
+										</c:forEach>
+										<div class="clearfix"></div>
+									</div>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">教育 <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.educateList}" > 
 										<div class="col-sm-4">
 											<ul class="multi-column-dropdown">
-												<h6>Women's Wear</h6>
-												<li><a href="products.html">Clothing</a></li>
-												<li><a href="products.html">Wallets,Bags</a></li>
-												<li><a href="products.html">Footwear</a></li>
-												<li><a href="products.html">Watches</a></li>
-												<li><a href="products.html">Accessories</a></li>
-												<li><a href="products.html">Jewellery</a></li>
-												<li><a href="products.html">Beauty & Grooming</a></li>
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
 											</ul>
 										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<h6>Kid's Wear</h6>
-												<li><a href="products.html">Kids Home Fashion</a></li>
-												<li><a href="products.html">Boy's Clothing</a></li>
-												<li><a href="products.html">Girl's Clothing</a></li>
-												<li><a href="products.html">Shoes</a></li>
-												<li><a href="products.html">Brand Stores</a></li>
-											</ul>
-										</div>
+										</c:forEach>
 										<div class="clearfix"></div>
 									</div>
 								</ul>
@@ -82,44 +102,62 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">生活 <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.lifeList}" > 
 										<div class="col-sm-4">
 											<ul class="multi-column-dropdown">
-												<h6>Home Collection</h6>
-												<li><a href="furniture.html">Cookware</a></li>
-												<li><a href="furniture.html">Sofas</a></li>
-												<li><a href="furniture.html">Dining Tables</a></li>
-												<li><a href="furniture.html">Shoe Racks</a></li>
-												<li><a href="furniture.html">Home Decor</a></li>
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
 											</ul>
 										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<h6>Office Collection</h6>
-												<li><a href="furniture.html">Carpets</a></li>
-												<li><a href="furniture.html">Tables</a></li>
-												<li><a href="furniture.html">Sofas</a></li>
-												<li><a href="furniture.html">Shoe Racks</a></li>
-												<li><a href="furniture.html">Sockets</a></li>
-												<li><a href="furniture.html">Electrical Machines</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4">
-											<ul class="multi-column-dropdown">
-												<h6>Decorations</h6>
-												<li><a href="furniture.html">Toys</a></li>
-												<li><a href="furniture.html">Wall Clock</a></li>
-												<li><a href="furniture.html">Lighting</a></li>
-												<li><a href="furniture.html">Top Brands</a></li>
-											</ul>
-										</div>
+										</c:forEach>
 										<div class="clearfix"></div>
 									</div>
 								</ul>
 							</li>
-							<li><a href="short-codes.html">教育</a></li>
-							<li><a href="mail.html">其他</a></li>
-							<li><a href="mail.html">其他</a></li>
-							<li><a href="mail.html">其他</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">政治军事 <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.politicList}" > 
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
+											</ul>
+										</div>
+										</c:forEach>
+										<div class="clearfix"></div>
+									</div>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.otherList}" > 
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
+											</ul>
+										</div>
+										</c:forEach>
+										<div class="clearfix"></div>
+									</div>
+								</ul>
+							</li>
 						</ul>
 					</div>
 					</nav>
@@ -159,5 +197,21 @@
 		</div>
 	</div>
 <!-- //header -->
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script type="application/x-javascript"> 
+	
+	addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); }
+//判断session 是否为空
+		if(${sessionScope.loginCustomer.id}!=null){
+	        $("#showExit").show();
+	        $("#showshowName").show();
+	        $("#showLogin").hide();
+	        $("#showRegeist").hide();
+            }else{
+                	$("#showExit").hide();
+        			$("#showName").hide();
+        			$("#showLogin").show();
+        			$("#showRegeist").show();
+                }
+		
+		</script>
