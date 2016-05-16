@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="test.getBookBySql" project="SSM_BS" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testcase name="getBookBySql" classname="test.test" time="1.242"/>
+</testrun>

@@ -12,5 +12,8 @@ public interface BookService {
 	public int updateByPrimaryKeySelective(Book record);
 	public Book selectById(int id);
 	public List<Book> getBySaled();
+	public List<Book> getBookByIdDesc();
+	public List<Book> getBookBySql(Map sql);
+	public List<Book> getBookBySubSql(Map sql);
 	
 }

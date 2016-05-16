@@ -1,5 +1,7 @@
 package com.cn.hnust.dao;
 
+import java.util.List;
+
 import com.cn.hnust.pojo.Searchinfo;
 
 public interface SearchinfoDao {
@@ -14,4 +16,7 @@ public interface SearchinfoDao {
     int updateByPrimaryKeySelective(Searchinfo record);
 
     int updateByPrimaryKey(Searchinfo record);
+    
+    List<Searchinfo> selectByCusId(Integer id);
+    
 }

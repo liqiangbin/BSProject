@@ -6,20 +6,20 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="新书上架" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="新书上架"/>
+			<item value="bookParams"/>
+			<item value="在5月夏季到来之际，全场满99包邮"/>
+			<item value="for"/>
+			<item value="forea"/>
+			<item value="showName"/>
+			<item value="c:if"/>
 			<item value="no"/>
-			<item value="non"/>
-			<item value="login"/>
-			<item value="销量"/>
-			<item value="img"/>
-			<item value="sellectAll"/>
-			<item value="form"/>
-			<item value="BaseResultMap"/>
 		</list>
 		<list key="replacehistory">
 			<item value="&apos;&lt;c:url value=&quot;"/>

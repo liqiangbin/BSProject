@@ -14,6 +14,8 @@ public interface AssessDao {
     Assess selectByPrimaryKey(Integer id);
     
     List<Assess> SelectByBookId(Integer id);
+    
+    List<Assess> getByRankDesc();
 
     int updateByPrimaryKeySelective(Assess record);
 

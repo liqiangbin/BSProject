@@ -22,4 +22,7 @@ public interface BookDao {
     int getCounts(Book book);
     List <Book>  getBookByPage(Map condition);
     List <Book>  getBookBySaled();
+    List <Book>  getBookByIdDesc();
+    List <Book>   getBookBySql(Map condition);
+    List <Book>   getBookBySubSql(Map condition);
 }

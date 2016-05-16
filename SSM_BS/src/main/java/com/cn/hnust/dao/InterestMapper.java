@@ -15,5 +15,5 @@ public interface InterestMapper {
 
     int updateByPrimaryKey(Interest record);
     
-    Interest selectBuCusId(Integer id);
+    Interest selectByCusId(Integer id);
 }

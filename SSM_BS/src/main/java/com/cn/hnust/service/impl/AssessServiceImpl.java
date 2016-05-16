@@ -38,6 +38,11 @@ public class AssessServiceImpl implements AssessService {
 		return rank;
 	}
 
+	public List<Assess> getByRankDesc() {
+		// TODO Auto-generated method stub
+		return assessDao.getByRankDesc();
+	}
+
 
 	
 	

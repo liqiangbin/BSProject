@@ -1,13 +1,11 @@
 package com.cn.hnust.service;
 
 import java.util.List;
-import java.util.Map;
 
-import com.cn.hnust.pojo.Notice;
+import com.cn.hnust.pojo.Searchinfo;
 
 public interface SearchInfoService {
-	 public  void insert(Notice notice);
-	 public int getCounts(Notice notice);
-	 public List<Notice> getNoticeByPage(Map condition);
+	 public  List<Searchinfo> selectByCusId(int cusId);
+	 public  int insert(Searchinfo searchinfo);
 	 public  int deleteById(int id);
 }

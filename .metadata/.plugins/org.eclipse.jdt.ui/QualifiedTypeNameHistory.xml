@@ -28,7 +28,6 @@
 <fullyQualifiedTypeName name="com.cn.hnust.service.OrderService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Order"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.MonthMoney"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Book"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.TopSubtype"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Type"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.OrderDetial"/>
@@ -41,12 +40,14 @@
 <fullyQualifiedTypeName name="com.cn.hnust.dao.SuggestDao"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Suggest"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Notice"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.NoticeService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.impl.CustomerServiceImpl"/>
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.CustomerService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.ShopCar"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Interest"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Notice"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Book"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.cn.hnust.controller.CustomerController"/>
 </qualifiedTypeNameHistroy>

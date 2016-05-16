@@ -1,6 +1,8 @@
 package test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -13,11 +15,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.cn.hnust.dao.CustomerDao;
 import com.cn.hnust.dao.ShopCarDao;
 import com.cn.hnust.pojo.Assess;
+import com.cn.hnust.pojo.Book;
 import com.cn.hnust.pojo.Customer;
 import com.cn.hnust.pojo.Interest;
 import com.cn.hnust.pojo.Order;
 import com.cn.hnust.pojo.ShopCar;
 import com.cn.hnust.service.AssessService;
+import com.cn.hnust.service.BookService;
 import com.cn.hnust.service.IUserService;
 import com.cn.hnust.service.InterestService;
 import com.cn.hnust.service.OrderService;
@@ -43,6 +47,8 @@ public class test {
     private InterestService interestService;
     @Resource  
     private AssessService assessService;
+    @Resource  
+    private BookService bookService;
     
     /**
      * 测试按月查询订单
@@ -138,5 +144,18 @@ public class test {
     	List<Assess>  assessList=assessService.SelectByBookId(2);
     	double rank=assessService.calRank(2);
     	System.out.println("评分结果："+rank);
+    }
+    @Test
+    public void getBookBySql(){
+    	//String sql="'%java%' or name like '%2%' or name like '%html%' or name like '%j4%'";
+    	Map<String, Object> condition = new HashMap<String, Object>();
+		condition.put("param1","java" );
+		condition.put("param2","2" );
+		condition.put("param3","html" );
+		condition.put("param4","j4" );
+    	List<Book>searchBookList=bookService.getBookBySql(condition);
+		for (Book book : searchBookList) {
+			System.out.println("book::::::"+book.getName());
+		}
     }
 }

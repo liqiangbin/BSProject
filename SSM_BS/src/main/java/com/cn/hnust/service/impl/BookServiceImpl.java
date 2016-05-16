@@ -51,6 +51,22 @@ public class BookServiceImpl implements BookService{
 		return bookDao.getBookBySaled();
 	}
 
+	public List<Book> getBookByIdDesc() {
+		// TODO Auto-generated method stub
+		return bookDao.getBookByIdDesc();
+	}
+
+	public List<Book> getBookBySql(Map condation) {
+		// TODO Auto-generated method stub
+		//System.out.println(sql);
+		return bookDao.getBookBySql(condation);
+	}
+	public List<Book> getBookBySubSql(Map condation) {
+		// TODO Auto-generated method stub
+		//System.out.println(sql);
+		return bookDao.getBookBySubSql(condation);
+	}
+	
 
 
 }

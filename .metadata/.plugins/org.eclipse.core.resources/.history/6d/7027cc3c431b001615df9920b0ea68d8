@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hnust.dao.BookDao" >
+  <resultMap id="BaseResultMap" type="com.cn.hnust.pojo.Book" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="publish" property="publish" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+    <result column="discount" property="discount" jdbcType="VARCHAR" />
+    <result column="stock" property="stock" jdbcType="INTEGER" />
+    <result column="saled" property="saled" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="subType" property="subtype" jdbcType="INTEGER" />
+    <result column="mainImg" property="mainimg" jdbcType="VARCHAR" />
+    <result column="img1" property="img1" jdbcType="VARCHAR" />
+    <result column="img2" property="img2" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.cn.hnust.pojo.Book" extends="BaseResultMap" >
+    <result column="introduce" property="introduce" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, name, author, publish, price, discount, stock, saled, type, subType, mainImg, 
+    img1, img2
+  </sql>
+  <sql id="Blob_Column_List" >
+    introduce
+  </sql>
+   <sql id="bookParams" >
+    <if test="id != null">
+      AND Id = #{id} 
+    </if>
+    <if test="name != null and name !=''">
+      AND name like '%${name}%'
+    </if>
+    <if test="author != null and author !=''">
+      AND author like '%${author}%'
+    </if>
+    <if test="publish != null and publish !=''">
+      AND publish like '%${publish}%'
+    </if>
+
+    <if test="type != null">
+      AND type = #{type}
+    </if>
+    <if test="subtype != null">
+      AND subType = #{subtype}
+    </if>
+  </sql>
+  <sql id="nameParams" >
+    <if test="param1 != null and param1 !=''">
+      AND name like '%${param1}%'
+    </if>
+    <if test="param2 != null and param2 !=''">
+      OR name like '%${param2}%'
+    </if>
+    <if test="param3 != null and param3 !=''">
+      OR name like '%${param3}%'
+    </if>
+    <if test="param4 != null and param4 !=''">
+      OR name like '%${param4}%'
+    </if>
+     <if test="typeparam1 != null and typeparam1 !=0">
+      AND subType =#{typeparam1}
+    </if>
+    <if test="typeparam2 != null and typeparam2 !=0">
+      OR subType =#{typeparam2}
+    </if>
+    <if test="typeparam3 != null and typeparam3 !=0">
+      OR subType =#{typeparam3}
+    </if>
+    
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from book
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getBookBySql" resultMap="ResultMapWithBLOBs" parameterType="java.util.Map">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from book
+    where 1=1 
+      <include refid="nameParams" />
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from book
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.hnust.pojo.Book" useGeneratedKeys="true">
+    insert into book (Id, name, author, 
+      publish, price, discount, 
+      stock, saled, type, 
+      subType, mainImg, img1, 
+      img2, introduce)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{publish,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, #{discount,jdbcType=VARCHAR}, 
+      #{stock,jdbcType=INTEGER}, #{saled,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+      #{subtype,jdbcType=INTEGER}, #{mainimg,jdbcType=VARCHAR}, #{img1,jdbcType=VARCHAR}, 
+      #{img2,jdbcType=VARCHAR}, #{introduce,jdbcType=LONGVARCHAR})
+         <selectKey resultType="INTEGER" order="AFTER" keyProperty="id">
+	SELECT LAST_INSERT_ID() AS id
+   </selectKey>
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.hnust.pojo.Book" >
+    insert into book
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="publish != null" >
+        publish,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="discount != null" >
+        discount,
+      </if>
+      <if test="stock != null" >
+        stock,
+      </if>
+      <if test="saled != null" >
+        saled,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="subtype != null" >
+        subType,
+      </if>
+      <if test="mainimg != null" >
+        mainImg,
+      </if>
+      <if test="img1 != null" >
+        img1,
+      </if>
+      <if test="img2 != null" >
+        img2,
+      </if>
+      <if test="introduce != null" >
+        introduce,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publish != null" >
+        #{publish,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="discount != null" >
+        #{discount,jdbcType=VARCHAR},
+      </if>
+      <if test="stock != null" >
+        #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="saled != null" >
+        #{saled,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="subtype != null" >
+        #{subtype,jdbcType=INTEGER},
+      </if>
+      <if test="mainimg != null" >
+        #{mainimg,jdbcType=VARCHAR},
+      </if>
+      <if test="img1 != null" >
+        #{img1,jdbcType=VARCHAR},
+      </if>
+      <if test="img2 != null" >
+        #{img2,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null" >
+        #{introduce,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.hnust.pojo.Book" >
+    update book
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publish != null" >
+        publish = #{publish,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="discount != null" >
+        discount = #{discount,jdbcType=VARCHAR},
+      </if>
+      <if test="stock != null" >
+        stock = #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="saled != null" >
+        saled = #{saled,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="subtype != null" >
+        subType = #{subtype,jdbcType=INTEGER},
+      </if>
+      <if test="mainimg != null" >
+        mainImg = #{mainimg,jdbcType=VARCHAR},
+      </if>
+      <if test="img1 != null" >
+        img1 = #{img1,jdbcType=VARCHAR},
+      </if>
+      <if test="img2 != null" >
+        img2 = #{img2,jdbcType=VARCHAR},
+      </if>
+      <if test="introduce != null" >
+        introduce = #{introduce,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cn.hnust.pojo.Book" >
+    update book
+    set name = #{name,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      publish = #{publish,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      discount = #{discount,jdbcType=VARCHAR},
+      stock = #{stock,jdbcType=INTEGER},
+      saled = #{saled,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      subType = #{subtype,jdbcType=INTEGER},
+      mainImg = #{mainimg,jdbcType=VARCHAR},
+      img1 = #{img1,jdbcType=VARCHAR},
+      img2 = #{img2,jdbcType=VARCHAR},
+      introduce = #{introduce,jdbcType=LONGVARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.hnust.pojo.Book" >
+    update book
+    set name = #{name,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      publish = #{publish,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      discount = #{discount,jdbcType=VARCHAR},
+      stock = #{stock,jdbcType=INTEGER},
+      saled = #{saled,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      subType = #{subtype,jdbcType=INTEGER},
+      mainImg = #{mainimg,jdbcType=VARCHAR},
+      img1 = #{img1,jdbcType=VARCHAR},
+      img2 = #{img2,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getCounts" resultType="int" parameterType="java.util.Map">
+    SELECT COUNT(*) FROM book
+    WHERE 1=1
+    <include refid="bookParams" />
+  </select>
+   <select id="getBookByPage" resultMap="BaseResultMap"> 
+   select 
+   <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from book WHERE 1=1
+    <include refid="bookParams" />
+    order by Id DESC 
+    limit #{startPos},#{pageSize} 
+  </select> 
+    <select id="getBookBySaled" resultMap="BaseResultMap"> 
+   select 
+   <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from book WHERE 1=1
+    <include refid="bookParams" />
+    order by saled DESC 
+  </select> 
+     <select id="getBookByIdDesc" resultMap="BaseResultMap"> 
+   select 
+   <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from book 
+    order by Id DESC 
+  </select> 
+  
+</mapper>

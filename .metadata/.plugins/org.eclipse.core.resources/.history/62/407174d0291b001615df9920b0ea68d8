@@ -1,0 +1,10 @@
+package dao;
+
+public class maintest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int randomNumber = (int) Math.round(Math.random()*(10-1)+10);  
+	}
+
+}

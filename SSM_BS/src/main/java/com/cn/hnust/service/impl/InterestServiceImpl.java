@@ -23,7 +23,7 @@ private InterestMapper interestMapper ;
 
 	public Interest selectByCusId(int customerId) {
 		// TODO Auto-generated method stub
-		return interestMapper.selectBuCusId(customerId);
+		return interestMapper.selectByCusId(customerId);
 	}
 
 
