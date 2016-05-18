@@ -335,6 +335,7 @@ public class CustomerController {
 		}
     	
     }
+    model.addAttribute("suggestTop5",suggestTop5);
     System.out.println("终于盼到4本书的结果了："+suggestTop5.size());
     for (Book book : suggestTop5) {
 		System.out.println("$$$$$$$"+book.getName());

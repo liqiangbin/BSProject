@@ -34,20 +34,21 @@
 <fullyQualifiedTypeName name="com.cn.hnust.service.OrderDetialService"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="com.cn.hnust.service.InterestService"/>
-<fullyQualifiedTypeName name="com.cn.hnust.service.SearchInfoService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.SuggestService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.dao.SuggestDao"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Suggest"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.NoticeService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.impl.CustomerServiceImpl"/>
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.CustomerService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.ShopCar"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Interest"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Notice"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Book"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Suggest"/>
 <fullyQualifiedTypeName name="com.cn.hnust.controller.CustomerController"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.InterestService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Interest"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.SearchInfoService"/>
+<fullyQualifiedTypeName name="com.mysql.fabric.xmlrpc.base.Array"/>
 </qualifiedTypeNameHistroy>

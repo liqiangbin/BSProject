@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<%@ include file="/customer/commons/head.jsp"%>
+</head>
+<body>
+	<%@ include file="/customer/commons/top.jsp"%>
+
+<%@ include file="/customer/commons/foot.jsp"%>
+</body>
+
+</html>
