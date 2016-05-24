@@ -1,0 +1,412 @@
+package com.cn.hnust.controller;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cn.hnust.pojo.Assess;
+import com.cn.hnust.pojo.Book;
+import com.cn.hnust.pojo.Customer;
+import com.cn.hnust.pojo.Page;
+import com.cn.hnust.pojo.ReadFree;
+import com.cn.hnust.pojo.ShopCar;
+import com.cn.hnust.pojo.Subtype;
+import com.cn.hnust.pojo.Type;
+import com.cn.hnust.service.AssessService;
+import com.cn.hnust.service.BookService;
+import com.cn.hnust.service.ReadFreeService;
+import com.cn.hnust.service.ShopCarService;
+import com.cn.hnust.service.SubTypeService;
+import com.cn.hnust.service.TypeService;
+
+@Controller
+@RequestMapping("/book")
+public class BookController {
+	@Resource
+	private BookService bookService;
+	@Resource
+	private ReadFreeService readFreeService;
+	@Resource
+	private TypeService typeService;
+	@Resource
+	private SubTypeService subTypeService;
+	@Resource
+	private AssessService assessService;
+	@Resource
+	private ShopCarService shopCarService;
+	
+/**
+ * 
+ * @param request
+ * @param model
+ * @param book
+ * @param session
+ * @param type
+ * @param sub
+ * @return
+ */
+	@RequestMapping("/getBookByPage")
+	public String getBookByPage(HttpServletRequest request, Model model,
+			Book book, HttpSession session, Type type, Subtype sub) {
+		List<Book> bookList = new ArrayList<Book>();
+		int counts;// 分页记录总数
+		String pageNow = request.getParameter("pageNow");
+		String countString = request.getParameter("allcount");
+		Page page = null;
+		// 判断分页参数
+		Book bookParams = (Book) session.getAttribute("bookParams");
+		if (countString != null) {
+			counts = Integer.parseInt(countString);
+			book = bookParams;
+		} else {
+			counts = bookService.getCounts(book);
+
+		}
+		// 添加查询条件id name author publish type subtype
+		//System.out.println(book.getName() + "|" + book.getAuthor() + "|"
+			//	+ book.getPublish() + "|" + book.getType() + "|"
+				//+ book.getSubtype());
+		Map<String, Object> condition = new HashMap<String, Object>();
+		condition.put("id", book.getId());
+		condition.put("name", book.getName());
+		condition.put("publish", book.getPublish());
+		condition.put("type", book.getType());
+		condition.put("subtype", book.getSubtype());
+		if (pageNow != null && pageNow != "") {
+			page = new Page(counts, Integer.parseInt(pageNow));
+		} else {
+			page = new Page(counts, 1);
+		}
+		condition.put("startPos", page.getStartPos());
+		condition.put("pageSize", page.getPageSize());
+		bookList = this.bookService.getBookByPage(condition);
+		//System.out.println("list.size():" + bookList.size());
+		model.addAttribute("bookList", bookList);
+		model.addAttribute("page", page);
+		model.addAttribute("bookParams", book);
+		session.setAttribute("bookParams", book);
+		model.addAttribute("url", "/book/getBookByPage");
+		// 下面判断是否从删除页面跳转过来
+		String deleted = (String) session.getAttribute("bookDeleted");
+		//System.out.println(deleted);
+		if(deleted!=null){
+			model.addAttribute("bookDeleted", deleted);
+			session.removeAttribute("bookDeleted");
+		}
+		
+		//下面判断是否成功修改
+		String update = (String) session.getAttribute("bookUpdate");
+		if (update != null) {
+			if(update.equals("success")){
+				model.addAttribute("bookUpdate", "修改成功");
+			}else{
+				model.addAttribute("bookUpdate", "修改失败，请重试！");
+			}
+			session.removeAttribute("bookUpdate");
+		}
+		//判断添加和修改状态
+		String bookMessage=(String) session.getAttribute("bookMessage");
+		if(bookMessage!=null){
+			if(bookMessage.equals("saved")){
+				model.addAttribute("bookMessage", "保存成功");
+			}
+			if(bookMessage.equals("updated")){
+				model.addAttribute("bookMessage", "修改成功");
+			}else{
+				model.addAttribute("bookMessage", "失败，请重试！");
+			}
+		}
+		// 获取图书类型信息
+		Type type1 = new Type();
+		Subtype sub1 = new Subtype();
+		List<Type> typeList = typeService.getByParams(type1);
+		model.addAttribute("typeList", typeList);
+		List<Subtype> subList = subTypeService.getAllSelect(sub1);
+		model.addAttribute("subList", subList);
+		return "book/list";
+	}
+/**
+ * 
+ * @param request
+ * @param model
+ * @param book
+ * @param session
+ * @return
+ */
+	@RequestMapping("/deleteById")
+	public String deleteById(HttpServletRequest request, Model model,
+			Book book, HttpSession session) {
+		int Id = Integer.parseInt(request.getParameter("id"));
+		int xx = bookService.deleteById(Id);
+		int yy = readFreeService.deleteByBookId(Id);
+		if (xx != 0 && yy != 0) {
+			session.setAttribute("bookDeleted", "success");
+		}
+		else{
+			session.setAttribute("bookDeleted", "success");
+		}
+		return "redirect:/book/getBookByPage";
+	}
+	/**
+	 * 
+	 * @param request
+	 * @param model
+	 * @param book
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/updateStock")
+	public String updateStock(HttpServletRequest request, Model model,
+			Book book, HttpSession session) {
+		int xx = bookService.updateByPrimaryKeySelective(book);
+		if (xx != 0) {
+			session.setAttribute("bookUpdate", "success");
+		}else{
+			session.setAttribute("bookUpdate", "failed");
+		}
+		return "redirect:/book/getBookByPage";
+	}
+	/**
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/bookDetial")
+	public String bookDetial(HttpServletRequest request, Model model) {
+		int Id = Integer.parseInt(request.getParameter("id"));
+		Book book=bookService.selectById(Id);
+	    List<ReadFree> readFreeList=readFreeService.selectByBookId(Id);
+	    model.addAttribute("readFreeList", readFreeList);
+	   // System.out.println("readFreeList:"+readFreeList.size());
+	 // 获取图书类型信息
+	 		Type type1 = new Type();
+	 		Subtype sub1 = new Subtype();
+	 		List<Type> typeList = typeService.getByParams(type1);
+	 		//System.out.println(typeList.size() + "type");
+	 		model.addAttribute("typeList", typeList);
+	 		List<Subtype> subList = subTypeService.getAllSelect(sub1);
+	 		//System.out.println(subList.size() + "tsubListype");
+	 		model.addAttribute("subList", subList);
+	 		model.addAttribute("book", book);
+		return "book/detial";
+	}
+	/**
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/bookAdd")
+	public String bookAdd(HttpServletRequest request, Model model) {
+	 // 获取图书类型信息
+	 		Type type1 = new Type();
+	 		Subtype sub1 = new Subtype();
+	 		List<Type> typeList = typeService.getByParams(type1);
+	 		//System.out.println(typeList.size() + "type");
+	 		model.addAttribute("typeList", typeList);
+	 		List<Subtype> subList = subTypeService.getAllSelect(sub1);
+	 		model.addAttribute("subList", subList);
+		return "/book/add";
+	}
+	/**
+	 * 
+	 * @param request
+	 * @param model
+	 * @param book
+	 * @param readFreeName
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/bookSave")
+	public String bookSave(HttpServletRequest request, Model model,Book book,String[] readFreeName,HttpSession session) {
+		//System.out.println("size()"+readFree.length);
+		//System.out.println("ddddddd");
+		//System.out.println("size()"+readFree[0]);
+		System.out.println("img1:"+book.getImg1());
+		//System.out.println();
+		book.setSaled(0);
+			int xxx=bookService.insert(book);
+			System.out.println(xxx);
+		ReadFree  readfree=new ReadFree();
+		if(readFreeName.length>1&&xxx>0){
+			int yema=1;
+			for(int i=0;i<=readFreeName.length-2;i++){
+				readfree.setBookId(book.getId());
+				readfree.setNumber(yema);
+				readfree.setSrc(readFreeName[i]);
+			//	System.out.println("readfreeimgname:"+readFreeName[i]);
+				readFreeService.saveOrUpdate(readfree);
+				yema++;
+			}
+		}	
+		session.setAttribute("bookMessage", "saved");
+	//System.out.println(book.getName()+"|"+book.getIntroduce()+"|"+book.getMainimg()+"|"+book.getImg1()+"|"+book.getImg2()+"|"+"|");
+	return "redirect:/book/getBookByPage";
+	}
+	
+	@RequestMapping("/bookEdit")
+	public String bookEdit(HttpServletRequest request, Model model) {
+	 // 获取图书类型信息
+	 		Type type1 = new Type();
+	 		Subtype sub1 = new Subtype();
+	 		int Id = Integer.parseInt(request.getParameter("id"));
+	 		Book book=bookService.selectById(Id);
+	 		model.addAttribute("book",book);
+	 		List<Type> typeList = typeService.getByParams(type1);
+	 		model.addAttribute("typeList", typeList);
+	 		List<Subtype> subList = subTypeService.getAllSelect(sub1);
+	 		model.addAttribute("subList", subList);
+	 		List<ReadFree> readFreeList=readFreeService.selectByBookId(Id);
+	 	/*for (ReadFree readFree : readFreeList) {
+			System.out.println(readFree.getNumber());
+		}*/
+	 	    model.addAttribute("readFreeList", readFreeList);
+		return "/book/edit";
+	}
+	@RequestMapping("/bookUpdate")
+	public String bookUpdate(HttpServletRequest request, Model model,Book book,String[] readFreeName,String[] readFreeBookId,String[] readFreeId,String[] readFreeNumber, HttpSession session) {
+		System.out.println("img1:"+book.getImg1());
+		System.out.println();
+			int xxx=bookService.updateByPrimaryKeySelective(book);
+			System.out.println(xxx);
+		//List<ReadFree> readFreeList=readFreeService.selectByBookId(book.getId());
+		if(readFreeName.length>1&&xxx>0){
+			System.out.println(readFreeId.length);
+			for(int j=0;j<readFreeId.length;j++){
+				ReadFree  readfree=new ReadFree();
+				readfree.setBookId(book.getId());
+				readfree.setId(Integer.parseInt(readFreeId[j]));
+				readfree.setNumber((Integer.parseInt(readFreeNumber[j])));
+				readfree.setSrc(readFreeName[j]);
+				System.out.println(readfree.getId()+"|"+readfree.getBookId()+"|"+readfree.getNumber());
+				readFreeService.saveOrUpdate(readfree);
+			}
+			System.out.println("readFreeIDlength:"+readFreeId.length);
+			System.out.println("readFreeNamelength:"+readFreeName.length);
+			if(readFreeName.length-readFreeId.length>=2){
+				for(int i=readFreeId.length-1;i<=readFreeName.length-2;i++){
+					ReadFree  readfree=new ReadFree();
+					readfree.setBookId(book.getId());
+					//readfree.setId(Integer.parseInt(readFreeId[i]));
+					//readfree.setNumber((Integer.parseInt(readFreeNumber[i])));
+					readfree.setSrc(readFreeName[i]);
+					System.out.println(readfree.getId()+"|"+readfree.getBookId()+"|"+readfree.getNumber());
+					readFreeService.saveOrUpdate(readfree);
+				}
+			}
+		}	
+		session.setAttribute("bookMessage", "updated");
+	//System.out.println(book.getName()+"|"+book.getIntroduce()+"|"+book.getMainimg()+"|"+book.getImg1()+"|"+book.getImg2()+"|"+"|");
+		return "redirect:/book/getBookByPage";
+	}
+
+	@RequestMapping("/showBySubType")
+	public String showBySubType(HttpServletRequest request, Model model,Book book, HttpSession session) {
+		Map<String,Object> condition=new HashMap<String,Object>();
+//		System.out.println("subType:"+book.getSubtype());
+		condition.put("typeparam1", book.getSubtype());
+		List<Book> bookList=bookService.getBookBySubSql(condition);
+		/*System.out.println("size:"+bookList.size());*/
+		model.addAttribute("bookList",bookList);
+	return "/customer/bookList";
+	}
+	/**
+	 * 根据id 查询图书详情 返回book 并计算出评分 和所有评价
+	 * @param request
+	 * @param model
+	 * @param book
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/showBookDetial")
+	public String showBookDetial(HttpServletRequest request, Model model,Book book, HttpSession session) {
+       Book bookDetial=bookService.selectById(book.getId());
+		model.addAttribute("book",bookDetial);
+		double rank=assessService.calRank(book.getId());
+		model.addAttribute("rank",rank);
+		//获取评价
+		List<Assess> assessList=assessService.SelectByBookId(book.getId());
+	    SimpleDateFormat sdf1 = new SimpleDateFormat ("EEE MMM dd HH:mm:ss Z yyyy", Locale.UK);
+	       try
+	       {
+	    	   for (Assess assess : assessList) {
+				
+			
+	       	    Date date=(Date) sdf1.parse(assess.getDate().toString());
+	           SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	           String dateString=sdf.format(date);
+	           assess.setDateString(dateString);
+	    	   }
+	       }
+	       catch (ParseException e)
+	       {
+	           e.printStackTrace();
+	       }
+		int totalNumber=assessList.size();
+		model.addAttribute("assessList", assessList);
+		model.addAttribute("totalNumber", totalNumber);
+		//推荐同类图书
+		Map<String, Object> condition = new HashMap<String, Object>();
+		condition.put("typeparam1", book.getSubtype());
+		List<Book> showSuggestList=new ArrayList<Book>();
+		List<Book> suggestBookList=bookService.getBookBySubSql(condition);
+		if(suggestBookList.size()<=4){
+			showSuggestList=suggestBookList;
+		}else{
+			int[] m=CustomerController.randomCommon(0, suggestBookList.size(), 4);
+			for (int i : m) {
+				showSuggestList.add(suggestBookList.get(i));
+			}
+		}
+		model.addAttribute("showSuggestList", showSuggestList);
+	return "/customer/bookDetial";
+	}
+	/**
+	 *   加入购物车
+	 * @param request
+	 * @param model
+	 * @param shopCar
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/addShopCar")
+	public String addShopCar(HttpServletRequest request, Model model,ShopCar shopCar, HttpSession session) {
+		Customer cus=(Customer) session.getAttribute("loginCustomer");
+		if(null==cus){
+			return "/customer/login";
+		}else{
+			shopCar.setCustomerid(cus.getId());
+			int xx=shopCarService.insert(shopcar);
+			System.out.println(shopCar.getBookid()+"|"+shopCar.getCustomerid()+"");
+		}
+		
+	return "redirect:/book/showBookDetial?id="+shopCar.getBookid()+"";
+	}
+	@RequestMapping("/makeOrder")
+	public String makeOrder(HttpServletRequest request, Model model,ShopCar shopCar, HttpSession session) {
+		Customer cus=(Customer) session.getAttribute("loginCustomer");
+		if(null==cus){
+			return "/customer/login";
+		}else{
+			shopCar.setCustomerid(cus.getId());
+			System.out.println(shopCar.getBookid()+"|"+shopCar.getCustomerid()+"");
+		}
+		
+	return "redirect:/book/showBookDetial?id="+shopCar.getBookid()+"";
+	}
+	
+}

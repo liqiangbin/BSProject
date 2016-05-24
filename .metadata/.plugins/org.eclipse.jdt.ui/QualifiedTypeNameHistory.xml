@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.cn.hnust.dao.NoticeMapper"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.text.DateFormat"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Manager"/>
 <fullyQualifiedTypeName name="javax.jms.Session"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.SessionAttributes"/>
 <fullyQualifiedTypeName name="com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
-<fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.TypeService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.SubTypeService"/>
@@ -26,12 +23,9 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="test1"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.OrderService"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Order"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.MonthMoney"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.TopSubtype"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Type"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.OrderDetial"/>
-<fullyQualifiedTypeName name="com.cn.hnust.service.OrderDetialService"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.SuggestService"/>
@@ -41,7 +35,6 @@
 <fullyQualifiedTypeName name="com.cn.hnust.service.impl.CustomerServiceImpl"/>
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.CustomerService"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.ShopCar"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Notice"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Book"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -51,4 +44,14 @@
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Interest"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.SearchInfoService"/>
 <fullyQualifiedTypeName name="com.mysql.fabric.xmlrpc.base.Array"/>
+<fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.AssessService"/>
+<fullyQualifiedTypeName name="java.text.ParseException"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.ShopCarService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.ShopCar"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Order"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.OrderDetial"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.OrderDetialService"/>
 </qualifiedTypeNameHistroy>

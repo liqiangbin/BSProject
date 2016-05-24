@@ -8,14 +8,24 @@ public class Assess {
     private Integer bookid;
 
     private Date date;
-
+    
+    private String dateString;//数据库中没有该列
+    
     private String user;
 
     private Integer rank;
 
     private String comment;
 
-    public Integer getId() {
+    public String getDateString() {
+		return dateString;
+	}
+
+	public void setDateString(String dateString) {
+		this.dateString = dateString;
+	}
+
+	public Integer getId() {
         return id;
     }
 

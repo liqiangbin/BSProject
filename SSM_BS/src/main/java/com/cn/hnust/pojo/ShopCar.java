@@ -14,8 +14,28 @@ public class ShopCar {
     private Double discount;
 
     private Integer quantity;
+    
+    //下面两个属性不是数据库属性
+    private String imgSrc;
+    private double discountedPrice;
 
-    public Integer getId() {
+    public String getImgSrc() {
+		return imgSrc;
+	}
+
+	public void setImgSrc(String imgSrc) {
+		this.imgSrc = imgSrc;
+	}
+
+	public double getDiscountedPrice() {
+		return discountedPrice;
+	}
+
+	public void setDiscountedPrice(double discountedPrice) {
+		this.discountedPrice = discountedPrice;
+	}
+
+	public Integer getId() {
         return id;
     }
 

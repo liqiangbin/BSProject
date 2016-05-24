@@ -1,6 +1,10 @@
 package com.cn.hnust.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,12 +15,14 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cn.hnust.pojo.Assess;
+import com.cn.hnust.pojo.Customer;
 import com.cn.hnust.pojo.Order;
 import com.cn.hnust.pojo.OrderDetial;
 import com.cn.hnust.pojo.Page;
+import com.cn.hnust.service.AssessService;
 import com.cn.hnust.service.OrderDetialService;
 import com.cn.hnust.service.OrderService;
 
@@ -27,6 +33,9 @@ public class OrderController {
 	private OrderService orderService;
 	@Resource
 	private OrderDetialService orderDetialService;
+	@Resource
+	private AssessService assessService;
+	
 	@RequestMapping("/getOrderByPage")
 	public String getOrderByPage(HttpServletRequest request, Model model,
 			Order order, HttpSession session) {
@@ -103,6 +112,62 @@ public class OrderController {
 		model.addAttribute("orderDetialList", orderDetialList);
 		return "order/orderDetial";
 	}
+	@RequestMapping("/orderDetial1")
+	public String orderDetial1(HttpServletRequest request, Model model,
+			HttpSession session) {
+		String  orderid = request.getParameter("orderid");
+		List<Order> orderList=new ArrayList<Order>();
+		List<OrderDetial> orderDetialList=new ArrayList<OrderDetial>();
+		Map<String, Object> condition = new HashMap<String, Object>();
+		condition.put("orderid", orderid);
+		orderList=orderService.getOrderNoPage(condition);
+		//detial 查询条件
+		Map<String, Object> detialCondition = new HashMap<String, Object>();
+		detialCondition.put("orderid", orderid);
+		orderDetialList=orderDetialService.getOrderDetialNoPage(condition);
+        //传值到页面
+		Order order=orderList.get(0);
+		model.addAttribute("order", order);
+		model.addAttribute("orderDetialList", orderDetialList);
+		return "customer/orderDetial";
+	}
+	@RequestMapping("/orderAssess")
+	public String orderAssess(HttpServletRequest request, Model model,
+			HttpSession session) {
+		String  orderid = request.getParameter("orderid");
+		List<Order> orderList=new ArrayList<Order>();
+		List<OrderDetial> orderDetialList=new ArrayList<OrderDetial>();
+		Map<String, Object> condition = new HashMap<String, Object>();
+		condition.put("orderid", orderid);
+		orderList=orderService.getOrderNoPage(condition);
+		//detial 查询条件
+		Map<String, Object> detialCondition = new HashMap<String, Object>();
+		detialCondition.put("orderid", orderid);
+		orderDetialList=orderDetialService.getOrderDetialNoPage(condition);
+        //传值到页面
+		Order order=orderList.get(0);
+		model.addAttribute("order", order);
+		model.addAttribute("orderDetialList", orderDetialList);
+		return "customer/orderAssess";
+	}
+	@RequestMapping("/submitAssess")
+	public String submitAssess(HttpServletRequest request, Model model,
+			HttpSession session,Assess assess,String orderid) throws ParseException {
+		 Customer cus=(Customer) session.getAttribute("loginCustomer");
+		Map<String, Object> detialCondition = new HashMap<String, Object>();
+		detialCondition.put("orderid", orderid);
+		List<OrderDetial> orderDetialList=orderDetialService.getOrderDetialNoPage(detialCondition);
+		Date date=new Date();
+		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date time=dateFormat.parse(dateFormat.format(date));
+		for (OrderDetial orderDetial : orderDetialList) {
+			assess.setBookid(orderDetial.getBookid());
+			assess.setUser(cus.getLoginname());
+			assess.setDate(time);
+			assessService.insert(assess);
+		}
+		return "redirect:/customer/myOrder";
+	}
 	@RequestMapping("/orderUpdate")
 	public String orderUpdate(HttpServletRequest request, Model model,
 			Order order) {
@@ -113,6 +178,16 @@ public class OrderController {
 		int xx=orderService.updateByPrimaryKeySelective(order);
 		System.out.println(xx);
 		return "redirect:/order/getOrderByPage";
+	}
+	@RequestMapping("/orderUpdate1")
+	public String orderUpdate1(HttpServletRequest request, Model model,
+			Order order) {
+		int  id = Integer.parseInt(request.getParameter("id"));
+		int   status =Integer.parseInt(request.getParameter("status"));
+		order.setId(id);
+		order.setStatus(status);
+		int xx=orderService.updateByPrimaryKeySelective(order);
+		return "redirect:/customer/myOrder";
 	}
 	
 

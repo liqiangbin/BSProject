@@ -73,7 +73,7 @@
 													</c:if> <c:if test="${order.status==5 }">
 														<label style="color: porpuse;">送货中</label>
 													</c:if></td>
-												<th>客户姓名：</th>
+												<th>姓名：</th>
 												<td class="lineheight34">${order.receivename }</td>
 
 											</tr>
@@ -115,7 +115,7 @@
 												</td>
 											</tr>
 											<tr role="row">
-												<th>买家备注：</th>
+												<th>备注：</th>
 												<td class="lineheight34" colspan="3">${order.comments }</td>
 											</tr>
 

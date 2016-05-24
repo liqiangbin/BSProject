@@ -59,6 +59,16 @@
 										enctype="multipart/form-data">
 										<!-- <input type="hidden" name="genType" value=""/> -->
 										<table class="table table-bordered table_sxcondition ">
+										<div class="alert alert-warning">
+										<B>注意（由于大类号关系到顾客页面目录展示，请参照以下格式填写大类号）：</B><br>
+										<br>
+										<B>著作类  00</B>开头4位数字   例如0001<br>
+										<B>科技类  10</B>开头4位数字   例如1001<br>
+										<B>教育类  20</B>开头4位数字   例如2001<br>
+										<B>生活类  30</B>开头4位数字   例如3001<br>
+										<B>政治类  40</B>开头4位数字   例如4001<br>
+										<B>其他类   5000</B>之后的随便数字，不可重复！
+										</div>
 											<tbody>
 												<tr>
 													<th width="25%">大类编号：<label style="color: red;">&nbsp;*&nbsp;</label></th>

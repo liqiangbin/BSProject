@@ -24,8 +24,21 @@ public class Order {
     private Double transfee;
 
     private String comments;
+    
+    //下面是临时项目
+    private int detialNumber;
 
-    public Integer getId() {
+   
+
+	public int getDetialNumber() {
+		return detialNumber;
+	}
+
+	public void setDetialNumber(int detialNumber) {
+		this.detialNumber = detialNumber;
+	}
+
+	public Integer getId() {
         return id;
     }
 

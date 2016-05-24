@@ -1,8 +1,0 @@
-package com.cn.hnust.service;
-
-import java.util.List;
-
-public interface SearchInfoService {
-	 public  List<Searchinfo> selectByCusId(int cusId);
-	 public  int deleteById(int id);
-}

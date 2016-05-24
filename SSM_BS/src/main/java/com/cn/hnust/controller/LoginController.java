@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cn.hnust.pojo.Customer;
 import com.cn.hnust.pojo.Manager;
+import com.cn.hnust.pojo.ShopCar;
 import com.cn.hnust.service.CustomerService;
 import com.cn.hnust.service.ManagerService;
+import com.cn.hnust.service.ShopCarService;
 
 @Controller  
 @RequestMapping("/login")  
@@ -25,6 +27,8 @@ public class LoginController {
     private ManagerService managerService;
 	@Resource 
 	private CustomerService customerService;
+	@Resource 
+	private ShopCarService shopCarService;
 	@RequestMapping("/turnIndex")  
 	 public String toIndex(HttpServletRequest request,Model model,Manager manager,HttpSession session) throws ParseException{  
 		int error=0;
@@ -49,15 +53,22 @@ public class LoginController {
 	 public String customerLogin(HttpServletRequest request,Model model,Customer customer,HttpSession session) {
 		List<Customer> list =customerService.sellectAllCus();
 		int status=0;
-		if(customer.getLoginname()!=null){
+		if(null!=customer.getLoginname()&&customer.getLoginname()!=null){
 		for (Customer cus : list) {
 			if(customer.getLoginname().equals(cus.getLoginname())&&customer.getPassword().equals(cus.getPassword())){
 				status=1;
 				session.setAttribute("loginCustomer", cus);
+				List<ShopCar> shopCarList=shopCarService.selectByCusId(cus.getId());
+				session.setAttribute("shopCarCount", shopCarList.size());
 				break;
 			}
 		}
          if(status==1){
+        	 String url=(String) session.getAttribute("returnUrl");
+        	 if(url!=null&&url!=""){
+        		 session.removeAttribute("returnUrl");
+        		 return "redirect:"+url; 
+        	 }
         	 return "redirect:/customer/index"; 
          }else{
         	 model.addAttribute("loginMessage", "用户名或密码错误");
@@ -74,6 +85,7 @@ public class LoginController {
 	@RequestMapping("/customerLogout")  
 	 public String customerLogout(HttpServletRequest request,Model model,HttpSession session) {
 		session.removeAttribute("loginCustomer");
+		session.removeAttribute("shopCarCount");
 		return "/customer/login";
 	}
 }

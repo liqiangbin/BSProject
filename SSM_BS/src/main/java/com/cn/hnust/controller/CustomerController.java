@@ -1,5 +1,6 @@
 package com.cn.hnust.controller;  
   
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,8 +19,10 @@ import com.cn.hnust.pojo.Book;
 import com.cn.hnust.pojo.Customer;
 import com.cn.hnust.pojo.Interest;
 import com.cn.hnust.pojo.Notice;
-import com.cn.hnust.pojo.Page;
+import com.cn.hnust.pojo.Order;
+import com.cn.hnust.pojo.OrderDetial;
 import com.cn.hnust.pojo.Searchinfo;
+import com.cn.hnust.pojo.ShopCar;
 import com.cn.hnust.pojo.Subtype;
 import com.cn.hnust.pojo.Suggest;
 import com.cn.hnust.pojo.Type;
@@ -28,7 +31,10 @@ import com.cn.hnust.service.BookService;
 import com.cn.hnust.service.CustomerService;
 import com.cn.hnust.service.InterestService;
 import com.cn.hnust.service.NoticeService;
+import com.cn.hnust.service.OrderDetialService;
+import com.cn.hnust.service.OrderService;
 import com.cn.hnust.service.SearchInfoService;
+import com.cn.hnust.service.ShopCarService;
 import com.cn.hnust.service.SubTypeService;
 import com.cn.hnust.service.SuggestService;
 import com.cn.hnust.service.TypeService;
@@ -73,10 +79,17 @@ public class CustomerController {
     private InterestService interestService;
     @Resource 
     private AssessService assessService;
+    @Resource
+	private ShopCarService shopCarService;
+    @Resource
+   	private OrderService orderService;
+    @Resource
+   	private OrderDetialService orderDetialService;
+  
       
     @RequestMapping("/regeist")  
     public String toIndex(HttpServletRequest request,Customer customer,Model model){  
-       System.out.println("zhuce");
+      // System.out.println("zhuce");
     	int s=customerService.insert(customer);
     	if(s==1){
     		model.addAttribute("regeistMessage", "注册成功！请登录");
@@ -169,7 +182,7 @@ public class CustomerController {
     	if(newbookList.size()<topNumber){
     		topNumber=newbookList.size();
     	}
-    	System.out.println("top4list。size()"+newBookTop3.size());
+    	//System.out.println("top4list。size()"+newBookTop3.size());
     	for(int i=0;i<topNumber;i++){
     		newBookTop3.add(newbookList.get(i));
     	}
@@ -178,14 +191,14 @@ public class CustomerController {
       //查询智能推荐
     List<Book> suggestTop5=new ArrayList<Book>();
     List<Suggest> allSuggest=suggestService.sellectAll();
-    System.out.println("suggest.size()"+allSuggest.size());
+//    System.out.println("suggest.size()"+allSuggest.size());
     Suggest oldCusWay=new Suggest();
     Suggest newCusWay=new Suggest();
     Suggest otherCusWay=new Suggest();
     for (Suggest suggest : allSuggest) {
 		if(suggest.getId()==1){
 			oldCusWay=suggest;
-			System.out.println("Id:"+suggest.getId());
+//			System.out.println("Id:"+suggest.getId());
 		}
 		if(suggest.getId()==2){
 			newCusWay=suggest;
@@ -217,7 +230,7 @@ public class CustomerController {
 		String[] s;
 		s=CusInterest.getInterestedsubtypeid().split("&");
 		for (int i = 0; i < s.length; i++) {
-			System.out.println(s);
+//			System.out.println(s);
 			if(i==0)
 				intere1=Integer.parseInt(s[i]);
 			if(i==1){
@@ -274,11 +287,11 @@ public class CustomerController {
     			switch (i) {
 				case 0:
 					param1=infoList.get(i).getSearchwords();
-					System.out.println(param1);
+//					System.out.println(param1);
 					break;
                 case 1:
                 	param2=infoList.get(i).getSearchwords();
-                	System.out.println(param2);
+//                	System.out.println(param2);
 					break;
 				case 2:
 					param3=infoList.get(i).getSearchwords();	
@@ -336,12 +349,68 @@ public class CustomerController {
     	
     }
     model.addAttribute("suggestTop5",suggestTop5);
-    System.out.println("终于盼到4本书的结果了："+suggestTop5.size());
-    for (Book book : suggestTop5) {
-		System.out.println("$$$$$$$"+book.getName());
-	}
     	return "/customer/index";  
     }
+    @RequestMapping("/myShopCar")
+	public String myShopCar(HttpServletRequest request, Model model, HttpSession session) {
+		Customer cus=(Customer) session.getAttribute("loginCustomer");
+		List<ShopCar> myShopCar=shopCarService.selectByCusId(cus.getId());
+		int size=myShopCar.size();
+		double totalMoney=0;
+	for (ShopCar shopCar2 : myShopCar) {
+		shopCar2.setDiscountedPrice(shopCar2.getPrice()*shopCar2.getDiscount()/10);
+		Book book=bookService.selectById(shopCar2.getBookid());
+		shopCar2.setImgSrc(book.getMainimg());
+		totalMoney+=shopCar2.getQuantity()*shopCar2.getDiscountedPrice();
+	}
+	//保留两位小数
+	BigDecimal   b   =   new   BigDecimal(totalMoney);  
+	double   totalMoney1   =   b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();  
+	model.addAttribute("size",size);
+	model.addAttribute("totalMoney",totalMoney1);
+	model.addAttribute("myShopCar",myShopCar);
+		return "/customer/shopCar";
+	}
+    /**
+     *  根据id 删除购物车中一项
+     * @param request
+     * @param model
+     * @param shopCar
+     * @param session
+     * @return
+     */
+    @RequestMapping("/deleteShopCar")
+	public String deleteShopCar(HttpServletRequest request, Model model,ShopCar shopCar, HttpSession session) {
+			shopCarService.deleteById(shopCar.getId());
+			Customer cus=(Customer) session.getAttribute("loginCustomer");
+			List<ShopCar> shopCarList=shopCarService.selectByCusId(cus.getId());
+			session.setAttribute("shopCarCount", shopCarList.size());
+	return "redirect:/customer/myShopCar";
+	}
+	@RequestMapping("/myOrder")
+	public String myOrder(HttpServletRequest request, Model model,ShopCar shopCar, HttpSession session) {
+		Customer cus=(Customer) session.getAttribute("loginCustomer");
+		Map<String, Object> condition = new HashMap<String, Object>();
+		condition.put("customerid",cus.getId());
+		List<Order> myOrderList=orderService.getOrderNoPage(condition);
+		List<OrderDetial> orderDetial=new ArrayList();
+		for (Order order : myOrderList) {
+			Map<String, Object> condition1 = new HashMap<String, Object>();
+			condition1.put("orderid",order.getOrderid());
+			System.out.println("定单号："+order.getOrderid());
+			List<OrderDetial> detial=orderDetialService.getOrderDetialNoPage(condition1);
+			order.setDetialNumber(detial.size()+1);
+			for (OrderDetial ord : detial) {
+				Book book=bookService.selectById(ord.getBookid());
+				ord.setImgSrc(book.getMainimg());
+				orderDetial.add(ord);
+			}
+		}	
+		model.addAttribute("size", myOrderList.size());
+		model.addAttribute("myOrderList",myOrderList);
+		model.addAttribute("orderDetial",orderDetial);
+	return "/customer/myOrder";
+	}
     /** 
      * 随机指定范围内N个不重复的数 
      * 最简单最基本的方法 

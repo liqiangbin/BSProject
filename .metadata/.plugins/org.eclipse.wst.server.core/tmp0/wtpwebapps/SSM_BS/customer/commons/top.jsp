@@ -21,7 +21,7 @@
 			</div>
 			<div class="logo-nav">
 				<div class="logo-nav-left animated wow zoomIn" data-wow-delay=".3s">
-					<h1><a href="index.html">&nbsp;IBooK <span>Reading anywhere</span></a></h1>
+					<h1><a href='<c:url value="/customer/index"></c:url>'>&nbsp;IBooK <span>Reading anywhere</span></a></h1>
 				</div>
 				<div class="logo-nav-left1">
 					<nav class="navbar navbar-default">
@@ -36,7 +36,7 @@
 					</div> 
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html" class="act">首页</a></li>	
+							<li class="active"><a href='<c:url value="/customer/index"></c:url>' class="act">首页</a></li>	
 							<!-- Mega Menu -->
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">著作 <b class="caret"></b></a>
@@ -48,7 +48,7 @@
 												<h6>${type.typedescn}</h6>
 													 <c:forEach var="subType" items="${sessionScope.subList}" >
 													 <c:if test="${type.typenumber==subType.typenumber}">
-													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
 													 </c:if>
 													 </c:forEach>
 											</ul>
@@ -68,7 +68,7 @@
 												<h6>${type.typedescn}</h6>
 													 <c:forEach var="subType" items="${sessionScope.subList}" >
 													 <c:if test="${type.typenumber==subType.typenumber}">
-													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
 													 </c:if>
 													 </c:forEach>
 											</ul>
@@ -88,7 +88,7 @@
 												<h6>${type.typedescn}</h6>
 													 <c:forEach var="subType" items="${sessionScope.subList}" >
 													 <c:if test="${type.typenumber==subType.typenumber}">
-													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
 													 </c:if>
 													 </c:forEach>
 											</ul>
@@ -108,7 +108,7 @@
 												<h6>${type.typedescn}</h6>
 													 <c:forEach var="subType" items="${sessionScope.subList}" >
 													 <c:if test="${type.typenumber==subType.typenumber}">
-													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
 													 </c:if>
 													 </c:forEach>
 											</ul>
@@ -128,7 +128,7 @@
 												<h6>${type.typedescn}</h6>
 													 <c:forEach var="subType" items="${sessionScope.subList}" >
 													 <c:if test="${type.typenumber==subType.typenumber}">
-													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
 													 </c:if>
 													 </c:forEach>
 											</ul>
@@ -148,7 +148,7 @@
 												<h6>${type.typedescn}</h6>
 													 <c:forEach var="subType" items="${sessionScope.subList}" >
 													 <c:if test="${type.typenumber==subType.typenumber}">
-													 <li><a href="products.html">${subType.subtypedescn}</a></li>
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
 													 </c:if>
 													 </c:forEach>
 											</ul>
@@ -182,15 +182,22 @@
 						<!-- //search-scripts -->
 				</div>
 				<div class="header-right">
+				<c:if test="${sessionScope.loginCustomer.loginname!=null}">
+				<a href="<%=request.getContextPath()%>/customer/myOrder">
+							<span style="color:#d8703f;margin-left:35px;margin-top:15px;padding-left: 5px;padding-top: 5px;">我的订单</span> 
+						</a>
 					<div class="cart box_1">
-						<a href="checkout.html">
-							<h3> <div class="total">
-								<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> 条)</div>
-								<img src="images/bag.png" alt="" />
+						<a href="<%=request.getContextPath()%>/customer/myShopCar">
+							<h3> 	<img src="<%=request.getContextPath()%>/customer/images/bag.png" alt="" />
+							<div class="total">
+							<div style=" width:18px; height:18px;margin-left:-8px;margin-top:-15px; background-color:#F00; border-radius:25px;">
+                                <span style="height:20px;margin-top:-5px;  display:block; color:#FFF; text-align:center">${shopCarCount}</span>
+                                </div>
 							</h3>
 						</a>
 						<div class="clearfix"> </div>
-					</div>	
+					</div>
+					</c:if>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

@@ -12,8 +12,19 @@ public class OrderDetial {
     private Double price;
 
     private Integer quantity;
+    //¡Ÿ ±œÓ
+    private String imgSrc;
 
-    public Double getPrice() {
+
+	public String getImgSrc() {
+		return imgSrc;
+	}
+
+	public void setImgSrc(String imgSrc) {
+		this.imgSrc = imgSrc;
+	}
+
+	public Double getPrice() {
 		return price;
 	}
 

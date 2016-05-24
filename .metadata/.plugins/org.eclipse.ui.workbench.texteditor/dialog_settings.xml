@@ -6,20 +6,20 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="新书" key="selection"/>
+		<item value="fa" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="新书"/>
-			<item value="for"/>
-			<item value="stone"/>
-			<item value="&lt;div class=&quot;new-collections-grid1 animated wow slideInUp animated&quot; data-wow-delay=&quot;.3s&quot; style=&quot;visibility: visible; animation-delay: 0.3s; animation-name: slideInUp;&quot;&gt;"/>
-			<item value="&lt;div class=&quot;new-collections-grid1-image&quot;&gt;"/>
-			<item value="&lt;div class=&quot;new-collections-grid-sub-grids&quot;&gt;"/>
+			<item value="fa"/>
+			<item value="calTotalMoney"/>
+			<item value="value-minus"/>
+			<item value="reducereduce"/>
+			<item value="shop"/>
+			<item value="shopCarCount"/>
 			<item value="if"/>
-			<item value="nameparam"/>
+			<item value="index"/>
 		</list>
 		<list key="replacehistory">
 			<item value="&apos;&lt;c:url value=&quot;"/>
@@ -31,7 +31,7 @@
 		<item value="273" key="DIALOG_WIDTH"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 		<item value="371" key="DIALOG_HEIGHT"/>
-		<item value="995" key="DIALOG_X_ORIGIN"/>
-		<item value="234" key="DIALOG_Y_ORIGIN"/>
+		<item value="1054" key="DIALOG_X_ORIGIN"/>
+		<item value="296" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

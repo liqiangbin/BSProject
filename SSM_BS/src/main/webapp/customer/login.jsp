@@ -53,7 +53,6 @@
 if($("#regeistMessage").val()!=""){
 	$("#regeistLabel").html($("#regeistMessage").val());
 }
-
 </script>
 </body>
 
