@@ -19,4 +19,6 @@ public interface SearchinfoDao {
     
     List<Searchinfo> selectByCusId(Integer id);
     
+    List<Searchinfo> selectAllByCusId(Integer id);
+    
 }

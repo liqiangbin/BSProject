@@ -21,6 +21,7 @@ public interface BookDao {
     int updateByPrimaryKey(Book record);
     int getCounts(Book book);
     List <Book>  getBookByPage(Map condition);
+    List <Book>  getBookByNoPage(Map condition);
     List <Book>  getBookBySaled();
     List <Book>  getBookByIdDesc();
     List <Book>   getBookBySql(Map condition);

@@ -9,7 +9,7 @@
 					<ul>
 						<li id="showName"><i class="glyphicon glyphicon-user" aria-hidden="true" ></i>${sessionScope.loginCustomer.loginname}</li>
 						<li id="showLogin"><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href='<c:url value="/customer/login.jsp"></c:url>'>登录</a></li>
-						<li id="showRegeist"><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href='<c:url value="/customer/regeist.jsp"></c:url>'>注册</a></li>
+						<li id="showRegeist"><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href='<c:url value="/customer/toRegeist"></c:url>'>注册</a></li>
 					</ul>
 				</div>
 				<div class="header-grid-right animated wow slideInRight" data-wow-delay=".3s">
@@ -165,8 +165,8 @@
 				<div class="logo-nav-right">
 					<div class="search-box">
 						<div id="sb-search" class="sb-search">
-							<form>
-								<input class="sb-search-input" placeholder="输入您要搜索的内容，回车搜索..." type="search" id="search">
+							<form action='<c:url value="/book/search"></c:url>' method="post">
+								<input class="sb-search-input" placeholder="输入书名，作者，出版社，回车搜索..." type="search" name="search" id="search">
 								<input class="sb-search-submit" type="submit" value="搜索">
 								<span class="sb-icon-search"> </span>
 							</form>
@@ -196,7 +196,7 @@
 							</h3>
 						</a>
 						<div class="clearfix"> </div>
-					</div>
+					</div> 
 					</c:if>
 				</div>
 				<div class="clearfix"> </div>

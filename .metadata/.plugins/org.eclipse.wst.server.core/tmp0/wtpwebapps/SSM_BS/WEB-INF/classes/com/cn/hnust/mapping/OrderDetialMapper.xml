@@ -29,9 +29,9 @@
   </delete>
   <insert id="insert" parameterType="com.cn.hnust.pojo.OrderDetial" >
     insert into order_detial (Id, orderId, bookId, 
-      bookName, quantity)
+      bookName,price, quantity)
     values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, #{bookid,jdbcType=INTEGER}, 
-      #{bookname,jdbcType=VARCHAR}, #{quantity,jdbcType=INTEGER})
+      #{bookname,jdbcType=VARCHAR},#{price,jdbcType=DOUBLE}, #{quantity,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.cn.hnust.pojo.OrderDetial" >
     insert into order_detial

@@ -41,4 +41,14 @@ public class OrderServiceImpl implements OrderService{
 		return this.orderDao.findByMonth(dateParam);
 	}
 
+	public int insert(Order record) {
+		// TODO Auto-generated method stub
+		return this.orderDao.insert(record);
+	}
+
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return this.orderDao.deleteByPrimaryKey(id);
+	}
+
 }

@@ -8,5 +8,5 @@ import com.cn.hnust.pojo.OrderDetial;
 public interface OrderDetialService {
 
 	public List<OrderDetial> getOrderDetialNoPage(Map condition);
-	
+	public  int insert(OrderDetial detial);
 }

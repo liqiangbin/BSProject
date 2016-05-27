@@ -44,15 +44,15 @@ import com.cn.hnust.service.TypeService;
 @RequestMapping("/customer")  
 public class CustomerController { 
 	
-	private static String zhuzuo="00";
+	private static String zhuzuo="50";
 	private static String keji="10";
 	private static String jiaoyu="20";
 	private static String shenghuo="30";
 	private static String zhengzhi="40";
 	//推荐常量赋值
 	private static final int INTEREST_WAY=3;
-	private static final int SALED_WAY=2;
-	private static final int SEARCH_WAY=1;
+	private static final int SALED_WAY=1;
+	private static final int SEARCH_WAY=2;
 	private static final int ASSESS_WAY=4;
 	
 	//老用户根据检索关键字推荐数量常量
@@ -86,15 +86,65 @@ public class CustomerController {
     @Resource
    	private OrderDetialService orderDetialService;
   
-      
+    @RequestMapping("/toRegeist")  
+    public String toRegeist(HttpServletRequest request,Model model,HttpSession session){ 
+    	List<Subtype> list=subTypeService.selectAll();
+    	model.addAttribute("list", list);
+    	String s=(String) session.getAttribute("regeistMessage");
+    	if(s!=null){
+    		session.removeAttribute("regeistMessage");
+        	model.addAttribute("regeistMessage", s);	
+    	}
+    	
+    	return "customer/regeist";  
+    }  
     @RequestMapping("/regeist")  
-    public String toIndex(HttpServletRequest request,Customer customer,Model model){  
-      // System.out.println("zhuce");
-    	int s=customerService.insert(customer);
-    	if(s==1){
+    public String toIndex(HttpServletRequest request,Customer customer,Model model,String[] checkbox,HttpSession session){ 
+    	
+    	List<Customer> cusList=customerService.sellectAllCus();
+    	int status=0;
+    	for (Customer cus : cusList) {
+		if(cus.getLoginname().equals(customer.getLoginname())){
+			status=1;
+			break;
+		}
+		}
+    	int s=0;
+    	if(status==0){
+    		s=customerService.insert(customer);
+    	}
+    	model.addAttribute("cusList", cusList);
+    	int size=0;
+    	try {
+    		size=checkbox.length;
+		} catch (Exception e) {
+			session.setAttribute("regeistMessage", "注册失败！没有选取兴趣项，请核对！");
+    		return "redirect:/customer/toRegeist"; 
+		}
+    	
+    		if(s==1&&size!=0){
     		model.addAttribute("regeistMessage", "注册成功！请登录");
+    		String interest="";
+        	size=checkbox.length;
+        	if(size>3){
+        		size=3;
+        	}
+        	for (int i = 0; i < size; i++) {
+        		if(i<size-1){
+        			interest+=checkbox[i]+"&";
+        		}else{
+        			interest+=checkbox[i];
+        		}
+    		}
+        	List<Customer> cusList1=customerService.sellectAllCus();
+        	Interest interest2=new Interest();
+        	interest2.setCustomerid(cusList1.get(0).getId());
+        	interest2.setInterestedsubtypeid(interest);
+        	interestService.insert(interest2);
+        	
     	}else{
-    		model.addAttribute("regeistMessage", "注册失败！请重试");
+    		session.setAttribute("regeistMessage", "注册失败！用户名已存在，请核对！");
+    		return "redirect:/customer/toRegeist"; 
     	}
     	return "customer/login";  
     }  
@@ -218,6 +268,7 @@ public class CustomerController {
      for(int i=0;i<top4Rank;i++){
     	Book book=bookService.selectById(assessList.get(i).getBookid());
     	assessBookList.add(book);
+    	System.out.println("评分排行："+book.getName());
      }
     //获取登录session
     Customer cus=(Customer) session.getAttribute("loginCustomer");
@@ -256,18 +307,23 @@ public class CustomerController {
 		
     	//判断用户为新用户还是老用户
     	List<Searchinfo> searchList=searchInfoService.selectByCusId(cus.getId());
+    	System.out.println("搜索记录为几条，4条以上就是老用户:"+searchList.size());
     	if(searchList.size()<4){
     		//新用户推荐方式  
     		int way=newCusWay.getChoosenumber();
+    		System.out.println("way:"+way);
     	switch (way) {
 		case CustomerController.INTEREST_WAY:
 			suggestTop5=jspIntereList;
+			if(suggestTop5.size()>0)
 			break;
         case CustomerController.SALED_WAY:
         	suggestTop5=top3BbookList;
+        	if(suggestTop5.size()>0)
 			break;
         case CustomerController.ASSESS_WAY:
         	suggestTop5=assessBookList;
+        	if(suggestTop5.size()>0)
 			break;
 
 		}
@@ -287,11 +343,11 @@ public class CustomerController {
     			switch (i) {
 				case 0:
 					param1=infoList.get(i).getSearchwords();
-//					System.out.println(param1);
+					System.out.println(param1);
 					break;
                 case 1:
                 	param2=infoList.get(i).getSearchwords();
-//                	System.out.println(param2);
+                	System.out.println(param2);
 					break;
 				case 2:
 					param3=infoList.get(i).getSearchwords();	
@@ -320,15 +376,19 @@ public class CustomerController {
     		int way=oldCusWay.getChoosenumber();
     		switch (way) {
     		case CustomerController.INTEREST_WAY:
+    			System.out.println("老用户 兴趣推荐");
     			suggestTop5=jspIntereList;
     			break;
             case CustomerController.SALED_WAY:
+            	System.out.println("老用户 销量推荐");
             	suggestTop5=top3BbookList;
     			break;
             case CustomerController.SEARCH_WAY:
+            	System.out.println("老搜索搜索推荐");
             	suggestTop5=searchChooseList;
     			break;
             case CustomerController.ASSESS_WAY:
+            	System.out.println("老用户 评价推荐");
             	suggestTop5=assessBookList;
     			break;
 
@@ -355,10 +415,14 @@ public class CustomerController {
 	public String myShopCar(HttpServletRequest request, Model model, HttpSession session) {
 		Customer cus=(Customer) session.getAttribute("loginCustomer");
 		List<ShopCar> myShopCar=shopCarService.selectByCusId(cus.getId());
-		int size=myShopCar.size();
+		int size=0;
+		int shopCarSize=myShopCar.size();
 		double totalMoney=0;
 	for (ShopCar shopCar2 : myShopCar) {
-		shopCar2.setDiscountedPrice(shopCar2.getPrice()*shopCar2.getDiscount()/10);
+		BigDecimal   xx   =   new   BigDecimal(shopCar2.getPrice()*shopCar2.getDiscount()/10);  
+		double   discountMoney   =   xx.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();  
+		size+=shopCar2.getQuantity();
+		shopCar2.setDiscountedPrice(discountMoney);
 		Book book=bookService.selectById(shopCar2.getBookid());
 		shopCar2.setImgSrc(book.getMainimg());
 		totalMoney+=shopCar2.getQuantity()*shopCar2.getDiscountedPrice();
@@ -367,6 +431,7 @@ public class CustomerController {
 	BigDecimal   b   =   new   BigDecimal(totalMoney);  
 	double   totalMoney1   =   b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();  
 	model.addAttribute("size",size);
+	model.addAttribute("shopCarSize",shopCarSize);
 	model.addAttribute("totalMoney",totalMoney1);
 	model.addAttribute("myShopCar",myShopCar);
 		return "/customer/shopCar";
@@ -397,7 +462,6 @@ public class CustomerController {
 		for (Order order : myOrderList) {
 			Map<String, Object> condition1 = new HashMap<String, Object>();
 			condition1.put("orderid",order.getOrderid());
-			System.out.println("定单号："+order.getOrderid());
 			List<OrderDetial> detial=orderDetialService.getOrderDetialNoPage(condition1);
 			order.setDetialNumber(detial.size()+1);
 			for (OrderDetial ord : detial) {

@@ -15,5 +15,6 @@ public interface BookService {
 	public List<Book> getBookByIdDesc();
 	public List<Book> getBookBySql(Map sql);
 	public List<Book> getBookBySubSql(Map sql);
+	public List<Book> getBookByNoPage(Map sql);
 	
 }

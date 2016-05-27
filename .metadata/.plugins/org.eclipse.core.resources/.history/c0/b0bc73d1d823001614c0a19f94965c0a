@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hnust.dao.SearchinfoDao" >
+  <resultMap id="BaseResultMap" type="com.cn.hnust.pojo.Searchinfo" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="customerId" property="customerid" jdbcType="INTEGER" />
+    <result column="searchWords" property="searchwords" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, customerId, searchWords
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from searchinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+   <select id="selectByCusId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from searchinfo
+    where customerid = #{id,jdbcType=INTEGER}  limit 4
+  </select>
+    <select id="selectAllByCusId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from searchinfo
+    where customerid = #{id,jdbcType=INTEGER} order by  id desc
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from searchinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.hnust.pojo.Searchinfo" >
+    insert into searchinfo (Id, customerId, searchWords
+      )
+    values (#{id,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, #{searchwords,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.hnust.pojo.Searchinfo" >
+    insert into searchinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="customerid != null" >
+        customerId,
+      </if>
+      <if test="searchwords != null" >
+        searchWords,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null" >
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="searchwords != null" >
+        #{searchwords,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.hnust.pojo.Searchinfo" >
+    update searchinfo
+    <set >
+      <if test="customerid != null" >
+        customerId = #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="searchwords != null" >
+        searchWords = #{searchwords,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.hnust.pojo.Searchinfo" >
+    update searchinfo
+    set customerId = #{customerid,jdbcType=INTEGER},
+      searchWords = #{searchwords,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

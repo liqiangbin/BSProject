@@ -47,6 +47,27 @@
       AND subType = #{subtype}
     </if>
   </sql>
+  <sql id="bookSearchParams" >
+    <if test="id != null">
+      AND Id = #{id} 
+    </if>
+    <if test="name != null and name !=''">
+      AND (name like '%${name}%'
+    </if>
+    <if test="author != null and author !=''">
+      OR author like '%${author}%'
+    </if>
+    <if test="publish != null and publish !=''">
+      OR publish like '%${publish}%')
+    </if>
+
+    <if test="type != null">
+      AND type = #{type}
+    </if>
+    <if test="subtype != null">
+      AND subType = #{subtype}
+    </if>
+  </sql>
   
   <sql id="nameParams" >
     <if test="param1 != null and param1 !=''">
@@ -305,6 +326,15 @@
     order by Id DESC 
     limit #{startPos},#{pageSize} 
   </select> 
+    <select id="getBookByNoPage" resultMap="BaseResultMap"> 
+   select 
+   <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from book WHERE 1=1
+    <include refid="bookSearchParams" />
+    order by Id DESC 
+  </select>
     <select id="getBookBySaled" resultMap="BaseResultMap"> 
    select 
    <include refid="Base_Column_List" />

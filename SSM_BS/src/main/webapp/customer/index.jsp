@@ -12,30 +12,49 @@
 </script>
 	<!-- banner -->
 	<div class="banner">
-		<div class="container">
+		<div class="container" style="width:100%;height:300px;">
 			<div class="banner-info animated wow zoomIn" data-wow-delay=".3s">
-				<h3>Free Online Shopping</h3>
-				<h4>Up to <span>50% <i>Off/-</i></span></h4>
+				<h3 style="margin-top: -40px;">Reading Anywhere</h3>
+				<!-- <h4>Up to <span>50% <i>Off/-</i></span></h4> -->
 				<div class="wmuSlider example1">
 					<div class="wmuSliderWrapper">
 						<article style="position: absolute; width: 100%; opacity: 0;"> 
 							<div class="banner-wrap">
 								<div class="banner-info1">
-									<p>T-Shirts + Formal Pants + Jewellery + Cosmetics</p>
+									 <c:forEach var="activity" items="${top3ActivityList}" varStatus="status" > 
+								 <c:if test="${status.count==1}">
+							<p style="background-color: ;color:pink;width:100%;">
+							书城最新优惠活动：<br>
+							${activity.content}</p><br>
+								 </c:if>
+									 </c:forEach>
 								</div>
 							</div>
 						</article>
 						<article style="position: absolute; width: 100%; opacity: 0;"> 
 							<div class="banner-wrap">
 								<div class="banner-info1">
-									<p>Toys + Furniture + Lighting + Watches</p>
+									<c:forEach var="book" items="${top3BbookList}" varStatus="status" > 
+					  <c:if test="${status.count==1}">
+					   <a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' >
+					  <p style="background-color:green ;color:pink;width:100%;">“${book.name}”<br>销量位居第一</p>
+					  </a>
+					  </c:if>
+					  </c:forEach>
 								</div>
 							</div>
 						</article>
 						<article style="position: absolute; width: 100%; opacity: 0;"> 
 							<div class="banner-wrap">
 								<div class="banner-info1">
-									<p>Tops + Books & Media + Sports</p>
+									<c:forEach var="book" items="${newBookTop3}" varStatus="status" > 
+					  <c:if test="${status.count==1}">
+					  <a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' >
+					  <p style="background-color: ;color:orange;width:100%;"><B>${book.author}</B>大师的新书“<B>${book.name}</B>”&nbsp;<br>
+					  闪亮上架</p>
+					  </a>
+					  </c:if>
+					  </c:forEach>
 								</div>
 							</div>
 						</article>
@@ -83,7 +102,9 @@
 					  <c:if test="${status.count!=3}">
 					 	<div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
 						<div class="banner-bottom-grid-left-grid1">
+						<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' >
 							<img src='<c:url value="/upload/${book.mainimg}"></c:url>' alt=" " class="img-responsive" style="width:400px;height: 224px;" />
+						</a>
 						</div>
 						<div class="banner-bottom-grid-left1-pos">
 						<p style="color:white;font-size: 16px;font-family:微软雅黑;" >${book.name}</p><br>
@@ -105,7 +126,9 @@
 				   <c:if test="${status.count==3}">
 					<div class="banner-bottom-grid-left-grid grid-left-grid1">
 						<div class="banner-bottom-grid-left-grid1">
+							<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' >
 							<img src='<c:url value="/upload/${book.mainimg}"></c:url>' style="width:400px;height: 462px;" alt="" class="img-responsive" />
+						</a>
 						</div>
 						<div class="grid-left-grid1-pos">
 						<p style="color:white;font-size: 16px;font-family:微软雅黑;" >${book.name}</p><br>
@@ -132,9 +155,9 @@
 				<div class="col-md-3 new-collections-grid">
 					<div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".3s">
 						<div class="new-collections-grid1-image">
-							<a href="single.html" class="product-image"><img src='<c:url value="/upload/${book.mainimg}"></c:url>' alt=" " style="width: 228px;height:310.328px" class="img-responsive" /></a>
+							<img src='<c:url value="/upload/${book.mainimg}"></c:url>' alt=" " style="width: 228px;height:310.328px" class="img-responsive" /></a>
 							<div class="new-collections-grid1-image-pos">
-								<a href="single.html">去看看</a>
+								<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' >去看看</a>
 							</div>
 							<div class="new-collections-grid1-right">
 						 		<div class="rating">
@@ -157,10 +180,13 @@
 								</div> 
 							</div>
 						</div>
-						<h4><a href="#" ><B>${book.name}</B></a></h4>
-						<p>${book.author}&nbsp;&nbsp;${book.publish}</p>
+							
+						<h4><a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' ><B>${book.name}</B></a></h4>
+						<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' ><p>${book.author}&nbsp;&nbsp;${book.publish}</p></a>
+						
 						<div class="new-collections-grid1-left simpleCart_shelfItem">
-							<p><span class="item_price" style="font-size:18px;color:red; ">￥${book.price}</span><span class="item_price" style="color:pink;font-size: 16px;">${book.discount}折</span><a class="item_add" href="#" style="font-size: 10px;">加入购物车</a></p>
+							<p><span class="item_price" style="font-size:18px;color:red; ">￥${book.price}</span><span class="item_price" style="color:pink;font-size: 16px;">${book.discount}折</span>
+							<a class="item_add" href="#" style="font-size: 10px;">加入购物车</a></p>
 						</div>
 					</div>
 				</div>
@@ -184,11 +210,12 @@
 			<div class="new-collections-grids">
 				<c:forEach var="newbook" items="${newBookTop3}" varStatus="status" > 
 				<div class="col-md-3 new-collections-grid">
+					<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' class="product-image">
 					<div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".3s">
 						<div class="new-collections-grid1-image">
-							<a href="single.html" class="product-image"><img src='<c:url value="/upload/${newbook.mainimg}"></c:url>' alt=" " style="width: 228px;height:310.328px" class="img-responsive" /></a>
+							<img src='<c:url value="/upload/${newbook.mainimg}"></c:url>' alt=" " style="width: 228px;height:310.328px" class="img-responsive" /></a>
 							<div class="new-collections-grid1-image-pos">
-								<a href="single.html">去看看</a>
+								<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' >去看看</a>
 							</div>
 							<div class="new-collections-grid1-right">
 						 		<div class="rating">
@@ -211,12 +238,13 @@
 								</div> 
 							</div>
 						</div>
-						<h4><a href="#" ><B>${newbook.name}</B></a></h4>
-						<p>${newbook.author}&nbsp;&nbsp;${newbook.publish}</p>
+						<h4><a href='<c:url value="/book/showBookDetial?id=${newbook.id}"></c:url>' ><B>${newbook.name}</B></a></h4>
+					<a href='<c:url value="/book/showBookDetial?id=${newbook.id}"></c:url>' >	<p>${newbook.author}&nbsp;&nbsp;${newbook.publish}</p></a>
 						<div class="new-collections-grid1-left simpleCart_shelfItem">
 							<p><span class="item_price" style="font-size:18px;color:red; ">￥${newbook.price}</span><span class="item_price" style="color:pink;font-size: 16px;">${newbook.discount}折</span><a class="item_add" href="#" style="font-size: 10px;">加入购物车</a></p>
 						</div>
 					</div>
+					</a>
 				</div>
 				</c:forEach>
 				<div class="clearfix"> </div>
@@ -224,7 +252,9 @@
 		</div>
 	</div>
 <!-- //collections -->
-
+<script type="text/javascript">
+$(".banner ").attr("style","min-height: 400px;");
+</script>
 <%@ include file="/customer/commons/foot.jsp"%>
 </body>
 

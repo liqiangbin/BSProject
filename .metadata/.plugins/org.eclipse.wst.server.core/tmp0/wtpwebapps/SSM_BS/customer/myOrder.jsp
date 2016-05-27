@@ -76,19 +76,25 @@
 															<label style="color:blue;">待付款</label>
 															</c:if>
 															<c:if test="${order.status==2 }">
-															<label style="color:red;">退款中</label>
+															<label style="color:red;">退款中<br>(等待审核)</label>
 															</c:if>
 															<c:if test="${order.status==3 }">
 															<label style="color:gray;">已退款</label>
 															</c:if>
 															<c:if test="${order.status==4 }">
-															<label style="color:orange;">待发货</label>
+															<label style="color:orange;">待发货<br>(已付款)</label>
 															</c:if>
 															<c:if test="${order.status==5 }">
 															<label style="color:porpuse;">送货中</label>
 															</c:if>
 						</td>
 							<td  class="invert" rowspan="${order.detialNumber}">
+							<c:if test="${order.status==5 }">
+							<a class="btn btn-circle btn-icon-only btn-default tooltips" style="margin: 5px;width:40px" href='<c:url value="/order/orderUpdate1?id=${order.id}&status=0"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="确认收货" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
+							<span class="fa fa-check-square">
+							</span>
+															</a><br>
+															</c:if>
 							<c:if test="${order.status==0 }">
 							<!-- 评价订单  +申请退款 -->
 							<a class="btn btn-circle btn-icon-only btn-default tooltips" style="margin: 5px;width:40px" href='<c:url value="/order/orderAssess?orderid=${order.orderid}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="订单评价" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
@@ -98,14 +104,17 @@
 							<a class="btn btn-circle btn-icon-only btn-default tooltips"  style="margin: 5px;width:40px" href='<c:url value="/order/orderUpdate1?id=${order.id}&status=2"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="申请退款" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
 																<span class="fa fa-rotate-left"></span>
 															</a><br>
+															<a class="btn btn-circle btn-icon-only btn-default tooltips" style="margin: 5px;width:40px" href='<c:url value="/order/orderdelete?id=${order.id}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="删除订单" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
+																<i class="icon-trash"></i>
+															</a><br>
 							</c:if>
 							<c:if test="${order.status==1 }">
 							<!-- 付款 +删除订单-->
-								<a class="btn btn-circle btn-icon-only btn-default tooltips" style="margin: 5px;width:40px" href='<c:url value="/order/orderUpdate?id=${order.id}&status=3"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="申请退款" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
-																<span class="fa fa-money"></span>
+								<a class="btn btn-circle btn-icon-only btn-default tooltips" style="margin: 5px;width:40px" href='<c:url value="/order/orderUpdate1?id=${order.id}&status=4"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="付款" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
+																<span class="fa fa-rmb"></span>
 															</a><br>
-																<a class="btn btn-circle btn-icon-only btn-default tooltips" style="margin: 5px;width:40px" href='<c:url value="/order/orderUpdate?id=${order.id}&status=3"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="申请退款" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
-																<span class="fa fa-money"></span>
+																<a class="btn btn-circle btn-icon-only btn-default tooltips" style="margin: 5px;width:40px" href='<c:url value="/order/orderdelete?id=${order.id}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="删除订单" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
+																<i class="icon-trash"></i>
 															</a><br>
 							</c:if>
 							<c:if test="${order.status==4 }">
@@ -115,6 +124,12 @@
 															</a><br>
 																
 							</c:if>
+							<!--已退款  -->
+							<c:if test="${order.status==3 }">
+							<a class="btn btn-circle btn-icon-only btn-default tooltips" style="margin: 5px;width:40px" href='<c:url value="/order/orderdelete?id=${order.id}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="删除订单" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
+																<i class="icon-trash"></i>
+															</a><br>
+															</c:if>
 							<!-- 订单详情  -->
 							<a class="btn btn-circle btn-icon-only btn-default tooltips" style="margin: 5px;width:40px" href='<c:url value="/order/orderDetial1?orderid=${order.orderid}"></c:url>' data-toggle="tooltip" data-placement="bottom" data-html="true" data-original-title="订单详情" onclick="turnTo('/coupon/cashcoupon/edit/${item.id}')">
 																<i class="fa fa-info"></i>

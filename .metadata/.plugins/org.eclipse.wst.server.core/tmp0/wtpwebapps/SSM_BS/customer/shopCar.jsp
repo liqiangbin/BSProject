@@ -19,8 +19,9 @@
 	</div>
 <div class="checkout">
 		<div class="container">
-			<h3 class="animated wow slideInLeft" data-wow-delay=".5s" style="font-family: 微软雅黑">您的购物车共包含书籍: <span>${size}本</span></h3>
+			<h3 class="animated wow slideInLeft" data-wow-delay=".5s" style="font-family: 微软雅黑">您的购物车共包含书籍: <span><label id="size">${size}</label>本</span></h3>
 			<div class="checkout-right animated wow slideInUp" data-wow-delay=".5s">
+				<form method="post" action='<c:url value="/book/makeOrder"></c:url>'>
 				<table class="timetable_sub">
 					<thead>
 						<tr>
@@ -42,9 +43,15 @@
 					  </c:if>
 					   <c:if test="${!empty myShopCar}">
 					    <c:forEach var="shopCar" items="${myShopCar}" varStatus="status" >
-					    <input type="hidden" id="CalNumber${status.count}" class="canNumber" onchange="calTotalMoney();" value="${shopCar.quantity}">
-					     <input type="hidden" id="Calprice${status.count}" value="${shopCar.discountedPrice}">
+					    <input type="hidden" id="CalNumber${status.count}" name="CalNumber${status.count}" class="canNumber" onchange="calTotalMoney();" value="${shopCar.quantity}">
+					     <input type="hidden" id="Calprice${status.count}" name="Calprice${status.count}" value="${shopCar.discountedPrice}">
+					      <input type="hidden" id="bookid${status.count}" name="bookid${status.count}" value="${shopCar.bookid}">
+					       <input type="hidden" id="bookname${status.count}" name="bookname${status.count}" value="${shopCar.bookname}">
+					       <input type="hidden" id="id${status.count}" name="id${status.count}" value="${shopCar.id}">
+					    <input type="hidden" id="img${status.count}" name="img${status.count}" value="${shopCar.imgSrc}">
 					    </c:forEach>
+					    <input type="hidden" id="totalMoney" name="totalMoney" value="${totalMoney}">
+					    <input type="hidden" id="shoCarSize" name="shoCarSize" value="${shopCarSize}">
 					    <c:forEach var="shopCar" items="${myShopCar}" varStatus="status" > 
 					<tr class="rem${status.count}">
 						<td class="invert">${status.count}</td>
@@ -70,7 +77,7 @@
 						</td>
 					</tr>
 					</c:forEach>
-					
+					      <input type="hidden" id="allnumber" name="allnumber" value="${size}">
 								<!--quantity-->
 									<script>
 									function calTotalMoney(){
@@ -81,12 +88,17 @@
 										   totalMoney=totalMoney+count*price;
 										   console.log(count+"|"+price+"|"+count*price);
 										    </c:forEach>
-										    $("#totalMoney").html(totalMoney.toFixed(2));
+										    $("#totalMoney1").html(totalMoney.toFixed(2));
+										    $("#totalMoney").val(totalMoney.toFixed(2));
+										    
 									}
 									 function plus(idCount,_this){
 										var divUpd = $(_this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
 										divUpd.text(newVal);
 										$("#CalNumber"+idCount).val(newVal);
+										var num=parseInt($("#allnumber").val())+1;
+										$("#allnumber").val(num);
+										$("#size").html(num);
 										calTotalMoney();
 									}
 
@@ -95,6 +107,8 @@
 										if(newVal>=1){
 											divUpd.text(newVal);
 											$("#CalNumber"+idCount).val(newVal);
+											var num=parseInt($("#allnumber").val()-1);
+											$("#size").html(num);
 											calTotalMoney();
 										}
 									}
@@ -102,14 +116,15 @@
 								<tr >
 						<td  colspan="7" align="right"><div style="margin-right: -700px;margin-top:20px;margin-bottom:20px;">
 					
-						<label style="font-size:20px;" >合计：<label id="totalMoney" style="font-size:20px;">${totalMoney}</label> 元</label><br><br>
-						<button type="button" class="btn btn-warning btn-lg"> 
+						<label style="font-size:20px;" >合计：<label id="totalMoney1" style="font-size:20px;">${totalMoney}</label> 元</label><br><br>
+						<button type="submit" class="btn btn-warning btn-lg"> 
 						&nbsp; 结&nbsp;&nbsp;算&nbsp;&nbsp;</button>
 						 </div>
 						</td>
 					</tr>
 					</c:if>
 				</table>
+				</form>
 			</div>
 		</div>
 	</div>

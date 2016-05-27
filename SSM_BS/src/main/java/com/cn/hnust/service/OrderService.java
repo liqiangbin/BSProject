@@ -10,5 +10,7 @@ public interface OrderService {
 	public List<Order> getOrderByPage(Map condition);
 	public List<Order> getOrderNoPage(Map condition);
 	public  int updateByPrimaryKeySelective(Order record);
+	public  int insert(Order record);
+	public  int delete(int id);
 	public List<Order> findByMonth(String dateParam);
 }

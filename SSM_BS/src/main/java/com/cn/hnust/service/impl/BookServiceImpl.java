@@ -66,6 +66,11 @@ public class BookServiceImpl implements BookService{
 		//System.out.println(sql);
 		return bookDao.getBookBySubSql(condation);
 	}
+
+	public List<Book> getBookByNoPage(Map sql) {
+		// TODO Auto-generated method stub
+		return bookDao.getBookByNoPage(sql);
+	}
 	
 
 

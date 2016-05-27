@@ -23,6 +23,7 @@
 	<div class="single">
 		<div class="container">
 			<form id="buyForm" method="post" action="#">
+			<input type="hidden" id="type" name="type">
 				<div class="col-md-9 single-right">
 					<div class="col-md-5 single-right-left animated wow slideInUp"
 						data-wow-delay=".5s">
@@ -149,8 +150,9 @@
 	<input type="hidden" id="bookname" name="bookname" value="${book.name}">
 	<input type="hidden" id="price" name="price" value="${book.price}">
 	<input type="hidden" id="discount" name="discount" value="${book.discount}">
-		<a class="item_add" href="#" onclick="addShopCar();">加入购物车</a>
-		<a class="item_add" href="#" onclick="buy();" >直接购买</a>
+		<a class="item_add" href="#" id="shopCarBtn" onclick="addShopCar();">加入购物车</a>
+		<a class="item_add" href="#" id="buyBtn" onclick="buy();" >直接购买</a>
+		<label id="stockShow" style="color:red;display:none;" >库存不足！</label>
 	</div>
 	<div class="clearfix"> </div>
 </div>
@@ -268,24 +270,59 @@
 <!-- //single-related-products -->
 <%@ include file="/customer/commons/foot.jsp"%>
 <script type="text/javascript">
+var stock=${book.stock};
+var quantity=$("#quantity").val();
+if(stock<quantity){
+	 $("#shopCarBtn").hide();
+	 $("#buyBtn").hide();
+	 $("#stockShow").show();
+	 }else{
+		 $("#shopCarBtn").show();
+		 $("#buyBtn").show();
+		 $("#stockShow").hide();
+	 }
 	function add(){
 		var number=parseInt($("#quantity").val())+1;
 		$("#quantity").val(number);
+		 if(stock<number){
+			 $("#shopCarBtn").hide();
+			 $("#buyBtn").hide();
+			 $("#stockShow").show();
+			 }else{
+				 $("#shopCarBtn").show();
+				 $("#buyBtn").show();
+				 $("#stockShow").hide();
+			 }
+		
+		
 	}
 	function reduce(){
 		var number=$("#quantity").val();
 		if(number>1){
-			$("#quantity").val(parseInt(number)-1); } 
+			var newnumber=parseInt(number)-1;
+			$("#quantity").val(parseInt(number)-1);
+			 if(stock<newnumber){
+			 $("#shopCarBtn").hiden();
+			 $("#buyBtn").hiden();
+			 $("#stockShow").show();
+			 }else{
+				 $("#shopCarBtn").show();
+				 $("#buyBtn").show();
+				 $("#stockShow").hide();
+			 }
+		} 
 		} 
 	setTimeout(function (){ 
 		   $(".flex-control-thumbs img").attr("style","width:96.438px;height:134.875px;margin-top:10px;");
 						       }, 100); 
 			function addShopCar(){ 
+				$("#type").val("shopcar");
 				$("#buyForm").attr("action",'<c:url value="/book/addShopCar"></c:url>');
 				$("#buyForm").submit();
 				} 
 			function buy(){ 
-				$("#buyForm").attr("action",'<c:url value="/book/makeOrder"></c:url>');
+				$("#type").val("buy");
+				$("#buyForm").attr("action",'<c:url value="/book/buy"></c:url>');
 				$("#buyForm").submit();
 				}
 			

@@ -214,11 +214,15 @@ public class mainController {
 			for (TopSubtype topSubtype : top) {
 				if (m[i] == topSubtype.getTotalNumber()) {
 					top1.add(topSubtype);
+					break;
 				}
 			}
 		}
 		// 返回排行前10的细类统计
 		model.addAttribute("topList", top1);
+		for (TopSubtype topSubtype : top1) {
+			System.out.println(topSubtype.getSubName()+topSubtype.getTotalNumber());
+		}
 
 		// 查询大类统计
 		List<Type> typeList = typeService.selectAll();

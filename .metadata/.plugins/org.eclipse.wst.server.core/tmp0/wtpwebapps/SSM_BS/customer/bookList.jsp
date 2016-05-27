@@ -51,15 +51,21 @@
          <c:if test="${!empty bookList}">
            <c:forEach var="book" items="${bookList}" varStatus="status" > 
         	<div class="item">
+        	<!-- <!-- class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?" --> 
+        	<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>'>
         		<div class="animate-box">
-	        		<a href='<c:url value="/upload/${book.mainimg}"></c:url>' class="image-popup fh5co-board-img" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, eos?">
-	        		<img style="width:200.5px;<c:if test="${status.count==1}">height:300px;</c:if><c:if test="${status.count==2}">height:190px;</c:if><c:if test="${status.count==3}">height:260px;</c:if><c:if test="${status.count==4}">height:181.4px;</c:if>"  src='<c:url value="/upload/${book.mainimg}" ></c:url>' alt="Free HTML5 Bootstrap template"></a>
-        		</div><!-- height:220px; -->
+	        		
+	        		<%-- <img style="width:200.5px;<c:if test="${status.count==1}">height:300px;</c:if><c:if test="${status.count==2}">height:190px;</c:if><c:if test="${status.count==3}">height:260px;</c:if><c:if test="${status.count==4}">height:181.4px;</c:if>"  src='<c:url value="/upload/${book.mainimg}" ></c:url>' alt="Free HTML5 Bootstrap template"></a>
+        	 --%>	
+        	 <img style="width:200.5px;height:260px;"  src='<c:url value="/upload/${book.mainimg}" ></c:url>' alt="Free HTML5 Bootstrap template">
+        	
+        	 </div><!-- height:220px; -->
         		<div class="fh5co-desc" >
         		<p><label>&nbsp;${book.name}</label></p>
         		<p style="font-size: 16px;color:gray;">${book.author}&nbsp;著</p>
-        		<p  style="color:#c30;"><label>￥${book.price}元</label> <c:if test="${book.discount!=null}">&nbsp;&nbsp;<span style="font-weight:text-shadow;font-style:italic;color:red;">${book.price}折</span></c:if></p>
+        		<p  style="color:#c30;"><label>￥${book.price}元</label> <c:if test="${book.discount!=null}">&nbsp;&nbsp;<span style="font-weight:text-shadow;font-style:italic;color:red;">${book.discount}折</span></c:if></p>
         		</div>
+        		</a>
         	</div>
         	</c:forEach>
         	</c:if>

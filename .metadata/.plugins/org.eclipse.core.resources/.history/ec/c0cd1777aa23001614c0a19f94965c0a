@@ -1,0 +1,224 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+		<!-- header -->
+	<div class="header">
+		<div class="container">
+			<div class="header-grid">
+				<div class="header-grid-left animated wow slideInLeft" data-wow-delay=".3s">
+					<ul>
+						<li id="showName"><i class="glyphicon glyphicon-user" aria-hidden="true" ></i>${sessionScope.loginCustomer.loginname}</li>
+						<li id="showLogin"><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href='<c:url value="/customer/login.jsp"></c:url>'>登录</a></li>
+						<li id="showRegeist"><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href='<c:url value="/customer/regeist.jsp"></c:url>'>注册</a></li>
+					</ul>
+				</div>
+				<div class="header-grid-right animated wow slideInRight" data-wow-delay=".3s">
+					<ul class="social-icons">
+						<li id="showExit"><a href='<c:url value="/login/customerLogout"></c:url>'><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i>退出</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="logo-nav">
+				<div class="logo-nav-left animated wow zoomIn" data-wow-delay=".3s">
+					<h1><a href='<c:url value="/customer/index"></c:url>'>&nbsp;IBooK <span>Reading anywhere</span></a></h1>
+				</div>
+				<div class="logo-nav-left1">
+					<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header nav_2">
+						<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div> 
+					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href='<c:url value="/customer/index"></c:url>' class="act">首页</a></li>	
+							<!-- Mega Menu -->
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">著作 <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.workList}" > 
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
+											</ul>
+										</div>
+										</c:forEach>
+										<div class="clearfix"></div>
+									</div>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">科技 <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.scienceList}" > 
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
+											</ul>
+										</div>
+										</c:forEach>
+										<div class="clearfix"></div>
+									</div>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">教育 <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.educateList}" > 
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
+											</ul>
+										</div>
+										</c:forEach>
+										<div class="clearfix"></div>
+									</div>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">生活 <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.lifeList}" > 
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
+											</ul>
+										</div>
+										</c:forEach>
+										<div class="clearfix"></div>
+									</div>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">政治军事 <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.politicList}" > 
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
+											</ul>
+										</div>
+										</c:forEach>
+										<div class="clearfix"></div>
+									</div>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">其他 <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="row">
+									 <c:forEach var="type" items="${sessionScope.otherList}" > 
+										<div class="col-sm-4">
+											<ul class="multi-column-dropdown">
+												<h6>${type.typedescn}</h6>
+													 <c:forEach var="subType" items="${sessionScope.subList}" >
+													 <c:if test="${type.typenumber==subType.typenumber}">
+													 <li><a href='<c:url value="/book/showBySubType?subtype=${subType.id}"></c:url>'>${subType.subtypedescn}</a></li>
+													 </c:if>
+													 </c:forEach>
+											</ul>
+										</div>
+										</c:forEach>
+										<div class="clearfix"></div>
+									</div>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					</nav>
+				</div>
+				<div class="logo-nav-right">
+					<div class="search-box">
+						<div id="sb-search" class="sb-search">
+							<form action='<c:url value="/book/search"></c:url>' method="post">
+								<input class="sb-search-input" placeholder="输入您要搜索的内容，回车搜索..." type="search" id="search">
+								<input class="sb-search-submit" type="submit" value="搜索">
+								<span class="sb-icon-search"> </span>
+							</form>
+						</div>
+					</div>
+						<!-- search-scripts -->
+						<script src='<c:url value="/customer/js/classie.js"></c:url>'>
+						</script>
+						<script src='<c:url value="/customer/js/uisearch.js"></c:url>'></script>
+							<script>
+								new UISearch( document.getElementById( 'sb-search' ) );
+							</script>
+						<!-- //search-scripts -->
+				</div>
+				<div class="header-right">
+				<c:if test="${sessionScope.loginCustomer.loginname!=null}">
+				<a href="<%=request.getContextPath()%>/customer/myOrder">
+							<span style="color:#d8703f;margin-left:35px;margin-top:15px;padding-left: 5px;padding-top: 5px;">我的订单</span> 
+						</a>
+					<div class="cart box_1">
+						<a href="<%=request.getContextPath()%>/customer/myShopCar">
+							<h3> 	<img src="<%=request.getContextPath()%>/customer/images/bag.png" alt="" />
+							<div class="total">
+							<div style=" width:18px; height:18px;margin-left:-8px;margin-top:-15px; background-color:#F00; border-radius:25px;">
+                                <span style="height:20px;margin-top:-5px;  display:block; color:#FFF; text-align:center">${shopCarCount}</span>
+                                </div>
+							</h3>
+						</a>
+						<div class="clearfix"> </div>
+					</div> 
+					</c:if>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //header -->
+	<script type="application/x-javascript"> 
+	
+	addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); }
+//判断session 是否为空
+		if(${sessionScope.loginCustomer.id}!=null){
+	        $("#showExit").show();
+	        $("#showshowName").show();
+	        $("#showLogin").hide();
+	        $("#showRegeist").hide();
+            }else{
+                	$("#showExit").hide();
+        			$("#showName").hide();
+        			$("#showLogin").show();
+        			$("#showRegeist").show();
+                }
+		
+		</script>

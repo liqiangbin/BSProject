@@ -17,6 +17,11 @@ public class SearchInfoServiceImpl implements SearchInfoService {
 		// TODO Auto-generated method stub
 		return searchinfoDao.selectByCusId(cusId);
 	}
+	public List<Searchinfo> selectAllByCusId(int cusId) {
+		// TODO Auto-generated method stub
+		return searchinfoDao.selectAllByCusId(cusId);
+	}
+
 
 	public int insert(Searchinfo searchinfo) {
 		// TODO Auto-generated method stub

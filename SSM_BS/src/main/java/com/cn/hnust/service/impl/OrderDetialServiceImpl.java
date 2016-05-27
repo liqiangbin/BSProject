@@ -20,4 +20,9 @@ public class OrderDetialServiceImpl implements OrderDetialService{
 		return orderDetialDao.getOrderDetialNoPage(condition);
 	}
 
+	public int insert(OrderDetial detial) {
+		// TODO Auto-generated method stub
+		return orderDetialDao.insert(detial);
+	}
+
 }

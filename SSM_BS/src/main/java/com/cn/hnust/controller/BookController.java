@@ -1,5 +1,6 @@
 package com.cn.hnust.controller;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,14 +21,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.cn.hnust.pojo.Assess;
 import com.cn.hnust.pojo.Book;
 import com.cn.hnust.pojo.Customer;
+import com.cn.hnust.pojo.OrderDetial;
 import com.cn.hnust.pojo.Page;
 import com.cn.hnust.pojo.ReadFree;
+import com.cn.hnust.pojo.Searchinfo;
 import com.cn.hnust.pojo.ShopCar;
 import com.cn.hnust.pojo.Subtype;
 import com.cn.hnust.pojo.Type;
 import com.cn.hnust.service.AssessService;
 import com.cn.hnust.service.BookService;
 import com.cn.hnust.service.ReadFreeService;
+import com.cn.hnust.service.SearchInfoService;
 import com.cn.hnust.service.ShopCarService;
 import com.cn.hnust.service.SubTypeService;
 import com.cn.hnust.service.TypeService;
@@ -47,6 +51,8 @@ public class BookController {
 	private AssessService assessService;
 	@Resource
 	private ShopCarService shopCarService;
+	@Resource
+	private SearchInfoService searchInfoService;
 	
 /**
  * 
@@ -324,6 +330,31 @@ public class BookController {
 		model.addAttribute("bookList",bookList);
 	return "/customer/bookList";
 	}
+	@RequestMapping("/search")
+	public String search(HttpServletRequest request, Model model,Book book, HttpSession session,String search) {
+		Map<String,Object> condition=new HashMap<String,Object>();
+		condition.put("name", search);
+		condition.put("author", search);
+		condition.put("publish", search);
+		List<Book> bookList=bookService.getBookByNoPage(condition);
+		model.addAttribute("bookList",bookList);
+		//查询判断是否为新用户
+		Customer cus=(Customer) session.getAttribute("loginCustomer");
+		List<Searchinfo> searchList=searchInfoService.selectAllByCusId(cus.getId());
+		Searchinfo search1=new Searchinfo();
+		search1.setCustomerid(cus.getId());
+		search1.setSearchwords(search);
+		//如果查询list>0,将搜索关键字存到数据库
+		if(bookList.size()>0){
+			if(searchList.size()>5){
+				searchInfoService.deleteById(searchList.get(0).getId());
+				searchInfoService.insert(search1);
+			}else{
+				searchInfoService.insert(search1);
+			}
+		}
+	return "/customer/bookList";
+	}
 	/**
 	 * 根据id 查询图书详情 返回book 并计算出评分 和所有评价
 	 * @param request
@@ -395,30 +426,99 @@ public class BookController {
 			session.setAttribute("returnUrl", "/book/showBookDetial?id="+shopCar.getBookid());
 			return "redirect:/login/customerLogin";
 		}else{
+			String type=request.getParameter("type");
+			System.out.println("type:"+type);
+			//System.out.println();
+			session.setAttribute("type", type);
 			List<ShopCar> shopCarList=shopCarService.selectByCusId(cus.getId());
 			session.setAttribute("shopCarCount", shopCarList.size());
 			shopCar.setCustomerid(cus.getId());
 			int xx=shopCarService.insert(shopCar);
-			if(xx>0){
-				session.setAttribute("shopCarMessage", "加入购物车成功，您可以通过点击右上角购物车进行结算哦！");
-			}else{
-				session.setAttribute("shopCarMessage", "加入购物车失败，请重试！");
+				if(xx>0){
+					session.setAttribute("shopCarMessage", "加入购物车成功，您可以通过点击右上角购物车进行结算哦！");
+				}else{
+					session.setAttribute("shopCarMessage", "加入购物车失败，请重试！");
+				}
+				List<ShopCar> shopCarList1=shopCarService.selectByCusId(cus.getId());
+				session.setAttribute("shopCarCount", shopCarList1.size());
+				return "redirect:/book/showBookDetial?id="+shopCar.getBookid()+"";
 			}
 		}
-		
-	return "redirect:/book/showBookDetial?id="+shopCar.getBookid()+"";
-	}
+	/**
+	 * 直接购买
+	 * @param request
+	 * @param model
+	 * @param shopCar
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/buy")
+	public String buy(HttpServletRequest request, Model model,ShopCar shopCar, HttpSession session) {
+		Customer cus=(Customer) session.getAttribute("loginCustomer");
+		if(null==cus){
+			session.setAttribute("returnUrl", "/book/showBookDetial?id="+shopCar.getBookid());
+			return "redirect:/login/customerLogin";
+		}else{
+			String type=request.getParameter("type");
+			session.setAttribute("type", type);
+			shopCar.setCustomerid(cus.getId());
+			BigDecimal   xx   =   new   BigDecimal(shopCar.getPrice()*shopCar.getDiscount()/10);  
+			double   discountMoney   =   xx.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue(); 
+			shopCar.setDiscountedPrice(discountMoney);
+			Book book=bookService.selectById(shopCar.getBookid());
+			shopCar.setImgSrc(book.getMainimg());
+			double totalMoney=shopCar.getQuantity()*shopCar.getDiscountedPrice();
+			session.setAttribute("totalMoney", totalMoney);
+			System.out.println("total:"+totalMoney);
+			session.setAttribute("buyDetial",shopCar);
+				return "redirect:/book/makeOrder";
+			}
+		}
 	
 	@RequestMapping("/makeOrder")
 	public String makeOrder(HttpServletRequest request, Model model,ShopCar shopCar, HttpSession session) {
 		Customer cus=(Customer) session.getAttribute("loginCustomer");
-		if(null==cus){
-			return "/customer/login";
+		String type=(String) session.getAttribute("type");
+		List<OrderDetial> orderDetialList=new ArrayList<OrderDetial>();
+		double  totalmoney=0;
+		System.out.println(type);
+		if("buy".equals(type)){
+			totalmoney=(Double) session.getAttribute("totalMoney");
+			System.out.println("makeorder:totalmoney:"+totalmoney);
+			ShopCar buy=(ShopCar) session.getAttribute("buyDetial");
+			OrderDetial detial=new OrderDetial(); 
+			detial.setBookid(buy.getBookid());
+			detial.setBookname(buy.getBookname());
+			detial.setImgSrc(buy.getImgSrc());
+			detial.setQuantity(buy.getQuantity());
+			detial.setPrice(buy.getDiscountedPrice());
+			orderDetialList.add(detial);
 		}else{
-			shopCar.setCustomerid(cus.getId());
+			session.setAttribute("type", "shopcar");
+		 totalmoney=Double.parseDouble(request.getParameter("totalMoney"));
+		 System.out.println("total:money"+totalmoney);
+		int  totalnum=Integer.parseInt(request.getParameter("shoCarSize"));
+		for(int i=1;i<=totalnum;i++){
+			double calprice=Double.parseDouble(request.getParameter("Calprice"+i));
+			Integer bookid=Integer.parseInt(request.getParameter("bookid"+i));
+			Integer id=Integer.parseInt(request.getParameter("id"+i));
+			Integer number=Integer.parseInt(request.getParameter("CalNumber"+i));
+			String bookname=request.getParameter("bookname"+i);
+			String img=request.getParameter("img"+i);
+			OrderDetial detial=new OrderDetial(); 
+			detial.setBookid(bookid);
+			detial.setId(id);
+			detial.setBookname(bookname);
+			detial.setImgSrc(img);
+			detial.setQuantity(number);
+			detial.setPrice(calprice);
+			orderDetialList.add(detial);
+		        }
 		}
-		
-	return "redirect:/book/showBookDetial?id="+shopCar.getBookid()+"";
+		session.setAttribute("orderDetialList", orderDetialList);
+		model.addAttribute("orderDetialList1", orderDetialList);
+		model.addAttribute("totalmoney", totalmoney);
+	return "/customer/fillOrder";
 	}
 	
 }

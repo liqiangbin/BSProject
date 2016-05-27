@@ -18,13 +18,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cn.hnust.pojo.Assess;
+import com.cn.hnust.pojo.Book;
 import com.cn.hnust.pojo.Customer;
 import com.cn.hnust.pojo.Order;
 import com.cn.hnust.pojo.OrderDetial;
 import com.cn.hnust.pojo.Page;
+import com.cn.hnust.pojo.ShopCar;
 import com.cn.hnust.service.AssessService;
+import com.cn.hnust.service.BookService;
 import com.cn.hnust.service.OrderDetialService;
 import com.cn.hnust.service.OrderService;
+import com.cn.hnust.service.ShopCarService;
 
 @Controller
 @RequestMapping("/order")
@@ -35,6 +39,12 @@ public class OrderController {
 	private OrderDetialService orderDetialService;
 	@Resource
 	private AssessService assessService;
+	@Resource
+	private ShopCarService shopCarService;
+	@Resource
+	private BookService bookService;
+	
+	
 	
 	@RequestMapping("/getOrderByPage")
 	public String getOrderByPage(HttpServletRequest request, Model model,
@@ -189,6 +199,88 @@ public class OrderController {
 		int xx=orderService.updateByPrimaryKeySelective(order);
 		return "redirect:/customer/myOrder";
 	}
-	
+	@RequestMapping("/orderSave")
+	public String orderSave(HttpServletRequest request, Model model,
+			Order order,String ssx,HttpSession session) throws ParseException {
+		//获取session 顾客信息
+		Customer cus=(Customer) session.getAttribute("loginCustomer");
+		//获取购物车商品详情
+		List<OrderDetial>orderDetialList= (List<OrderDetial>) session.getAttribute("orderDetialList");
+		session.removeAttribute("orderDetialList");
+		Date date=new Date();
+		DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		DateFormat orderFormat=new SimpleDateFormat("yyyyMMddHHmmss");
+		String time=dateFormat.format(date);
+		String orderid=orderFormat.format(date);
+		//完善订单信息
+		String s=ssx+order.getAddress();
+		order.setAddress(s);
+		order.setOrderid(orderid);
+		order.setCustomerid(cus.getId());
+		order.setOrderdate(time);
+		order.setStatus(1);
+		int xx=orderService.insert(order);
+		String type="";
+		 type=(String)session.getAttribute("type");
+		 session.setAttribute("type", "");
+		 if(type!=null){
+			if(type.equals("buy")){
+				for (OrderDetial orderDetial : orderDetialList) {
+					orderDetial.setOrderid(order.getOrderid());
+					orderDetialService.insert(orderDetial);
+					//修改库存和销量
+					int bookId=orderDetial.getBookid();
+					int num=orderDetial.getQuantity();
+					Book book=bookService.selectById(bookId);
+					book.setSaled(book.getSaled()+num);
+					book.setStock(book.getStock()-num);
+					bookService.updateByPrimaryKeySelective(book);
+				}
+			}else{
+				if(xx>0){
+					for (OrderDetial orderDetial : orderDetialList) {
+						orderDetial.setOrderid(order.getOrderid());
+						System.out.println("...."+orderDetial.getId());
+						shopCarService.deleteById(orderDetial.getId());
+						orderDetial.setId(null);
+						orderDetialService.insert(orderDetial);
+						//修改库存和销量
+						int bookId=orderDetial.getBookid();
+						int num=orderDetial.getQuantity();
+						Book book=bookService.selectById(bookId);
+						book.setSaled(book.getSaled()+num);
+						book.setStock(book.getStock()-num);
+						bookService.updateByPrimaryKeySelective(book);
+					}
+				}
+			}
+		 }else{
+			 if(xx>0){
+					for (OrderDetial orderDetial : orderDetialList) {
+						orderDetial.setOrderid(order.getOrderid());
+						System.out.println("...."+orderDetial.getId());
+						shopCarService.deleteById(orderDetial.getId());
+						orderDetial.setId(null);
+						orderDetialService.insert(orderDetial);
+						//修改库存和销量
+						int bookId=orderDetial.getBookid();
+						int num=orderDetial.getQuantity();
+						Book book=bookService.selectById(bookId);
+						book.setSaled(book.getSaled()+num);
+						book.setStock(book.getStock()-num);
+						bookService.updateByPrimaryKeySelective(book);
+					}
+				}
+		 }
+			List<ShopCar> shopCarList=shopCarService.selectByCusId(cus.getId());
+			session.setAttribute("shopCarCount", shopCarList.size());
+		return "redirect:/customer/myOrder";
+	}
+	@RequestMapping("/orderdelete")
+	public String orderdelete(HttpServletRequest request, Model model,
+			Order order,HttpSession session,int id) throws ParseException {
+		int xx=orderService.delete(id);
+		return "redirect:/customer/myOrder";
+	}
 
 }
