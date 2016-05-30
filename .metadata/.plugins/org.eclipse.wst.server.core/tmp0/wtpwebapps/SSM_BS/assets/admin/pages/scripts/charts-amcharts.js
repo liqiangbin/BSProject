@@ -519,7 +519,8 @@ var ChartsAmcharts = function() {
             "categoryAxis": {
                 "gridPosition": "start",
                 "axisAlpha": 0,
-                "gridAlpha": 0
+                "gridAlpha": 0,
+                "labelRotation": -20
 
             },
             "exportConfig": {

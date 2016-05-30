@@ -11,7 +11,6 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.TypeService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.SubTypeService"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Subtype"/>
 <fullyQualifiedTypeName name="com.cn.hnust.dao.ReadFreeDao"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.ReadFreeService"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
@@ -38,8 +37,6 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Suggest"/>
 <fullyQualifiedTypeName name="com.cn.hnust.controller.CustomerController"/>
-<fullyQualifiedTypeName name="com.cn.hnust.service.InterestService"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.Interest"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.SearchInfoService"/>
 <fullyQualifiedTypeName name="com.mysql.fabric.xmlrpc.base.Array"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
@@ -56,4 +53,10 @@
 <fullyQualifiedTypeName name="com.cn.hnust.service.ShopCarService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.BookService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Book"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Subtype"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Customer"/>
+<fullyQualifiedTypeName name="java.lang.Error"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Interest"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.InterestService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.Searchinfo"/>
 </qualifiedTypeNameHistroy>

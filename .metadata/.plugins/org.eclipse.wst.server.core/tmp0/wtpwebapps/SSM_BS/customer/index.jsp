@@ -99,21 +99,21 @@
 				
 				<div class="banner-bottom-grid-left1 animated wow slideInUp" data-wow-delay=".3s">
 					<c:forEach var="book" items="${top3BbookList}" varStatus="status" > 
-					  <c:if test="${status.count!=3}">
+					  <c:if test="${status.count!=1}">
 					 	<div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
 						<div class="banner-bottom-grid-left-grid1">
 						<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' >
-							<img src='<c:url value="/upload/${book.mainimg}"></c:url>' alt=" " class="img-responsive" style="width:400px;height: 224px;" />
+							<img src='<c:url value="/upload/${book.mainimg}"></c:url>' alt=" " class="img-responsive" style="width:200px;height: 230px;margin-left: 100px;" />
 						</a>
 						</div>
 						<div class="banner-bottom-grid-left1-pos">
-						<p style="color:white;font-size: 16px;font-family:微软雅黑;" >${book.name}</p><br>
-							<p style="color: orange;">
-							<c:if test="${status.count==1}">
-							销量第一
-								 </c:if>
-								  <c:if test="${status.count==2}">
+						<p style="color:pink;font-size: 20px;font-family:微软雅黑;" ><B><%-- ${book.name} --%></B></p><br>
+							<p style="color: red;">
+							<c:if test="${status.count==2}">
 							销量第二
+								 </c:if>
+								  <c:if test="${status.count==3}">
+							销量第三
 								 </c:if>
 								 </p>
 						 </div>
@@ -123,7 +123,7 @@
 				</div>
 				<div class="banner-bottom-grid-right animated wow slideInRight" data-wow-delay=".3s">
 				<c:forEach var="book" items="${top3BbookList}" varStatus="status" > 
-				   <c:if test="${status.count==3}">
+				   <c:if test="${status.count==1}">
 					<div class="banner-bottom-grid-left-grid grid-left-grid1">
 						<div class="banner-bottom-grid-left-grid1">
 							<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' >
@@ -131,8 +131,8 @@
 						</a>
 						</div>
 						<div class="grid-left-grid1-pos">
-						<p style="color:white;font-size: 16px;font-family:微软雅黑;" >${book.name}</p><br>
-							<p style="color: orange;">销量第三</p>
+						<p style="color:blue;font-size: 20px;font-family:微软雅黑;" ><B><%-- ${book.name} --%></B></p><br>
+							<p style="color: red;">销量第一</p>
 						</div>
 					</div>
 					  </c:if>
@@ -155,7 +155,7 @@
 				<div class="col-md-3 new-collections-grid">
 					<div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".3s">
 						<div class="new-collections-grid1-image">
-							<img src='<c:url value="/upload/${book.mainimg}"></c:url>' alt=" " style="width: 228px;height:310.328px" class="img-responsive" /></a>
+							<img src='<c:url value="/upload/${book.mainimg}"></c:url>' alt=" " style="width: 200px;height:230px" class="img-responsive" /></a>
 							<div class="new-collections-grid1-image-pos">
 								<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' >去看看</a>
 							</div>
@@ -213,9 +213,9 @@
 					<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' class="product-image">
 					<div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".3s">
 						<div class="new-collections-grid1-image">
-							<img src='<c:url value="/upload/${newbook.mainimg}"></c:url>' alt=" " style="width: 228px;height:310.328px" class="img-responsive" /></a>
+							<img src='<c:url value="/upload/${newbook.mainimg}"></c:url>' alt=" " style="width: 200px;height:230px" class="img-responsive" /></a>
 							<div class="new-collections-grid1-image-pos">
-								<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' >去看看</a>
+								<a href='<c:url value="/book/showBookDetial?id=${newbook.id}"></c:url>' >去看看</a>
 							</div>
 							<div class="new-collections-grid1-right">
 						 		<div class="rating">

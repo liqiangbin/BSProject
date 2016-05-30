@@ -176,7 +176,7 @@
 			<div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
 				<h5>作品信息</h5>	
 				<p>
-				作者:李强斌<br>
+				作者:${book.author}<br>
 			   出版社：${book.publish}
 				</p>
 				<h5>图书简介</h5>

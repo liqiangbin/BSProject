@@ -134,7 +134,7 @@
                             </div>								
                         </div>
                         <div class="portlet-body">																
-                            <div id="chart_5" class="chart" style="height: 235px;"></div>
+                            <div id="chart_5" class="chart" style="height: 305px;"></div>
                         </div>
                     </div>
                 </div>

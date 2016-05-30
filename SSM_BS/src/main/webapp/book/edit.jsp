@@ -163,7 +163,7 @@
 																	<input type="file" id="mainimgFile" name="mainimgFile" value="上传图片"
 																		class="set-up-button upload"
 																		style="display: none; width: 200px;"
-																		onchange="onUploadImgChange(this,200,'mainImgShow')"
+																		onchange="onUploadImgChange(this,500,'mainImgShow')"
 																		data-url="<c:url value='/upload/uploadImg' />"
 																		multiple>
 																</button>
@@ -211,7 +211,7 @@
 																	<input type="file" id="img1File"
 																		name="img1File" value="上传图片" class="set-up-button upload"
 																		style="display: none; width: 200px;"
-																		onchange="onUploadImgChange(this,200,'img1Show')"
+																		onchange="onUploadImgChange(this,500,'img1Show')"
 																		data-url="<c:url value='/upload/uploadImg' />"
 																		multiple>
 																</button>
@@ -260,7 +260,7 @@
 																	 <input type="file" id="img2File"
 																		name="img2File" value="上传图片" class="set-up-button upload"
 																		style="display: none; width: 200px;"
-																		onchange="onUploadImgChange(this,200,'img2Show')"
+																		onchange="onUploadImgChange(this,500,'img2Show')"
 																		data-url="<c:url value='/upload/uploadImg' />"
 																		multiple>
 																</button>
@@ -335,7 +335,7 @@
 																	name="readFree" value="上传图片"
 																	class="set-up-button upload readFree"
 																	style="display: none; width: 200px;"
-																	onchange="onUploadImgChange(this, 200, 'clonelogo${index.count}')"
+																	onchange="onUploadImgChange(this, 500, 'clonelogo${index.count}')"
 																	data-url="<c:url value='/upload/uploadImg' />" multiple>
 															</button>
 															<label id="labelId${index.count}" style="color: red"></label>
@@ -387,7 +387,7 @@
 																	name="readFree" value="上传图片"
 																	class="set-up-button upload readFree"
 																	style="display: none; width: 200px;"
-																	onchange="onUploadImgChange1(this,200,'')"
+																	onchange="onUploadImgChange1(this,500,'')"
 																	data-url="<c:url value='/upload/uploadImg' />" multiple>
 															</button>
 															<label id="pic_label1" style="color: red"></label>
@@ -472,7 +472,7 @@
 				$("#readFreeAddButton").before(xxx);
 				xxx.show();
 				xxx.removeAttr("id");
-				xxx.find("input[type='file']").attr("onchange","onUploadImgChange(this, 200, 'clonelogo" + cloneCount+ "')");
+				xxx.find("input[type='file']").attr("onchange","onUploadImgChange(this, 500, 'clonelogo" + cloneCount+ "')");
 				xxx.find("img").attr("id", "clonelogo" + cloneCount);
 				xxx.find("input[type='file']").attr("id",
 						"cloneid" + cloneCount);

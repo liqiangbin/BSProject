@@ -5,12 +5,13 @@
 
 <!-- Bootstrap core CSS -->
 	<meta charset="utf-8" />
-		<title>IBooK-商家服务平台</title>
+		<title>IBooK</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<meta content="" name="description">
 		<meta content="bin--开发" name="author">
+		<link rel="shortcut icon" href='<c:url value="/scripts/images/book1.jpg"></c:url>' />
 <!-- BEGIN PACE PLUGIN FILES -->
 <link
 	href='<c:url value="/assets/global/plugins/font-awesome/css/font-awesome.min.css"></c:url>'
