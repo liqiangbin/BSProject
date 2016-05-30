@@ -39,7 +39,7 @@ padding-left: 200px;
 <html>
 <body>
 <%@ include file="/commons/head.jsp"%></body>
-<%@ include file="/commons/top.jsp"%></body>
+<%-- <%@ include file="/commons/top.jsp"%></body> --%>
 <div class="page-content" style="margin-top:500px;"> 
 			<div class="error-main">
 				<div class="error-icon">
@@ -47,6 +47,7 @@ padding-left: 200px;
 				</div>
 				<div class="error-info">
 					<div class="error-code">500 ERROR</div>
+					<a href="javascript:history.go(-1);"><div class="error-code" style="font-size: 18px;">&nbsp;&nbsp;《《返回</div></a>
 				</div>
 			</div>
 	</div>

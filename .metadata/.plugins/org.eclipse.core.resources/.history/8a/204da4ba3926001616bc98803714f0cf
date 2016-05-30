@@ -340,7 +340,7 @@ public class BookController {
 		model.addAttribute("bookList",bookList);
 		//查询判断是否为新用户
 		Customer cus=(Customer) session.getAttribute("loginCustomer");
-		if(null!=cus){
+		if(){
 		List<Searchinfo> searchList=searchInfoService.selectAllByCusId(cus.getId());
 		Searchinfo search1=new Searchinfo();
 		search1.setCustomerid(cus.getId());

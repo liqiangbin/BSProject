@@ -48,7 +48,7 @@
 	<div class="page-header-inner">
 		<!-- BEGIN LOGO -->
 		<div class="page-logo">
-			<a href="javascript:history.go(-1);">
+			<a href="<%=request.getContextPath()%>/main/index.do">
 				<img src="<%=request.getContextPath()%>/assets/admin/layout2/img/logo.png" alt="logo" class="logo-default"/>
 			</a>
 			<div class="menu-toggler sidebar-toggler"></div>
