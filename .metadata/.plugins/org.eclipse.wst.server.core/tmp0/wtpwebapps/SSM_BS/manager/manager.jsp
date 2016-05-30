@@ -48,7 +48,7 @@
 											<i class="fa fa-user font-green-sharp"></i>
 											<span class="caption-subject font-green-sharp bold">用户管理</span>
 										</div>
-										<div class="actions">
+										<div class="actions" id="addone" >
 											<a href='<c:url value="/manager/managerAdd.jsp"></c:url>' class="btn btn-circle btn-primary">
 												<i class="fa fa-plus"></i>
 												<span class="hidden-480">新增用户</span>
@@ -128,6 +128,9 @@
 															</a>
 															</c:if>
 															 <c:if test="${manager.id!=managerId}">
+															 <script type="text/javascript">
+															 $("#addone").hide();
+															 </script>
 															<label style="color:gray;">无权限</label>
 															</c:if>
 														  </c:if>

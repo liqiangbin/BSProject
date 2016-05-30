@@ -99,7 +99,7 @@
 				
 				<div class="banner-bottom-grid-left1 animated wow slideInUp" data-wow-delay=".3s">
 					<c:forEach var="book" items="${top3BbookList}" varStatus="status" > 
-					  <c:if test="${status.count!=1}">
+					  <c:if test="${status.count!=1&&status.count!=4}">
 					 	<div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
 						<div class="banner-bottom-grid-left-grid1">
 						<a href='<c:url value="/book/showBookDetial?id=${book.id}"></c:url>' >

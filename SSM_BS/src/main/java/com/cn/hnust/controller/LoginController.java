@@ -29,12 +29,22 @@ public class LoginController {
 	private CustomerService customerService;
 	@Resource 
 	private ShopCarService shopCarService;
+	/**
+	 * π‹¿Ì‘±µ«¬º
+	 * @param request
+	 * @param model
+	 * @param manager
+	 * @param session
+	 * @return
+	 * @throws ParseException
+	 */
 	@RequestMapping("/turnIndex")  
 	 public String toIndex(HttpServletRequest request,Model model,Manager manager,HttpSession session) throws ParseException{  
 		int error=0;
-		Map<String, String> condition= new HashMap<String, String>();
+		Map<String, Object> condition= new HashMap<String, Object>();
 		condition.put("loginName",manager.getLoginname());
 		condition.put("password",manager.getPassword());
+		condition.put("status",0);
 		List<Manager> managers= managerService.getManager(condition);
 		if(managers.size()!=1){
         	 error=1;
