@@ -44,8 +44,7 @@
 								</div>
 								<div class="actions btn-set">
 									<a class="btn btn-default btn-circle"
-										href="javascript:void(0);"
-										onclick="javascript:history(-1);"><i
+										onclick="javascript:history.go(-1)"><i
 										class="fa fa-angle-left"></i> 返回<!-- 返 回--></a>
 								</div>
 							</div>
@@ -93,7 +92,7 @@
 													<th></th>
 													<td>
 														<button type="button" class="btn default"
-															onclick="javascript:history(-1);">
+															onclick="javascript:history.go(-1)">
 															<i class="fa fa-angle-left"></i> 后 退
 														</button>
 														<button type="submit" id="submitBtn"
