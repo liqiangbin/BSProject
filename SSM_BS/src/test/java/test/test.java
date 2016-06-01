@@ -19,11 +19,13 @@ import com.cn.hnust.pojo.Book;
 import com.cn.hnust.pojo.Customer;
 import com.cn.hnust.pojo.Interest;
 import com.cn.hnust.pojo.Order;
+import com.cn.hnust.pojo.OrderDetial;
 import com.cn.hnust.pojo.ShopCar;
 import com.cn.hnust.service.AssessService;
 import com.cn.hnust.service.BookService;
 import com.cn.hnust.service.IUserService;
 import com.cn.hnust.service.InterestService;
+import com.cn.hnust.service.OrderDetialService;
 import com.cn.hnust.service.OrderService;
 import com.cn.hnust.service.ShopCarService;
   
@@ -36,7 +38,9 @@ public class test {
     @Resource  
     private  IUserService userService = null;
     @Resource  
-    private OrderService orderService = null; 
+    private OrderService orderService; 
+    @Resource  
+    private OrderDetialService orderDetialService; 
     @Resource  
     private CustomerDao customerDao;
     @Resource  
@@ -147,7 +151,6 @@ public class test {
     }
     @Test
     public void getBookBySql(){
-    	//String sql="'%java%' or name like '%2%' or name like '%html%' or name like '%j4%'";
     	Map<String, Object> condition = new HashMap<String, Object>();
 		condition.put("param1","java" );
 		condition.put("param2","2" );
@@ -158,4 +161,27 @@ public class test {
 			System.out.println("book::::::"+book.getName());
 		}
     }
+    @Test
+    public void insertBook(){
+    	Book book=new Book();
+    	bookService.insert(book);
+    }
+    @Test
+    public void insertOrder(){
+    	Order order=new Order();
+    	orderService.insert(order);
+    }
+    @Test
+    public void insertOrderDetial(){
+    	OrderDetial order=new OrderDetial();
+    	orderDetialService.insert(order);
+    }
+    @Test
+    public void updateOrder(){
+    	Order order=new Order();
+    	order.setId(33);
+    	order.setPhone("23332");
+    	orderService.updateByPrimaryKeySelective(order);
+    }
+    
 }

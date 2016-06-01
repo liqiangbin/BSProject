@@ -7,7 +7,7 @@
 			<div class="page-header-inner">
 				<!-- BEGIN LOGO -->
 				<div class="page-logo">
-					<a href="index.html">
+					<a href='<c:url value="/main/index"></c:url>'>
 					<img src='<c:url value="/assets/admin/layout2/img/logo.png"></c:url>' alt="logo" class="logo-default" />
 					</a>
 					<div class="menu-toggler sidebar-toggler"></div>
@@ -101,6 +101,7 @@
 								<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 									<img alt="" class="img-circle" src='<c:url value="/assets/admin/layout2/img/avatar.png"></c:url>' />
 									<span class="username username-hide-on-mobile">${managerLoginname}</span>
+									<input type="hidden" id="sessionIsTrue" value="${managerLoginname}">
 									<i class="fa fa-angle-down"></i>
 								</a>
 								<ul class="dropdown-menu dropdown-menu-default">
@@ -114,7 +115,7 @@
 											<i class="icon-lock"></i> 密码修改</a>
 									</li>
 									<li>
-										<a href='<c:url value="/login.jsp"></c:url>'>
+										<a href='<c:url value="/login/managerLogout"></c:url>'>
 											<i class="icon-key"></i> 退出</a>
 									</li>
 								</ul>
@@ -127,5 +128,13 @@
 				<!-- END PAGE TOP -->
 			</div>
 			<!-- END HEADER INNER -->
+			<script type="text/javascript">
+			var sessions=$("#sessionIsTrue").val();
+			if(sessions==""||sessions==null){
+				self.location='<c:url value="/login/turnLogin"></c:url>'; 
+			}
+			
+			</script>
 		</div>
 		<!-- END HEADER -->
+	

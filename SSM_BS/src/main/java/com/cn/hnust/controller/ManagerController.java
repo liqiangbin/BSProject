@@ -78,6 +78,7 @@ public class ManagerController {
 	public String passwordEdit(HttpServletRequest request, Model model,
 			Manager manager) {
 		int xx = this.managerService.updateByPrimaryKeySelective(manager);
+		//System.out.println(manager.getPassword()+manager.getId());
 		if (xx != 0) {
 			model.addAttribute("passwordEditInfo", "密码修改成功，下次请通过新密码登录！");
 		} else {

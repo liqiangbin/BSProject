@@ -55,7 +55,7 @@
                                     <tr>										
                                         <th width="25%">登录名：</th>
                                         <td width="75%" class="lineheight34">${managerLoginname}</td>
-                                        <input type="hidden" id="id" name="id" value="1">																																			
+                                        <input type="hidden" id="id" name="id" value="${managerId}">																																			
                                     </tr>										
                                     <tr>										
                                         <th width="25%">原密码：</th>

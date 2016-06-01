@@ -59,6 +59,11 @@ public class LoginController {
 		 session.setAttribute("managerRole", managers.get(0).getRole());
         return "redirect:/main/index"; 
     }  
+	@RequestMapping("/turnLogin")  
+	 public String turnLogin(HttpServletRequest request,Model model,HttpSession session) throws ParseException{  
+       	 model.addAttribute("error", 3);
+       	return "login"; 
+   }  
 	@RequestMapping("/customerLogin")  
 	 public String customerLogin(HttpServletRequest request,Model model,Customer customer,HttpSession session) {
 		List<Customer> list =customerService.sellectAllCus();
@@ -88,10 +93,12 @@ public class LoginController {
 			 model.addAttribute("loginMessage", "ÇëÏÈµÇÂ¼£¡");
 			 return "/customer/login"; 
 		}
-		
 	}
-	
-	
+	@RequestMapping("/managerLogout")  
+	 public String managerLogout(HttpServletRequest request,Model model,HttpSession session) {
+		session.removeAttribute("managerLoginname");
+		return "login";
+	}
 	@RequestMapping("/customerLogout")  
 	 public String customerLogout(HttpServletRequest request,Model model,HttpSession session) {
 		session.removeAttribute("loginCustomer");

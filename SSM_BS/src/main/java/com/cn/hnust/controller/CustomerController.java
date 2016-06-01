@@ -268,7 +268,7 @@ public class CustomerController {
      for(int i=0;i<top4Rank;i++){
     	Book book=bookService.selectById(assessList.get(i).getBookid());
     	assessBookList.add(book);
-    	System.out.println("评分排行："+book.getName());
+    	//System.out.println("评分排行："+book.getName());
      }
     //获取登录session
     Customer cus=(Customer) session.getAttribute("loginCustomer");
