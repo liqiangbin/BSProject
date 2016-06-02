@@ -1,0 +1,73 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.cn.hnust.dao.CustomerDao;
+import com.cn.hnust.dao.ShopCarDao;
+import com.cn.hnust.pojo.Customer;
+import com.cn.hnust.pojo.Manager;
+import com.cn.hnust.pojo.OrderDetial;
+import com.cn.hnust.service.AssessService;
+import com.cn.hnust.service.BookService;
+import com.cn.hnust.service.CustomerService;
+import com.cn.hnust.service.IUserService;
+import com.cn.hnust.service.InterestService;
+import com.cn.hnust.service.ManagerService;
+import com.cn.hnust.service.OrderDetialService;
+import com.cn.hnust.service.OrderService;
+import com.cn.hnust.service.ShopCarService;
+
+@RunWith(SpringJUnit4ClassRunner.class)     
+@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})  
+public class customerAndManager {
+	  @Resource  
+	    private  IUserService userService = null;
+	    @Resource  
+	    private OrderService orderService; 
+	    @Resource  
+	    private OrderDetialService orderDetialService; 
+	    @Resource  
+	    private CustomerDao customerDao;
+	    @Resource  
+	    private ShopCarDao shopCarDao;
+	    @Resource  
+	    private ShopCarService shopCarService;
+	    @Resource  
+	    private InterestService interestService;
+	    @Resource  
+	    private AssessService assessService;
+	    @Resource  
+	    private BookService bookService;
+	    @Resource  
+	    private ManagerService managerService;
+		@Resource 
+		private CustomerService customerService;
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+	 @Test
+	    public void ManagerLogin(){
+		 Map<String, Object> condition= new HashMap<String, Object>();
+			condition.put("loginName","lqb");
+			condition.put("password","111111");
+			condition.put("status",1);
+			List<Manager> managers= managerService.getManager(condition);
+	    }
+	 @Test
+	    public void CustomerLogin(){
+		 List<Customer> list =customerService.sellectAllCus();
+	    }
+	
+}

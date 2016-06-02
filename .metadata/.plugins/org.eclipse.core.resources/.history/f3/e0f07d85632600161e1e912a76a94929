@@ -1,0 +1,20 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.cn.hnust.pojo.OrderDetial;
+
+public class customerAndManager {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+	 @Test
+	    public void insertOrderDetial(){
+	    	OrderDetial order=new OrderDetial();
+	    	orderDetialService.insert(order);
+	    }
+}

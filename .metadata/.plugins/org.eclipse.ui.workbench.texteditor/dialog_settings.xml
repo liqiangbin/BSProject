@@ -6,20 +6,20 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="李强斌" key="selection"/>
+		<item value="&lt;c:" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="&lt;c:"/>
+			<item value="close"/>
+			<item value="js"/>
 			<item value="李强斌"/>
 			<item value="新书"/>
 			<item value="200"/>
 			<item value="onUploadImgChange1"/>
 			<item value="SEARCH_WAY"/>
-			<item value="推荐"/>
-			<item value="cus"/>
-			<item value="usernameChange"/>
 		</list>
 		<list key="replacehistory">
 			<item value="500"/>

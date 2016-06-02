@@ -12,12 +12,10 @@
 <fullyQualifiedTypeName name="com.cn.hnust.service.TypeService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.SubTypeService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.dao.ReadFreeDao"/>
-<fullyQualifiedTypeName name="com.cn.hnust.service.ReadFreeService"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
 <fullyQualifiedTypeName name="org.apache.commons.codec.binary.StringUtils"/>
 <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
-<fullyQualifiedTypeName name="com.cn.hnust.pojo.ReadFree"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="test1"/>
@@ -59,4 +57,6 @@
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Interest"/>
 <fullyQualifiedTypeName name="com.cn.hnust.service.InterestService"/>
 <fullyQualifiedTypeName name="com.cn.hnust.pojo.Searchinfo"/>
+<fullyQualifiedTypeName name="com.cn.hnust.service.ReadFreeService"/>
+<fullyQualifiedTypeName name="com.cn.hnust.pojo.ReadFree"/>
 </qualifiedTypeNameHistroy>

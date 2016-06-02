@@ -54,6 +54,7 @@ public class BookController {
 	@Resource
 	private SearchInfoService searchInfoService;
 	
+	
 /**
  * 
  * @param request
@@ -371,6 +372,14 @@ public class BookController {
 		model.addAttribute("book",bookDetial);
 		double rank=assessService.calRank(book.getId());
 		model.addAttribute("rank",rank);
+		//获取免费试读
+		List<ReadFree> readfreeList=readFreeService.selectByBookId(book.getId());
+		for (ReadFree readFree : readfreeList) {
+			System.out.println(readFree.getSrc());
+		}
+		session.setAttribute("firstPage", bookDetial.getMainimg());
+		session.setAttribute("readfreeBook", bookDetial);
+		session.setAttribute("readfreeList", readfreeList);
 		//获取评价
 		List<Assess> assessList=assessService.SelectByBookId(book.getId());
 	    SimpleDateFormat sdf1 = new SimpleDateFormat ("EEE MMM dd HH:mm:ss Z yyyy", Locale.UK);
@@ -394,7 +403,9 @@ public class BookController {
 		model.addAttribute("totalNumber", totalNumber);
 		//推荐同类图书
 		Map<String, Object> condition = new HashMap<String, Object>();
-		condition.put("typeparam1", book.getSubtype());
+		condition.put("typeparam1", bookDetial.getSubtype());
+		condition.put("typeparam2", bookDetial.getSubtype());
+		condition.put("typeparam3",bookDetial.getSubtype());
 		List<Book> showSuggestList=new ArrayList<Book>();
 		List<Book> suggestBookList=bookService.getBookBySubSql(condition);
 		if(suggestBookList.size()<=4){

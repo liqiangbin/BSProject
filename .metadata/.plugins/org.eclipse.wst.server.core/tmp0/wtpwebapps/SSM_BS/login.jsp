@@ -103,6 +103,11 @@
 					<div class="login-alert">验证码错误</div>
 				</div>
 				</c:if>
+				<c:if test="${error =='3' }">
+				  	<div class="alert alert-danger "> 
+					<div  class="login-alert">登录信息已过期，请重新登陆！</div>
+					</div>
+				</c:if>
 			   </c:when>
 			   <c:otherwise>
 					<div class="alert alert-danger " id="error-info" style="display:none">

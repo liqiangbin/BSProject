@@ -7,6 +7,7 @@
 </head>
 <body>
 	<%@ include file="/customer/commons/top.jsp"%>
+	<%@ include file="/customer/contactSellers/importContact.jsp"%>
 	<!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
@@ -131,6 +132,8 @@
 							<p>${book.author}&nbsp;著</p>
 	<p>${book.publish}</p>
 	<p>${book.introduce}</p>
+	<br>
+	<a href='<c:url value="/customer/readFree/readFree.jsp"></c:url>' target="_blank" >免费试读<i class="fa fa-hand-o-right"></i></a>
 </div>
 <div class="color-quality">
 	<div class="color-quality-left">
@@ -164,12 +167,9 @@
 		<ul id="myTab" class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true" style="color:gray;font-family: 微软雅黑">书籍参数</a></li>
 			<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" style="color:gray;font-family: 微软雅黑">评价（${totalNumber}条）</a></li>
-			<li role="presentation" class="dropdown">
-				<a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Information <span class="caret"></span></a>
-				<!-- <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-					<li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">cleanse</a></li>
-					<li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">fanny</a></li>
-				</ul> -->
+			<li role="presentation" >
+				<a href='<c:url value="/customer/readFree/readFree.jsp"></c:url>' target="_blank" style="color:gray;font-family: 微软雅黑" >免费试读入口 <span class="caret"></span></a>
+				
 			</li>
 		</ul>
 		<div id="myTabContent" class="tab-content">
@@ -333,6 +333,9 @@ if(stock<quantity){
 			showAlertModel("提示信息",shopCarMessage,null);
 		}
 		$("#shopCarMessage").val("");
+		 setTimeout(function (){
+			 $("#closeImg").attr("src",'http://localhost:8080/SSM_BS/customer/contactSellers/images/closeBtnImg.gif');
+			   }, 100);
 								</script>
 </body>
 
