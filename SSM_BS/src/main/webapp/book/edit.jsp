@@ -341,7 +341,7 @@
 															<label id="labelId${index.count}" style="color: red"></label>
 															<div class="pull-right" style="margin-left: 50px;">
 																<button class="btn default btn-sm" type="button"
-																	onclick="deleteReadFree(this)">
+																	onclick="deleteReadFree(this,${readFree.id})">
 																	<i class="fa fa-trash-o"></i>删除
 																</button>
 															</div>
@@ -382,7 +382,9 @@
 															<button class="fileUpload btn btn-primary" type="button"
 																onclick="clickUpload('readFreeFile')" style="margin-left: -5px;">
 																<span>浏览</span> 
-																<input type="hidden" id="readFreeName" name="readFreeName">
+																  	<input type="hidden" id="readFreeId" name="readFreeId" value="0">
+																<input type="hidden" id="readFreeNumber" name="readFreeNumber" value="0">
+																	<input type="hidden" id="readFreeName" name="readFreeName">
 																<input type="file" id="readFree"
 																	name="readFree" value="上传图片"
 																	class="set-up-button upload readFree"
@@ -393,7 +395,7 @@
 															<label id="pic_label1" style="color: red"></label>
 															<div class="pull-right" style="margin-left: 50px;">
 																<button class="btn default btn-sm" type="button"
-																	onclick="deleteReadFree(this)">
+																	onclick="deleteReadFree(this,0)">
 																	<i class="fa fa-trash-o"></i>删除
 																</button>
 															</div>
@@ -498,13 +500,30 @@
 			$("#img2File").val("");
 
 		}
-		function deleteReadFree(_this) {
+		function deleteReadFree(_this,id) {
 			cloneCount--;
 			var num = 10 - cloneCount;
+			$(_this).parents("tr").html("");
 			$(_this).parents("tr").remove();
 			$("#notice").attr("style", "color:green");
 			$("#freeNumber").html("您还可以上传" + num + "张图片！");
 			$("#readFreeAddButton").show();
+			//删除试读
+			if(id!=0){
+				$.ajax({
+					type : "POST",
+					url : "<c:url value='/book/readFreeDelete?id="+id+"'/>",
+					async : true,
+					error : function(request) {
+						//alert("Connection error");
+					},
+					success : function(data) {
+					//	alert("success");
+					}
+				});
+			}
+			
+			
 		}
 		function onUploadImgChange(sender, size, preview) {
 			 console.log();

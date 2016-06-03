@@ -48,6 +48,11 @@ public class ReadFreeServiceImpl implements ReadFreeService{
 		return xx;
 		}
 
+	public int deleteById(int Id) {
+		// TODO Auto-generated method stub
+		return readFreeDao.deleteByPrimaryKey(Id);
+	}
+
 
 	
 

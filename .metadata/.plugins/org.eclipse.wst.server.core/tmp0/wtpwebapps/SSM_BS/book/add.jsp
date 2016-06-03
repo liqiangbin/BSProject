@@ -414,7 +414,7 @@
 				$("#readFreeAddButton").before(xxx);
 				xxx.show();
 				xxx.removeAttr("id");
-				xxx.find("input[type='file']").attr("onchange","onUploadImgChange(this, 200, 'clonelogo" + cloneCount+ "')");
+				xxx.find("input[type='file']").attr("onchange","onUploadImgChange(this, 500, 'clonelogo" + cloneCount+ "')");
 				xxx.find("img").attr("id", "clonelogo" + cloneCount);
 				xxx.find("input[type='file']").attr("id",
 						"cloneid" + cloneCount);
